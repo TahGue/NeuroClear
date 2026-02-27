@@ -19,8 +19,11 @@ model User {
   name          String?
   role          UserRole  @default(CLINICIAN)
   passwordHash  String
+  patientId     String?   @unique
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
+
+  patient       Patient?  @relation(fields: [patientId], references: [id])
 
   @@map("users")
 }
@@ -36,6 +39,7 @@ model Patient {
   updatedAt   DateTime @updatedAt
   
   evaluations Evaluation[]
+  user        User?
   
   @@map("patients")
 }
@@ -228,4 +232,5 @@ enum UserRole {
   ADMIN
   CLINICIAN
   STAFF
+  PATIENT
 }
