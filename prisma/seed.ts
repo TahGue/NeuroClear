@@ -8,6 +8,8 @@ import {
   NarrativeSectionType,
   RecommendationCategory,
   Priority,
+  InstrumentAudience,
+  InstrumentAssignmentStatus,
   UserRole,
 } from "@prisma/client"
 import * as bcrypt from "bcryptjs"
@@ -25,6 +27,7 @@ async function main() {
   await prisma.subtest.deleteMany()
   await prisma.evaluationAssessment.deleteMany()
   await prisma.evaluation.deleteMany()
+  await prisma.instrumentAssignment.deleteMany()
   await prisma.patient.deleteMany()
   await prisma.assessment.deleteMany()
   await prisma.instrumentResponse.deleteMany()
@@ -36,7 +39,7 @@ async function main() {
 
   const passwordHash = await bcrypt.hash("password123", 10)
 
-  await prisma.user.create({
+  const adminUser = await prisma.user.create({
     data: {
       email: "admin@neuroclear.app",
       name: "System Admin",
@@ -45,12 +48,42 @@ async function main() {
     },
   })
 
-  const patient = await prisma.patient.create({
+  const childPatient = await prisma.patient.create({
     data: {
       firstName: "Emma",
       lastName: "Thompson",
       dateOfBirth: new Date("2012-03-15"),
       referralSource: "School Counselor",
+      status: PatientStatus.ACTIVE,
+    },
+  })
+
+  const adolescentPatient = await prisma.patient.create({
+    data: {
+      firstName: "Noah",
+      lastName: "Martin",
+      dateOfBirth: new Date("2009-06-10"),
+      referralSource: "Pediatrician",
+      status: PatientStatus.ACTIVE,
+    },
+  })
+
+  const adultPatient = await prisma.patient.create({
+    data: {
+      firstName: "Sophia",
+      lastName: "Garcia",
+      dateOfBirth: new Date("1993-11-02"),
+      referralSource: "Self",
+      status: PatientStatus.ACTIVE,
+    },
+  })
+
+  const olderAdultPatient = await prisma.patient.create({
+    data: {
+      firstName: "William",
+      lastName: "Johnson",
+      dateOfBirth: new Date("1948-04-22"),
+      referralSource: "Primary Care",
       status: PatientStatus.ACTIVE,
     },
   })
@@ -61,7 +94,37 @@ async function main() {
       name: "Emma Thompson",
       role: UserRole.PATIENT,
       passwordHash,
-      patientId: patient.id,
+      patientId: childPatient.id,
+    },
+  })
+
+  await prisma.user.create({
+    data: {
+      email: "noah.adolescent@neuroclear.app",
+      name: "Noah Martin",
+      role: UserRole.PATIENT,
+      passwordHash,
+      patientId: adolescentPatient.id,
+    },
+  })
+
+  await prisma.user.create({
+    data: {
+      email: "sophia.adult@neuroclear.app",
+      name: "Sophia Garcia",
+      role: UserRole.PATIENT,
+      passwordHash,
+      patientId: adultPatient.id,
+    },
+  })
+
+  await prisma.user.create({
+    data: {
+      email: "william.senior@neuroclear.app",
+      name: "William Johnson",
+      role: UserRole.PATIENT,
+      passwordHash,
+      patientId: olderAdultPatient.id,
     },
   })
 
@@ -72,11 +135,13 @@ async function main() {
     { label: "Nearly every day", value: 3 },
   ]
 
-  await prisma.instrument.create({
+  const phq9 = await prisma.instrument.create({
     data: {
       slug: "phq9",
       name: "PHQ-9",
       description: "Patient Health Questionnaire-9 (Depression screener)",
+      minAgeYears: 13,
+      audience: InstrumentAudience.PATIENT,
       items: {
         create: [
           { order: 1, prompt: "Little interest or pleasure in doing things", options: likert },
@@ -93,11 +158,103 @@ async function main() {
     },
   })
 
-  await prisma.instrument.create({
+  const sdqOptions = [
+    { label: "Not true", value: 0 },
+    { label: "Somewhat true", value: 1 },
+    { label: "Certainly true", value: 2 },
+  ]
+
+  const sdq = await prisma.instrument.create({
+    data: {
+      slug: "sdq",
+      name: "SDQ (Short)",
+      description: "Strengths and Difficulties Questionnaire (sample short form)",
+      minAgeYears: 6,
+      maxAgeYears: 12,
+      audience: InstrumentAudience.PARENT,
+      items: {
+        create: [
+          { order: 1, prompt: "Often loses temper", options: sdqOptions },
+          { order: 2, prompt: "Generally obedient", options: sdqOptions },
+          { order: 3, prompt: "Many worries", options: sdqOptions },
+        ],
+      },
+    },
+  })
+
+  const phqa = await prisma.instrument.create({
+    data: {
+      slug: "phqa",
+      name: "PHQ-A (Short)",
+      description: "Patient Health Questionnaire for Adolescents (sample short form)",
+      minAgeYears: 13,
+      maxAgeYears: 17,
+      audience: InstrumentAudience.PATIENT,
+      items: {
+        create: [
+          { order: 1, prompt: "Feeling down, depressed, or hopeless", options: likert },
+          { order: 2, prompt: "Little interest or pleasure in doing things", options: likert },
+          { order: 3, prompt: "Trouble concentrating", options: likert },
+        ],
+      },
+    },
+  })
+
+  const asrsOptions = [
+    { label: "Never", value: 0 },
+    { label: "Rarely", value: 1 },
+    { label: "Sometimes", value: 2 },
+    { label: "Often", value: 3 },
+    { label: "Very Often", value: 4 },
+  ]
+
+  const asrs = await prisma.instrument.create({
+    data: {
+      slug: "asrs",
+      name: "ASRS (Short)",
+      description: "Adult ADHD Self-Report Scale (sample short form)",
+      minAgeYears: 18,
+      maxAgeYears: 64,
+      audience: InstrumentAudience.PATIENT,
+      items: {
+        create: [
+          { order: 1, prompt: "Trouble wrapping up final details of a project", options: asrsOptions },
+          { order: 2, prompt: "Difficulty getting things in order", options: asrsOptions },
+          { order: 3, prompt: "Problems remembering appointments", options: asrsOptions },
+        ],
+      },
+    },
+  })
+
+  const gdsOptions = [
+    { label: "No", value: 0 },
+    { label: "Yes", value: 1 },
+  ]
+
+  const gds15 = await prisma.instrument.create({
+    data: {
+      slug: "gds15",
+      name: "GDS-15 (Short)",
+      description: "Geriatric Depression Scale (sample short form)",
+      minAgeYears: 65,
+      audience: InstrumentAudience.PATIENT,
+      items: {
+        create: [
+          { order: 1, prompt: "Are you basically satisfied with your life?", options: gdsOptions },
+          { order: 2, prompt: "Do you feel that your life is empty?", options: gdsOptions },
+          { order: 3, prompt: "Do you often feel helpless?", options: gdsOptions },
+        ],
+      },
+    },
+  })
+
+  const gad7 = await prisma.instrument.create({
     data: {
       slug: "gad7",
       name: "GAD-7",
       description: "Generalized Anxiety Disorder 7-item screener",
+      minAgeYears: 13,
+      audience: InstrumentAudience.PATIENT,
       items: {
         create: [
           { order: 1, prompt: "Feeling nervous, anxious or on edge", options: likert },
@@ -119,11 +276,13 @@ async function main() {
     { label: "2–3 times a week", value: 3 },
   ]
 
-  await prisma.instrument.create({
+  const audit = await prisma.instrument.create({
     data: {
       slug: "audit",
       name: "AUDIT",
       description: "Alcohol Use Disorders Identification Test (WHO)",
+      minAgeYears: 18,
+      audience: InstrumentAudience.PATIENT,
       items: {
         create: [
           { order: 1, prompt: "How often do you have a drink containing alcohol?", options: auditOptions },
@@ -156,6 +315,53 @@ async function main() {
     },
   })
 
+  await prisma.instrumentAssignment.createMany({
+    data: [
+      {
+        patientId: childPatient.id,
+        instrumentId: sdq.id,
+        assignedByUserId: adminUser.id,
+        status: InstrumentAssignmentStatus.ASSIGNED,
+      },
+      {
+        patientId: adolescentPatient.id,
+        instrumentId: phqa.id,
+        assignedByUserId: adminUser.id,
+        status: InstrumentAssignmentStatus.ASSIGNED,
+      },
+      {
+        patientId: adultPatient.id,
+        instrumentId: phq9.id,
+        assignedByUserId: adminUser.id,
+        status: InstrumentAssignmentStatus.ASSIGNED,
+      },
+      {
+        patientId: adultPatient.id,
+        instrumentId: gad7.id,
+        assignedByUserId: adminUser.id,
+        status: InstrumentAssignmentStatus.ASSIGNED,
+      },
+      {
+        patientId: adultPatient.id,
+        instrumentId: audit.id,
+        assignedByUserId: adminUser.id,
+        status: InstrumentAssignmentStatus.ASSIGNED,
+      },
+      {
+        patientId: adultPatient.id,
+        instrumentId: asrs.id,
+        assignedByUserId: adminUser.id,
+        status: InstrumentAssignmentStatus.ASSIGNED,
+      },
+      {
+        patientId: olderAdultPatient.id,
+        instrumentId: gds15.id,
+        assignedByUserId: adminUser.id,
+        status: InstrumentAssignmentStatus.ASSIGNED,
+      },
+    ],
+  })
+
   const wiscV = await prisma.assessment.create({
     data: {
       name: "WISC-V",
@@ -180,7 +386,7 @@ async function main() {
 
   const evaluation = await prisma.evaluation.create({
     data: {
-      patientId: patient.id,
+      patientId: childPatient.id,
       assessmentId: wiscV.id,
       status: EvaluationStatus.COMPLETED,
       administeredDate: new Date("2024-01-15"),

@@ -24,6 +24,7 @@ model User {
   updatedAt     DateTime  @updatedAt
 
   patient       Patient?  @relation(fields: [patientId], references: [id])
+  instrumentAssignments InstrumentAssignment[]
 
   @@map("users")
 }
@@ -41,6 +42,7 @@ model Patient {
   evaluations Evaluation[]
   user        User?
   instrumentSessions InstrumentSession[]
+  instrumentAssignments InstrumentAssignment[]
   
   @@map("patients")
 }
@@ -173,14 +175,36 @@ model Instrument {
   slug        String           @unique
   name        String
   description String?
+  minAgeYears Int?
+  maxAgeYears Int?
+  audience    InstrumentAudience @default(PATIENT)
   status      InstrumentStatus @default(ACTIVE)
   createdAt   DateTime         @default(now())
   updatedAt   DateTime         @updatedAt
 
   items       InstrumentItem[]
   sessions    InstrumentSession[]
+  assignments InstrumentAssignment[]
 
   @@map("instruments")
+}
+
+model InstrumentAssignment {
+  id              String                     @id @default(cuid())
+  patientId       String
+  instrumentId    String
+  assignedByUserId String?
+  status          InstrumentAssignmentStatus @default(ASSIGNED)
+  dueDate          DateTime?
+  createdAt        DateTime                  @default(now())
+  updatedAt        DateTime                  @updatedAt
+
+  patient         Patient                    @relation(fields: [patientId], references: [id])
+  instrument      Instrument                 @relation(fields: [instrumentId], references: [id])
+  assignedByUser  User?                      @relation(fields: [assignedByUserId], references: [id])
+
+  @@unique([patientId, instrumentId])
+  @@map("instrument_assignments")
 }
 
 model InstrumentItem {
@@ -305,6 +329,19 @@ enum Priority {
 enum InstrumentStatus {
   ACTIVE
   INACTIVE
+}
+
+enum InstrumentAudience {
+  PATIENT
+  PARENT
+  TEACHER
+}
+
+enum InstrumentAssignmentStatus {
+  ASSIGNED
+  IN_PROGRESS
+  SUBMITTED
+  EXPIRED
 }
 
 enum InstrumentSessionStatus {
