@@ -59,25 +59,9 @@ NeuroClear is a modern web application designed for psychological and educationa
   npx prisma migrate dev
   ```
  
-5. Seed sample data:
-  ```bash
-  npx tsx prisma/seed.ts
-  ```
- 
-6. Run dev server:
+5. Run dev server:
   ```bash
   npm run dev
   ```
  
 Open `http://localhost:3000`.
- 
-## Seeded Users (for development)
- 
-The seed script creates these users (all share password `password123`):
- 
-- **Admin**
-  `admin@neuroclear.app`
-- **Clinician**
-  `dr.smith@neuroclear.app`
-- **Staff**
-  `frontdesk@neuroclear.app`

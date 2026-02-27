@@ -30,8 +30,20 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
+# logs
+*.log
+
+# editors
+.vscode/
+.idea/
+
 # env files (can opt-in for committing if needed)
 .env*
+
+# prisma
+*.db
+*.db-journal
+prisma/dev.db*
 
 # vercel
 .vercel
