@@ -10,8 +10,8 @@ export async function createEvaluation(data: any) {
         patientId: data.patientId,
         assessmentId: data.assessmentId,
         status: 'IN_PROGRESS',
-        administeredDate: new Date(data.adminDate),
-        administeredBy: data.adminBy,
+        administeredDate: data.adminDate ? new Date(data.adminDate) : null,
+        administeredBy: data.adminBy || null,
       }
     })
 
@@ -52,6 +52,28 @@ export async function createEvaluation(data: any) {
   } catch (error) {
     console.error('Failed to save evaluation:', error)
     return { success: false, error: 'Failed to save evaluation' }
+  }
+}
+
+export async function assignEvaluation(patientId: string, assessmentId: string, assignedTo: string | null = null) {
+  try {
+    const evaluation = await prisma.evaluation.create({
+      data: {
+        patientId,
+        assessmentId,
+        status: 'PENDING_REVIEW', // Using pending_review to indicate it's assigned but not started
+        administeredBy: assignedTo,
+      }
+    })
+
+    revalidatePath('/dashboard')
+    revalidatePath('/patients')
+    revalidatePath(`/patients/${patientId}`)
+    
+    return { success: true, evaluationId: evaluation.id }
+  } catch (error) {
+    console.error('Failed to assign evaluation:', error)
+    return { success: false, error: 'Failed to assign evaluation' }
   }
 }
 

@@ -10,6 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Search, Plus, BookOpen, Clock, Users, Brain } from "lucide-react"
 import { Assessment, AssessmentDomain, AssessmentPlatform } from "@prisma/client"
 import { formatPlatform } from "@/lib/utils"
+import { AssignEvaluationModal } from "@/components/assessments/assign-evaluation-modal"
 
 type AssessmentData = Assessment & {
   subtestCount: number
@@ -21,11 +22,15 @@ type PlatformStat = { platform: string; count: number }
 export function AssessmentsClient({ 
   initialAssessments,
   domainStats,
-  platformStats
+  platformStats,
+  patients,
+  users
 }: { 
   initialAssessments: AssessmentData[]
   domainStats: DomainStat[]
   platformStats: PlatformStat[]
+  patients: { id: string, firstName: string, lastName: string }[]
+  users: { id: string, name: string | null }[]
 }) {
   const [searchTerm, setSearchTerm] = useState("")
   const [domainFilter, setDomainFilter] = useState("ALL")
@@ -279,9 +284,11 @@ export function AssessmentsClient({
                         Start Evaluation
                       </Link>
                     </Button>
-                    <Button size="sm" variant="outline">
-                      View Details
-                    </Button>
+                    <AssignEvaluationModal 
+                      assessmentId={assessment.id} 
+                      patients={patients} 
+                      users={users} 
+                    />
                   </div>
                 </CardContent>
               </Card>
