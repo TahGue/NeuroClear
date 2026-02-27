@@ -31,6 +31,7 @@ export function AssignInstrumentModal({
   const [instrumentId, setInstrumentId] = useState<string>("")
   const [dueDate, setDueDate] = useState<string>("")
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
   const selectedInstrument = useMemo(
     () => instruments.find((i) => i.id === instrumentId),
@@ -41,6 +42,7 @@ export function AssignInstrumentModal({
     if (!instrumentId) return
 
     setIsSubmitting(true)
+    setError(null)
     try {
       const res = await fetch("/api/instrument-assignments", {
         method: "POST",
@@ -53,7 +55,7 @@ export function AssignInstrumentModal({
       })
 
       if (!res.ok) {
-        alert("Failed to assign test.")
+        setError("Failed to assign test.")
         return
       }
 
@@ -67,7 +69,13 @@ export function AssignInstrumentModal({
   }
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog
+      open={open}
+      onOpenChange={(next) => {
+        setOpen(next)
+        if (!next) setError(null)
+      }}
+    >
       <DialogTrigger asChild>
         <Button size="sm" variant="outline">
           Assign Portal Test
@@ -103,6 +111,8 @@ export function AssignInstrumentModal({
             <label className="text-sm font-medium">Due date (optional)</label>
             <Input type="date" value={dueDate} onChange={(e) => setDueDate(e.target.value)} />
           </div>
+
+          {error ? <p className="text-sm text-destructive">{error}</p> : null}
         </div>
 
         <DialogFooter>

@@ -19,11 +19,13 @@ export function AssignEvaluationModal({
   const [patientId, setPatientId] = useState("")
   const [assignedTo, setAssignedTo] = useState<string>("none")
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [message, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(null)
 
   const handleAssign = async () => {
     if (!patientId) return
     
     setIsSubmitting(true)
+    setMessage(null)
     const result = await assignEvaluation(
       patientId, 
       assessmentId, 
@@ -32,17 +34,23 @@ export function AssignEvaluationModal({
     setIsSubmitting(false)
 
     if (result.success) {
+      setMessage({ type: "success", text: "Evaluation successfully assigned to patient." })
       setOpen(false)
       setPatientId("")
       setAssignedTo("none")
-      alert("Evaluation successfully assigned to patient!")
     } else {
-      alert("Failed to assign evaluation.")
+      setMessage({ type: "error", text: "Failed to assign evaluation." })
     }
   }
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog
+      open={open}
+      onOpenChange={(next) => {
+        setOpen(next)
+        if (!next) setMessage(null)
+      }}
+    >
       <DialogTrigger asChild>
         <Button size="sm" variant="outline">Assign</Button>
       </DialogTrigger>
@@ -56,7 +64,10 @@ export function AssignEvaluationModal({
         <div className="grid gap-4 py-4">
           <div className="space-y-2">
             <label className="text-sm font-medium">Select Patient *</label>
-            <Select value={patientId} onValueChange={setPatientId}>
+            <Select value={patientId} onValueChange={(v) => {
+              setPatientId(v)
+              setMessage(null)
+            }}>
               <SelectTrigger>
                 <SelectValue placeholder="Choose a patient" />
               </SelectTrigger>
@@ -70,7 +81,10 @@ export function AssignEvaluationModal({
           
           <div className="space-y-2">
             <label className="text-sm font-medium">Assign To Clinician (Optional)</label>
-            <Select value={assignedTo} onValueChange={setAssignedTo}>
+            <Select value={assignedTo} onValueChange={(v) => {
+              setAssignedTo(v)
+              setMessage(null)
+            }}>
               <SelectTrigger>
                 <SelectValue placeholder="Leave unassigned" />
               </SelectTrigger>
@@ -82,6 +96,12 @@ export function AssignEvaluationModal({
               </SelectContent>
             </Select>
           </div>
+
+          {message ? (
+            <p className={message.type === "error" ? "text-sm text-destructive" : "text-sm text-muted-foreground"}>
+              {message.text}
+            </p>
+          ) : null}
         </div>
         <DialogFooter>
           <Button variant="outline" onClick={() => setOpen(false)}>Cancel</Button>

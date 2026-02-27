@@ -87,12 +87,14 @@ function ScoreEntryForm({
     return []
   })
   const [isSaving, setIsSaving] = useState(false)
+  const [message, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(null)
 
   const selectedPatient = initialPatients.find(p => p.id === selectedPatientId)
   const selectedAssessment = initialAssessments.find(a => a.id === selectedAssessmentId)
 
   const handleAssessmentChange = (id: string) => {
     setSelectedAssessmentId(id)
+    setMessage(null)
     const assessment = initialAssessments.find(a => a.id === id)
     if (assessment) {
       setSelectedPlatform(assessment.platform)
@@ -115,12 +117,14 @@ function ScoreEntryForm({
   }
 
   const handleSubtestChange = (index: number, field: "rawScore" | "scaledScore", value: string) => {
+    setMessage(null)
     const updatedSubtests = [...subtests]
     updatedSubtests[index][field] = value
     setSubtests(updatedSubtests)
   }
 
   const handleCompositeChange = (index: number, field: "score" | "percentile", value: string) => {
+    setMessage(null)
     const updatedComposites = [...composites]
     updatedComposites[index][field] = value
     setComposites(updatedComposites)
@@ -145,11 +149,15 @@ function ScoreEntryForm({
 
   const handleSave = async () => {
     if (!selectedPatientId || !selectedAssessmentId || !adminDate) {
-      alert("Please fill in required administration details (Patient, Assessment, Date)")
+      setMessage({
+        type: "error",
+        text: "Please fill in required administration details (Patient, Assessment, Date).",
+      })
       return
     }
 
     setIsSaving(true)
+    setMessage(null)
     const result = await createEvaluation({
       patientId: selectedPatientId,
       assessmentId: selectedAssessmentId,
@@ -159,10 +167,10 @@ function ScoreEntryForm({
     })
 
     if (result.success) {
-      alert("Evaluation saved successfully!")
+      setMessage({ type: "success", text: "Evaluation saved successfully." })
       router.push(`/reports`)
     } else {
-      alert("Failed to save evaluation")
+      setMessage({ type: "error", text: "Failed to save evaluation." })
     }
     setIsSaving(false)
   }
@@ -466,6 +474,12 @@ function ScoreEntryForm({
                       <Save className="h-4 w-4 mr-2" />
                       {isSaving ? "Saving..." : "Save Evaluation"}
                     </Button>
+
+                    {message ? (
+                      <p className={message.type === "error" ? "text-sm text-destructive self-center" : "text-sm text-muted-foreground self-center"}>
+                        {message.text}
+                      </p>
+                    ) : null}
                   </div>
                 </div>
               </CardContent>
