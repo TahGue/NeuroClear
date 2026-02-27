@@ -1,6 +1,11 @@
 import { test, expect } from '@playwright/test';
+import path from 'node:path';
+
+const staffState = path.join(process.cwd(), 'playwright/.auth/staff.json');
 
 test.describe('Score Entry Flow', () => {
+  test.use({ storageState: staffState })
+
   test('can navigate to score entry and view form', async ({ page }) => {
     // Start from dashboard
     await page.goto('/');

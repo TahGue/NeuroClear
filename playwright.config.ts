@@ -7,8 +7,9 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
+  globalSetup: './tests/e2e/global-setup.ts',
   use: {
-    baseURL: 'http://localhost:3000',
+    baseURL: 'http://localhost:3001',
     trace: 'on-first-retry',
   },
 
@@ -20,8 +21,12 @@ export default defineConfig({
   ],
 
   webServer: {
-    command: 'npm run dev',
-    url: 'http://localhost:3000',
-    reuseExistingServer: !process.env.CI,
+    command: 'npm run build && npm run start -- -p 3001',
+    url: 'http://localhost:3001',
+    reuseExistingServer: false,
+    env: {
+      ...process.env,
+      NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET ?? 'playwright-secret',
+    },
   },
 });

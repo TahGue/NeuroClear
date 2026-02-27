@@ -1,6 +1,11 @@
 import { test, expect } from '@playwright/test';
+import path from 'node:path';
+
+const staffState = path.join(process.cwd(), 'playwright/.auth/staff.json');
 
 test.describe('Dashboard and Navigation', () => {
+  test.use({ storageState: staffState })
+
   test('has title and sidebar navigation', async ({ page }) => {
     await page.goto('/');
 
