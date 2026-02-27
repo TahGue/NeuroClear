@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { saveInstrumentResponse, submitInstrumentSession } from "@/app/portal/tests/actions"
 import Link from "next/link"
+import { formatDateTime } from "@/lib/utils"
 
 type Option = { label: string; value: number }
 
@@ -27,6 +28,8 @@ export function InstrumentRunner({
   items,
   initialResponses,
   isSubmitted,
+  lastSavedAt,
+  submittedAt,
 }: {
   sessionId: string
   instrumentName: string
@@ -34,6 +37,8 @@ export function InstrumentRunner({
   items: Item[]
   initialResponses: Response[]
   isSubmitted: boolean
+  lastSavedAt?: Date
+  submittedAt?: Date | null
 }) {
   const [index, setIndex] = useState(0)
   const [pending, startTransition] = useTransition()
@@ -82,6 +87,17 @@ export function InstrumentRunner({
         {instrumentDescription ? (
           <p className="text-muted-foreground">{instrumentDescription}</p>
         ) : null}
+
+        <div className="mt-2 flex flex-wrap gap-2 text-xs text-muted-foreground">
+          <span>
+            Progress {responses.length}/{items.length}
+          </span>
+          {isSubmitted && submittedAt ? (
+            <span>Submitted {formatDateTime(submittedAt)}</span>
+          ) : lastSavedAt ? (
+            <span>Last saved {formatDateTime(lastSavedAt)}</span>
+          ) : null}
+        </div>
       </div>
 
       {isSubmitted ? (

@@ -1,9 +1,8 @@
 import { prisma } from "@/lib/prisma"
-import { getServerSession } from "next-auth"
-import { authOptions } from "@/lib/auth"
 import { InstrumentRunner } from "@/components/instruments/InstrumentRunner"
 import { redirect } from "next/navigation"
 import { z } from "zod"
+import { requirePatientSession } from "@/lib/rbac"
 
 type ItemOption = { label: string; value: number }
 type Item = { id: string; order: number; prompt: string; options: ItemOption[] }
@@ -22,9 +21,7 @@ export default async function InstrumentRunPage({
 }) {
   const { slug } = await params
 
-  const session = await getServerSession(authOptions)
-  const patientId = session?.user?.patientId ?? undefined
-  if (!patientId) redirect("/portal")
+  const { patientId } = await requirePatientSession()
 
   const instrument = await prisma.instrument.findUnique({
     where: { slug },
@@ -79,6 +76,8 @@ export default async function InstrumentRunPage({
         items={runnerItems}
         initialResponses={activeSession.responses.map((r) => ({ itemId: r.itemId, value: r.value }))}
         isSubmitted={activeSession.status === "SUBMITTED"}
+        lastSavedAt={activeSession.updatedAt}
+        submittedAt={activeSession.submittedAt}
       />
     </div>
   )

@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { formatDate, formatPlatform } from "@/lib/utils"
+import { formatDate, formatDateTime, formatPlatform } from "@/lib/utils"
 import { requirePatientSession } from "@/lib/rbac"
 
 export default async function PortalPage() {
@@ -17,7 +17,19 @@ export default async function PortalPage() {
         orderBy: { createdAt: "desc" },
       },
       instrumentSessions: {
-        include: { instrument: true, result: true },
+        include: {
+          instrument: {
+            include: {
+              _count: {
+                select: {
+                  items: true,
+                },
+              },
+            },
+          },
+          result: true,
+          _count: { select: { responses: true } },
+        },
         orderBy: { createdAt: "desc" },
       },
       evaluations: {
@@ -52,6 +64,17 @@ export default async function PortalPage() {
     patient.instrumentSessions.map((s) => [s.instrumentId, s])
   )
 
+  const continueAssignment = [...activeAssignments].sort((a, b) => {
+    const aSession = latestSessionByInstrumentId.get(a.instrumentId)
+    const bSession = latestSessionByInstrumentId.get(b.instrumentId)
+    const aTime = aSession?.updatedAt?.getTime() ?? 0
+    const bTime = bSession?.updatedAt?.getTime() ?? 0
+    return bTime - aTime
+  })[0]
+  const continueHref = continueAssignment
+    ? `/portal/tests/${continueAssignment.instrument.slug}`
+    : "/portal/tests"
+
   return (
     <div className="min-h-screen bg-background p-6 space-y-6">
       <div>
@@ -71,7 +94,7 @@ export default async function PortalPage() {
                 <Link href="/portal/tests">View tests</Link>
               </Button>
               <Button asChild variant="outline">
-                <Link href="/portal/tests">Continue</Link>
+                <Link href={continueHref}>Continue</Link>
               </Button>
             </div>
 
@@ -83,6 +106,9 @@ export default async function PortalPage() {
                 <div className="space-y-2">
                   {activeAssignments.slice(0, 5).map((a) => {
                     const latest = latestSessionByInstrumentId.get(a.instrumentId)
+                    const answeredCount = latest?._count?.responses ?? 0
+                    const totalCount = latest?.instrument?._count?.items
+                    const progressText = totalCount ? `${answeredCount}/${totalCount}` : `${answeredCount}`
                     return (
                       <div key={a.id} className="flex items-center justify-between border-b py-2">
                         <div className="space-y-1">
@@ -94,6 +120,10 @@ export default async function PortalPage() {
                             ) : null}
                             {latest?.status ? (
                               <Badge variant="outline">{latest.status.replace("_", " ")}</Badge>
+                            ) : null}
+                            <Badge variant="outline">Progress {progressText}</Badge>
+                            {latest?.updatedAt ? (
+                              <Badge variant="outline">Saved {formatDateTime(latest.updatedAt)}</Badge>
                             ) : null}
                           </div>
                         </div>
@@ -122,6 +152,9 @@ export default async function PortalPage() {
                           <p className="text-xs text-muted-foreground">
                             Score: {latest?.result?.totalScore ?? "--"} — {latest?.result?.interpretation ?? "--"}
                           </p>
+                          {latest?.submittedAt ? (
+                            <p className="text-xs text-muted-foreground">Submitted {formatDateTime(latest.submittedAt)}</p>
+                          ) : null}
                         </div>
                         <Button asChild size="sm" variant="outline">
                           <Link href={`/portal/tests/${a.instrument.slug}`}>View</Link>
