@@ -35,3 +35,18 @@ export function formatDateTime(date: Date | string): string {
     minute: '2-digit'
   }).format(new Date(date))
 }
+
+export function formatPlatform(platform: string): string {
+  switch (platform) {
+    case 'Q_INTERACTIVE':
+      return 'Q-interactive'
+    case 'Q_GLOBAL':
+      return 'Q-global'
+    case 'MHS_ONLINE':
+      return 'MHS Online'
+    case 'ALTO':
+      return 'ALTO'
+    default:
+      return platform
+  }
+}

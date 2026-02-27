@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect, Suspense } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -10,10 +10,13 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Save, Calculator } from "lucide-react"
 import { createEvaluation } from "../actions"
-import { useRouter } from "next/navigation"
+import { useRouter, useSearchParams } from "next/navigation"
+import { formatPlatform } from "@/lib/utils"
 
-export function ScoreEntryClient({ initialPatients, initialAssessments }: { initialPatients: any[], initialAssessments: any[] }) {
+function ScoreEntryForm({ initialPatients, initialAssessments }: { initialPatients: any[], initialAssessments: any[] }) {
   const router = useRouter()
+  const searchParams = useSearchParams()
+  
   const [selectedAssessmentId, setSelectedAssessmentId] = useState("")
   const [selectedPatientId, setSelectedPatientId] = useState("")
   const [selectedPlatform, setSelectedPlatform] = useState("")
@@ -25,6 +28,39 @@ export function ScoreEntryClient({ initialPatients, initialAssessments }: { init
 
   const selectedPatient = initialPatients.find(p => p.id === selectedPatientId)
   const selectedAssessment = initialAssessments.find(a => a.id === selectedAssessmentId)
+
+  // Initialize from URL params
+  useEffect(() => {
+    const patientParam = searchParams.get('patient')
+    const assessmentParam = searchParams.get('assessmentId')
+    
+    if (patientParam) {
+      setSelectedPatientId(patientParam)
+    }
+    
+    if (assessmentParam) {
+      // Find the assessment manually since handleAssessmentChange relies on state updates that might batch
+      const assessment = initialAssessments.find(a => a.id === assessmentParam)
+      if (assessment) {
+        setSelectedAssessmentId(assessmentParam)
+        setSelectedPlatform(assessment.platform)
+        setSubtests(assessment.subtests.map((s: any) => ({ ...s, rawScore: "", scaledScore: "" })))
+        
+        if (assessment.name.includes("WISC") || assessment.name.includes("WAIS")) {
+          setComposites([
+            { index: "VCI", fullName: "Verbal Comprehension Index", score: "", percentile: "" },
+            { index: "VSI", fullName: "Visual Spatial Index", score: "", percentile: "" },
+            { index: "WMI", fullName: "Working Memory Index", score: "", percentile: "" },
+            { index: "PSI", fullName: "Processing Speed Index", score: "", percentile: "" },
+            { index: "FRI", fullName: "Fluid Reasoning Index", score: "", percentile: "" },
+            { index: "FSIQ", fullName: "Full Scale IQ", score: "", percentile: "" },
+          ])
+        } else {
+          setComposites([])
+        }
+      }
+    }
+  }, [searchParams, initialAssessments])
 
   const handleAssessmentChange = (id: string) => {
     setSelectedAssessmentId(id)
@@ -162,7 +198,7 @@ export function ScoreEntryClient({ initialPatients, initialAssessments }: { init
             <div>
               <label className="text-sm font-medium">Platform</label>
               <Input 
-                value={selectedPlatform.replace('_', ' ')} 
+                value={selectedPlatform ? formatPlatform(selectedPlatform) : ''} 
                 disabled 
                 placeholder="Auto-filled from assessment"
               />
@@ -377,7 +413,7 @@ export function ScoreEntryClient({ initialPatients, initialAssessments }: { init
                       <div className="space-y-1 text-sm">
                         <p><strong>Patient:</strong> {selectedPatient ? `${selectedPatient.firstName} ${selectedPatient.lastName}` : "Not selected"}</p>
                         <p><strong>Assessment:</strong> {selectedAssessment ? selectedAssessment.name : "Not selected"}</p>
-                        <p><strong>Platform:</strong> {selectedPlatform ? selectedPlatform.replace('_', ' ') : "Not selected"}</p>
+                        <p><strong>Platform:</strong> {selectedPlatform ? formatPlatform(selectedPlatform) : "Not selected"}</p>
                         <p><strong>Date:</strong> {adminDate || "Not set"}</p>
                         <p><strong>Administered By:</strong> {adminBy || "Not set"}</p>
                       </div>
@@ -409,5 +445,13 @@ export function ScoreEntryClient({ initialPatients, initialAssessments }: { init
         </Tabs>
       )}
     </div>
+  )
+}
+
+export function ScoreEntryClient({ initialPatients, initialAssessments }: { initialPatients: any[], initialAssessments: any[] }) {
+  return (
+    <Suspense fallback={<div>Loading form...</div>}>
+      <ScoreEntryForm initialPatients={initialPatients} initialAssessments={initialAssessments} />
+    </Suspense>
   )
 }

@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { ArrowLeft, Calendar, User, FileText, Phone, Mail } from "lucide-react"
 import Link from "next/link"
-import { formatDate, formatAge } from "@/lib/utils"
+import { formatDate, formatAge, formatPlatform } from "@/lib/utils"
 import { Patient, Evaluation, Assessment, Report } from "@prisma/client"
 
 type EvaluationWithDetails = Evaluation & {
@@ -106,7 +106,7 @@ export function PatientDetailClient({ patient }: { patient: PatientData }) {
                         <TableCell className="font-medium">{evaluation.id.substring(0, 8)}...</TableCell>
                         <TableCell>{evaluation.assessment.name}</TableCell>
                         <TableCell>
-                          <Badge variant="outline">{evaluation.assessment.platform.replace('_', ' ')}</Badge>
+                          <Badge variant="outline">{formatPlatform(evaluation.assessment.platform)}</Badge>
                         </TableCell>
                         <TableCell>{evaluation.administeredBy || 'N/A'}</TableCell>
                         <TableCell>{evaluation.administeredDate ? formatDate(evaluation.administeredDate) : 'N/A'}</TableCell>

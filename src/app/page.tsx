@@ -6,7 +6,7 @@ import { Sidebar } from "@/components/layout/sidebar"
 import { DashboardCharts, DomainBarChart } from "@/components/dashboard/charts"
 import { Activity, Users, FileText, Clock } from "lucide-react"
 import { prisma } from "@/lib/prisma"
-import { formatDate } from "@/lib/utils"
+import { formatDate, formatPlatform } from "@/lib/utils"
 
 async function getDashboardData() {
   const activeEvaluations = await prisma.evaluation.count({
@@ -33,7 +33,7 @@ async function getDashboardData() {
   })
   
   const platformCounts = evals.reduce((acc, curr) => {
-    const platform = curr.assessment.platform.replace('_', ' ')
+    const platform = formatPlatform(curr.assessment.platform)
     acc[platform] = (acc[platform] || 0) + 1
     return acc
   }, {} as Record<string, number>)
@@ -174,7 +174,7 @@ export default async function Dashboard() {
                         <TableCell>{evaluation.patient.firstName} {evaluation.patient.lastName}</TableCell>
                         <TableCell>{evaluation.assessment.name}</TableCell>
                         <TableCell>
-                          <Badge variant="outline">{evaluation.assessment.platform.replace('_', ' ')}</Badge>
+                          <Badge variant="outline">{formatPlatform(evaluation.assessment.platform)}</Badge>
                         </TableCell>
                         <TableCell>
                           <Badge 

@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -8,6 +9,7 @@ import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Search, Plus, BookOpen, Clock, Users, Brain } from "lucide-react"
 import { Assessment, AssessmentDomain, AssessmentPlatform } from "@prisma/client"
+import { formatPlatform } from "@/lib/utils"
 
 type AssessmentData = Assessment & {
   subtestCount: number
@@ -79,10 +81,6 @@ export function AssessmentsClient({
       SOCIAL: "Social",
     }
     return labels[domain as keyof typeof labels] || domain
-  }
-
-  const getPlatformLabel = (platform: string) => {
-    return platform.replace("_", " ")
   }
 
   return (
@@ -177,7 +175,7 @@ export function AssessmentsClient({
                 <div key={platform} className="flex items-center justify-between">
                   <div className="flex items-center space-x-2">
                     <Badge className={getPlatformColor(platform)}>
-                      {getPlatformLabel(platform)}
+                      {formatPlatform(platform)}
                     </Badge>
                   </div>
                   <span className="text-sm font-medium">{count}</span>
@@ -223,7 +221,7 @@ export function AssessmentsClient({
                 <SelectContent>
                   <SelectItem value="ALL">All Platforms</SelectItem>
                   {Object.values(AssessmentPlatform).map(platform => (
-                    <SelectItem key={platform} value={platform}>{getPlatformLabel(platform)}</SelectItem>
+                    <SelectItem key={platform} value={platform}>{formatPlatform(platform)}</SelectItem>
                   ))}
                 </SelectContent>
               </Select>
@@ -260,7 +258,7 @@ export function AssessmentsClient({
                       {getDomainLabel(assessment.domain)}
                     </Badge>
                     <Badge className={getPlatformColor(assessment.platform)}>
-                      {getPlatformLabel(assessment.platform)}
+                      {formatPlatform(assessment.platform)}
                     </Badge>
                   </div>
                 </CardHeader>
@@ -276,8 +274,10 @@ export function AssessmentsClient({
                     </div>
                   </div>
                   <div className="flex space-x-2 mt-4">
-                    <Button size="sm" className="flex-1">
-                      Start Evaluation
+                    <Button size="sm" className="flex-1" asChild>
+                      <Link href={`/score-entry?assessmentId=${assessment.id}`}>
+                        Start Evaluation
+                      </Link>
                     </Button>
                     <Button size="sm" variant="outline">
                       View Details
