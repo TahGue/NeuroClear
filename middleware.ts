@@ -19,7 +19,7 @@ export async function middleware(req: NextRequest) {
     return NextResponse.next()
   }
 
-  const token = await getToken({ req })
+  const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET })
 
   if (!token) {
     const url = req.nextUrl.clone()
@@ -28,7 +28,7 @@ export async function middleware(req: NextRequest) {
     return NextResponse.redirect(url)
   }
 
-  const role = (token as any).role as string | undefined
+  const role = (token as { role?: string } | null)?.role
 
   // Patient users can only access /portal
   if (role === "PATIENT") {

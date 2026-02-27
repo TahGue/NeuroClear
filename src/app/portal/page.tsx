@@ -10,7 +10,7 @@ import { formatDate, formatPlatform } from "@/lib/utils"
 export default async function PortalPage() {
   const session = await getServerSession(authOptions)
 
-  const patientId = (session?.user as any)?.patientId as string | undefined
+  const patientId = session?.user?.patientId ?? undefined
   if (!patientId) {
     return (
       <div className="p-6">
@@ -47,7 +47,7 @@ export default async function PortalPage() {
             <CardTitle>Patient not found</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-sm text-muted-foreground">We couldn't find your patient record.</p>
+            <p className="text-sm text-muted-foreground">We couldn&apos;t find your patient record.</p>
           </CardContent>
         </Card>
       </div>

@@ -2,8 +2,18 @@ import type { NextAuthOptions } from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
 import { prisma } from "@/lib/prisma"
 import { compare } from "bcryptjs"
+import type { UserRole } from "@prisma/client"
+
+type AuthUser = {
+  id: string
+  email: string
+  name: string | null
+  role: UserRole
+  patientId: string | null
+}
 
 export const authOptions: NextAuthOptions = {
+  secret: process.env.NEXTAUTH_SECRET,
   session: {
     strategy: "jwt",
   },
@@ -27,30 +37,33 @@ export const authOptions: NextAuthOptions = {
         const isValid = await compare(credentials.password, user.passwordHash)
         if (!isValid) return null
 
-        return {
+        const authUser: AuthUser = {
           id: user.id,
           email: user.email,
           name: user.name,
           role: user.role,
           patientId: user.patientId,
-        } as any
+        }
+
+        return authUser
       },
     }),
   ],
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
-        token.id = (user as any).id
-        token.role = (user as any).role
-        token.patientId = (user as any).patientId ?? null
+        const u = user as AuthUser
+        token.id = u.id
+        token.role = u.role
+        token.patientId = u.patientId
       }
       return token
     },
     async session({ session, token }) {
       if (session.user) {
-        ;(session.user as any).id = token.id
-        ;(session.user as any).role = token.role
-        ;(session.user as any).patientId = (token as any).patientId ?? null
+        session.user.id = token.id
+        session.user.role = token.role
+        session.user.patientId = token.patientId ?? null
       }
       return session
     },

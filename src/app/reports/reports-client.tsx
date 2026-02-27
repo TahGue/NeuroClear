@@ -10,7 +10,38 @@ import { Search, Plus, Eye, Download, FileText, Brain, TrendingUp, AlertTriangle
 import { formatDate } from "@/lib/utils"
 import { NormalCurveChart } from "@/components/reports/normal-curve-chart"
 
-export function ReportsClient({ initialReports }: { initialReports: any[] }) {
+type DiagnosticImpression = {
+  dsm5Code?: string | null
+  icd11Code?: string | null
+  severity: string
+  evidence?: string | null
+}
+
+type NarrativeSection = {
+  section: string
+  content: string
+}
+
+type Recommendation = {
+  category: string
+  description: string
+  priority: string
+}
+
+type ReportRow = {
+  id: string
+  patientId: string
+  patientName: string
+  evaluationId: string
+  assessment: string
+  generatedDate: Date
+  status: string
+  diagnosticImpressions?: DiagnosticImpression[]
+  narrativeSections?: NarrativeSection[]
+  recommendations?: Recommendation[]
+}
+
+export function ReportsClient({ initialReports }: { initialReports: ReportRow[] }) {
   const [searchTerm, setSearchTerm] = useState("")
   const [statusFilter, setStatusFilter] = useState("ALL")
   const [selectedReport, setSelectedReport] = useState(initialReports[0] || null)
@@ -232,7 +263,7 @@ export function ReportsClient({ initialReports }: { initialReports: any[] }) {
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
-                      {selectedReport.diagnosticImpressions?.map((impression: any, index: number) => (
+                      {selectedReport.diagnosticImpressions?.map((impression, index: number) => (
                         <div key={index} className="border rounded-lg p-4">
                           <div className="flex justify-between items-start mb-3">
                             <div>
@@ -267,7 +298,7 @@ export function ReportsClient({ initialReports }: { initialReports: any[] }) {
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-6">
-                      {selectedReport.narrativeSections?.map((section: any) => (
+                      {selectedReport.narrativeSections?.map((section) => (
                         <div key={section.section}>
                           <h3 className="text-lg font-semibold mb-2">{section.section}</h3>
                           <p className="text-sm text-muted-foreground leading-relaxed">{section.content}</p>
@@ -289,15 +320,15 @@ export function ReportsClient({ initialReports }: { initialReports: any[] }) {
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
-                      {["ACADEMIC_ACCOMMODATIONS", "THERAPY", "EDUCATIONAL_PLANNING", "RE_EVALUATION"].map(category => {
-                        const categoryRecs = selectedReport.recommendations?.filter((r: any) => r.category === category) || []
+                      {["ACADEMIC_ACCOMMODATIONS", "THERAPY", "EDUCATIONAL_PLANNING", "RE_EVALUATION"].map((category) => {
+                        const categoryRecs = selectedReport.recommendations?.filter((r: Recommendation) => r.category === category) || []
                         if (categoryRecs.length === 0) return null
                         
                         return (
                           <div key={category}>
                             <h3 className="text-lg font-semibold mb-3">{getCategoryLabel(category)}</h3>
                             <div className="space-y-2">
-                              {categoryRecs.map((rec: any, index: number) => (
+                              {categoryRecs.map((rec, index: number) => (
                                 <div key={index} className="flex items-center space-x-3 p-3 border rounded-lg">
                                   <Badge variant={getPriorityColor(rec.priority)} className="text-xs">
                                     {rec.priority}

@@ -1,9 +1,10 @@
 "use client"
 
-import { useMemo, useState, useTransition } from "react"
+import { useEffect, useMemo, useState, useTransition } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { saveInstrumentResponse, submitInstrumentSession } from "@/app/portal/tests/actions"
+import Link from "next/link"
 
 type Option = { label: string; value: number }
 
@@ -37,17 +38,28 @@ export function InstrumentRunner({
   const [index, setIndex] = useState(0)
   const [pending, startTransition] = useTransition()
 
+  const [responses, setResponses] = useState<Response[]>(initialResponses)
+
+  useEffect(() => {
+    setResponses(initialResponses)
+  }, [initialResponses])
+
   const responseMap = useMemo(() => {
     const m = new Map<string, number>()
-    for (const r of initialResponses) m.set(r.itemId, r.value)
+    for (const r of responses) m.set(r.itemId, r.value)
     return m
-  }, [initialResponses])
+  }, [responses])
 
   const item = items[index]
   const selected = item ? responseMap.get(item.id) : undefined
 
   const setAnswer = (value: number) => {
-    responseMap.set(item.id, value)
+    if (!item) return
+    setResponses((prev) => {
+      const next = prev.filter((r) => r.itemId !== item.id)
+      next.push({ itemId: item.id, value })
+      return next
+    })
     startTransition(async () => {
       await saveInstrumentResponse({ sessionId, itemId: item.id, value })
     })
@@ -80,7 +92,7 @@ export function InstrumentRunner({
           </CardHeader>
           <CardContent>
             <Button asChild variant="outline">
-              <a href="/portal/tests">Back to tests</a>
+              <Link href="/portal/tests">Back to tests</Link>
             </Button>
           </CardContent>
         </Card>
@@ -92,10 +104,10 @@ export function InstrumentRunner({
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            <p className="text-base">{item.prompt}</p>
+            {item ? <p className="text-base">{item.prompt}</p> : null}
 
             <div className="grid gap-2">
-              {item.options.map((opt) => (
+              {item?.options?.map((opt) => (
                 <Button
                   key={opt.value}
                   type="button"

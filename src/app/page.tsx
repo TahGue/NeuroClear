@@ -135,7 +135,7 @@ export default async function Dashboard() {
                   <CardDescription>Distribution of assessments by platform</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <DashboardCharts platformData={platformData} domainData={domainData} />
+                  <DashboardCharts platformData={platformData} />
                 </CardContent>
               </Card>
 

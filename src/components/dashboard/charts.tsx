@@ -4,7 +4,10 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 
 const COLORS = ["#3b82f6", "#10b981", "#f59e0b", "#ef4444", "#8b5cf6", "#ec4899", "#6366f1"]
 
-export function DashboardCharts({ platformData, domainData }: { platformData: any[], domainData: any[] }) {
+type PlatformDatum = { name: string; value: number }
+type DomainDatum = { domain: string; count: number }
+
+export function DashboardCharts({ platformData }: { platformData: PlatformDatum[] }) {
   return (
     <>
       <ResponsiveContainer width="100%" height={200}>
@@ -37,7 +40,7 @@ export function DashboardCharts({ platformData, domainData }: { platformData: an
   )
 }
 
-export function DomainBarChart({ domainData }: { domainData: any[] }) {
+export function DomainBarChart({ domainData }: { domainData: DomainDatum[] }) {
   return (
     <ResponsiveContainer width="100%" height={200}>
       <BarChart data={domainData}>

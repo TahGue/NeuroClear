@@ -3,6 +3,17 @@ import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth"
 import { InstrumentRunner } from "@/components/instruments/InstrumentRunner"
 import { redirect } from "next/navigation"
+import { z } from "zod"
+
+type ItemOption = { label: string; value: number }
+type Item = { id: string; order: number; prompt: string; options: ItemOption[] }
+
+const ItemOptionSchema = z.object({
+  label: z.string(),
+  value: z.number(),
+})
+
+const ItemOptionsSchema = z.array(ItemOptionSchema)
 
 export default async function InstrumentRunPage({
   params,
@@ -12,7 +23,7 @@ export default async function InstrumentRunPage({
   const { slug } = await params
 
   const session = await getServerSession(authOptions)
-  const patientId = (session?.user as any)?.patientId as string | undefined
+  const patientId = session?.user?.patientId ?? undefined
   if (!patientId) redirect("/portal")
 
   const instrument = await prisma.instrument.findUnique({
@@ -24,11 +35,20 @@ export default async function InstrumentRunPage({
 
   if (!instrument) redirect("/portal/tests")
 
+  const runnerItems: Item[] = instrument.items.map((it) => {
+    const parsedOptions = ItemOptionsSchema.safeParse(it.options)
+    return {
+      id: it.id,
+      order: it.order,
+      prompt: it.prompt,
+      options: parsedOptions.success ? parsedOptions.data : [],
+    }
+  })
+
   const existing = await prisma.instrumentSession.findFirst({
     where: {
       patientId,
       instrumentId: instrument.id,
-      status: "IN_PROGRESS",
     },
     include: {
       responses: true,
@@ -56,7 +76,7 @@ export default async function InstrumentRunPage({
         sessionId={activeSession.id}
         instrumentName={instrument.name}
         instrumentDescription={instrument.description}
-        items={instrument.items as any}
+        items={runnerItems}
         initialResponses={activeSession.responses.map((r) => ({ itemId: r.itemId, value: r.value }))}
         isSubmitted={activeSession.status === "SUBMITTED"}
       />

@@ -7,7 +7,7 @@ import Link from "next/link"
 
 export default async function PortalTestsPage() {
   const session = await getServerSession(authOptions)
-  const patientId = (session?.user as any)?.patientId as string | undefined
+  const patientId = session?.user?.patientId ?? undefined
 
   if (!patientId) {
     return (

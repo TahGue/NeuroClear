@@ -3,6 +3,35 @@
 import { z } from "zod"
 import { prisma } from "@/lib/prisma"
 import { revalidatePath } from "next/cache"
+import { getServerSession } from "next-auth"
+import { authOptions } from "@/lib/auth"
+
+async function requirePatientSession() {
+  const session = await getServerSession(authOptions)
+  const role = session?.user?.role
+  const patientId = session?.user?.patientId
+
+  if (!session?.user || role !== "PATIENT" || !patientId) {
+    throw new Error("Unauthorized")
+  }
+
+  return { session, patientId }
+}
+
+async function requireSessionOwnsInstrumentSession(sessionId: string) {
+  const { patientId } = await requirePatientSession()
+
+  const sessionRecord = await prisma.instrumentSession.findUnique({
+    where: { id: sessionId },
+    select: { id: true, patientId: true },
+  })
+
+  if (!sessionRecord || sessionRecord.patientId !== patientId) {
+    throw new Error("Unauthorized")
+  }
+
+  return { patientId }
+}
 
 const SaveResponseSchema = z.object({
   sessionId: z.string().min(1),
@@ -12,6 +41,8 @@ const SaveResponseSchema = z.object({
 
 export async function saveInstrumentResponse(input: unknown) {
   const { sessionId, itemId, value } = SaveResponseSchema.parse(input)
+
+  await requireSessionOwnsInstrumentSession(sessionId)
 
   await prisma.instrumentResponse.upsert({
     where: { sessionId_itemId: { sessionId, itemId } },
@@ -56,6 +87,8 @@ function interpret(slug: string, total: number): string {
 
 export async function submitInstrumentSession(input: unknown) {
   const { sessionId } = SubmitSchema.parse(input)
+
+  await requireSessionOwnsInstrumentSession(sessionId)
 
   const session = await prisma.instrumentSession.findUnique({
     where: { id: sessionId },

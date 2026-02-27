@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, Suspense } from "react"
+import { useState, Suspense } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -13,61 +13,90 @@ import { createEvaluation } from "../actions"
 import { useRouter, useSearchParams } from "next/navigation"
 import { formatPlatform } from "@/lib/utils"
 
-function ScoreEntryForm({ initialPatients, initialAssessments }: { initialPatients: any[], initialAssessments: any[] }) {
+type Patient = {
+  id: string
+  firstName: string
+  lastName: string
+}
+
+type AssessmentSubtest = {
+  id: string
+  assessmentId?: string
+  name: string
+  index?: string | null
+}
+
+type Assessment = {
+  id: string
+  name: string
+  platform: string
+  subtests: AssessmentSubtest[]
+}
+
+type EditableSubtest = AssessmentSubtest & {
+  rawScore: string
+  scaledScore: string
+}
+
+type Composite = {
+  index: string
+  fullName: string
+  score: string
+  percentile: string
+}
+
+function ScoreEntryForm({
+  initialPatients,
+  initialAssessments,
+}: {
+  initialPatients: Patient[]
+  initialAssessments: Assessment[]
+}) {
   const router = useRouter()
   const searchParams = useSearchParams()
   
-  const [selectedAssessmentId, setSelectedAssessmentId] = useState("")
-  const [selectedPatientId, setSelectedPatientId] = useState("")
-  const [selectedPlatform, setSelectedPlatform] = useState("")
+  const initialPatientIdFromParams = searchParams.get("patient") ?? ""
+  const initialAssessmentIdFromParams = searchParams.get("assessmentId") ?? ""
+
+  const initialAssessmentFromParams = initialAssessmentIdFromParams
+    ? initialAssessments.find((a) => a.id === initialAssessmentIdFromParams)
+    : undefined
+
+  const [selectedAssessmentId, setSelectedAssessmentId] = useState(() => initialAssessmentIdFromParams)
+  const [selectedPatientId, setSelectedPatientId] = useState(() => initialPatientIdFromParams)
+  const [selectedPlatform, setSelectedPlatform] = useState(() => initialAssessmentFromParams?.platform ?? "")
   const [adminDate, setAdminDate] = useState("")
   const [adminBy, setAdminBy] = useState("")
-  const [subtests, setSubtests] = useState<any[]>([])
-  const [composites, setComposites] = useState<any[]>([])
+  const [subtests, setSubtests] = useState<EditableSubtest[]>(() =>
+    initialAssessmentFromParams
+      ? initialAssessmentFromParams.subtests.map((s) => ({ ...s, rawScore: "", scaledScore: "" }))
+      : []
+  )
+  const [composites, setComposites] = useState<Composite[]>(() => {
+    if (!initialAssessmentFromParams) return []
+    if (initialAssessmentFromParams.name.includes("WISC") || initialAssessmentFromParams.name.includes("WAIS")) {
+      return [
+        { index: "VCI", fullName: "Verbal Comprehension Index", score: "", percentile: "" },
+        { index: "VSI", fullName: "Visual Spatial Index", score: "", percentile: "" },
+        { index: "WMI", fullName: "Working Memory Index", score: "", percentile: "" },
+        { index: "PSI", fullName: "Processing Speed Index", score: "", percentile: "" },
+        { index: "FRI", fullName: "Fluid Reasoning Index", score: "", percentile: "" },
+        { index: "FSIQ", fullName: "Full Scale IQ", score: "", percentile: "" },
+      ]
+    }
+    return []
+  })
   const [isSaving, setIsSaving] = useState(false)
 
   const selectedPatient = initialPatients.find(p => p.id === selectedPatientId)
   const selectedAssessment = initialAssessments.find(a => a.id === selectedAssessmentId)
-
-  // Initialize from URL params
-  useEffect(() => {
-    const patientParam = searchParams.get('patient')
-    const assessmentParam = searchParams.get('assessmentId')
-    
-    if (patientParam) {
-      setSelectedPatientId(patientParam)
-    }
-    
-    if (assessmentParam) {
-      // Find the assessment manually since handleAssessmentChange relies on state updates that might batch
-      const assessment = initialAssessments.find(a => a.id === assessmentParam)
-      if (assessment) {
-        setSelectedAssessmentId(assessmentParam)
-        setSelectedPlatform(assessment.platform)
-        setSubtests(assessment.subtests.map((s: any) => ({ ...s, rawScore: "", scaledScore: "" })))
-        
-        if (assessment.name.includes("WISC") || assessment.name.includes("WAIS")) {
-          setComposites([
-            { index: "VCI", fullName: "Verbal Comprehension Index", score: "", percentile: "" },
-            { index: "VSI", fullName: "Visual Spatial Index", score: "", percentile: "" },
-            { index: "WMI", fullName: "Working Memory Index", score: "", percentile: "" },
-            { index: "PSI", fullName: "Processing Speed Index", score: "", percentile: "" },
-            { index: "FRI", fullName: "Fluid Reasoning Index", score: "", percentile: "" },
-            { index: "FSIQ", fullName: "Full Scale IQ", score: "", percentile: "" },
-          ])
-        } else {
-          setComposites([])
-        }
-      }
-    }
-  }, [searchParams, initialAssessments])
 
   const handleAssessmentChange = (id: string) => {
     setSelectedAssessmentId(id)
     const assessment = initialAssessments.find(a => a.id === id)
     if (assessment) {
       setSelectedPlatform(assessment.platform)
-      setSubtests(assessment.subtests.map((s: any) => ({ ...s, rawScore: "", scaledScore: "" })))
+      setSubtests(assessment.subtests.map((s) => ({ ...s, rawScore: "", scaledScore: "" })))
       
       // Initialize basic composites (hardcoded for now, ideally derived from assessment type)
       if (assessment.name.includes("WISC") || assessment.name.includes("WAIS")) {
@@ -448,7 +477,13 @@ function ScoreEntryForm({ initialPatients, initialAssessments }: { initialPatien
   )
 }
 
-export function ScoreEntryClient({ initialPatients, initialAssessments }: { initialPatients: any[], initialAssessments: any[] }) {
+export function ScoreEntryClient({
+  initialPatients,
+  initialAssessments,
+}: {
+  initialPatients: Patient[]
+  initialAssessments: Assessment[]
+}) {
   return (
     <Suspense fallback={<div>Loading form...</div>}>
       <ScoreEntryForm initialPatients={initialPatients} initialAssessments={initialAssessments} />

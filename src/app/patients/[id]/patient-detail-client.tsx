@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { ArrowLeft, Calendar, User, FileText, Phone, Mail } from "lucide-react"
+import { ArrowLeft, User, FileText } from "lucide-react"
 import Link from "next/link"
 import { formatDate, formatAge, formatPlatform } from "@/lib/utils"
 import { Patient, Evaluation, Assessment, Report } from "@prisma/client"
@@ -19,8 +19,6 @@ type PatientData = Patient & {
 }
 
 export function PatientDetailClient({ patient }: { patient: PatientData }) {
-  const activeEvaluations = patient.evaluations.filter(e => e.status !== 'COMPLETED')
-  const completedEvaluations = patient.evaluations.filter(e => e.status === 'COMPLETED')
   const reports = patient.evaluations.filter(e => e.report !== null).map(e => ({
     ...e.report!,
     assessmentName: e.assessment.name
