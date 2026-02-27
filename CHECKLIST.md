@@ -100,15 +100,15 @@
 ##### Adolescent (13–17)
 
 - [x] **PHQ-A** (adolescent depression) (sample short form)
-- [ ] **GAD-7** (already present)
+- [x] **GAD-7** (already present)
 - [ ] **SCARED**
 - [ ] **CRAFFT** (substance use)
 
 ##### Adult (18–64)
 
-- [ ] **PHQ-9** (already present)
-- [ ] **GAD-7** (already present)
-- [ ] **AUDIT** (already present)
+- [x] **PHQ-9** (already present)
+- [x] **GAD-7** (already present)
+- [x] **AUDIT** (already present)
 - [x] **ASRS v1.1** (adult ADHD) (sample short form)
 - [ ] **PCL-5** (PTSD)
 
@@ -116,7 +116,7 @@
 
 - [x] **GDS-15 / GDS-30** (geriatric depression) (sample short form)
 - [ ] **MoCA / MMSE** (screening; requires careful handling + licensing considerations)
-- [ ] **GAD-7**
+- [x] **GAD-7**
 
 #### Test UX requirements
 

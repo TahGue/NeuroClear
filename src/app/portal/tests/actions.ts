@@ -3,20 +3,7 @@
 import { z } from "zod"
 import { prisma } from "@/lib/prisma"
 import { revalidatePath } from "next/cache"
-import { getServerSession } from "next-auth"
-import { authOptions } from "@/lib/auth"
-
-async function requirePatientSession() {
-  const session = await getServerSession(authOptions)
-  const role = session?.user?.role
-  const patientId = session?.user?.patientId
-
-  if (!session?.user || role !== "PATIENT" || !patientId) {
-    throw new Error("Unauthorized")
-  }
-
-  return { session, patientId }
-}
+import { requirePatientSession } from "@/lib/rbac"
 
 async function requireSessionOwnsInstrumentSession(sessionId: string) {
   const { patientId } = await requirePatientSession()

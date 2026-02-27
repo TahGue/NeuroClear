@@ -8,6 +8,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
   globalSetup: './tests/e2e/global-setup.ts',
+  globalTeardown: './tests/e2e/global-teardown.ts',
   use: {
     baseURL: 'http://localhost:3001',
     trace: 'on-first-retry',
@@ -20,13 +21,4 @@ export default defineConfig({
     },
   ],
 
-  webServer: {
-    command: 'npm run build && npm run start -- -p 3001',
-    url: 'http://localhost:3001',
-    reuseExistingServer: false,
-    env: {
-      ...process.env,
-      NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET ?? 'playwright-secret',
-    },
-  },
 });

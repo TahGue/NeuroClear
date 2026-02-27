@@ -1,5 +1,7 @@
 import { chromium, type FullConfig } from "@playwright/test"
-import { execSync } from "node:child_process"
+import { execSync, spawn } from "node:child_process"
+import fs from "node:fs"
+import path from "node:path"
 
 async function waitForServer(baseURL: string) {
   const deadline = Date.now() + 60_000
@@ -15,6 +17,38 @@ async function waitForServer(baseURL: string) {
   }
 
   throw new Error(`Dev server not reachable at ${baseURL}`)
+}
+
+async function ensureServerRunning(baseURL: string) {
+  try {
+    await waitForServer(baseURL)
+    return
+  } catch {
+    // continue
+  }
+
+  const pidPath = path.join(process.cwd(), "playwright/.auth/server.pid")
+
+  const child = spawn(
+    "npm",
+    ["run", "start", "--", "-p", "3001"],
+    {
+      stdio: "inherit",
+      detached: true,
+      env: {
+        ...process.env,
+        NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET ?? "playwright-secret",
+        NEXTAUTH_URL: baseURL,
+        PORT: "3001",
+      },
+    }
+  )
+
+  child.unref()
+  fs.mkdirSync(path.dirname(pidPath), { recursive: true })
+  fs.writeFileSync(pidPath, String(child.pid))
+
+  await waitForServer(baseURL)
 }
 
 async function loginAndSaveStorageState(params: {
@@ -46,7 +80,7 @@ export default async function globalSetup(config: FullConfig) {
 
   execSync("npx tsx prisma/seed.ts", { stdio: "inherit" })
 
-  await waitForServer(baseURL)
+  await ensureServerRunning(baseURL)
 
   await loginAndSaveStorageState({
     baseURL,

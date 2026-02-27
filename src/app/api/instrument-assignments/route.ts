@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server"
-import { getServerSession } from "next-auth"
 import { z } from "zod"
-import { authOptions } from "@/lib/auth"
 import { prisma } from "@/lib/prisma"
+import { requireStaffSession } from "@/lib/rbac"
 
 const UpsertAssignmentSchema = z.object({
   patientId: z.string().min(1),
@@ -11,10 +10,10 @@ const UpsertAssignmentSchema = z.object({
 })
 
 export async function POST(req: Request) {
-  const session = await getServerSession(authOptions)
-  const role = session?.user?.role
-
-  if (!session?.user || !role || role === "PATIENT") {
+  let session
+  try {
+    session = await requireStaffSession()
+  } catch {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
   }
 

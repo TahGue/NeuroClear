@@ -2,18 +2,8 @@
 
 import { prisma } from '@/lib/prisma'
 import { revalidatePath } from 'next/cache'
-import { getServerSession } from 'next-auth'
-import { authOptions } from '@/lib/auth'
 import { z } from 'zod'
-
-async function requireStaffSession() {
-  const session = await getServerSession(authOptions)
-  const role = session?.user?.role
-  if (!session?.user || !role || role === 'PATIENT') {
-    throw new Error('Unauthorized')
-  }
-  return session
-}
+import { requireStaffSession } from '@/lib/rbac'
 
 const createEvaluationSchema = z.object({
   patientId: z.string().min(1),
