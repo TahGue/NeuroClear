@@ -19,6 +19,25 @@
 - [x] Protected patient portal Server Actions in `src/app/portal/tests/actions.ts`:
   - [x] Requires authenticated **PATIENT** session
   - [x] Verifies the current patient owns the `InstrumentSession` before writes
+  - [x] Prevents writes after session submission (server-side)
+  - [x] Syncs `InstrumentAssignment` status with portal progress (ASSIGNED → IN_PROGRESS → SUBMITTED)
+
+### Instruments / Portal Tests
+
+- [x] Added age-bounded patient instruments (`minAgeYears`, `maxAgeYears`) and `audience`
+- [x] Added `InstrumentAssignment` model to track staff-assigned portal tests
+- [x] Patient portal `/portal/tests` shows:
+  - [x] Assigned tests
+  - [x] Available tests filtered by patient age
+- [x] Staff can assign portal tests from patient detail page
+- [x] Staff assignment API creates an initial `InstrumentSession` if none exists
+
+### Automated Testing
+
+- [x] Playwright global setup seeds DB + generates staff/patient auth states
+- [x] Playwright e2e coverage:
+  - [x] RBAC redirects (patient vs staff)
+  - [x] Portal tests page shows assigned tests
 
 ### Quality Gates
 
@@ -73,14 +92,14 @@
 
 ##### Child (6–12)
 
-- [ ] **SDQ (Parent/Teacher forms)**
+- [x] **SDQ (Parent/Teacher forms)** (sample short form)
 - [ ] **SCARED (child/parent)**
 - [ ] **Vanderbilt ADHD scales**
 - [ ] **CBCL/YSR** (if licensing/availability allows)
 
 ##### Adolescent (13–17)
 
-- [ ] **PHQ-A** (adolescent depression)
+- [x] **PHQ-A** (adolescent depression) (sample short form)
 - [ ] **GAD-7** (already present)
 - [ ] **SCARED**
 - [ ] **CRAFFT** (substance use)
@@ -90,28 +109,28 @@
 - [ ] **PHQ-9** (already present)
 - [ ] **GAD-7** (already present)
 - [ ] **AUDIT** (already present)
-- [ ] **ASRS v1.1** (adult ADHD)
+- [x] **ASRS v1.1** (adult ADHD) (sample short form)
 - [ ] **PCL-5** (PTSD)
 
 ##### Older Adult (65+)
 
-- [ ] **GDS-15 / GDS-30** (geriatric depression)
+- [x] **GDS-15 / GDS-30** (geriatric depression) (sample short form)
 - [ ] **MoCA / MMSE** (screening; requires careful handling + licensing considerations)
 - [ ] **GAD-7**
 
 #### Test UX requirements
 
-- [ ] **Adaptive presentation** by age group:
-  - [ ] only show applicable tests
+- [x] **Adaptive presentation** by age group:
+  - [x] only show applicable tests
   - [ ] language level adjustments for pediatric vs adult
 - [ ] **Accessibility**
   - [ ] large text option
   - [ ] keyboard navigation
   - [ ] clear progress indication
 - [ ] **Session behavior**
-  - [ ] autosave per answer (already partly implemented)
-  - [ ] resume where left off
-  - [ ] prevent editing after submission (server enforced)
+  - [x] autosave per answer (already partly implemented)
+  - [x] resume where left off
+  - [x] prevent editing after submission (server enforced)
 
 ---
 
@@ -119,9 +138,9 @@
 
 #### Assignment & Scheduling
 
-- [ ] Assign patient portal tests to a patient (instrument sessions created ahead of time)
-- [ ] Due dates + reminders
-- [ ] Staff view of patient completion status
+- [x] Assign patient portal tests to a patient (instrument sessions created ahead of time)
+- [x] Due dates + reminders (due date supported on assignment)
+- [x] Staff view of patient completion status
 
 #### Scoring & Interpretation
 
@@ -150,16 +169,16 @@
 
 ### Data Model
 
-- [ ] Model “Assigned Instruments” explicitly:
-  - [ ] `InstrumentAssignment` (patientId, instrumentId, assignedBy, dueDate, status)
+- [x] Model “Assigned Instruments” explicitly:
+  - [x] `InstrumentAssignment` (patientId, instrumentId, assignedBy, dueDate, status)
 
 ### Testing
 
 - [ ] Unit tests for scoring (Vitest)
 - [ ] Integration tests for RBAC (Playwright):
-  - [ ] PATIENT cannot load `/`
+  - [x] PATIENT cannot load `/`
   - [ ] PATIENT cannot invoke staff actions
-  - [ ] Staff cannot access `/portal`
+  - [x] Staff cannot access `/portal`
 
 ---
 
