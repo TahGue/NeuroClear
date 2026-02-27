@@ -1,9 +1,10 @@
 import { prisma } from "@/lib/prisma"
-import { getServerSession } from "next-auth"
-import { authOptions } from "@/lib/auth"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
+import { formatDate, formatDateTime } from "@/lib/utils"
+import { requirePatientSession } from "@/lib/rbac"
 
 function getAgeYears(dateOfBirth: Date, now: Date = new Date()) {
   let age = now.getFullYear() - dateOfBirth.getFullYear()
@@ -22,21 +23,7 @@ function isInstrumentInAgeRange(
 }
 
 export default async function PortalTestsPage() {
-  const session = await getServerSession(authOptions)
-  const patientId = session?.user?.patientId ?? undefined
-
-  if (!patientId) {
-    return (
-      <div className="p-6">
-        <Card>
-          <CardHeader>
-            <CardTitle>Access error</CardTitle>
-            <CardDescription>Your account is not linked to a patient record.</CardDescription>
-          </CardHeader>
-        </Card>
-      </div>
-    )
-  }
+  const { patientId } = await requirePatientSession()
 
   const patient = await prisma.patient.findUnique({
     where: { id: patientId },
@@ -76,9 +63,27 @@ export default async function PortalTestsPage() {
 
   const sessions = await prisma.instrumentSession.findMany({
     where: { patientId },
-    include: { instrument: true, result: true },
+    include: {
+      instrument: {
+        include: {
+          _count: {
+            select: {
+              items: true,
+            },
+          },
+        },
+      },
+      result: true,
+      _count: {
+        select: {
+          responses: true,
+        },
+      },
+    },
     orderBy: { createdAt: "desc" },
   })
+
+  const latestSessionByInstrumentId = new Map(sessions.map((s) => [s.instrumentId, s]))
 
   return (
     <div className="min-h-screen bg-background p-6 space-y-6">
@@ -97,19 +102,45 @@ export default async function PortalTestsPage() {
             <p className="text-sm text-muted-foreground">No assigned tests yet.</p>
           ) : (
             <div className="grid gap-4 md:grid-cols-2">
-              {assignments.map((a) => (
-                <Card key={a.id}>
-                  <CardHeader>
-                    <CardTitle>{a.instrument.name}</CardTitle>
-                    <CardDescription>{a.instrument.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <Button asChild>
-                      <Link href={`/portal/tests/${a.instrument.slug}`}>Start / Continue</Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
+              {assignments.map((a) => {
+                const latest = latestSessionByInstrumentId.get(a.instrumentId)
+                const answeredCount = latest?._count?.responses ?? 0
+                const totalCount = latest?.instrument?._count?.items
+                const progressText = totalCount ? `${answeredCount}/${totalCount}` : `${answeredCount}`
+                const isSubmitted = a.status === "SUBMITTED"
+
+                return (
+                  <Card key={a.id}>
+                    <CardHeader className="space-y-2">
+                      <CardTitle className="text-lg">{a.instrument.name}</CardTitle>
+                      <CardDescription>{a.instrument.description}</CardDescription>
+
+                      <div className="flex flex-wrap gap-2 text-xs">
+                        <Badge variant="secondary">{a.status.replace("_", " ")}</Badge>
+                        {a.dueDate ? <Badge variant="outline">Due {formatDate(a.dueDate)}</Badge> : null}
+                        <Badge variant="outline">Progress {progressText}</Badge>
+                        {!isSubmitted && latest?.updatedAt ? (
+                          <Badge variant="outline">Saved {formatDateTime(latest.updatedAt)}</Badge>
+                        ) : null}
+                        {isSubmitted && latest?.submittedAt ? (
+                          <Badge variant="outline">Submitted {formatDateTime(latest.submittedAt)}</Badge>
+                        ) : null}
+                      </div>
+                    </CardHeader>
+                    <CardContent className="space-y-3">
+                      {isSubmitted ? (
+                        <p className="text-sm text-muted-foreground">
+                          Score: {latest?.result?.totalScore ?? "--"} — {latest?.result?.interpretation ?? "--"}
+                        </p>
+                      ) : null}
+
+                      <Button asChild>
+                        <Link href={`/portal/tests/${a.instrument.slug}`}>{isSubmitted ? "View" : "Start / Continue"}</Link>
+                      </Button>
+                    </CardContent>
+                  </Card>
+                )
+              })}
             </div>
           )}
         </CardContent>
@@ -139,34 +170,6 @@ export default async function PortalTestsPage() {
                 </Card>
               ))}
             </div>
-          )}
-        </CardContent>
-      </Card>
-
-      <Card>
-        <CardHeader>
-          <CardTitle>Previous Results</CardTitle>
-          <CardDescription>Your submitted sessions</CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-2">
-          {sessions.length === 0 ? (
-            <p className="text-sm text-muted-foreground">No sessions yet.</p>
-          ) : (
-            sessions
-              .filter((s) => s.status === "SUBMITTED")
-              .map((s) => (
-                <div key={s.id} className="flex items-center justify-between border-b py-2">
-                  <div>
-                    <p className="font-medium">{s.instrument.name}</p>
-                    <p className="text-sm text-muted-foreground">
-                      Score: {s.result?.totalScore ?? "--"} — {s.result?.interpretation ?? "--"}
-                    </p>
-                  </div>
-                  <Button asChild variant="outline" size="sm">
-                    <Link href={`/portal/tests/${s.instrument.slug}`}>View</Link>
-                  </Button>
-                </div>
-              ))
           )}
         </CardContent>
       </Card>
