@@ -46,7 +46,7 @@ export async function saveInstrumentResponse(input: unknown) {
 
   const session = await prisma.instrumentSession.findUnique({
     where: { id: sessionId },
-    select: { status: true },
+    select: { status: true, instrumentId: true, patientId: true },
   })
 
   if (!session) return { success: false, error: "Session not found" }
@@ -54,11 +54,23 @@ export async function saveInstrumentResponse(input: unknown) {
     return { success: false, error: "Session already submitted" }
   }
 
-  await prisma.instrumentResponse.upsert({
-    where: { sessionId_itemId: { sessionId, itemId } },
-    create: { sessionId, itemId, value },
-    update: { value },
-  })
+  await prisma.$transaction([
+    prisma.instrumentResponse.upsert({
+      where: { sessionId_itemId: { sessionId, itemId } },
+      create: { sessionId, itemId, value },
+      update: { value },
+    }),
+    prisma.instrumentAssignment.updateMany({
+      where: {
+        patientId: session.patientId,
+        instrumentId: session.instrumentId,
+        status: { in: ["ASSIGNED", "IN_PROGRESS"] },
+      },
+      data: {
+        status: "IN_PROGRESS",
+      },
+    }),
+  ])
 
   revalidatePath("/portal")
   revalidatePath("/portal/tests")
@@ -117,27 +129,39 @@ export async function submitInstrumentSession(input: unknown) {
   const totalScore = session.responses.reduce<number>((sum, r) => sum + r.value, 0)
   const interpretation = interpret(session.instrument.slug, totalScore)
 
-  await prisma.instrumentSession.update({
-    where: { id: sessionId },
-    data: {
-      status: "SUBMITTED",
-      submittedAt: new Date(),
-      result: {
-        upsert: {
-          create: {
-            totalScore,
-            interpretation,
-            details: { slug: session.instrument.slug },
-          },
-          update: {
-            totalScore,
-            interpretation,
-            details: { slug: session.instrument.slug },
+  await prisma.$transaction([
+    prisma.instrumentSession.update({
+      where: { id: sessionId },
+      data: {
+        status: "SUBMITTED",
+        submittedAt: new Date(),
+        result: {
+          upsert: {
+            create: {
+              totalScore,
+              interpretation,
+              details: { slug: session.instrument.slug },
+            },
+            update: {
+              totalScore,
+              interpretation,
+              details: { slug: session.instrument.slug },
+            },
           },
         },
       },
-    },
-  })
+    }),
+    prisma.instrumentAssignment.updateMany({
+      where: {
+        patientId: session.patientId,
+        instrumentId: session.instrumentId,
+        status: { in: ["ASSIGNED", "IN_PROGRESS"] },
+      },
+      data: {
+        status: "SUBMITTED",
+      },
+    }),
+  ])
 
   revalidatePath("/portal")
   revalidatePath("/portal/tests")
