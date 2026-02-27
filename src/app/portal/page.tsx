@@ -3,6 +3,7 @@ import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { formatDate, formatPlatform } from "@/lib/utils"
 
@@ -58,6 +59,12 @@ export default async function PortalPage() {
       <div>
         <h1 className="text-3xl font-bold text-foreground">Welcome, {patient.firstName}</h1>
         <p className="text-muted-foreground">Your evaluations and reports</p>
+      </div>
+
+      <div>
+        <Button asChild>
+          <Link href="/portal/tests">Take a Test</Link>
+        </Button>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">

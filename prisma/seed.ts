@@ -27,6 +27,11 @@ async function main() {
   await prisma.evaluation.deleteMany()
   await prisma.patient.deleteMany()
   await prisma.assessment.deleteMany()
+  await prisma.instrumentResponse.deleteMany()
+  await prisma.instrumentResult.deleteMany()
+  await prisma.instrumentSession.deleteMany()
+  await prisma.instrumentItem.deleteMany()
+  await prisma.instrument.deleteMany()
   await prisma.user.deleteMany()
 
   const passwordHash = await bcrypt.hash("password123", 10)
@@ -57,6 +62,97 @@ async function main() {
       role: UserRole.PATIENT,
       passwordHash,
       patientId: patient.id,
+    },
+  })
+
+  const likert = [
+    { label: "Not at all", value: 0 },
+    { label: "Several days", value: 1 },
+    { label: "More than half the days", value: 2 },
+    { label: "Nearly every day", value: 3 },
+  ]
+
+  await prisma.instrument.create({
+    data: {
+      slug: "phq9",
+      name: "PHQ-9",
+      description: "Patient Health Questionnaire-9 (Depression screener)",
+      items: {
+        create: [
+          { order: 1, prompt: "Little interest or pleasure in doing things", options: likert },
+          { order: 2, prompt: "Feeling down, depressed, or hopeless", options: likert },
+          { order: 3, prompt: "Trouble falling or staying asleep, or sleeping too much", options: likert },
+          { order: 4, prompt: "Feeling tired or having little energy", options: likert },
+          { order: 5, prompt: "Poor appetite or overeating", options: likert },
+          { order: 6, prompt: "Feeling bad about yourself — or that you are a failure or have let yourself or your family down", options: likert },
+          { order: 7, prompt: "Trouble concentrating on things, such as reading the newspaper or watching television", options: likert },
+          { order: 8, prompt: "Moving or speaking so slowly that other people could have noticed? Or the opposite — being so fidgety or restless that you have been moving around a lot more than usual", options: likert },
+          { order: 9, prompt: "Thoughts that you would be better off dead or of hurting yourself in some way", options: likert },
+        ],
+      },
+    },
+  })
+
+  await prisma.instrument.create({
+    data: {
+      slug: "gad7",
+      name: "GAD-7",
+      description: "Generalized Anxiety Disorder 7-item screener",
+      items: {
+        create: [
+          { order: 1, prompt: "Feeling nervous, anxious or on edge", options: likert },
+          { order: 2, prompt: "Not being able to stop or control worrying", options: likert },
+          { order: 3, prompt: "Worrying too much about different things", options: likert },
+          { order: 4, prompt: "Trouble relaxing", options: likert },
+          { order: 5, prompt: "Being so restless that it is hard to sit still", options: likert },
+          { order: 6, prompt: "Becoming easily annoyed or irritable", options: likert },
+          { order: 7, prompt: "Feeling afraid as if something awful might happen", options: likert },
+        ],
+      },
+    },
+  })
+
+  const auditOptions = [
+    { label: "Never", value: 0 },
+    { label: "Monthly or less", value: 1 },
+    { label: "2–4 times a month", value: 2 },
+    { label: "2–3 times a week", value: 3 },
+  ]
+
+  await prisma.instrument.create({
+    data: {
+      slug: "audit",
+      name: "AUDIT",
+      description: "Alcohol Use Disorders Identification Test (WHO)",
+      items: {
+        create: [
+          { order: 1, prompt: "How often do you have a drink containing alcohol?", options: auditOptions },
+          { order: 2, prompt: "How many drinks containing alcohol do you have on a typical day when you are drinking?", options: [
+            { label: "1 or 2", value: 0 },
+            { label: "3 or 4", value: 1 },
+            { label: "5 or 6", value: 2 },
+            { label: "7 to 9", value: 3 },
+          ] },
+          { order: 3, prompt: "How often do you have six or more drinks on one occasion?", options: auditOptions },
+          { order: 4, prompt: "How often during the last year have you found that you were not able to stop drinking once you had started?", options: auditOptions },
+          { order: 5, prompt: "How often during the last year have you failed to do what was normally expected from you because of drinking?", options: auditOptions },
+          { order: 6, prompt: "How often during the last year have you needed a first drink in the morning to get yourself going after a heavy drinking session?", options: auditOptions },
+          { order: 7, prompt: "How often during the last year have you had a feeling of guilt or remorse after drinking?", options: auditOptions },
+          { order: 8, prompt: "How often during the last year have you been unable to remember what happened the night before because you had been drinking?", options: auditOptions },
+          { order: 9, prompt: "Have you or someone else been injured because of your drinking?", options: [
+            { label: "No", value: 0 },
+            { label: "Yes, but not in the last year", value: 2 },
+            { label: "Yes, during the last year", value: 3 },
+            { label: "Prefer not to say", value: 0 },
+          ] },
+          { order: 10, prompt: "Has a relative, friend, doctor, or other health worker been concerned about your drinking or suggested you cut down?", options: [
+            { label: "No", value: 0 },
+            { label: "Yes, but not in the last year", value: 2 },
+            { label: "Yes, during the last year", value: 3 },
+            { label: "Prefer not to say", value: 0 },
+          ] },
+        ],
+      },
     },
   })
 

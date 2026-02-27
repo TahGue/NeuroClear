@@ -40,6 +40,7 @@ model Patient {
   
   evaluations Evaluation[]
   user        User?
+  instrumentSessions InstrumentSession[]
   
   @@map("patients")
 }
@@ -167,6 +168,79 @@ model Recommendation {
   @@map("recommendations")
 }
 
+model Instrument {
+  id          String           @id @default(cuid())
+  slug        String           @unique
+  name        String
+  description String?
+  status      InstrumentStatus @default(ACTIVE)
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+
+  items       InstrumentItem[]
+  sessions    InstrumentSession[]
+
+  @@map("instruments")
+}
+
+model InstrumentItem {
+  id           String      @id @default(cuid())
+  instrumentId String
+  order        Int
+  prompt       String
+  options      Json
+
+  instrument   Instrument  @relation(fields: [instrumentId], references: [id])
+  responses    InstrumentResponse[]
+
+  @@unique([instrumentId, order])
+  @@map("instrument_items")
+}
+
+model InstrumentSession {
+  id           String                 @id @default(cuid())
+  instrumentId String
+  patientId    String
+  status       InstrumentSessionStatus @default(IN_PROGRESS)
+  startedAt    DateTime               @default(now())
+  submittedAt  DateTime?
+  createdAt    DateTime               @default(now())
+  updatedAt    DateTime               @updatedAt
+
+  instrument   Instrument             @relation(fields: [instrumentId], references: [id])
+  patient      Patient                @relation(fields: [patientId], references: [id])
+  responses    InstrumentResponse[]
+  result       InstrumentResult?
+
+  @@map("instrument_sessions")
+}
+
+model InstrumentResponse {
+  id        String            @id @default(cuid())
+  sessionId String
+  itemId    String
+  value     Int
+
+  session   InstrumentSession @relation(fields: [sessionId], references: [id])
+  item      InstrumentItem    @relation(fields: [itemId], references: [id])
+
+  @@unique([sessionId, itemId])
+  @@map("instrument_responses")
+}
+
+model InstrumentResult {
+  id             String            @id @default(cuid())
+  sessionId       String            @unique
+  totalScore      Int
+  interpretation  String
+  details         Json?
+  createdAt       DateTime          @default(now())
+
+  session         InstrumentSession @relation(fields: [sessionId], references: [id])
+
+  @@map("instrument_results")
+}
+
 enum PatientStatus {
   ACTIVE
   INACTIVE
@@ -226,6 +300,16 @@ enum Priority {
   MEDIUM
   HIGH
   URGENT
+}
+
+enum InstrumentStatus {
+  ACTIVE
+  INACTIVE
+}
+
+enum InstrumentSessionStatus {
+  IN_PROGRESS
+  SUBMITTED
 }
 
 enum UserRole {
