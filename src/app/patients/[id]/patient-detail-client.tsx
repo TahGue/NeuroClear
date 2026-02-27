@@ -7,22 +7,73 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { ArrowLeft, User, FileText } from "lucide-react"
 import Link from "next/link"
 import { formatDate, formatAge, formatPlatform } from "@/lib/utils"
-import { Patient, Evaluation, Assessment, Report } from "@prisma/client"
+import {
+  Assessment,
+  Evaluation,
+  InstrumentAudience,
+  InstrumentSessionStatus,
+  InstrumentAssignmentStatus,
+  Patient,
+  Report,
+} from "@prisma/client"
+import { AssignInstrumentModal } from "@/components/instruments/AssignInstrumentModal"
 
 type EvaluationWithDetails = Evaluation & {
   assessment: Assessment
   report: Report | null
 }
 
-type PatientData = Patient & {
-  evaluations: EvaluationWithDetails[]
+type InstrumentAssignmentWithInstrument = {
+  id: string
+  instrumentId: string
+  status: InstrumentAssignmentStatus
+  dueDate: Date | null
+  instrument: {
+    id: string
+    name: string
+    description: string | null
+    audience: InstrumentAudience
+  }
 }
 
-export function PatientDetailClient({ patient }: { patient: PatientData }) {
+type InstrumentSessionWithDetails = {
+  id: string
+  instrumentId: string
+  status: InstrumentSessionStatus
+  createdAt: Date
+  result: { totalScore: number; interpretation: string } | null
+}
+
+type PatientData = Patient & {
+  evaluations: EvaluationWithDetails[]
+  instrumentAssignments: InstrumentAssignmentWithInstrument[]
+  instrumentSessions: InstrumentSessionWithDetails[]
+}
+
+type InstrumentOption = {
+  id: string
+  name: string
+  description: string | null
+}
+
+export function PatientDetailClient({
+  patient,
+  instruments,
+}: {
+  patient: PatientData
+  instruments: InstrumentOption[]
+}) {
   const reports = patient.evaluations.filter(e => e.report !== null).map(e => ({
     ...e.report!,
     assessmentName: e.assessment.name
   }))
+
+  const latestSessionByInstrumentId = new Map<string, PatientData["instrumentSessions"][number]>()
+  for (const s of patient.instrumentSessions) {
+    if (!latestSessionByInstrumentId.has(s.instrumentId)) {
+      latestSessionByInstrumentId.set(s.instrumentId, s)
+    }
+  }
 
   return (
     <div className="space-y-6">
@@ -73,6 +124,66 @@ export function PatientDetailClient({ patient }: { patient: PatientData }) {
         </Card>
 
         <div className="md:col-span-2 space-y-6">
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between">
+              <div>
+                <CardTitle>Portal Tests</CardTitle>
+                <CardDescription>Assigned patient-facing screeners</CardDescription>
+              </div>
+              <AssignInstrumentModal patientId={patient.id} instruments={instruments} />
+            </CardHeader>
+            <CardContent>
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Test</TableHead>
+                    <TableHead>Audience</TableHead>
+                    <TableHead>Due</TableHead>
+                    <TableHead>Status</TableHead>
+                    <TableHead>Result</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {patient.instrumentAssignments.length === 0 ? (
+                    <TableRow>
+                      <TableCell colSpan={5} className="text-center text-muted-foreground">
+                        No portal tests assigned.
+                      </TableCell>
+                    </TableRow>
+                  ) : (
+                    patient.instrumentAssignments.map((a) => {
+                      const latest = latestSessionByInstrumentId.get(a.instrumentId)
+                      const isSubmitted = latest?.status === "SUBMITTED"
+                      return (
+                        <TableRow key={a.id}>
+                          <TableCell className="font-medium">{a.instrument.name}</TableCell>
+                          <TableCell>
+                            <Badge variant="outline">{a.instrument.audience}</Badge>
+                          </TableCell>
+                          <TableCell>{a.dueDate ? formatDate(a.dueDate) : "—"}</TableCell>
+                          <TableCell>
+                            <Badge variant={isSubmitted ? "default" : "secondary"}>
+                              {isSubmitted ? "SUBMITTED" : "ASSIGNED"}
+                            </Badge>
+                          </TableCell>
+                          <TableCell>
+                            {latest?.result ? (
+                              <span className="text-sm">
+                                {latest.result.totalScore} — {latest.result.interpretation}
+                              </span>
+                            ) : (
+                              <span className="text-sm text-muted-foreground">—</span>
+                            )}
+                          </TableCell>
+                        </TableRow>
+                      )
+                    })
+                  )}
+                </TableBody>
+              </Table>
+            </CardContent>
+          </Card>
+
           <Card>
             <CardHeader>
               <CardTitle>Evaluation History</CardTitle>
