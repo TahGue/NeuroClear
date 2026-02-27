@@ -1,0 +1,213 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Patient {
+  id          String   @id @default(cuid())
+  firstName   String
+  lastName    String
+  dateOfBirth DateTime
+  referralSource String?
+  status      PatientStatus @default(ACTIVE)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  evaluations Evaluation[]
+  
+  @@map("patients")
+}
+
+model Assessment {
+  id          String @id @default(cuid())
+  name        String
+  domain      AssessmentDomain
+  platform    AssessmentPlatform
+  minAge      Int
+  maxAge      Int
+  description String?
+  
+  evaluationAssessments EvaluationAssessment[]
+  subtests              Subtest[]
+  evaluations           Evaluation[]
+  
+  @@map("assessments")
+}
+
+model Evaluation {
+  id                String   @id @default(cuid())
+  patientId         String
+  assessmentId      String
+  status            EvaluationStatus @default(IN_PROGRESS)
+  administeredDate  DateTime?
+  administeredBy    String?
+  notes             String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  
+  patient           Patient @relation(fields: [patientId], references: [id])
+  assessment        Assessment @relation(fields: [assessmentId], references: [id])
+  scores            Score[]
+  report            Report?
+  evaluationAssessments EvaluationAssessment[]
+  
+  @@map("evaluations")
+}
+
+model EvaluationAssessment {
+  id           String @id @default(cuid())
+  evaluationId String
+  assessmentId String
+  
+  evaluation Evaluation @relation(fields: [evaluationId], references: [id])
+  assessment Assessment @relation(fields: [assessmentId], references: [id])
+  
+  @@map("evaluation_assessments")
+}
+
+model Subtest {
+  id          String @id @default(cuid())
+  assessmentId String
+  name        String
+  index       String?
+  rawScore    Int?
+  scaledScore Int?
+  
+  assessment  Assessment @relation(fields: [assessmentId], references: [id])
+  scores      Score[]
+  
+  @@map("subtests")
+}
+
+model Score {
+  id           String @id @default(cuid())
+  evaluationId String
+  subtestId    String
+  rawScore     Int?
+  scaledScore  Int?
+  percentile   Float?
+  
+  evaluation   Evaluation @relation(fields: [evaluationId], references: [id])
+  subtest      Subtest @relation(fields: [subtestId], references: [id])
+  
+  @@map("scores")
+}
+
+model Report {
+  id                    String @id @default(cuid())
+  evaluationId          String @unique
+  diagnosticImpressions DiagnosticImpression[]
+  narrativeSections     NarrativeSection[]
+  recommendations       Recommendation[]
+  
+  evaluation            Evaluation @relation(fields: [evaluationId], references: [id])
+  
+  @@map("reports")
+}
+
+model DiagnosticImpression {
+  id          String @id @default(cuid())
+  reportId    String
+  dsm5Code    String?
+  icd11Code   String?
+  severity    Severity
+  evidence    String?
+  
+  report      Report @relation(fields: [reportId], references: [id])
+  
+  @@map("diagnostic_impressions")
+}
+
+model NarrativeSection {
+  id      String @id @default(cuid())
+  reportId String
+  section NarrativeSectionType
+  content String
+  
+  report  Report @relation(fields: [reportId], references: [id])
+  
+  @@map("narrative_sections")
+}
+
+model Recommendation {
+  id            String @id @default(cuid())
+  reportId      String
+  category      RecommendationCategory
+  description   String
+  priority      Priority @default(MEDIUM)
+  
+  report        Report @relation(fields: [reportId], references: [id])
+  
+  @@map("recommendations")
+}
+
+enum PatientStatus {
+  ACTIVE
+  INACTIVE
+  DISCHARGED
+}
+
+enum AssessmentDomain {
+  COGNITIVE
+  ADAPTIVE
+  BEHAVIORAL
+  EXECUTIVE_FUNCTION
+  ACADEMIC
+  EMOTIONAL
+  SOCIAL
+}
+
+enum AssessmentPlatform {
+  Q_INTERACTIVE
+  Q_GLOBAL
+  MHS_ONLINE
+  ALTO
+}
+
+enum EvaluationStatus {
+  IN_PROGRESS
+  COMPLETED
+  PENDING_REVIEW
+  APPROVED
+}
+
+enum Severity {
+  NONE
+  MILD
+  MODERATE
+  SEVERE
+}
+
+enum NarrativeSectionType {
+  REFERRAL
+  BACKGROUND
+  OBSERVATIONS
+  FINDINGS
+  SUMMARY
+}
+
+enum RecommendationCategory {
+  ACADEMIC_ACCOMMODATIONS
+  THERAPY
+  EDUCATIONAL_PLANNING
+  RE_EVALUATION
+  PARENTAL_SUPPORT
+  MEDICAL_REFERRAL
+}
+
+enum Priority {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
+}
