@@ -1,4 +1,5 @@
-import { PrismaClient, AssessmentDomain, AssessmentPlatform, PatientStatus, EvaluationStatus, Severity, NarrativeSectionType, RecommendationCategory, Priority } from '@prisma/client'
+import { PrismaClient, AssessmentDomain, AssessmentPlatform, PatientStatus, EvaluationStatus, Severity, NarrativeSectionType, RecommendationCategory, Priority, UserRole } from '@prisma/client'
+import * as bcrypt from 'bcryptjs'
 
 const prisma = new PrismaClient()
 
@@ -16,6 +17,37 @@ async function main() {
   await prisma.evaluation.deleteMany()
   await prisma.patient.deleteMany()
   await prisma.assessment.deleteMany()
+  await prisma.user.deleteMany()
+
+  // 1. Create Users
+  const hashedPassword = await bcrypt.hash('password123', 10)
+  
+  const adminUser = await prisma.user.create({
+    data: {
+      email: 'admin@neuroclear.app',
+      name: 'System Admin',
+      role: UserRole.ADMIN,
+      passwordHash: hashedPassword
+    }
+  })
+
+  const clinicianUser = await prisma.user.create({
+    data: {
+      email: 'dr.smith@neuroclear.app',
+      name: 'Dr. John Smith',
+      role: UserRole.CLINICIAN,
+      passwordHash: hashedPassword
+    }
+  })
+  
+  const staffUser = await prisma.user.create({
+    data: {
+      email: 'frontdesk@neuroclear.app',
+      name: 'Front Desk Staff',
+      role: UserRole.STAFF,
+      passwordHash: hashedPassword
+    }
+  })
 
   // 1. Create Assessments
   const wiscV = await prisma.assessment.create({
