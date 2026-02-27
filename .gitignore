@@ -61,3 +61,6 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+
+# Windsurf (local IDE workflows/state)
+.windsurf/

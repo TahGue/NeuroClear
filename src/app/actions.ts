@@ -87,7 +87,7 @@ export async function createEvaluation(data: unknown) {
       await Promise.all(scorePromises.filter(Boolean))
     }
 
-    revalidatePath('/dashboard')
+    revalidatePath('/')
     revalidatePath('/patients')
     revalidatePath(`/patients/${parsed.patientId}`)
     
@@ -112,7 +112,7 @@ export async function assignEvaluation(patientId: string, assessmentId: string, 
       }
     })
 
-    revalidatePath('/dashboard')
+    revalidatePath('/')
     revalidatePath('/patients')
     revalidatePath(`/patients/${parsed.patientId}`)
     

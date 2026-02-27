@@ -30,6 +30,13 @@ export async function middleware(req: NextRequest) {
 
   const role = (token as { role?: string } | null)?.role
 
+  if (!role) {
+    const url = req.nextUrl.clone()
+    url.pathname = "/login"
+    url.searchParams.set("callbackUrl", pathname)
+    return NextResponse.redirect(url)
+  }
+
   // Patient users can only access /portal
   if (role === "PATIENT") {
     if (pathname === "/" || pathname.startsWith("/patients") || pathname.startsWith("/reports") || pathname.startsWith("/assessments") || pathname.startsWith("/score-entry")) {
