@@ -1,6 +1,7 @@
 "use client"
 
 import { Bell, Search, User } from "lucide-react"
+import { signOut } from "next-auth/react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
@@ -26,6 +27,10 @@ export function Header() {
           </Badge>
         </Button>
         
+        <Button variant="outline" size="sm" onClick={() => signOut({ callbackUrl: "/login" })}>
+          Logout
+        </Button>
+
         <Button variant="ghost" size="icon">
           <User className="h-5 w-5" />
         </Button>
