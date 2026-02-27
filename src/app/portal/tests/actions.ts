@@ -44,6 +44,16 @@ export async function saveInstrumentResponse(input: unknown) {
 
   await requireSessionOwnsInstrumentSession(sessionId)
 
+  const session = await prisma.instrumentSession.findUnique({
+    where: { id: sessionId },
+    select: { status: true },
+  })
+
+  if (!session) return { success: false, error: "Session not found" }
+  if (session.status === "SUBMITTED") {
+    return { success: false, error: "Session already submitted" }
+  }
+
   await prisma.instrumentResponse.upsert({
     where: { sessionId_itemId: { sessionId, itemId } },
     create: { sessionId, itemId, value },
@@ -99,6 +109,10 @@ export async function submitInstrumentSession(input: unknown) {
   })
 
   if (!session) return { success: false, error: "Session not found" }
+
+  if (session.status === "SUBMITTED") {
+    return { success: true }
+  }
 
   const totalScore = session.responses.reduce<number>((sum, r) => sum + r.value, 0)
   const interpretation = interpret(session.instrument.slug, totalScore)

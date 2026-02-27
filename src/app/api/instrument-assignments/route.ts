@@ -53,5 +53,26 @@ export async function POST(req: Request) {
     include: { instrument: true },
   })
 
-  return NextResponse.json({ success: true, assignment })
+  const existingSession = await prisma.instrumentSession.findFirst({
+    where: {
+      patientId,
+      instrumentId,
+    },
+    orderBy: {
+      createdAt: "desc",
+    },
+    select: { id: true, status: true },
+  })
+
+  const instrumentSession =
+    existingSession ??
+    (await prisma.instrumentSession.create({
+      data: {
+        patientId,
+        instrumentId,
+      },
+      select: { id: true, status: true },
+    }))
+
+  return NextResponse.json({ success: true, assignment, instrumentSession })
 }
