@@ -60,9 +60,12 @@ export default async function PortalPage() {
   const activeAssignments = patient.instrumentAssignments.filter((a) => a.status !== "SUBMITTED")
   const completedAssignments = patient.instrumentAssignments.filter((a) => a.status === "SUBMITTED")
 
-  const latestSessionByInstrumentId = new Map(
-    patient.instrumentSessions.map((s) => [s.instrumentId, s])
-  )
+  const latestSessionByInstrumentId = new Map<string, (typeof patient.instrumentSessions)[number]>()
+  for (const s of patient.instrumentSessions) {
+    if (!latestSessionByInstrumentId.has(s.instrumentId)) {
+      latestSessionByInstrumentId.set(s.instrumentId, s)
+    }
+  }
 
   const continueAssignment = [...activeAssignments].sort((a, b) => {
     const aSession = latestSessionByInstrumentId.get(a.instrumentId)

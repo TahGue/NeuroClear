@@ -83,7 +83,12 @@ export default async function PortalTestsPage() {
     orderBy: { createdAt: "desc" },
   })
 
-  const latestSessionByInstrumentId = new Map(sessions.map((s) => [s.instrumentId, s]))
+  const latestSessionByInstrumentId = new Map<string, (typeof sessions)[number]>()
+  for (const s of sessions) {
+    if (!latestSessionByInstrumentId.has(s.instrumentId)) {
+      latestSessionByInstrumentId.set(s.instrumentId, s)
+    }
+  }
 
   return (
     <div className="min-h-screen bg-background p-6 space-y-6">
