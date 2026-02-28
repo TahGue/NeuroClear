@@ -125,6 +125,13 @@ export async function submitInstrumentSession(input: unknown) {
     }),
   ])
 
+  await logAuditAction(session.patientId, "SUBMITTED_INSTRUMENT", {
+    instrumentId: session.instrumentId,
+    sessionId: session.id,
+    totalScore: scored.totalScore,
+    interpretation: scored.interpretation
+  })
+
   revalidatePath("/portal")
   revalidatePath("/portal/tests")
   revalidatePath(`/portal/tests/${session.instrument.slug}`)
