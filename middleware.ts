@@ -43,6 +43,10 @@ export async function middleware(req: NextRequest) {
     return NextResponse.next()
   }
 
+  if (publicPrefixes.some((p) => pathname.startsWith(p))) {
+    return NextResponse.next()
+  }
+
   let token
   try {
     token = await getToken({ req, secret: getNextAuthSecret() })

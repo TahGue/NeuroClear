@@ -65,6 +65,7 @@ export default async function PatientDetail({ params }: { params: { id: string }
       <div className="flex-1 flex flex-col">
         <Header />
         <main className="flex-1 overflow-auto p-6">
+          {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
           <PatientDetailClient patient={patient as any} instruments={instruments} currentUserRole={session.user.role} />
         </main>
       </div>

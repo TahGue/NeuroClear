@@ -125,7 +125,9 @@ export async function submitInstrumentSession(input: unknown) {
     }),
   ])
 
-  await logAuditAction(session.patientId, "SUBMITTED_INSTRUMENT", {
+  const currentUser = await prisma.user.findUnique({ where: { patientId: session.patientId }, select: { id: true } })
+
+  await logAuditAction(currentUser?.id || null, "SUBMITTED_INSTRUMENT", {
     instrumentId: session.instrumentId,
     sessionId: session.id,
     totalScore: scored.totalScore,
