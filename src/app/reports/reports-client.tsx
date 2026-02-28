@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -346,13 +347,11 @@ export function ReportsClient({ initialReports }: { initialReports: ReportRow[] 
                     </div>
                     
                     <div className="mt-6 flex space-x-4">
-                      <Button>
-                        <Download className="h-4 w-4 mr-2" />
-                        Export Report
-                      </Button>
-                      <Button variant="outline">
-                        <Eye className="h-4 w-4 mr-2" />
-                        Print Preview
+                      <Button asChild>
+                        <Link href={`/reports/${selectedReport.id}`}>
+                          <FileText className="h-4 w-4 mr-2" />
+                          Open Report Builder
+                        </Link>
                       </Button>
                     </div>
                   </CardContent>

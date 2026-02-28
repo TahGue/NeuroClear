@@ -1,0 +1,13 @@
+{
+  "login.title": "Sign in",
+  "login.description": "Use your email and password to access NeuroClear",
+  "login.email": "Email",
+  "login.password": "Password",
+  "login.emailPlaceholder": "you@example.com",
+  "login.submit": "Sign in",
+  "login.submitting": "Signing in...",
+  "login.invalid": "Invalid email or password",
+  "language.label": "Language",
+  "language.en": "English",
+  "language.fr": "Français"
+}

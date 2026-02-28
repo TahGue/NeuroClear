@@ -3,7 +3,6 @@
 import { useEffect, useMemo, useState, useTransition } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { saveInstrumentResponse, submitInstrumentSession } from "@/app/portal/tests/actions"
 import Link from "next/link"
 import { formatDateTime } from "@/lib/utils"
 
@@ -30,6 +29,9 @@ export function InstrumentRunner({
   isSubmitted,
   lastSavedAt,
   submittedAt,
+  onSave,
+  onSubmit,
+  backLink = "/portal/tests",
 }: {
   sessionId: string
   instrumentName: string
@@ -39,6 +41,9 @@ export function InstrumentRunner({
   isSubmitted: boolean
   lastSavedAt?: Date
   submittedAt?: Date | null
+  onSave: (itemId: string, value: number) => Promise<{ success: boolean; error?: string }>
+  onSubmit: () => Promise<{ success: boolean; error?: string }>
+  backLink?: string
 }) {
   const [index, setIndex] = useState(0)
   const [pending, startTransition] = useTransition()
@@ -66,7 +71,7 @@ export function InstrumentRunner({
       return next
     })
     startTransition(async () => {
-      await saveInstrumentResponse({ sessionId, itemId: item.id, value })
+      await onSave(item.id, value)
     })
   }
 
@@ -75,8 +80,12 @@ export function InstrumentRunner({
 
   const submit = () => {
     startTransition(async () => {
-      await submitInstrumentSession({ sessionId })
-      window.location.href = "/portal/tests"
+      const res = await onSubmit()
+      if (res.success) {
+        window.location.href = backLink
+      } else {
+        alert(res.error || "Failed to submit")
+      }
     })
   }
 
@@ -108,7 +117,7 @@ export function InstrumentRunner({
           </CardHeader>
           <CardContent>
             <Button asChild variant="outline">
-              <Link href="/portal/tests">Back to tests</Link>
+              <Link href={backLink}>Back to tests</Link>
             </Button>
           </CardContent>
         </Card>

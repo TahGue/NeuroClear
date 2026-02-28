@@ -43,6 +43,14 @@ export function AssignInstrumentModal({
 
     setIsSubmitting(true)
     setError(null)
+    
+    let finalDueDate = null
+    if (dueDate) {
+      const dateObj = new Date(dueDate)
+      dateObj.setUTCHours(23, 59, 59, 999)
+      finalDueDate = dateObj.toISOString()
+    }
+
     try {
       const res = await fetch("/api/instrument-assignments", {
         method: "POST",
@@ -50,7 +58,7 @@ export function AssignInstrumentModal({
         body: JSON.stringify({
           patientId,
           instrumentId,
-          dueDate: dueDate ? new Date(dueDate).toISOString() : null,
+          dueDate: finalDueDate,
         }),
       })
 

@@ -7,6 +7,8 @@ import { DashboardCharts, DomainBarChart } from "@/components/dashboard/charts"
 import { Activity, Users, FileText, Clock } from "lucide-react"
 import { prisma } from "@/lib/prisma"
 import { formatDate, formatPlatform } from "@/lib/utils"
+import { requireAuthenticatedSession } from "@/lib/rbac"
+import { redirect } from "next/navigation"
 
 async function getDashboardData() {
   const activeEvaluations = await prisma.evaluation.count({
@@ -68,6 +70,17 @@ async function getDashboardData() {
 }
 
 export default async function Dashboard() {
+  let session
+  try {
+    session = await requireAuthenticatedSession()
+  } catch {
+    redirect("/login")
+  }
+
+  if (session.user.role === "PATIENT") {
+    redirect("/portal")
+  }
+
   const { stats, recentEvaluations, platformData, domainData } = await getDashboardData()
 
   return (

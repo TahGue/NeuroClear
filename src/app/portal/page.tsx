@@ -6,6 +6,8 @@ import Link from "next/link"
 import { formatDate, formatDateTime, formatPlatform } from "@/lib/utils"
 import { requirePatientSession } from "@/lib/rbac"
 
+export const dynamic = "force-dynamic"
+
 export default async function PortalPage() {
   const { patientId } = await requirePatientSession()
 
@@ -67,6 +69,29 @@ export default async function PortalPage() {
     }
   }
 
+  const sortedActiveAssignments = [...activeAssignments].sort((a, b) => {
+    const aDue = a.dueDate?.getTime() ?? Number.POSITIVE_INFINITY
+    const bDue = b.dueDate?.getTime() ?? Number.POSITIVE_INFINITY
+    if (aDue !== bDue) return aDue - bDue
+
+    const aSession = latestSessionByInstrumentId.get(a.instrumentId)
+    const bSession = latestSessionByInstrumentId.get(b.instrumentId)
+    const aUpdated = aSession?.updatedAt?.getTime() ?? 0
+    const bUpdated = bSession?.updatedAt?.getTime() ?? 0
+    if (aUpdated !== bUpdated) return bUpdated - aUpdated
+
+    return b.createdAt.getTime() - a.createdAt.getTime()
+  })
+
+  const sortedCompletedAssignments = [...completedAssignments].sort((a, b) => {
+    const aSession = latestSessionByInstrumentId.get(a.instrumentId)
+    const bSession = latestSessionByInstrumentId.get(b.instrumentId)
+    const aSubmitted = aSession?.submittedAt?.getTime() ?? 0
+    const bSubmitted = bSession?.submittedAt?.getTime() ?? 0
+    if (aSubmitted !== bSubmitted) return bSubmitted - aSubmitted
+    return b.createdAt.getTime() - a.createdAt.getTime()
+  })
+
   const continueAssignment = [...activeAssignments].sort((a, b) => {
     const aSession = latestSessionByInstrumentId.get(a.instrumentId)
     const bSession = latestSessionByInstrumentId.get(b.instrumentId)
@@ -107,7 +132,7 @@ export default async function PortalPage() {
                 <p className="text-sm text-muted-foreground">No assigned tests right now.</p>
               ) : (
                 <div className="space-y-2">
-                  {activeAssignments.slice(0, 5).map((a) => {
+                  {sortedActiveAssignments.slice(0, 5).map((a) => {
                     const latest = latestSessionByInstrumentId.get(a.instrumentId)
                     const answeredCount = latest?._count?.responses ?? 0
                     const totalCount = latest?.instrument?._count?.items
@@ -146,7 +171,7 @@ export default async function PortalPage() {
                 <p className="text-sm text-muted-foreground">No completed tests yet.</p>
               ) : (
                 <div className="space-y-2">
-                  {completedAssignments.slice(0, 5).map((a) => {
+                  {sortedCompletedAssignments.slice(0, 5).map((a) => {
                     const latest = latestSessionByInstrumentId.get(a.instrumentId)
                     return (
                       <div key={a.id} className="flex items-center justify-between border-b py-2">

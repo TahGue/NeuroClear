@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -17,6 +18,9 @@ import {
   Report,
 } from "@prisma/client"
 import { AssignInstrumentModal } from "@/components/instruments/AssignInstrumentModal"
+import { Copy, Check } from "lucide-react"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { ScoreTrendChart } from "@/components/dashboard/charts"
 
 type EvaluationWithDetails = Evaluation & {
   assessment: Assessment
@@ -28,6 +32,8 @@ type InstrumentAssignmentWithInstrument = {
   instrumentId: string
   status: InstrumentAssignmentStatus
   dueDate: Date | null
+  createdAt: Date
+  token: string | null
   instrument: {
     id: string
     name: string
@@ -59,10 +65,15 @@ type InstrumentOption = {
 export function PatientDetailClient({
   patient,
   instruments,
+  currentUserRole,
 }: {
   patient: PatientData
   instruments: InstrumentOption[]
+  currentUserRole: string
 }) {
+  const [unassignErrorByAssignmentId, setUnassignErrorByAssignmentId] = useState<Record<string, string>>({})
+  const [statusFilter, setStatusFilter] = useState<string>("ALL")
+  const [copiedToken, setCopiedToken] = useState<string | null>(null)
   const reports = patient.evaluations.filter(e => e.report !== null).map(e => ({
     ...e.report!,
     assessmentName: e.assessment.name
@@ -74,6 +85,19 @@ export function PatientDetailClient({
       latestSessionByInstrumentId.set(s.instrumentId, s)
     }
   }
+
+  const filteredAssignments = patient.instrumentAssignments.filter(a => {
+    if (statusFilter === "ALL") return true
+    const latest = latestSessionByInstrumentId.get(a.instrumentId)
+    const isSubmitted = latest?.status === "SUBMITTED"
+    const currentStatus = isSubmitted ? "SUBMITTED" : "ASSIGNED"
+    return currentStatus === statusFilter
+  }).sort((a, b) => {
+    const aDue = a.dueDate?.getTime() ?? Number.POSITIVE_INFINITY
+    const bDue = b.dueDate?.getTime() ?? Number.POSITIVE_INFINITY
+    if (aDue !== bDue) return aDue - bDue
+    return b.createdAt.getTime() - a.createdAt.getTime()
+  })
 
   return (
     <div className="space-y-6">
@@ -151,9 +175,49 @@ export function PatientDetailClient({
                       </TableCell>
                     </TableRow>
                   ) : (
-                    patient.instrumentAssignments.map((a) => {
+                    filteredAssignments.map((a) => {
                       const latest = latestSessionByInstrumentId.get(a.instrumentId)
                       const isSubmitted = latest?.status === "SUBMITTED"
+                      
+                      let badgeVariant: "default" | "secondary" | "destructive" | "outline" = "outline"
+                      if (latest?.result?.interpretation) {
+                        const interp = latest.result.interpretation.toLowerCase()
+                        if (interp.includes("severe") || interp.includes("high") || interp.includes("review")) {
+                          badgeVariant = "destructive"
+                        } else if (interp.includes("mild") || interp.includes("moderate") || interp.includes("developing") || interp.includes("needs")) {
+                          badgeVariant = "secondary"
+                        } else {
+                          badgeVariant = "default"
+                        }
+                      }
+
+                      const unassign = async () => {
+                        setUnassignErrorByAssignmentId((prev) => {
+                          const next = { ...prev }
+                          delete next[a.id]
+                          return next
+                        })
+
+                        const res = await fetch("/api/instrument-assignments", {
+                          method: "DELETE",
+                          headers: { "Content-Type": "application/json" },
+                          body: JSON.stringify({
+                            patientId: patient.id,
+                            instrumentId: a.instrumentId,
+                          }),
+                        })
+
+                        if (!res.ok) {
+                          setUnassignErrorByAssignmentId((prev) => ({
+                            ...prev,
+                            [a.id]: "Failed to unassign test.",
+                          }))
+                          return
+                        }
+
+                        window.location.reload()
+                      }
+
                       return (
                         <TableRow key={a.id}>
                           <TableCell className="font-medium">{a.instrument.name}</TableCell>
@@ -167,13 +231,31 @@ export function PatientDetailClient({
                             </Badge>
                           </TableCell>
                           <TableCell>
-                            {latest?.result ? (
-                              <span className="text-sm">
-                                {latest.result.totalScore} — {latest.result.interpretation}
-                              </span>
-                            ) : (
-                              <span className="text-sm text-muted-foreground">—</span>
-                            )}
+                            <div className="space-y-1">
+                              {latest?.result ? (
+                                <span className="text-sm">
+                                  {latest.result.totalScore} — {latest.result.interpretation}
+                                </span>
+                              ) : (
+                                <span className="text-sm text-muted-foreground">—</span>
+                              )}
+
+                              <div>
+                                <Button
+                                  type="button"
+                                  variant="ghost"
+                                  size="sm"
+                                  onClick={unassign}
+                                  disabled={isSubmitted}
+                                >
+                                  Unassign
+                                </Button>
+                              </div>
+
+                              {unassignErrorByAssignmentId[a.id] ? (
+                                <p className="text-xs text-destructive">{unassignErrorByAssignmentId[a.id]}</p>
+                              ) : null}
+                            </div>
                           </TableCell>
                         </TableRow>
                       )
@@ -308,6 +390,18 @@ export function PatientDetailClient({
             </Button>
             <Button variant="outline">
               Edit Patient Info
+            </Button>
+            <Button variant="destructive" className="ml-auto" onClick={async () => {
+              if (confirm("Are you sure you want to delete this patient and all their data? This action cannot be undone.")) {
+                const res = await fetch(`/api/patients/${patient.id}`, { method: 'DELETE' })
+                if (res.ok) {
+                  window.location.href = '/patients'
+                } else {
+                  alert("Failed to delete patient.")
+                }
+              }
+            }}>
+              Delete Patient
             </Button>
           </div>
         </CardContent>

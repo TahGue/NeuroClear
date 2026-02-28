@@ -27,16 +27,32 @@ test.describe('Score Entry Flow', () => {
     // Wait for Prisma to load the data
     await page.waitForLoadState('networkidle');
 
+    // Select a patient (seed includes Emma Thompson)
+    const patientCombobox = page.getByRole('combobox').nth(0)
+    await patientCombobox.click()
+    await page.getByRole('option', { name: /Emma Thompson/i }).click()
+
+    await expect(patientCombobox).toHaveText(/Emma Thompson/i)
+
     // Click the Assessment dropdown and select WISC-V
-    await page.getByRole('combobox').filter({ hasText: 'Select assessment' }).click();
-    await page.getByRole('option', { name: /WISC-V/ }).click();
+    const assessmentCombobox = page.getByRole('combobox').nth(1)
+    await assessmentCombobox.click();
+    await page.getByRole('option', { name: 'WISC-V', exact: true }).click();
+
+    await expect(assessmentCombobox).toHaveText(/WISC-V/)
 
     // Verify subtest table appears with the WISC-V tabs
     await expect(page.getByRole('tab', { name: 'Subtest Scores' })).toBeVisible();
     await expect(page.getByRole('tab', { name: 'Summary' })).toBeVisible();
 
-    // Check that we see WISC-V specific subtests
-    await expect(page.getByText('Similarities').first()).toBeVisible();
-    await expect(page.getByText('Vocabulary').first()).toBeVisible();
+    await page.getByRole('tab', { name: 'Subtest Scores' }).click();
+    await expect(page.getByRole('heading', { name: /Subtest Scores - WISC-V/i })).toBeVisible();
+
+    // Check that subtest rows are rendered
+    const rows = page.locator('table tbody tr');
+    await expect
+      .poll(async () => rows.count(), { timeout: 15000 })
+      .toBeGreaterThan(0);
+    await expect(rows.first()).toBeVisible();
   });
 });

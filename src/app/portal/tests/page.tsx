@@ -6,6 +6,8 @@ import Link from "next/link"
 import { formatDate, formatDateTime } from "@/lib/utils"
 import { requirePatientSession } from "@/lib/rbac"
 
+export const dynamic = "force-dynamic"
+
 function getAgeYears(dateOfBirth: Date, now: Date = new Date()) {
   let age = now.getFullYear() - dateOfBirth.getFullYear()
   const m = now.getMonth() - dateOfBirth.getMonth()
@@ -56,7 +58,9 @@ export default async function PortalTestsPage() {
     orderBy: { name: "asc" },
   })
 
-  const ageFilteredInstruments = instruments.filter((i) => isInstrumentInAgeRange(ageYears, i))
+  const ageFilteredInstruments = instruments.filter((i) =>
+    isInstrumentInAgeRange(ageYears, { minAgeYears: i.minAgeYears, maxAgeYears: i.maxAgeYears })
+  )
 
   const assignedInstrumentIds = new Set(assignments.map((a) => a.instrumentId))
   const availableInstruments = ageFilteredInstruments.filter((i) => !assignedInstrumentIds.has(i.id))
@@ -90,6 +94,20 @@ export default async function PortalTestsPage() {
     }
   }
 
+  const sortedAssignments = [...assignments].sort((a, b) => {
+    const aDue = a.dueDate?.getTime() ?? Number.POSITIVE_INFINITY
+    const bDue = b.dueDate?.getTime() ?? Number.POSITIVE_INFINITY
+    if (aDue !== bDue) return aDue - bDue
+
+    const aSession = latestSessionByInstrumentId.get(a.instrumentId)
+    const bSession = latestSessionByInstrumentId.get(b.instrumentId)
+    const aUpdated = aSession?.updatedAt?.getTime() ?? 0
+    const bUpdated = bSession?.updatedAt?.getTime() ?? 0
+    if (aUpdated !== bUpdated) return bUpdated - aUpdated
+
+    return b.createdAt.getTime() - a.createdAt.getTime()
+  })
+
   return (
     <div className="min-h-screen bg-background p-6 space-y-6">
       <div>
@@ -107,7 +125,7 @@ export default async function PortalTestsPage() {
             <p className="text-sm text-muted-foreground">No assigned tests yet.</p>
           ) : (
             <div className="grid gap-4 md:grid-cols-2">
-              {assignments.map((a) => {
+              {sortedAssignments.map((a) => {
                 const latest = latestSessionByInstrumentId.get(a.instrumentId)
                 const answeredCount = latest?._count?.responses ?? 0
                 const totalCount = latest?.instrument?._count?.items

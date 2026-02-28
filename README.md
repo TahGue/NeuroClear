@@ -13,7 +13,11 @@ NeuroClear is a modern web application designed for psychological and educationa
 - **Score Entry**
   Enter raw/scaled scores for subtests and review a summary before saving.
 - **Reports**
-  Generate structured reports from completed evaluations.
+  Generate structured reports from completed evaluations. Includes a Narrative Builder and PDF Export capabilities.
+- **Age-Gated Patient Portal**
+  Patients can securely log in to complete assigned assessments (like PHQ-9, GAD-7, and custom cognitive screeners) tailored to their specific age range.
+- **Audit Logging**
+  Securely tracks assignment and scoring activities for compliance.
  
 ## Tech Stack
  

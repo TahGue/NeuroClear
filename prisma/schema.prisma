@@ -25,6 +25,7 @@ model User {
 
   patient       Patient?  @relation(fields: [patientId], references: [id])
   instrumentAssignments InstrumentAssignment[]
+  auditLogs     AuditLog[]
 
   @@map("users")
 }
@@ -155,6 +156,7 @@ model NarrativeSection {
   
   report  Report @relation(fields: [reportId], references: [id])
   
+  @@unique([reportId, section])
   @@map("narrative_sections")
 }
 
@@ -189,6 +191,18 @@ model Instrument {
   @@map("instruments")
 }
 
+model AuditLog {
+  id        String   @id @default(cuid())
+  userId    String
+  action    String
+  details   Json?
+  createdAt DateTime @default(now())
+
+  user      User     @relation(fields: [userId], references: [id])
+
+  @@map("audit_logs")
+}
+
 model InstrumentAssignment {
   id              String                     @id @default(cuid())
   patientId       String
@@ -196,6 +210,7 @@ model InstrumentAssignment {
   assignedByUserId String?
   status          InstrumentAssignmentStatus @default(ASSIGNED)
   dueDate          DateTime?
+  token           String?                    @unique
   createdAt        DateTime                  @default(now())
   updatedAt        DateTime                  @updatedAt
 

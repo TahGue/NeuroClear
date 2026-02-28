@@ -3,35 +3,41 @@
 import { z } from "zod"
 import { prisma } from "@/lib/prisma"
 import { revalidatePath } from "next/cache"
-import { requirePatientSession } from "@/lib/rbac"
 import { scoreInstrument } from "@/lib/instrument-scoring"
 import { logAuditAction } from "@/lib/audit"
 
-async function requireSessionOwnsInstrumentSession(sessionId: string) {
-  const { patientId } = await requirePatientSession()
+async function requireValidToken(token: string, sessionId: string) {
+  const assignment = await prisma.instrumentAssignment.findUnique({
+    where: { token },
+  })
+
+  if (!assignment) {
+    throw new Error("Invalid token")
+  }
 
   const sessionRecord = await prisma.instrumentSession.findUnique({
     where: { id: sessionId },
-    select: { id: true, patientId: true },
+    select: { id: true, patientId: true, instrumentId: true },
   })
 
-  if (!sessionRecord || sessionRecord.patientId !== patientId) {
+  if (!sessionRecord || sessionRecord.patientId !== assignment.patientId || sessionRecord.instrumentId !== assignment.instrumentId) {
     throw new Error("Unauthorized")
   }
 
-  return { patientId }
+  return { patientId: assignment.patientId, instrumentId: assignment.instrumentId }
 }
 
 const SaveResponseSchema = z.object({
+  token: z.string().min(1),
   sessionId: z.string().min(1),
   itemId: z.string().min(1),
   value: z.number().int().min(0).max(10),
 })
 
 export async function saveInstrumentResponse(input: unknown) {
-  const { sessionId, itemId, value } = SaveResponseSchema.parse(input)
+  const { token, sessionId, itemId, value } = SaveResponseSchema.parse(input)
 
-  await requireSessionOwnsInstrumentSession(sessionId)
+  await requireValidToken(token, sessionId)
 
   const session = await prisma.instrumentSession.findUnique({
     where: { id: sessionId },
@@ -61,19 +67,19 @@ export async function saveInstrumentResponse(input: unknown) {
     }),
   ])
 
-  revalidatePath("/portal")
-  revalidatePath("/portal/tests")
+  revalidatePath(`/invite/${token}`)
   return { success: true }
 }
 
 const SubmitSchema = z.object({
+  token: z.string().min(1),
   sessionId: z.string().min(1),
 })
 
 export async function submitInstrumentSession(input: unknown) {
-  const { sessionId } = SubmitSchema.parse(input)
+  const { token, sessionId } = SubmitSchema.parse(input)
 
-  await requireSessionOwnsInstrumentSession(sessionId)
+  const { patientId } = await requireValidToken(token, sessionId)
 
   const session = await prisma.instrumentSession.findUnique({
     where: { id: sessionId },
@@ -125,9 +131,15 @@ export async function submitInstrumentSession(input: unknown) {
     }),
   ])
 
-  revalidatePath("/portal")
-  revalidatePath("/portal/tests")
-  revalidatePath(`/portal/tests/${session.instrument.slug}`)
+  await logAuditAction(patientId, "SUBMITTED_INSTRUMENT_INVITE", {
+    instrumentId: session.instrumentId,
+    sessionId: session.id,
+    totalScore: scored.totalScore,
+    interpretation: scored.interpretation,
+    token
+  })
+
+  revalidatePath(`/invite/${token}`)
 
   return { success: true }
 }

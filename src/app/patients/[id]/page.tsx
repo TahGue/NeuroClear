@@ -3,6 +3,7 @@ import { Sidebar } from "@/components/layout/sidebar"
 import { PatientDetailClient } from "./patient-detail-client"
 import { prisma } from "@/lib/prisma"
 import { notFound } from "next/navigation"
+import { requireStaffSession } from "@/lib/rbac"
 
 async function getPatientData(id: string) {
   const patient = await prisma.patient.findUnique({
@@ -50,6 +51,7 @@ async function getActiveInstruments() {
 
 export default async function PatientDetail({ params }: { params: { id: string } }) {
   const { id } = await params
+  const session = await requireStaffSession()
   const patient = await getPatientData(id)
   const instruments = await getActiveInstruments()
 
@@ -63,7 +65,7 @@ export default async function PatientDetail({ params }: { params: { id: string }
       <div className="flex-1 flex flex-col">
         <Header />
         <main className="flex-1 overflow-auto p-6">
-          <PatientDetailClient patient={patient} instruments={instruments} />
+          <PatientDetailClient patient={patient as any} instruments={instruments} currentUserRole={session.user.role} />
         </main>
       </div>
     </div>

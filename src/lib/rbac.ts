@@ -2,7 +2,12 @@ import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth"
 
 export async function requireAuthenticatedSession() {
-  const session = await getServerSession(authOptions)
+  let session
+  try {
+    session = await getServerSession(authOptions)
+  } catch {
+    throw new Error("Unauthorized")
+  }
   if (!session?.user) {
     throw new Error("Unauthorized")
   }

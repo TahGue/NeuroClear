@@ -3,6 +3,7 @@ import CredentialsProvider from "next-auth/providers/credentials"
 import { prisma } from "@/lib/prisma"
 import { compare } from "bcryptjs"
 import type { UserRole } from "@prisma/client"
+import { getNextAuthSecret } from "@/lib/nextauth-secret"
 
 type AuthUser = {
   id: string
@@ -13,9 +14,15 @@ type AuthUser = {
 }
 
 export const authOptions: NextAuthOptions = {
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: getNextAuthSecret(),
   session: {
     strategy: "jwt",
+  },
+  logger: {
+    error(code, metadata) {
+      if (code === "JWT_SESSION_ERROR") return
+      console.error("[next-auth][error]", code, metadata)
+    },
   },
   providers: [
     CredentialsProvider({

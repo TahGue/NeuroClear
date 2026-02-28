@@ -1,8 +1,31 @@
 import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"
 import { getToken } from "next-auth/jwt"
+import { getNextAuthSecret } from "@/lib/nextauth-secret"
 
 const publicPaths = ["/login"]
+const publicPrefixes = ["/invite"]
+
+function clearNextAuthCookies(res: NextResponse) {
+  const cookieNames = [
+    "next-auth.session-token",
+    "__Secure-next-auth.session-token",
+    "next-auth.csrf-token",
+    "__Host-next-auth.csrf-token",
+    "next-auth.callback-url",
+  ]
+
+  for (const name of cookieNames) {
+    res.cookies.set({
+      name,
+      value: "",
+      maxAge: 0,
+      path: "/",
+    })
+  }
+
+  return res
+}
 
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl
@@ -20,13 +43,21 @@ export async function middleware(req: NextRequest) {
     return NextResponse.next()
   }
 
-  const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET })
+  let token
+  try {
+    token = await getToken({ req, secret: getNextAuthSecret() })
+  } catch {
+    const url = req.nextUrl.clone()
+    url.pathname = "/login"
+    url.searchParams.set("callbackUrl", pathname)
+    return clearNextAuthCookies(NextResponse.redirect(url))
+  }
 
   if (!token) {
     const url = req.nextUrl.clone()
     url.pathname = "/login"
     url.searchParams.set("callbackUrl", pathname)
-    return NextResponse.redirect(url)
+    return clearNextAuthCookies(NextResponse.redirect(url))
   }
 
   const role = (token as { role?: string } | null)?.role
@@ -35,7 +66,7 @@ export async function middleware(req: NextRequest) {
     const url = req.nextUrl.clone()
     url.pathname = "/login"
     url.searchParams.set("callbackUrl", pathname)
-    return NextResponse.redirect(url)
+    return clearNextAuthCookies(NextResponse.redirect(url))
   }
 
   // Patient users can only access /portal

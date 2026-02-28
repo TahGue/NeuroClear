@@ -6,8 +6,37 @@ import { useSearchParams, useRouter } from "next/navigation"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher"
 
-export function LoginForm() {
+type Props = {
+  locale: "en" | "fr"
+  title: string
+  description: string
+  emailLabel: string
+  passwordLabel: string
+  emailPlaceholder: string
+  submitLabel: string
+  submittingLabel: string
+  invalidCredentialsLabel: string
+  languageLabel: string
+  languageEnLabel: string
+  languageFrLabel: string
+}
+
+export function LoginForm({
+  locale,
+  title,
+  description,
+  emailLabel,
+  passwordLabel,
+  emailPlaceholder,
+  submitLabel,
+  submittingLabel,
+  invalidCredentialsLabel,
+  languageLabel,
+  languageEnLabel,
+  languageFrLabel,
+}: Props) {
   const router = useRouter()
   const searchParams = useSearchParams()
   const callbackUrl = searchParams.get("callbackUrl") || "/"
@@ -32,7 +61,7 @@ export function LoginForm() {
     setIsSubmitting(false)
 
     if (!res || res.error) {
-      setError("Invalid email or password")
+      setError(invalidCredentialsLabel)
       return
     }
 
@@ -42,22 +71,25 @@ export function LoginForm() {
   return (
     <Card className="w-full max-w-md">
       <CardHeader>
-        <CardTitle>Sign in</CardTitle>
-        <CardDescription>Use your email and password to access NeuroClear</CardDescription>
+        <CardTitle>{title}</CardTitle>
+        <CardDescription>{description}</CardDescription>
       </CardHeader>
       <CardContent>
+        <div className="mb-4 flex justify-end">
+          <LanguageSwitcher locale={locale} label={languageLabel} enLabel={languageEnLabel} frLabel={languageFrLabel} />
+        </div>
         <form onSubmit={onSubmit} className="space-y-4">
           <div className="space-y-2">
-            <label className="text-sm font-medium">Email</label>
-            <Input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="you@example.com" required />
+            <label className="text-sm font-medium">{emailLabel}</label>
+            <Input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder={emailPlaceholder} required />
           </div>
           <div className="space-y-2">
-            <label className="text-sm font-medium">Password</label>
+            <label className="text-sm font-medium">{passwordLabel}</label>
             <Input value={password} onChange={(e) => setPassword(e.target.value)} type="password" required />
           </div>
           {error ? <p className="text-sm text-destructive">{error}</p> : null}
           <Button type="submit" className="w-full" disabled={isSubmitting}>
-            {isSubmitting ? "Signing in..." : "Sign in"}
+            {isSubmitting ? submittingLabel : submitLabel}
           </Button>
         </form>
       </CardContent>
