@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from "next/link"
 import { formatDateTime } from "@/lib/utils"
+import { toast } from "sonner"
 
 type Option = { label: string; value: number }
 
@@ -82,9 +83,10 @@ export function InstrumentRunner({
     startTransition(async () => {
       const res = await onSubmit()
       if (res.success) {
+        toast.success("Instrument submitted successfully")
         window.location.href = backLink
       } else {
-        alert(res.error || "Failed to submit")
+        toast.error(res.error || "Failed to submit")
       }
     })
   }

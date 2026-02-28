@@ -97,9 +97,14 @@ export function ReportBuilderClient({ initialReport }: { initialReport: ReportDa
           <h1 className="text-3xl font-bold text-foreground">Report Builder</h1>
           <p className="text-muted-foreground">{initialReport.patientName} • {initialReport.assessment}</p>
         </div>
-        <Badge variant={initialReport.status === "COMPLETED" ? "default" : "secondary"}>
-          {initialReport.status.replace("_", " ")}
-        </Badge>
+        <div className="flex gap-2">
+          <Button variant="outline" onClick={handleExportPDF}>
+            Download PDF
+          </Button>
+          <Badge variant={initialReport.status === "COMPLETED" ? "default" : "secondary"}>
+            {initialReport.status.replace("_", " ")}
+          </Badge>
+        </div>
       </div>
 
       <Tabs defaultValue="narrative" className="space-y-4">

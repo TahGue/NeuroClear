@@ -21,6 +21,7 @@ import { AssignInstrumentModal } from "@/components/instruments/AssignInstrument
 import { Copy, Check } from "lucide-react"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { ScoreTrendChart } from "@/components/dashboard/charts"
+import { toast } from "sonner"
 
 type EvaluationWithDetails = Evaluation & {
   assessment: Assessment
@@ -397,7 +398,7 @@ export function PatientDetailClient({
                 if (res.ok) {
                   window.location.href = '/patients'
                 } else {
-                  alert("Failed to delete patient.")
+                  toast.error("Failed to delete patient.")
                 }
               }
             }}>

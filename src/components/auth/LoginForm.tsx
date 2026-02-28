@@ -3,10 +3,22 @@
 import { useState } from "react"
 import { signIn } from "next-auth/react"
 import { useSearchParams, useRouter } from "next/navigation"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
+import * as z from "zod"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher"
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form"
+import { toast } from "sonner"
 
 type Props = {
   locale: "en" | "fr"
@@ -41,27 +53,31 @@ export function LoginForm({
   const searchParams = useSearchParams()
   const callbackUrl = searchParams.get("callbackUrl")
 
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [error, setError] = useState<string | null>(null)
+  const formSchema = z.object({
+    email: z.string().min(1, { message: "Email is required" }).email({ message: "Invalid email format" }),
+    password: z.string().min(1, { message: "Password is required" }),
+  })
 
-  const onSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    setError(null)
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  })
 
+  const { isSubmitting } = form.formState
+
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
     const res = await signIn("credentials", {
-      email,
-      password,
+      email: values.email,
+      password: values.password,
       redirect: false,
       callbackUrl: callbackUrl || undefined,
     })
 
-    setIsSubmitting(false)
-
     if (!res || res.error) {
-      setError(invalidCredentialsLabel)
+      toast.error(invalidCredentialsLabel)
       return
     }
 
@@ -80,20 +96,39 @@ export function LoginForm({
         <div className="mb-4 flex justify-end">
           <LanguageSwitcher locale={locale} label={languageLabel} enLabel={languageEnLabel} frLabel={languageFrLabel} />
         </div>
-        <form onSubmit={onSubmit} className="space-y-4">
-          <div className="space-y-2">
-            <label className="text-sm font-medium">{emailLabel}</label>
-            <Input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder={emailPlaceholder} required />
-          </div>
-          <div className="space-y-2">
-            <label className="text-sm font-medium">{passwordLabel}</label>
-            <Input value={password} onChange={(e) => setPassword(e.target.value)} type="password" required />
-          </div>
-          {error ? <p className="text-sm text-destructive">{error}</p> : null}
-          <Button type="submit" className="w-full" disabled={isSubmitting}>
-            {isSubmitting ? submittingLabel : submitLabel}
-          </Button>
-        </form>
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>{emailLabel}</FormLabel>
+                  <FormControl>
+                    <Input placeholder={emailPlaceholder} {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="password"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>{passwordLabel}</FormLabel>
+                  <FormControl>
+                    <Input type="password" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <Button type="submit" className="w-full" disabled={isSubmitting}>
+              {isSubmitting ? submittingLabel : submitLabel}
+            </Button>
+          </form>
+        </Form>
       </CardContent>
     </Card>
   )

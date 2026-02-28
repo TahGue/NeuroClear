@@ -19,8 +19,22 @@ function bandByThresholds(
   return fallback
 }
 
-export function scoreInstrument(slug: string, responses: Response[]): ScoreResult {
+export function scoreInstrument(slug: string, responses: Response[], totalItems?: number): ScoreResult {
   const totalScore = responses.reduce<number>((sum, r) => sum + r.value, 0)
+
+  // Missing item policy: If more than 20% of items are missing, mark as INCOMPLETE
+  if (totalItems !== undefined && totalItems > 0) {
+    const missingCount = totalItems - responses.length
+    const missingPercentage = missingCount / totalItems
+    
+    if (missingPercentage > 0.2) {
+      return {
+        totalScore,
+        interpretation: "INCOMPLETE (Too many missing items)",
+        details: { slug, incomplete: true, missingCount, totalItems }
+      }
+    }
+  }
 
   switch (slug) {
     case "audit": {

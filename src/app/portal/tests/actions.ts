@@ -78,7 +78,13 @@ export async function submitInstrumentSession(input: unknown) {
   const session = await prisma.instrumentSession.findUnique({
     where: { id: sessionId },
     include: {
-      instrument: true,
+      instrument: {
+        include: {
+          _count: {
+            select: { items: true }
+          }
+        }
+      },
       responses: true,
     },
   })
@@ -89,7 +95,7 @@ export async function submitInstrumentSession(input: unknown) {
     return { success: true }
   }
 
-  const scored = scoreInstrument(session.instrument.slug, session.responses)
+  const scored = scoreInstrument(session.instrument.slug, session.responses, session.instrument._count.items)
 
   await prisma.$transaction([
     prisma.instrumentSession.update({

@@ -5,6 +5,7 @@ import { SessionProvider } from "@/components/auth/SessionProvider";
 import { getServerLocale } from "@/lib/i18n";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
+import { Toaster } from "@/components/ui/sonner"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
