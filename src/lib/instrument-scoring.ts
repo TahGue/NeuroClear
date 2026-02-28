@@ -37,6 +37,67 @@ export function scoreInstrument(slug: string, responses: Response[], totalItems?
   }
 
   switch (slug) {
+    case "crafft": {
+      const interpretation = bandByThresholds(
+        totalScore,
+        [
+          { max: 1, label: "Low risk" },
+        ],
+        "High risk for substance use disorder"
+      )
+      return { totalScore, interpretation, details: { slug, maxScore: 6 } }
+    }
+    case "ysr": {
+      const interpretation = bandByThresholds(
+        totalScore,
+        [
+          { max: 2, label: "Normal range" },
+          { max: 5, label: "Borderline clinical" },
+        ],
+        "Clinical range"
+      )
+      return { totalScore, interpretation, details: { slug, maxScore: 8 } }
+    }
+    case "cog-screen": {
+      const interpretation = bandByThresholds(
+        totalScore,
+        [
+          { max: 1, label: "Further evaluation recommended" },
+        ],
+        "Normal cognition"
+      )
+      return { totalScore, interpretation, details: { slug, maxScore: 3 } }
+    }
+    case "pcl5": {
+      const interpretation = bandByThresholds(
+        totalScore,
+        [
+          { max: 32, label: "Below threshold" },
+        ],
+        "Provisional PTSD diagnosis"
+      )
+      return { totalScore, interpretation, details: { slug, maxScore: 80 } } // Full is 80, short form max varies
+    }
+    case "vanderbilt": {
+      const interpretation = bandByThresholds(
+        totalScore,
+        [
+          { max: 11, label: "Below threshold" },
+        ],
+        "Positive for ADHD symptoms"
+      )
+      return { totalScore, interpretation, details: { slug } }
+    }
+    case "scared": {
+      const interpretation = bandByThresholds(
+        totalScore,
+        [
+          { max: 24, label: "Normal anxiety" },
+        ],
+        "Significant anxiety symptoms"
+      )
+      return { totalScore, interpretation, details: { slug } }
+    }
     case "sdq": {
       const interpretation = bandByThresholds(
         totalScore,

@@ -88,6 +88,96 @@ describe("Instrument Scoring Engine", () => {
     })
   })
 
+  describe("PCL-5", () => {
+    it("scores Below threshold correctly", () => {
+      const result = scoreInstrument("pcl5", [{ value: 10 }, { value: 10 }, { value: 10 }])
+      expect(result.totalScore).toBe(30)
+      expect(result.interpretation).toBe("Below threshold")
+    })
+
+    it("scores Provisional PTSD diagnosis correctly", () => {
+      const result = scoreInstrument("pcl5", [{ value: 15 }, { value: 10 }, { value: 10 }])
+      expect(result.totalScore).toBe(35)
+      expect(result.interpretation).toBe("Provisional PTSD diagnosis")
+    })
+  })
+
+  describe("Vanderbilt", () => {
+    it("scores Below threshold correctly", () => {
+      const result = scoreInstrument("vanderbilt", [{ value: 3 }, { value: 3 }, { value: 3 }])
+      expect(result.totalScore).toBe(9)
+      expect(result.interpretation).toBe("Below threshold")
+    })
+
+    it("scores Positive for ADHD symptoms correctly", () => {
+      const result = scoreInstrument("vanderbilt", [{ value: 4 }, { value: 4 }, { value: 4 }])
+      expect(result.totalScore).toBe(12)
+      expect(result.interpretation).toBe("Positive for ADHD symptoms")
+    })
+  })
+
+  describe("SCARED", () => {
+    it("scores Normal anxiety correctly", () => {
+      const result = scoreInstrument("scared", [{ value: 10 }, { value: 10 }, { value: 4 }])
+      expect(result.totalScore).toBe(24)
+      expect(result.interpretation).toBe("Normal anxiety")
+    })
+
+    it("scores Significant anxiety symptoms correctly", () => {
+      const result = scoreInstrument("scared", [{ value: 10 }, { value: 10 }, { value: 5 }])
+      expect(result.totalScore).toBe(25)
+      expect(result.interpretation).toBe("Significant anxiety symptoms")
+    })
+  })
+
+  describe("CRAFFT", () => {
+    it("scores Low risk correctly", () => {
+      const result = scoreInstrument("crafft", [{ value: 1 }, { value: 0 }])
+      expect(result.totalScore).toBe(1)
+      expect(result.interpretation).toBe("Low risk")
+    })
+
+    it("scores High risk correctly", () => {
+      const result = scoreInstrument("crafft", [{ value: 1 }, { value: 1 }])
+      expect(result.totalScore).toBe(2)
+      expect(result.interpretation).toBe("High risk for substance use disorder")
+    })
+  })
+
+  describe("YSR", () => {
+    it("scores Normal range correctly", () => {
+      const result = scoreInstrument("ysr", [{ value: 1 }, { value: 1 }])
+      expect(result.totalScore).toBe(2)
+      expect(result.interpretation).toBe("Normal range")
+    })
+
+    it("scores Borderline clinical correctly", () => {
+      const result = scoreInstrument("ysr", [{ value: 2 }, { value: 2 }, { value: 1 }])
+      expect(result.totalScore).toBe(5)
+      expect(result.interpretation).toBe("Borderline clinical")
+    })
+
+    it("scores Clinical range correctly", () => {
+      const result = scoreInstrument("ysr", [{ value: 2 }, { value: 2 }, { value: 2 }])
+      expect(result.totalScore).toBe(6)
+      expect(result.interpretation).toBe("Clinical range")
+    })
+  })
+
+  describe("Cognitive Screen", () => {
+    it("scores Further evaluation recommended correctly", () => {
+      const result = scoreInstrument("cog-screen", [{ value: 1 }, { value: 0 }])
+      expect(result.totalScore).toBe(1)
+      expect(result.interpretation).toBe("Further evaluation recommended")
+    })
+
+    it("scores Normal cognition correctly", () => {
+      const result = scoreInstrument("cog-screen", [{ value: 1 }, { value: 1 }])
+      expect(result.totalScore).toBe(2)
+      expect(result.interpretation).toBe("Normal cognition")
+    })
+  })
+
   describe("Unknown Instrument", () => {
     it("returns Completed fallback for unknown slugs", () => {
       const result = scoreInstrument("unknown-test-123", [{ value: 5 }])
