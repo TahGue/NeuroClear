@@ -37,6 +37,31 @@ export function scoreInstrument(slug: string, responses: Response[], totalItems?
   }
 
   switch (slug) {
+    case "sdq": {
+      const interpretation = bandByThresholds(
+        totalScore,
+        [
+          { max: 2, label: "Close to average" },
+          { max: 4, label: "Slightly raised" },
+          { max: 6, label: "High" },
+        ],
+        "Very high"
+      )
+      return { totalScore, interpretation, details: { slug, maxScore: 6 } }
+    }
+    case "phqa": {
+      const interpretation = bandByThresholds(
+        totalScore,
+        [
+          { max: 4, label: "Minimal depression" },
+          { max: 9, label: "Mild depression" },
+          { max: 14, label: "Moderate depression" },
+          { max: 19, label: "Moderately severe depression" },
+        ],
+        "Severe depression"
+      )
+      return { totalScore, interpretation, details: { slug, maxScore: 27 } }
+    }
     case "audit": {
       const interpretation = bandByThresholds(
         totalScore,
@@ -73,6 +98,27 @@ export function scoreInstrument(slug: string, responses: Response[], totalItems?
         "Severe anxiety"
       )
       return { totalScore, interpretation, details: { slug } }
+    }
+    case "asrs": {
+      const interpretation = bandByThresholds(
+        totalScore,
+        [
+          { max: 8, label: "Unlikely ADHD" },
+        ],
+        "Highly likely ADHD"
+      )
+      return { totalScore, interpretation, details: { slug, maxScore: 12 } }
+    }
+    case "gds15": {
+      const interpretation = bandByThresholds(
+        totalScore,
+        [
+          { max: 1, label: "Normal" },
+          { max: 2, label: "Suggests depression" },
+        ],
+        "Almost certainly depression"
+      )
+      return { totalScore, interpretation, details: { slug, maxScore: 3 } }
     }
     case "child-emotion-masks": {
       const interpretation = bandByThresholds(
