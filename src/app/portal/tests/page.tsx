@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
 import { formatDate, formatDateTime } from "@/lib/utils"
 import { requirePatientSession } from "@/lib/rbac"
+import { PortalLogoutButton } from "@/components/auth/PortalLogoutButton"
 
 export const dynamic = "force-dynamic"
 
@@ -38,8 +39,11 @@ export default async function PortalTestsPage() {
         <Card>
           <CardHeader>
             <CardTitle>Patient not found</CardTitle>
-            <CardDescription>We couldn&apos;t find your patient record.</CardDescription>
           </CardHeader>
+          <CardContent>
+            <p className="text-sm text-muted-foreground mb-4">We couldn&apos;t find your patient record.</p>
+            <PortalLogoutButton />
+          </CardContent>
         </Card>
       </div>
     )

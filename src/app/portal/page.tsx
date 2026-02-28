@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { formatDate, formatDateTime, formatPlatform } from "@/lib/utils"
 import { requirePatientSession } from "@/lib/rbac"
+import { PortalLogoutButton } from "@/components/auth/PortalLogoutButton"
 
 export const dynamic = "force-dynamic"
 
