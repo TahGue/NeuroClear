@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Search, Plus, Eye, Download, FileText, Brain, TrendingUp, AlertTriangle } from "lucide-react"
+import { Search, Plus, FileText, Brain, TrendingUp, AlertTriangle } from "lucide-react"
 import { formatDate } from "@/lib/utils"
 import { NormalCurveChart } from "@/components/reports/normal-curve-chart"
 
