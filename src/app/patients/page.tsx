@@ -2,6 +2,7 @@ import { Header } from "@/components/layout/header"
 import { Sidebar } from "@/components/layout/sidebar"
 import { PatientsClient } from "./patients-client"
 import { prisma } from "@/lib/prisma"
+import { requireStaffSession } from "@/lib/rbac"
 
 async function getPatients() {
   const patients = await prisma.patient.findMany({
@@ -38,6 +39,7 @@ async function getPatients() {
 }
 
 export default async function PatientsPage() {
+  await requireStaffSession()
   const patients = await getPatients()
 
   return (

@@ -2,8 +2,10 @@ import { Header } from "@/components/layout/header"
 import { Sidebar } from "@/components/layout/sidebar"
 import { ScoreEntryClient } from "./score-entry-client"
 import { prisma } from "@/lib/prisma"
+import { requireStaffSession } from "@/lib/rbac"
 
 export default async function ScoreEntryPage() {
+  await requireStaffSession()
   const patients = await prisma.patient.findMany({
     orderBy: { lastName: 'asc' }
   })

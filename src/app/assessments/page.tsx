@@ -2,8 +2,10 @@ import { Header } from "@/components/layout/header"
 import { Sidebar } from "@/components/layout/sidebar"
 import { AssessmentsClient } from "./assessments-client"
 import { prisma } from "@/lib/prisma"
+import { requireStaffSession } from "@/lib/rbac"
 
 export default async function AssessmentsPage() {
+  await requireStaffSession()
   const assessments = await prisma.assessment.findMany({
     orderBy: { name: 'asc' },
     include: {

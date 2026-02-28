@@ -2,6 +2,7 @@ import { Header } from "@/components/layout/header"
 import { Sidebar } from "@/components/layout/sidebar"
 import { ReportsClient } from "./reports-client"
 import { prisma } from "@/lib/prisma"
+import { requireStaffSession } from "@/lib/rbac"
 
 async function getReportsData() {
   const reports = await prisma.report.findMany({
@@ -38,6 +39,7 @@ async function getReportsData() {
 }
 
 export default async function ReportsPage() {
+  await requireStaffSession()
   const reports = await getReportsData()
 
   return (
