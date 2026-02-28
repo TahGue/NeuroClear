@@ -87,7 +87,7 @@ export async function middleware(req: NextRequest) {
   // Non-patient users hitting /portal go back to dashboard
   if (pathname.startsWith("/portal") && role !== "PATIENT") {
     const url = req.nextUrl.clone()
-    url.pathname = "/"
+    url.pathname = "/dashboard"
     return NextResponse.redirect(url)
   }
 

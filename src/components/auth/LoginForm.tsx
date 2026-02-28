@@ -39,7 +39,7 @@ export function LoginForm({
 }: Props) {
   const router = useRouter()
   const searchParams = useSearchParams()
-  const callbackUrl = searchParams.get("callbackUrl") || "/"
+  const callbackUrl = searchParams.get("callbackUrl")
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -55,7 +55,7 @@ export function LoginForm({
       email,
       password,
       redirect: false,
-      callbackUrl,
+      callbackUrl: callbackUrl || undefined,
     })
 
     setIsSubmitting(false)
@@ -65,7 +65,8 @@ export function LoginForm({
       return
     }
 
-    router.push(res.url || callbackUrl || "/dashboard")
+    const destination = callbackUrl && callbackUrl !== "/" ? callbackUrl : "/dashboard"
+    router.push(destination)
     router.refresh()
   }
 

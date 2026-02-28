@@ -1,8 +1,22 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Brain, ArrowRight, ShieldCheck, Activity } from "lucide-react"
+import { getServerSession } from "next-auth"
+import { authOptions } from "@/lib/auth"
+import { redirect } from "next/navigation"
 
-export default function LandingPage() {
+export default async function LandingPage() {
+  const session = await getServerSession(authOptions)
+  
+  // If the user is already logged in, redirect them to their respective dashboard
+  if (session?.user) {
+    if (session.user.role === "PATIENT") {
+      redirect("/portal")
+    } else {
+      redirect("/dashboard")
+    }
+  }
+
   return (
     <div className="min-h-screen bg-background flex flex-col">
       {/* Header */}
