@@ -65,7 +65,8 @@ export function LoginForm({
       return
     }
 
-    router.push(res.url || callbackUrl)
+    router.push(res.url || callbackUrl || "/dashboard")
+    router.refresh()
   }
 
   return (

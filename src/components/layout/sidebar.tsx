@@ -10,11 +10,12 @@ import {
   ClipboardList, 
   BookOpen,
   Brain,
-  Activity
+  Activity,
+  ClipboardCheck
 } from "lucide-react"
 
 const navigation = [
-  { name: "Dashboard", href: "/", icon: LayoutDashboard },
+  { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
   { name: "Patients", href: "/patients", icon: Users },
   { name: "Score Entry", href: "/score-entry", icon: ClipboardList },
   { name: "Reports", href: "/reports", icon: FileText },

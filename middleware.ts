@@ -3,7 +3,7 @@ import type { NextRequest } from "next/server"
 import { getToken } from "next-auth/jwt"
 import { getNextAuthSecret } from "@/lib/nextauth-secret"
 
-const publicPaths = ["/login"]
+const publicPaths = ["/login", "/"]
 const publicPrefixes = ["/invite"]
 
 function clearNextAuthCookies(res: NextResponse) {

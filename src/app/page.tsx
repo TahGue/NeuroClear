@@ -1,215 +1,88 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { Header } from "@/components/layout/header"
-import { Sidebar } from "@/components/layout/sidebar"
-import { DashboardCharts, DomainBarChart } from "@/components/dashboard/charts"
-import { Activity, Users, FileText, Clock } from "lucide-react"
-import { prisma } from "@/lib/prisma"
-import { formatDate, formatPlatform } from "@/lib/utils"
-import { requireAuthenticatedSession } from "@/lib/rbac"
-import { redirect } from "next/navigation"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { Brain, ArrowRight, ShieldCheck, Activity } from "lucide-react"
 
-async function getDashboardData() {
-  const activeEvaluations = await prisma.evaluation.count({
-    where: { status: 'IN_PROGRESS' }
-  })
-  const completedReports = await prisma.report.count()
-  const pendingReviews = await prisma.evaluation.count({
-    where: { status: 'PENDING_REVIEW' }
-  })
-  const totalPatients = await prisma.patient.count()
+export default function LandingPage() {
+  return (
+    <div className="min-h-screen bg-background flex flex-col">
+      {/* Header */}
+      <header className="border-b bg-card">
+        <div className="container mx-auto px-6 h-16 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div className="p-2 bg-primary/10 rounded-lg">
+              <Brain className="h-6 w-6 text-primary" />
+            </div>
+            <span className="text-xl font-bold tracking-tight">NeuroClear</span>
+          </div>
+          <nav className="flex items-center gap-4">
+            <Link href="/login">
+              <Button variant="outline">Sign In</Button>
+            </Link>
+          </nav>
+        </div>
+      </header>
 
-  const recentEvaluations = await prisma.evaluation.findMany({
-    take: 5,
-    orderBy: { createdAt: 'desc' },
-    include: {
-      patient: true,
-      assessment: true,
-    }
-  })
+      {/* Hero Section */}
+      <main className="flex-1 flex flex-col items-center justify-center text-center px-6 py-24 bg-gradient-to-b from-background to-muted/50">
+        <div className="max-w-3xl space-y-8">
+          <Badge className="mb-4">Clinical Assessment Platform</Badge>
+          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-foreground">
+            Precision neuropsychological testing, simplified.
+          </h1>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            NeuroClear provides clinicians with a secure, powerful platform to administer assessments, analyze results, and generate comprehensive reports.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
+            <Link href="/login">
+              <Button size="lg" className="gap-2">
+                Access Clinical Dashboard
+                <ArrowRight className="h-4 w-4" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+        
+        {/* Features Grid */}
+        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mt-24 text-left">
+          <div className="p-6 bg-card rounded-xl border shadow-sm">
+            <div className="h-12 w-12 bg-primary/10 flex items-center justify-center rounded-lg mb-4">
+              <Activity className="h-6 w-6 text-primary" />
+            </div>
+            <h3 className="text-xl font-bold mb-2">Automated Scoring</h3>
+            <p className="text-muted-foreground">Instantly calculate raw and standardized scores across a wide library of clinical instruments.</p>
+          </div>
+          <div className="p-6 bg-card rounded-xl border shadow-sm">
+            <div className="h-12 w-12 bg-primary/10 flex items-center justify-center rounded-lg mb-4">
+              <ShieldCheck className="h-6 w-6 text-primary" />
+            </div>
+            <h3 className="text-xl font-bold mb-2">Patient Portal</h3>
+            <p className="text-muted-foreground">Secure, age-appropriate testing interfaces for patients to complete assigned instruments remotely.</p>
+          </div>
+          <div className="p-6 bg-card rounded-xl border shadow-sm">
+            <div className="h-12 w-12 bg-primary/10 flex items-center justify-center rounded-lg mb-4">
+              <Brain className="h-6 w-6 text-primary" />
+            </div>
+            <h3 className="text-xl font-bold mb-2">Report Generation</h3>
+            <p className="text-muted-foreground">Transform raw data into comprehensive narrative reports with visual diagnostic curves and insights.</p>
+          </div>
+        </div>
+      </main>
 
-  // Group by platform
-  const evals = await prisma.evaluation.findMany({
-    include: { assessment: true }
-  })
-  
-  const platformCounts = evals.reduce((acc, curr) => {
-    const platform = formatPlatform(curr.assessment.platform)
-    acc[platform] = (acc[platform] || 0) + 1
-    return acc
-  }, {} as Record<string, number>)
-
-  const platformData = Object.entries(platformCounts).map(([name, value]) => ({ name, value }))
-
-  // Group by domain
-  const domainCounts = evals.reduce((acc, curr) => {
-    const domain = curr.assessment.domain.replace('_', ' ')
-    acc[domain] = (acc[domain] || 0) + 1
-    return acc
-  }, {} as Record<string, number>)
-
-  const domainData = Object.entries(domainCounts).map(([domain, count]) => ({ domain, count }))
-
-  return {
-    stats: { activeEvaluations, completedReports, pendingReviews, totalPatients },
-    recentEvaluations,
-    platformData: platformData.length ? platformData : [
-      { name: "Q-interactive", value: 45 },
-      { name: "Q-global", value: 30 },
-      { name: "MHS Online", value: 20 },
-      { name: "ALTO", value: 5 },
-    ],
-    domainData: domainData.length ? domainData : [
-      { domain: "Cognitive", count: 42 },
-      { domain: "Adaptive", count: 28 },
-      { domain: "Behavioral", count: 35 },
-      { domain: "Executive Function", count: 31 },
-    ]
-  }
+      {/* Footer */}
+      <footer className="border-t bg-card py-8">
+        <div className="container mx-auto px-6 text-center text-sm text-muted-foreground">
+          <p>© {new Date().getFullYear()} NeuroClear Platform. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+  )
 }
 
-export default async function Dashboard() {
-  let session
-  try {
-    session = await requireAuthenticatedSession()
-  } catch {
-    redirect("/login")
-  }
-
-  if (session.user.role === "PATIENT") {
-    redirect("/portal")
-  }
-
-  const { stats, recentEvaluations, platformData, domainData } = await getDashboardData()
-
+function Badge({ children, className }: { children: React.ReactNode, className?: string }) {
   return (
-    <div className="flex h-screen bg-background">
-      <Sidebar />
-      <div className="flex-1 flex flex-col">
-        <Header />
-        <main className="flex-1 overflow-auto p-6">
-          <div className="space-y-6">
-            <div>
-              <h1 className="text-3xl font-bold text-foreground">Dashboard</h1>
-              <p className="text-muted-foreground">Overview of assessment platform activity</p>
-            </div>
-
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-              <Card>
-                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                  <CardTitle className="text-sm font-medium">Active Evaluations</CardTitle>
-                  <Activity className="h-4 w-4 text-muted-foreground" />
-                </CardHeader>
-                <CardContent>
-                  <div className="text-2xl font-bold">{stats.activeEvaluations}</div>
-                  <p className="text-xs text-muted-foreground">Currently in progress</p>
-                </CardContent>
-              </Card>
-              
-              <Card>
-                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                  <CardTitle className="text-sm font-medium">Completed Reports</CardTitle>
-                  <FileText className="h-4 w-4 text-muted-foreground" />
-                </CardHeader>
-                <CardContent>
-                  <div className="text-2xl font-bold">{stats.completedReports}</div>
-                  <p className="text-xs text-muted-foreground">Ready for distribution</p>
-                </CardContent>
-              </Card>
-              
-              <Card>
-                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                  <CardTitle className="text-sm font-medium">Pending Reviews</CardTitle>
-                  <Clock className="h-4 w-4 text-muted-foreground" />
-                </CardHeader>
-                <CardContent>
-                  <div className="text-2xl font-bold">{stats.pendingReviews}</div>
-                  <p className="text-xs text-muted-foreground">Awaiting approval</p>
-                </CardContent>
-              </Card>
-              
-              <Card>
-                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                  <CardTitle className="text-sm font-medium">Total Patients</CardTitle>
-                  <Users className="h-4 w-4 text-muted-foreground" />
-                </CardHeader>
-                <CardContent>
-                  <div className="text-2xl font-bold">{stats.totalPatients}</div>
-                  <p className="text-xs text-muted-foreground">Registered in platform</p>
-                </CardContent>
-              </Card>
-            </div>
-
-            <div className="grid gap-4 md:grid-cols-2">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Platform Activity Breakdown</CardTitle>
-                  <CardDescription>Distribution of assessments by platform</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <DashboardCharts platformData={platformData} />
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle>Domain Distribution</CardTitle>
-                  <CardDescription>Assessments by domain type</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <DomainBarChart domainData={domainData} />
-                </CardContent>
-              </Card>
-            </div>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>Recent Evaluations</CardTitle>
-                <CardDescription>Latest assessment activities</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>ID</TableHead>
-                      <TableHead>Patient</TableHead>
-                      <TableHead>Assessment</TableHead>
-                      <TableHead>Platform</TableHead>
-                      <TableHead>Status</TableHead>
-                      <TableHead>Date</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {recentEvaluations.map((evaluation) => (
-                      <TableRow key={evaluation.id}>
-                        <TableCell className="font-medium">{evaluation.id.substring(0, 8)}...</TableCell>
-                        <TableCell>{evaluation.patient.firstName} {evaluation.patient.lastName}</TableCell>
-                        <TableCell>{evaluation.assessment.name}</TableCell>
-                        <TableCell>
-                          <Badge variant="outline">{formatPlatform(evaluation.assessment.platform)}</Badge>
-                        </TableCell>
-                        <TableCell>
-                          <Badge 
-                            variant={
-                              evaluation.status === "COMPLETED" ? "default" :
-                              evaluation.status === "IN_PROGRESS" ? "secondary" :
-                              "destructive"
-                            }
-                          >
-                            {evaluation.status.replace('_', ' ')}
-                          </Badge>
-                        </TableCell>
-                        <TableCell>{evaluation.administeredDate ? formatDate(evaluation.administeredDate) : 'Not set'}</TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </CardContent>
-            </Card>
-          </div>
-        </main>
-      </div>
-    </div>
+    <span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary text-primary-foreground hover:bg-primary/80 ${className}`}>
+      {children}
+    </span>
   )
 }
