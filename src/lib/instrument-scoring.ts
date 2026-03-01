@@ -456,6 +456,28 @@ export function scoreInstrument(slug: string, responses: Response[], totalItems?
     case "senior-life-chapters": {
       return { totalScore, interpretation: "Narrative Recorded", details: { slug } }
     }
+    case "matrix-reasoning-child": {
+      const interpretation = bandByThresholds(
+        totalScore,
+        [
+          { max: 2, label: "Below Average" },
+          { max: 4, label: "Average" },
+        ],
+        "Above Average"
+      )
+      return { totalScore, interpretation, details: { slug, maxScore: 5 } }
+    }
+    case "matrix-reasoning-adult": {
+      const interpretation = bandByThresholds(
+        totalScore,
+        [
+          { max: 2, label: "Below Average" },
+          { max: 5, label: "Average" },
+        ],
+        "Above Average"
+      )
+      return { totalScore, interpretation, details: { slug, maxScore: 6 } }
+    }
     default:
       return { totalScore, interpretation: "Completed", details: { slug } }
   }

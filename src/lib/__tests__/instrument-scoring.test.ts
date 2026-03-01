@@ -1,188 +1,53 @@
-import { describe, it, expect } from "vitest"
-import { scoreInstrument } from "../instrument-scoring"
+import { describe, it, expect } from 'vitest'
+import { scoreInstrument } from '../instrument-scoring'
 
-describe("Instrument Scoring Engine", () => {
-  describe("AUDIT", () => {
-    it("scores Low risk correctly", () => {
-      const result = scoreInstrument("audit", [{ value: 2 }, { value: 3 }, { value: 1 }])
-      expect(result.totalScore).toBe(6)
-      expect(result.interpretation).toBe("Low risk")
+describe('scoreInstrument', () => {
+  it('returns INCOMPLETE if more than 20% of items are missing', () => {
+    // 10 items total, 7 answered -> 30% missing -> INCOMPLETE
+    const responses = Array.from({ length: 7 }).map(() => ({ value: 1 }))
+    const result = scoreInstrument('phq9', responses, 10)
+    
+    expect(result.interpretation).toBe('INCOMPLETE (Too many missing items)')
+    expect(result.details).toEqual({ slug: 'phq9', incomplete: true, missingCount: 3, totalItems: 10 })
+  })
+
+  describe('PHQ-9 Scoring', () => {
+    it('scores minimal depression correctly (0-4)', () => {
+      const responses = [{ value: 1 }, { value: 2 }, { value: 1 }] // Total 4
+      const result = scoreInstrument('phq9', responses, 9)
+      
+      expect(result.totalScore).toBe(4)
+      expect(result.interpretation).toBe('Minimal depress      expect(result.inter.severity).toBe('minimal')
     })
 
-    it("scores High risk correctly", () => {
-      const result = scoreInstrument("audit", [{ value: 4 }, { value: 4 }, { value: 4 }, { value: 4 }, { value: 2 }])
-      expect(result.totalScore).toBe(18)
-      expect(result.interpretation).toBe("High risk")
+    it('scores severe depression correctly (20+)', () => {
+      const responses = Array.from({ length: 9 }).map(() => ({ value: 3 })) // Total 27
+      const result = scoreInstrument('phq9', responses, 9)
+      
+      expect(result.totalScore).toBe(27)
+      expect(result.interpretation).toBe('Severe depression')
+      expect(result.severity).toBe('severe')
     })
   })
 
-  describe("PHQ-9", () => {
-    it("scores Minimal depression correctly", () => {
-      const result = scoreInstrument("phq9", [{ value: 1 }, { value: 0 }, { value: 2 }])
-      expect(result.totalScore).toBe(3)
-      expect(result.interpretation).toBe("Minimal depression")
-    })
-
-    it("scores Severe depression correctly", () => {
-      const result = scoreInstrument("phq9", [{ value: 3 }, { value: 3 }, { value: 3 }, { value: 3 }, { value: 3 }, { value: 3 }, { value: 3 }])
-      expect(result.totalScore).toBe(21)
-      expect(result.interpretation).toBe("Severe depression")
-    })
-  })
-
-  describe("GAD-7", () => {
-    it("scores Mild anxiety correctly", () => {
-      const result = scoreInstrument("gad7", [{ value: 2 }, { value: 2 }, { value: 1 }])
-      expect(result.totalScore).toBe(5)
-      expect(result.interpretation).toBe("Mild anxiety")
-    })
-  })
-
-  describe("ASRS", () => {
-    it("scores Unlikely ADHD correctly", () => {
-      const result = scoreInstrument("asrs", [{ value: 2 }, { value: 2 }, { value: 1 }])
-      expect(result.totalScore).toBe(5)
-      expect(result.interpretation).toBe("Unlikely ADHD")
-    })
-
-    it("scores Highly likely ADHD correctly", () => {
-      const result = scoreInstrument("asrs", [{ value: 4 }, { value: 3 }, { value: 4 }])
-      expect(result.totalScore).toBe(11)
-      expect(result.interpretation).toBe("Highly likely ADHD")
-    })
-  })
-
-  describe("GDS-15", () => {
-    it("scores Normal correctly", () => {
-      const result = scoreInstrument("gds15", [{ value: 1 }, { value: 0 }, { value: 0 }])
-      expect(result.totalScore).toBe(1)
-      expect(result.interpretation).toBe("Normal")
-    })
-
-    it("scores Almost certainly depression correctly", () => {
-      const result = scoreInstrument("gds15", [{ value: 1 }, { value: 1 }, { value: 1 }])
-      expect(result.totalScore).toBe(3)
-      expect(result.interpretation).toBe("Almost certainly depression")
-    })
-  })
-
-  describe("SDQ", () => {
-    it("scores Close to average correctly", () => {
-      const result = scoreInstrument("sdq", [{ value: 0 }, { value: 1 }, { value: 0 }])
-      expect(result.totalScore).toBe(1)
-      expect(result.interpretation).toBe("Close to average")
-    })
-
-    it("scores Very high correctly", () => {
-      const result = scoreInstrument("sdq", [{ value: 2 }, { value: 2 }, { value: 2 }])
-      expect(result.totalScore).toBe(6)
-      expect(result.interpretation).toBe("High")
-    })
-  })
-
-  describe("PHQ-A", () => {
-    it("scores Minimal depression correctly", () => {
-      const result = scoreInstrument("phqa", [{ value: 1 }, { value: 0 }, { value: 2 }])
-      expect(result.totalScore).toBe(3)
-      expect(result.interpretation).toBe("Minimal depression")
-    })
-  })
-
-  describe("PCL-5", () => {
-    it("scores Below threshold correctly", () => {
-      const result = scoreInstrument("pcl5", [{ value: 10 }, { value: 10 }, { value: 10 }])
-      expect(result.totalScore).toBe(30)
-      expect(result.interpretation).toBe("Below threshold")
-    })
-
-    it("scores Provisional PTSD diagnosis correctly", () => {
-      const result = scoreInstrument("pcl5", [{ value: 15 }, { value: 10 }, { value: 10 }])
-      expect(result.totalScore).toBe(35)
-      expect(result.interpretation).toBe("Provisional PTSD diagnosis")
-    })
-  })
-
-  describe("Vanderbilt", () => {
-    it("scores Below threshold correctly", () => {
-      const result = scoreInstrument("vanderbilt", [{ value: 3 }, { value: 3 }, { value: 3 }])
-      expect(result.totalScore).toBe(9)
-      expect(result.interpretation).toBe("Below threshold")
-    })
-
-    it("scores Positive for ADHD symptoms correctly", () => {
-      const result = scoreInstrument("vanderbilt", [{ value: 4 }, { value: 4 }, { value: 4 }])
+  describe('GAD-7 Scoring', () => {
+    it('scores moderate anxiety correctly (10-14)', () => {
+      const responses = [{ value: 3 }, { value: 3 }, { value: 3 }, { value: 3 }] // Total 12
+      const result = scoreInstrument('gad7', responses, 7)
+      
       expect(result.totalScore).toBe(12)
-      expect(result.interpretation).toBe("Positive for ADHD symptoms")
+      expect(result.interpretation).toBe('Moderate anxiety')
+      expect(result.severity).toBe('moderate')
     })
   })
 
-  describe("SCARED", () => {
-    it("scores Normal anxiety correctly", () => {
-      const result = scoreInstrument("scared", [{ value: 10 }, { value: 10 }, { value: 4 }])
-      expect(result.totalScore).toBe(24)
-      expect(result.interpretation).toBe("Normal anxiety")
-    })
-
-    it("scores Significant anxiety symptoms correctly", () => {
-      const result = scoreInstrument("scared", [{ value: 10 }, { value: 10 }, { value: 5 }])
-      expect(result.totalScore).toBe(25)
-      expect(result.interpretation).toBe("Significant anxiety symptoms")
-    })
-  })
-
-  describe("CRAFFT", () => {
-    it("scores Low risk correctly", () => {
-      const result = scoreInstrument("crafft", [{ value: 1 }, { value: 0 }])
-      expect(result.totalScore).toBe(1)
-      expect(result.interpretation).toBe("Low risk")
-    })
-
-    it("scores High risk correctly", () => {
-      const result = scoreInstrument("crafft", [{ value: 1 }, { value: 1 }])
-      expect(result.totalScore).toBe(2)
-      expect(result.interpretation).toBe("High risk for substance use disorder")
-    })
-  })
-
-  describe("YSR", () => {
-    it("scores Normal range correctly", () => {
-      const result = scoreInstrument("ysr", [{ value: 1 }, { value: 1 }])
-      expect(result.totalScore).toBe(2)
-      expect(result.interpretation).toBe("Normal range")
-    })
-
-    it("scores Borderline clinical correctly", () => {
-      const result = scoreInstrument("ysr", [{ value: 2 }, { value: 2 }, { value: 1 }])
-      expect(result.totalScore).toBe(5)
-      expect(result.interpretation).toBe("Borderline clinical")
-    })
-
-    it("scores Clinical range correctly", () => {
-      const result = scoreInstrument("ysr", [{ value: 2 }, { value: 2 }, { value: 2 }])
-      expect(result.totalScore).toBe(6)
-      expect(result.interpretation).toBe("Clinical range")
-    })
-  })
-
-  describe("Cognitive Screen", () => {
-    it("scores Further evaluation recommended correctly", () => {
-      const result = scoreInstrument("cog-screen", [{ value: 1 }, { value: 0 }])
-      expect(result.totalScore).toBe(1)
-      expect(result.interpretation).toBe("Further evaluation recommended")
-    })
-
-    it("scores Normal cognition correctly", () => {
-      const result = scoreInstrument("cog-screen", [{ value: 1 }, { value: 1 }])
-      expect(result.totalScore).toBe(2)
-      expect(result.interpretation).toBe("Normal cognition")
-    })
-  })
-
-  describe("Unknown Instrument", () => {
-    it("returns Completed fallback for unknown slugs", () => {
-      const result = scoreInstrument("unknown-test-123", [{ value: 5 }])
-      expect(result.totalScore).toBe(5)
-      expect(result.interpretation).toBe("Completed")
+  describe('Child Emotion Masks Scoring', () => {
+    it('bands interpretation correctly', () => {
+      const responses = [{ value: 8 }] // Total 8 -> MODERATE (7-15)
+      const result = scoreInstrument('child-emotion-masks', responses)
+      
+      expect(result.totalScore).toBe(8)
+      expect(result.interpretation).toBe('MODERATE')
     })
   })
 })

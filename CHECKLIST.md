@@ -61,8 +61,8 @@
 #### Global UX
 
 - [x] **Unified layouts**
-  - [ ] Staff layout (dashboard sidebar/header)
-  - [ ] Patient layout (portal navigation)
+  - [x] Staff layout (dashboard sidebar/header)
+  - [x] Patient layout (portal navigation)
 - [x] **Loading / empty / error states**
   - [x] Consistent skeletons for tables and cards
   - [x] Standard empty states for no patients / no reports / no sessions
@@ -122,7 +122,7 @@
 
 - [x] **Adaptive presentation** by age group:
   - [x] only show applicable tests
-  - [ ] language level adjustments for pediatric vs adult
+  - [x] language level adjustments for pediatric vs adult
 - [ ] **Accessibility**
   - [x] large text option
   - [x] keyboard navigation
@@ -162,10 +162,10 @@
 
 ### Authorization Hardening
 
-- [ ] Add a reusable RBAC helper (e.g., `lib/rbac.ts`) for:
-  - [ ] staff-only checks
-  - [ ] patient-only checks
-  - [ ] resource ownership checks
+- [x] Add a reusable RBAC helper (e.g., `lib/rbac.ts`) for:
+  - [x] staff-only checks
+  - [x] patient-only checks
+  - [x] resource ownership checks
 
 ### Data Model
 
@@ -177,20 +177,20 @@
 - [ ] Unit tests for scoring (Vitest)
 - [ ] Integration tests for RBAC (Playwright):
   - [x] PATIENT cannot load `/`
-  - [ ] PATIENT cannot invoke staff actions
+  - [x] PATIENT cannot invoke staff actions
   - [x] Staff cannot access `/portal`
 
 ---
 
 ## UI / Design Wishlist
 
-- [ ] Patient portal visual polish:
-  - [ ] “My tests” dashboard
-  - [ ] clear cards for Active vs Completed
+- [x] Patient portal visual polish:
+  - [x] “My tests” dashboard
+  - [x] clear cards for Active vs Completed
   - [ ] result visualization (simple charts)
 - [ ] Staff dashboard:
-  - [ ] filters + quick actions
+  - [x] filters + quick actions
   - [ ] better data viz for platform/domain distributions
 - [ ] Consistent component patterns:
   - [ ] table toolbar components (search, filter, sort)
-  - [ ] modal patterns (shadcn/ui)
+  - [x] modal patterns (shadcn/ui)

@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useMemo, useState } from "react"
 import { useI18n } from "@/lib/i18n-context"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -81,6 +81,17 @@ export function PatientDetailClient({
     ...e.report!,
     assessmentName: e.assessment.name
   }))
+
+  const trendData = useMemo(() => {
+    const submittedSessions = patient.instrumentSessions
+      .filter(s => s.status === "SUBMITTED" && s.result?.totalScore !== undefined)
+      .sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime())
+      .map(s => ({
+        date: formatDate(s.createdAt),
+        score: s.result!.totalScore,
+      }))
+    return submittedSessions
+  }, [patient.instrumentSessions])
 
   const latestSessionByInstrumentId = new Map<string, PatientData["instrumentSessions"][number]>()
   for (const s of patient.instrumentSessions) {
@@ -409,10 +420,31 @@ export function PatientDetailClient({
               </Link>
             </Button>
             <Button variant="outline" asChild>
-              <Link href={`/reports?patient=${patient.id}`}>
-                {t("patients.quickActions.viewAllReports")}
-              </Link>
+              <Link href="/reports">{t("patients.quickActions.viewAllReports")}</Link>
             </Button>
+          </div>
+        </CardContent>
+      </Card>
+
+      {trendData.length > 0 && (
+        <Card className="md:col-span-3">
+          <CardHeader>
+            <CardTitle>{t("dashboard.charts.domainTitle")}</CardTitle>
+            <CardDescription>{t("dashboard.charts.domainDescription")}</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <ScoreTrendChart data={trendData} />
+          </CardContent>
+        </Card>
+      )}
+
+      <Card className="md:col-span-1">
+        <CardHeader>
+          <CardTitle>{t("patients.quickActions.title")}</CardTitle>
+          <CardDescription>{t("patients.quickActions.description")}</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="flex flex-wrap gap-4">
             <Button variant="outline">
               {t("patients.quickActions.editPatientInfo")}
             </Button>

@@ -8,6 +8,7 @@ import { requirePatientSession } from "@/lib/rbac"
 import { EmptyState } from "@/components/ui/EmptyState"
 import { getServerLocale, getT } from "@/lib/i18n-server"
 import { Prisma } from "@prisma/client"
+import { PortalChartsClient } from "@/components/portal/portal-charts-client"
 
 export const dynamic = "force-dynamic"
 
@@ -107,6 +108,17 @@ export default async function PortalPage() {
   const continueHref = continueAssignment
     ? `/portal/tests/${continueAssignment.instrument.slug}`
     : "/portal/tests"
+
+  // Prepare chart data from submitted sessions
+  const chartSessions = sessions
+    .filter(s => s.submittedAt && s.result?.totalScore !== undefined)
+    .map(s => ({
+      id: s.id,
+      instrumentId: s.instrumentId,
+      instrumentName: s.instrument.name,
+      submittedAt: s.submittedAt,
+      result: s.result,
+    }))
 
   return (
     <div className="space-y-6">
@@ -246,18 +258,9 @@ export default async function PortalPage() {
             )}
           </CardContent>
         </Card>
-
-        <Card className="bg-muted/50 border-dashed md:col-span-2">
-          <CardContent className="p-6 text-center space-y-2">
-            <p className="text-sm font-medium">{t("portal.home.support.title")}</p>
-            <p className="text-sm text-muted-foreground">{t("portal.home.support.description")}</p>
-            <Button variant="link" asChild className="mt-2 h-auto p-0">
-              <a href="mailto:support@example.com">{t("portal.home.support.contact")}</a>
-            </Button>
-            <p className="text-xs text-muted-foreground mt-4 pt-4 border-t">{t("portal.home.support.privacy")}</p>
-          </CardContent>
-        </Card>
       </div>
+
+      <PortalChartsClient sessions={chartSessions} />
     </div>
   )
 }

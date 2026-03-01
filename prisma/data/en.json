@@ -2274,5 +2274,258 @@
         ]
       }
     ]
+  },
+  {
+    "slug": "matrix-reasoning-child",
+    "name": "Non-Verbal Pattern Reasoning (Child)",
+    "description": "A culturally-fair, non-verbal assessment of fluid intelligence and pattern recognition.",
+    "minAgeYears": 6,
+    "maxAgeYears": 12,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Which shape completes the pattern?\n\n🔴  🔵  🔴  🔵  ?",
+        "options": [
+          {
+            "label": "🔴",
+            "value": 1
+          },
+          {
+            "label": "🔵",
+            "value": 0
+          },
+          {
+            "label": "🟡",
+            "value": 0
+          },
+          {
+            "label": "🟢",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Which shape completes the pattern?\n\n⬆️  ➡️  ⬇️  ⬅️  ?",
+        "options": [
+          {
+            "label": "⬆️",
+            "value": 1
+          },
+          {
+            "label": "➡️",
+            "value": 0
+          },
+          {
+            "label": "⬇️",
+            "value": 0
+          },
+          {
+            "label": "⬅️",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Which shape completes the pattern?\n\n🍎  🍌  🍎  🍌  🍎  ?",
+        "options": [
+          {
+            "label": "🍎",
+            "value": 0
+          },
+          {
+            "label": "🍌",
+            "value": 1
+          },
+          {
+            "label": "🍉",
+            "value": 0
+          },
+          {
+            "label": "🍇",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Which shape completes the pattern?\n\n🟦  🟦  🟧  🟦  🟦  ?",
+        "options": [
+          {
+            "label": "🟦",
+            "value": 0
+          },
+          {
+            "label": "🟧",
+            "value": 1
+          },
+          {
+            "label": "🟨",
+            "value": 0
+          },
+          {
+            "label": "🟥",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Which shape completes the pattern?\n\n⭐  🌙  ⭐  ⭐  🌙  ⭐  ⭐  ⭐  ?",
+        "options": [
+          {
+            "label": "🌙",
+            "value": 1
+          },
+          {
+            "label": "⭐",
+            "value": 0
+          },
+          {
+            "label": "☀️",
+            "value": 0
+          },
+          {
+            "label": "☁️",
+            "value": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "matrix-reasoning-adult",
+    "name": "Non-Verbal Pattern Reasoning (Adult)",
+    "description": "A culturally-fair, non-verbal assessment of fluid intelligence, abstract reasoning, and working memory.",
+    "minAgeYears": 13,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Which shape completes the pattern?\n\n⬛  ⬜  ⬛  ⬛  ⬜  ⬛  ⬛  ⬛  ⬜  ?",
+        "options": [
+          {
+            "label": "⬛",
+            "value": 1
+          },
+          {
+            "label": "⬜",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Which shape completes the pattern?\n\n🕒  🕕  🕘  🕛  ?",
+        "options": [
+          {
+            "label": "🕒",
+            "value": 1
+          },
+          {
+            "label": "🕕",
+            "value": 0
+          },
+          {
+            "label": "🕘",
+            "value": 0
+          },
+          {
+            "label": "🕛",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Which shape completes the pattern?\n\n♠️  ♣️  ♥️  ♦️  ♠️  ♣️  ♥️  ?",
+        "options": [
+          {
+            "label": "♠️",
+            "value": 0
+          },
+          {
+            "label": "♣️",
+            "value": 0
+          },
+          {
+            "label": "♥️",
+            "value": 0
+          },
+          {
+            "label": "♦️",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Which shape completes the pattern?\n\n⚽  ⚾  🏀  ⚾  ⚽  ⚾  ?",
+        "options": [
+          {
+            "label": "⚽",
+            "value": 0
+          },
+          {
+            "label": "⚾",
+            "value": 0
+          },
+          {
+            "label": "🏀",
+            "value": 1
+          },
+          {
+            "label": "🎾",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Which shape completes the pattern?\n\n🌒  🌓  🌔  🌕  🌖  🌗  ?",
+        "options": [
+          {
+            "label": "🌒",
+            "value": 0
+          },
+          {
+            "label": "🌓",
+            "value": 0
+          },
+          {
+            "label": "🌘",
+            "value": 1
+          },
+          {
+            "label": "🌔",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "What is the next number in the series?\n\n2, 4, 8, 16, 32, ?",
+        "options": [
+          {
+            "label": "48",
+            "value": 0
+          },
+          {
+            "label": "64",
+            "value": 1
+          },
+          {
+            "label": "128",
+            "value": 0
+          },
+          {
+            "label": "256",
+            "value": 0
+          }
+        ]
+      }
+    ]
   }
 ]

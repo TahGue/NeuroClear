@@ -237,6 +237,31 @@ async function main() {
         assignedByUserId: adminUser.id,
         status: InstrumentAssignmentStatus.ASSIGNED,
       },
+      // Matrix Reasoning IQ Tests
+      {
+        patientId: childPatient.id,
+        instrumentId: getInst("matrix-reasoning-child").id,
+        assignedByUserId: adminUser.id,
+        status: InstrumentAssignmentStatus.ASSIGNED,
+      },
+      {
+        patientId: adolescentPatient.id,
+        instrumentId: getInst("matrix-reasoning-child").id,
+        assignedByUserId: adminUser.id,
+        status: InstrumentAssignmentStatus.ASSIGNED,
+      },
+      {
+        patientId: adultPatient.id,
+        instrumentId: getInst("matrix-reasoning-adult").id,
+        assignedByUserId: adminUser.id,
+        status: InstrumentAssignmentStatus.ASSIGNED,
+      },
+      {
+        patientId: olderAdultPatient.id,
+        instrumentId: getInst("matrix-reasoning-adult").id,
+        assignedByUserId: adminUser.id,
+        status: InstrumentAssignmentStatus.ASSIGNED,
+      },
     ],
   })
 
