@@ -3,6 +3,15 @@ import { cookies, headers } from "next/headers"
 import type { Locale, Messages } from "@/lib/i18n"
 import { normalizeLocale } from "@/lib/i18n"
 
+// We only honor Arabic when a user explicitly sets their locale cookie.
+// For header-based detection, fall back to English to avoid unintended Arabic UI.
+function normalizeLocaleFromHeader(input: string | null | undefined): Locale {
+  const val = (input ?? "").toLowerCase()
+  if (val.startsWith("fr")) return "fr"
+  if (val.startsWith("sv")) return "sv"
+  return "en"
+}
+
 function getNestedValue(obj: unknown, key: string): string {
   const keys = key.split(".")
   let value: unknown = obj
@@ -25,7 +34,7 @@ export async function getServerLocale(): Promise<Locale> {
 
   const headerStore = await headers()
   const accept = headerStore.get("accept-language")
-  return normalizeLocale(accept)
+  return normalizeLocaleFromHeader(accept)
 }
 
 export async function getMessages(locale: Locale): Promise<Messages> {
