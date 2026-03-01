@@ -26,7 +26,7 @@ export default async function LandingPage() {
             <div className="p-2 bg-primary/10 rounded-lg">
               <Brain className="h-6 w-6 text-primary" />
             </div>
-            <span className="text-xl font-bold tracking-tight">NeuroClear</span>
+            <span className="text-xl font-bold tracking-tight">AssessMind</span>
           </div>
           <nav className="flex items-center gap-4">
             <Button asChild variant="outline">
@@ -44,7 +44,7 @@ export default async function LandingPage() {
             Precision neuropsychological testing, simplified.
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            NeuroClear provides clinicians with a secure, powerful platform to administer assessments, analyze results, and generate comprehensive reports.
+            AssessMind provides clinicians with a secure, powerful platform to administer assessments, analyze results, and generate comprehensive reports.
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
@@ -86,7 +86,7 @@ export default async function LandingPage() {
       {/* Footer */}
       <footer className="border-t bg-card py-8">
         <div className="container mx-auto px-6 text-center text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} NeuroClear Platform. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} AssessMind Platform. All rights reserved.</p>
         </div>
       </footer>
     </div>

@@ -4,7 +4,7 @@
     "locale": "en"
   },
   "common": {
-    "appName": "NeuroClear",
+    "appName": "AssessMind",
     "loading": "Loading...",
     "saving": "Saving...",
     "submitting": "Submitting...",
@@ -87,7 +87,7 @@
   "auth": {
     "login": {
       "title": "Sign in",
-      "description": "Use your email and password to access NeuroClear",
+      "description": "Use your email and password to access AssessMind",
       "email": "Email",
       "password": "Password",
       "emailPlaceholder": "you@example.com",

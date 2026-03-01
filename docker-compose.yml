@@ -3,16 +3,16 @@ version: '3.8'
 services:
   db:
     image: postgres:15-alpine
-    container_name: neuroclear-postgres
+    container_name: assessmind-postgres
     restart: always
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: neuroclear
+      POSTGRES_DB: assessmind
     ports:
       - "5434:5432"
     volumes:
-      - neuroclear_data:/var/lib/postgresql/data
+      - assessmind_data:/var/lib/postgresql/data
 
 volumes:
-  neuroclear_data:
+  assessmind_data:

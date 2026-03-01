@@ -94,7 +94,7 @@ export default async function globalSetup(config: FullConfig) {
   // Staff login - callbackPath should be /dashboard (LoginForm redirects "/" to "/dashboard")
   await loginAndSaveStorageState({
     baseURL,
-    email: "admin@neuroclear.app",
+    email: "admin@assessmind.app",
     password: "password123",
     callbackPath: "/dashboard",
     storageStatePath: "playwright/.auth/staff.json",
@@ -103,7 +103,7 @@ export default async function globalSetup(config: FullConfig) {
   // Patient login - callbackPath is /portal
   await loginAndSaveStorageState({
     baseURL,
-    email: "emma.patient@neuroclear.app",
+    email: "emma.patient@assessmind.app",
     password: "password123",
     callbackPath: "/portal",
     storageStatePath: "playwright/.auth/patient.json",

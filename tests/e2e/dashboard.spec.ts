@@ -10,7 +10,7 @@ test.describe('Dashboard and Navigation', () => {
     await page.goto('/');
 
     // Check title
-    await expect(page).toHaveTitle(/NeuroClear/);
+    await expect(page).toHaveTitle(/AssessMind/);
 
     // Check sidebar links
     const sidebar = page.locator('nav');

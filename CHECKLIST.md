@@ -1,4 +1,4 @@
-# NeuroClear Platform — Checklist & Roadmap
+# AssessMind Platform — Checklist & Roadmap
 
 ## Work Completed (This Iteration)
 

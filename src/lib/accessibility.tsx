@@ -16,15 +16,15 @@ const AccessibilityContext = createContext<AccessibilityContextType | undefined>
 export function AccessibilityProvider({ children }: { children: ReactNode }) {
   const [largeText, setLargeText] = useState(() => {
     if (typeof window === "undefined") return false
-    return localStorage.getItem("neuroclear-large-text") === "true"
+    return localStorage.getItem("assessmind-large-text") === "true"
   })
   const [reducedMotion, setReducedMotion] = useState(() => {
     if (typeof window === "undefined") return false
-    return localStorage.getItem("neuroclear-reduced-motion") === "true"
+    return localStorage.getItem("assessmind-reduced-motion") === "true"
   })
   const [highContrast, setHighContrast] = useState(() => {
     if (typeof window === "undefined") return false
-    return localStorage.getItem("neuroclear-high-contrast") === "true"
+    return localStorage.getItem("assessmind-high-contrast") === "true"
   })
 
   useEffect(() => {
@@ -42,19 +42,19 @@ export function AccessibilityProvider({ children }: { children: ReactNode }) {
   const toggleLargeText = () => {
     const newValue = !largeText
     setLargeText(newValue)
-    localStorage.setItem("neuroclear-large-text", String(newValue))
+    localStorage.setItem("assessmind-large-text", String(newValue))
   }
 
   const toggleReducedMotion = () => {
     const newValue = !reducedMotion
     setReducedMotion(newValue)
-    localStorage.setItem("neuroclear-reduced-motion", String(newValue))
+    localStorage.setItem("assessmind-reduced-motion", String(newValue))
   }
 
   const toggleHighContrast = () => {
     const newValue = !highContrast
     setHighContrast(newValue)
-    localStorage.setItem("neuroclear-high-contrast", String(newValue))
+    localStorage.setItem("assessmind-high-contrast", String(newValue))
   }
 
   return (

@@ -1,7 +1,7 @@
 {
   "_meta": { "language": "Français", "locale": "fr" },
   "common": {
-    "appName": "NeuroClear",
+    "appName": "AssessMind",
     "loading": "Chargement...",
     "saving": "Enregistrement...",
     "submitting": "Envoi...",
@@ -83,7 +83,7 @@
   "auth": {
     "login": {
       "title": "Se connecter",
-      "description": "Utilisez votre e-mail et votre mot de passe pour accéder à NeuroClear",
+      "description": "Utilisez votre e-mail et votre mot de passe pour accéder à AssessMind",
       "email": "E-mail",
       "password": "Mot de passe",
       "emailPlaceholder": "vous@exemple.com",

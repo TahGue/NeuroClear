@@ -9,7 +9,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { AccessibilityProvider } from "@/lib/accessibility";
 
 export const metadata: Metadata = {
-  title: "NeuroClear Assessment Platform",
+  title: "AssessMind Platform",
   description: "Comprehensive psychological assessment platform for clinical professionals",
 };
 

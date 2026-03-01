@@ -1,7 +1,7 @@
 {
   "_meta": { "language": "Svenska", "locale": "sv" },
   "common": {
-    "appName": "NeuroClear",
+    "appName": "AssessMind",
     "loading": "Laddar...",
     "saving": "Sparar...",
     "submitting": "Skickar...",
@@ -83,7 +83,7 @@
   "auth": {
     "login": {
       "title": "Logga in",
-      "description": "Använd e-post och lösenord för att logga in på NeuroClear",
+      "description": "Använd e-post och lösenord för att logga in på AssessMind",
       "email": "E-post",
       "password": "Lösenord",
       "emailPlaceholder": "du@exempel.se",

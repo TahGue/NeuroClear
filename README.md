@@ -1,6 +1,6 @@
-# NeuroClear Platform
+# AssessMind Platform
 
-NeuroClear is a modern web application designed for psychological and educational professionals to manage patients, assign evaluations, enter scores, and generate reports.
+AssessMind is a modern web application designed for psychological and educational professionals to manage patients, assign evaluations, enter scores, and generate reports.
 
 ## Features
 
@@ -89,8 +89,8 @@ NeuroClear is a modern web application designed for psychological and educationa
 
 1. Clone:
   ```bash
-  git clone https://github.com/TahGue/NeuroClear.git
-  cd neuroclear-platform
+  git clone https://github.com/TahGue/AssessMind.git
+  cd assessmind-platform
   ```
 
 2. Install dependencies:
@@ -102,7 +102,7 @@ NeuroClear is a modern web application designed for psychological and educationa
   Create `.env.local` and set:
   ```env
   # Database (Docker exposes on 5434)
-  DATABASE_URL="postgresql://postgres:password@localhost:5434/neuroclear?schema=public"
+  DATABASE_URL="postgresql://postgres:password@localhost:5434/assessmind?schema=public"
 
   # NextAuth
   NEXTAUTH_SECRET="<generate-a-random-secret>"
@@ -126,8 +126,8 @@ docker compose up -d
   ```
 
 This creates:
-- **Admin user**: `admin@neuroclear.app` / `password123`
-- **Patient user**: `emma.patient@neuroclear.app` / `password123`
+- **Admin user**: `admin@assessmind.app` / `password123`
+- **Patient user**: `emma.patient@assessmind.app` / `password123`
 
 6. Run dev server:
   ```bash

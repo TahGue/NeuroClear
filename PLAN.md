@@ -1,6 +1,6 @@
-# NeuroClear Platform — Future Implementation Plan
+# AssessMind Platform — Future Implementation Plan
 
-This document describes suggested next implementation phases for NeuroClear, with concrete feature ideas and technical improvements.
+This document describes suggested next implementation phases for AssessMind, with concrete feature ideas and technical improvements.
 
 ## Guiding Principles
 

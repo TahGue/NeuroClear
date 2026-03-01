@@ -44,7 +44,7 @@ async function main() {
 
   const adminUser = await prisma.user.create({
     data: {
-      email: "admin@neuroclear.app",
+      email: "admin@assessmind.app",
       name: "System Admin",
       role: UserRole.ADMIN,
       passwordHash,
@@ -93,7 +93,7 @@ async function main() {
 
   await prisma.user.create({
     data: {
-      email: "emma.patient@neuroclear.app",
+      email: "emma.patient@assessmind.app",
       name: "Emma Thompson",
       role: UserRole.PATIENT,
       passwordHash,
@@ -103,7 +103,7 @@ async function main() {
 
   await prisma.user.create({
     data: {
-      email: "noah.adolescent@neuroclear.app",
+      email: "noah.adolescent@assessmind.app",
       name: "Noah Martin",
       role: UserRole.PATIENT,
       passwordHash,
@@ -113,7 +113,7 @@ async function main() {
 
   await prisma.user.create({
     data: {
-      email: "sophia.adult@neuroclear.app",
+      email: "sophia.adult@assessmind.app",
       name: "Sophia Garcia",
       role: UserRole.PATIENT,
       passwordHash,
@@ -123,7 +123,7 @@ async function main() {
 
   await prisma.user.create({
     data: {
-      email: "william.senior@neuroclear.app",
+      email: "william.senior@assessmind.app",
       name: "William Johnson",
       role: UserRole.PATIENT,
       passwordHash,
