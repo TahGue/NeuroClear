@@ -210,66 +210,37 @@
   },
   {
     "slug": "sdq",
-    "name": "SDQ (Short)",
-    "description": "Strengths and Difficulties Questionnaire (sample short form)",
-    "minAgeYears": 6,
-    "maxAgeYears": 12,
+    "name": "SDQ",
+    "description": "Strengths and Difficulties Questionnaire - A behavioral screening questionnaire for children ages 3-16",
+    "minAgeYears": 3,
+    "maxAgeYears": 16,
     "audience": "PARENT",
     "items": [
-      {
-        "order": 1,
-        "prompt": "Often loses temper",
-        "options": [
-          {
-            "label": "Not true",
-            "value": 0
-          },
-          {
-            "label": "Somewhat true",
-            "value": 1
-          },
-          {
-            "label": "Certainly true",
-            "value": 2
-          }
-        ]
-      },
-      {
-        "order": 2,
-        "prompt": "Generally obedient",
-        "options": [
-          {
-            "label": "Not true",
-            "value": 0
-          },
-          {
-            "label": "Somewhat true",
-            "value": 1
-          },
-          {
-            "label": "Certainly true",
-            "value": 2
-          }
-        ]
-      },
-      {
-        "order": 3,
-        "prompt": "Many worries",
-        "options": [
-          {
-            "label": "Not true",
-            "value": 0
-          },
-          {
-            "label": "Somewhat true",
-            "value": 1
-          },
-          {
-            "label": "Certainly true",
-            "value": 2
-          }
-        ]
-      }
+      { "order": 1, "prompt": "Considerate of other people's feelings", "options": [{ "label": "Not true", "value": 0 }, { "label": "Somewhat true", "value": 1 }, { "label": "Certainly true", "value": 2 }] },
+      { "order": 2, "prompt": "Restless, overactive, cannot stay still for long", "options": [{ "label": "Not true", "value": 0 }, { "label": "Somewhat true", "value": 1 }, { "label": "Certainly true", "value": 2 }] },
+      { "order": 3, "prompt": "Often complains of headaches, stomach-aches or sickness", "options": [{ "label": "Not true", "value": 0 }, { "label": "Somewhat true", "value": 1 }, { "label": "Certainly true", "value": 2 }] },
+      { "order": 4, "prompt": "Shares readily with other children (toys, treats, pencils)", "options": [{ "label": "Not true", "value": 0 }, { "label": "Somewhat true", "value": 1 }, { "label": "Certainly true", "value": 2 }] },
+      { "order": 5, "prompt": "Often loses temper", "options": [{ "label": "Not true", "value": 0 }, { "label": "Somewhat true", "value": 1 }, { "label": "Certainly true", "value": 2 }] },
+      { "order": 6, "prompt": "Rather solitary, tends to play alone", "options": [{ "label": "Not true", "value": 0 }, { "label": "Somewhat true", "value": 1 }, { "label": "Certainly true", "value": 2 }] },
+      { "order": 7, "prompt": "Generally obedient, usually does what adults request", "options": [{ "label": "Not true", "value": 0 }, { "label": "Somewhat true", "value": 1 }, { "label": "Certainly true", "value": 2 }] },
+      { "order": 8, "prompt": "Many worries or often seems worried", "options": [{ "label": "Not true", "value": 0 }, { "label": "Somewhat true", "value": 1 }, { "label": "Certainly true", "value": 2 }] },
+      { "order": 9, "prompt": "Helpful if someone is hurt, upset or feeling ill", "options": [{ "label": "Not true", "value": 0 }, { "label": "Somewhat true", "value": 1 }, { "label": "Certainly true", "value": 2 }] },
+      { "order": 10, "prompt": "Constantly fidgeting or squirming", "options": [{ "label": "Not true", "value": 0 }, { "label": "Somewhat true", "value": 1 }, { "label": "Certainly true", "value": 2 }] },
+      { "order": 11, "prompt": "Has at least one good friend", "options": [{ "label": "Not true", "value": 0 }, { "label": "Somewhat true", "value": 1 }, { "label": "Certainly true", "value": 2 }] },
+      { "order": 12, "prompt": "Often fights with other children or bullies them", "options": [{ "label": "Not true", "value": 0 }, { "label": "Somewhat true", "value": 1 }, { "label": "Certainly true", "value": 2 }] },
+      { "order": 13, "prompt": "Often unhappy, depressed or tearful", "options": [{ "label": "Not true", "value": 0 }, { "label": "Somewhat true", "value": 1 }, { "label": "Certainly true", "value": 2 }] },
+      { "order": 14, "prompt": "Generally liked by other children", "options": [{ "label": "Not true", "value": 0 }, { "label": "Somewhat true", "value": 1 }, { "label": "Certainly true", "value": 2 }] },
+      { "order": 15, "prompt": "Easily distracted, concentration wanders", "options": [{ "label": "Not true", "value": 0 }, { "label": "Somewhat true", "value": 1 }, { "label": "Certainly true", "value": 2 }] },
+      { "order": 16, "prompt": "Nervous or clingy in new situations, easily loses confidence", "options": [{ "label": "Not true", "value": 0 }, { "label": "Somewhat true", "value": 1 }, { "label": "Certainly true", "value": 2 }] },
+      { "order": 17, "prompt": "Kind to younger children", "options": [{ "label": "Not true", "value": 0 }, { "label": "Somewhat true", "value": 1 }, { "label": "Certainly true", "value": 2 }] },
+      { "order": 18, "prompt": "Often lies or cheats", "options": [{ "label": "Not true", "value": 0 }, { "label": "Somewhat true", "value": 1 }, { "label": "Certainly true", "value": 2 }] },
+      { "order": 19, "prompt": "Picked on or bullied by other children", "options": [{ "label": "Not true", "value": 0 }, { "label": "Somewhat true", "value": 1 }, { "label": "Certainly true", "value": 2 }] },
+      { "order": 20, "prompt": "Often volunteers to help others (parents, teachers, other children)", "options": [{ "label": "Not true", "value": 0 }, { "label": "Somewhat true", "value": 1 }, { "label": "Certainly true", "value": 2 }] },
+      { "order": 21, "prompt": "Thinks things out before acting", "options": [{ "label": "Not true", "value": 0 }, { "label": "Somewhat true", "value": 1 }, { "label": "Certainly true", "value": 2 }] },
+      { "order": 22, "prompt": "Steals from home, school or elsewhere", "options": [{ "label": "Not true", "value": 0 }, { "label": "Somewhat true", "value": 1 }, { "label": "Certainly true", "value": 2 }] },
+      { "order": 23, "prompt": "Gets along better with adults than with other children", "options": [{ "label": "Not true", "value": 0 }, { "label": "Somewhat true", "value": 1 }, { "label": "Certainly true", "value": 2 }] },
+      { "order": 24, "prompt": "Many fears, easily scared", "options": [{ "label": "Not true", "value": 0 }, { "label": "Somewhat true", "value": 1 }, { "label": "Certainly true", "value": 2 }] },
+      { "order": 25, "prompt": "Good attention span, sees work through to the end", "options": [{ "label": "Not true", "value": 0 }, { "label": "Somewhat true", "value": 1 }, { "label": "Certainly true", "value": 2 }] }
     ],
     "category": "BEHAVIORAL"
   },
@@ -607,8 +578,8 @@
   },
   {
     "slug": "phqa",
-    "name": "PHQ-A (Short)",
-    "description": "Patient Health Questionnaire for Adolescents (sample short form)",
+    "name": "PHQ-A",
+    "description": "Patient Health Questionnaire for Adolescents - A depression screening tool adapted for teens",
     "minAgeYears": 13,
     "maxAgeYears": 17,
     "audience": "PATIENT",
@@ -880,88 +851,208 @@
   },
   {
     "slug": "asrs",
-    "name": "ASRS (Short)",
-    "description": "Adult ADHD Self-Report Scale (sample short form)",
+    "name": "ASRS",
+    "description": "Adult ADHD Self-Report Scale - A screening instrument for ADHD in adults",
     "minAgeYears": 18,
     "maxAgeYears": 64,
     "audience": "PATIENT",
     "items": [
       {
         "order": 1,
-        "prompt": "Trouble wrapping up final details of a project",
+        "prompt": "How often do you have trouble wrapping up the final details of a project, once the challenging parts have been done?",
         "options": [
-          {
-            "label": "Never",
-            "value": 0
-          },
-          {
-            "label": "Rarely",
-            "value": 1
-          },
-          {
-            "label": "Sometimes",
-            "value": 2
-          },
-          {
-            "label": "Often",
-            "value": 3
-          },
-          {
-            "label": "Very Often",
-            "value": 4
-          }
+          { "label": "Never", "value": 0 },
+          { "label": "Rarely", "value": 1 },
+          { "label": "Sometimes", "value": 2 },
+          { "label": "Often", "value": 3 },
+          { "label": "Very Often", "value": 4 }
         ]
       },
       {
         "order": 2,
-        "prompt": "Difficulty getting things in order",
+        "prompt": "How often do you have difficulty getting things in order when you have to do a task that requires organization?",
         "options": [
-          {
-            "label": "Never",
-            "value": 0
-          },
-          {
-            "label": "Rarely",
-            "value": 1
-          },
-          {
-            "label": "Sometimes",
-            "value": 2
-          },
-          {
-            "label": "Often",
-            "value": 3
-          },
-          {
-            "label": "Very Often",
-            "value": 4
-          }
+          { "label": "Never", "value": 0 },
+          { "label": "Rarely", "value": 1 },
+          { "label": "Sometimes", "value": 2 },
+          { "label": "Often", "value": 3 },
+          { "label": "Very Often", "value": 4 }
         ]
       },
       {
         "order": 3,
-        "prompt": "Problems remembering appointments",
+        "prompt": "How often do you have problems remembering appointments or obligations?",
         "options": [
-          {
-            "label": "Never",
-            "value": 0
-          },
-          {
-            "label": "Rarely",
-            "value": 1
-          },
-          {
-            "label": "Sometimes",
-            "value": 2
-          },
-          {
-            "label": "Often",
-            "value": 3
-          },
-          {
-            "label": "Very Often",
-            "value": 4
-          }
+          { "label": "Never", "value": 0 },
+          { "label": "Rarely", "value": 1 },
+          { "label": "Sometimes", "value": 2 },
+          { "label": "Often", "value": 3 },
+          { "label": "Very Often", "value": 4 }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "When you have a task that requires a lot of thought, how often do you avoid or delay getting started?",
+        "options": [
+          { "label": "Never", "value": 0 },
+          { "label": "Rarely", "value": 1 },
+          { "label": "Sometimes", "value": 2 },
+          { "label": "Often", "value": 3 },
+          { "label": "Very Often", "value": 4 }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "How often do you fidget or squirm with your hands or feet when you have to sit down for a long time?",
+        "options": [
+          { "label": "Never", "value": 0 },
+          { "label": "Rarely", "value": 1 },
+          { "label": "Sometimes", "value": 2 },
+          { "label": "Often", "value": 3 },
+          { "label": "Very Often", "value": 4 }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "How often do you feel overly active and compelled to do things, like you were driven by a motor?",
+        "options": [
+          { "label": "Never", "value": 0 },
+          { "label": "Rarely", "value": 1 },
+          { "label": "Sometimes", "value": 2 },
+          { "label": "Often", "value": 3 },
+          { "label": "Very Often", "value": 4 }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "How often do you make careless mistakes when you have to work on a boring or difficult project?",
+        "options": [
+          { "label": "Never", "value": 0 },
+          { "label": "Rarely", "value": 1 },
+          { "label": "Sometimes", "value": 2 },
+          { "label": "Often", "value": 3 },
+          { "label": "Very Often", "value": 4 }
+        ]
+      },
+      {
+        "order": 8,
+        "prompt": "How often do you have difficulty keeping your attention when you are doing boring or repetitive work?",
+        "options": [
+          { "label": "Never", "value": 0 },
+          { "label": "Rarely", "value": 1 },
+          { "label": "Sometimes", "value": 2 },
+          { "label": "Often", "value": 3 },
+          { "label": "Very Often", "value": 4 }
+        ]
+      },
+      {
+        "order": 9,
+        "prompt": "How often do you have difficulty concentrating on what people say to you, even when they are speaking to you directly?",
+        "options": [
+          { "label": "Never", "value": 0 },
+          { "label": "Rarely", "value": 1 },
+          { "label": "Sometimes", "value": 2 },
+          { "label": "Often", "value": 3 },
+          { "label": "Very Often", "value": 4 }
+        ]
+      },
+      {
+        "order": 10,
+        "prompt": "How often do you misplace or have difficulty finding things at home or at work?",
+        "options": [
+          { "label": "Never", "value": 0 },
+          { "label": "Rarely", "value": 1 },
+          { "label": "Sometimes", "value": 2 },
+          { "label": "Often", "value": 3 },
+          { "label": "Very Often", "value": 4 }
+        ]
+      },
+      {
+        "order": 11,
+        "prompt": "How often are you distracted by activity or noise around you?",
+        "options": [
+          { "label": "Never", "value": 0 },
+          { "label": "Rarely", "value": 1 },
+          { "label": "Sometimes", "value": 2 },
+          { "label": "Often", "value": 3 },
+          { "label": "Very Often", "value": 4 }
+        ]
+      },
+      {
+        "order": 12,
+        "prompt": "How often do you leave your seat in meetings or other situations in which you are expected to remain seated?",
+        "options": [
+          { "label": "Never", "value": 0 },
+          { "label": "Rarely", "value": 1 },
+          { "label": "Sometimes", "value": 2 },
+          { "label": "Often", "value": 3 },
+          { "label": "Very Often", "value": 4 }
+        ]
+      },
+      {
+        "order": 13,
+        "prompt": "How often do you feel restless or fidgety?",
+        "options": [
+          { "label": "Never", "value": 0 },
+          { "label": "Rarely", "value": 1 },
+          { "label": "Sometimes", "value": 2 },
+          { "label": "Often", "value": 3 },
+          { "label": "Very Often", "value": 4 }
+        ]
+      },
+      {
+        "order": 14,
+        "prompt": "How often do you have difficulty unwinding and relaxing when you have time to yourself?",
+        "options": [
+          { "label": "Never", "value": 0 },
+          { "label": "Rarely", "value": 1 },
+          { "label": "Sometimes", "value": 2 },
+          { "label": "Often", "value": 3 },
+          { "label": "Very Often", "value": 4 }
+        ]
+      },
+      {
+        "order": 15,
+        "prompt": "How often do you find yourself talking too much when you are in social situations?",
+        "options": [
+          { "label": "Never", "value": 0 },
+          { "label": "Rarely", "value": 1 },
+          { "label": "Sometimes", "value": 2 },
+          { "label": "Often", "value": 3 },
+          { "label": "Very Often", "value": 4 }
+        ]
+      },
+      {
+        "order": 16,
+        "prompt": "When you're in a conversation, how often do you find yourself finishing the sentences of the people you are talking to, before they can finish them themselves?",
+        "options": [
+          { "label": "Never", "value": 0 },
+          { "label": "Rarely", "value": 1 },
+          { "label": "Sometimes", "value": 2 },
+          { "label": "Often", "value": 3 },
+          { "label": "Very Often", "value": 4 }
+        ]
+      },
+      {
+        "order": 17,
+        "prompt": "How often do you have difficulty waiting your turn in situations when turn taking is required?",
+        "options": [
+          { "label": "Never", "value": 0 },
+          { "label": "Rarely", "value": 1 },
+          { "label": "Sometimes", "value": 2 },
+          { "label": "Often", "value": 3 },
+          { "label": "Very Often", "value": 4 }
+        ]
+      },
+      {
+        "order": 18,
+        "prompt": "How often do you interrupt others when they are busy?",
+        "options": [
+          { "label": "Never", "value": 0 },
+          { "label": "Rarely", "value": 1 },
+          { "label": "Sometimes", "value": 2 },
+          { "label": "Often", "value": 3 },
+          { "label": "Very Often", "value": 4 }
         ]
       }
     ],
@@ -969,54 +1060,27 @@
   },
   {
     "slug": "gds15",
-    "name": "GDS-15 (Short)",
-    "description": "Geriatric Depression Scale (sample short form)",
+    "name": "GDS-15",
+    "description": "Geriatric Depression Scale - A screening tool for depression in older adults",
     "minAgeYears": 65,
     "maxAgeYears": null,
     "audience": "PATIENT",
     "items": [
-      {
-        "order": 1,
-        "prompt": "Are you basically satisfied with your life?",
-        "options": [
-          {
-            "label": "No",
-            "value": 0
-          },
-          {
-            "label": "Yes",
-            "value": 1
-          }
-        ]
-      },
-      {
-        "order": 2,
-        "prompt": "Do you feel that your life is empty?",
-        "options": [
-          {
-            "label": "No",
-            "value": 0
-          },
-          {
-            "label": "Yes",
-            "value": 1
-          }
-        ]
-      },
-      {
-        "order": 3,
-        "prompt": "Do you often feel helpless?",
-        "options": [
-          {
-            "label": "No",
-            "value": 0
-          },
-          {
-            "label": "Yes",
-            "value": 1
-          }
-        ]
-      }
+      { "order": 1, "prompt": "Are you basically satisfied with your life?", "options": [{ "label": "Yes", "value": 0 }, { "label": "No", "value": 1 }] },
+      { "order": 2, "prompt": "Have you dropped many of your activities and interests?", "options": [{ "label": "Yes", "value": 1 }, { "label": "No", "value": 0 }] },
+      { "order": 3, "prompt": "Do you feel that your life is empty?", "options": [{ "label": "Yes", "value": 1 }, { "label": "No", "value": 0 }] },
+      { "order": 4, "prompt": "Do you often get bored?", "options": [{ "label": "Yes", "value": 1 }, { "label": "No", "value": 0 }] },
+      { "order": 5, "prompt": "Are you in good spirits most of the time?", "options": [{ "label": "Yes", "value": 0 }, { "label": "No", "value": 1 }] },
+      { "order": 6, "prompt": "Are you afraid that something bad is going to happen to you?", "options": [{ "label": "Yes", "value": 1 }, { "label": "No", "value": 0 }] },
+      { "order": 7, "prompt": "Do you feel happy most of the time?", "options": [{ "label": "Yes", "value": 0 }, { "label": "No", "value": 1 }] },
+      { "order": 8, "prompt": "Do you often feel helpless?", "options": [{ "label": "Yes", "value": 1 }, { "label": "No", "value": 0 }] },
+      { "order": 9, "prompt": "Do you prefer staying at home, rather than going out and doing new things?", "options": [{ "label": "Yes", "value": 1 }, { "label": "No", "value": 0 }] },
+      { "order": 10, "prompt": "Do you feel you have more problems with memory than most?", "options": [{ "label": "Yes", "value": 1 }, { "label": "No", "value": 0 }] },
+      { "order": 11, "prompt": "Do you think it is wonderful to be alive now?", "options": [{ "label": "Yes", "value": 0 }, { "label": "No", "value": 1 }] },
+      { "order": 12, "prompt": "Do you feel pretty worthless the way you are now?", "options": [{ "label": "Yes", "value": 1 }, { "label": "No", "value": 0 }] },
+      { "order": 13, "prompt": "Do you feel full of energy?", "options": [{ "label": "Yes", "value": 0 }, { "label": "No", "value": 1 }] },
+      { "order": 14, "prompt": "Do you feel that your situation is hopeless?", "options": [{ "label": "Yes", "value": 1 }, { "label": "No", "value": 0 }] },
+      { "order": 15, "prompt": "Do you think that most people are better off than you are?", "options": [{ "label": "Yes", "value": 1 }, { "label": "No", "value": 0 }] }
     ],
     "category": "DEPRESSION_ANXIETY"
   },
@@ -1193,226 +1257,16 @@
     "maxAgeYears": null,
     "audience": "PATIENT",
     "items": [
-      {
-        "order": 1,
-        "prompt": "How often do you have a drink containing alcohol?",
-        "options": [
-          {
-            "label": "Never",
-            "value": 0
-          },
-          {
-            "label": "Monthly or less",
-            "value": 1
-          },
-          {
-            "label": "2–4 times a month",
-            "value": 2
-          },
-          {
-            "label": "2–3 times a week",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "order": 2,
-        "prompt": "How many drinks containing alcohol do you have on a typical day when you are drinking?",
-        "options": [
-          {
-            "label": "1 or 2",
-            "value": 0
-          },
-          {
-            "label": "3 or 4",
-            "value": 1
-          },
-          {
-            "label": "5 or 6",
-            "value": 2
-          },
-          {
-            "label": "7 to 9",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "order": 3,
-        "prompt": "How often do you have six or more drinks on one occasion?",
-        "options": [
-          {
-            "label": "Never",
-            "value": 0
-          },
-          {
-            "label": "Monthly or less",
-            "value": 1
-          },
-          {
-            "label": "2–4 times a month",
-            "value": 2
-          },
-          {
-            "label": "2–3 times a week",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "order": 4,
-        "prompt": "How often during the last year have you found that you were not able to stop drinking once you had started?",
-        "options": [
-          {
-            "label": "Never",
-            "value": 0
-          },
-          {
-            "label": "Monthly or less",
-            "value": 1
-          },
-          {
-            "label": "2–4 times a month",
-            "value": 2
-          },
-          {
-            "label": "2–3 times a week",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "order": 5,
-        "prompt": "How often during the last year have you failed to do what was normally expected from you because of drinking?",
-        "options": [
-          {
-            "label": "Never",
-            "value": 0
-          },
-          {
-            "label": "Monthly or less",
-            "value": 1
-          },
-          {
-            "label": "2–4 times a month",
-            "value": 2
-          },
-          {
-            "label": "2–3 times a week",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "order": 6,
-        "prompt": "How often during the last year have you needed a first drink in the morning to get yourself going after a heavy drinking session?",
-        "options": [
-          {
-            "label": "Never",
-            "value": 0
-          },
-          {
-            "label": "Monthly or less",
-            "value": 1
-          },
-          {
-            "label": "2–4 times a month",
-            "value": 2
-          },
-          {
-            "label": "2–3 times a week",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "order": 7,
-        "prompt": "How often during the last year have you had a feeling of guilt or remorse after drinking?",
-        "options": [
-          {
-            "label": "Never",
-            "value": 0
-          },
-          {
-            "label": "Monthly or less",
-            "value": 1
-          },
-          {
-            "label": "2–4 times a month",
-            "value": 2
-          },
-          {
-            "label": "2–3 times a week",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "order": 8,
-        "prompt": "How often during the last year have you been unable to remember what happened the night before because you had been drinking?",
-        "options": [
-          {
-            "label": "Never",
-            "value": 0
-          },
-          {
-            "label": "Monthly or less",
-            "value": 1
-          },
-          {
-            "label": "2–4 times a month",
-            "value": 2
-          },
-          {
-            "label": "2–3 times a week",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "order": 9,
-        "prompt": "Have you or someone else been injured because of your drinking?",
-        "options": [
-          {
-            "label": "No",
-            "value": 0
-          },
-          {
-            "label": "Yes, but not in the last year",
-            "value": 2
-          },
-          {
-            "label": "Yes, during the last year",
-            "value": 3
-          },
-          {
-            "label": "Prefer not to say",
-            "value": 0
-          }
-        ]
-      },
-      {
-        "order": 10,
-        "prompt": "Has a relative, friend, doctor, or other health worker been concerned about your drinking or suggested you cut down?",
-        "options": [
-          {
-            "label": "No",
-            "value": 0
-          },
-          {
-            "label": "Yes, but not in the last year",
-            "value": 2
-          },
-          {
-            "label": "Yes, during the last year",
-            "value": 3
-          },
-          {
-            "label": "Prefer not to say",
-            "value": 0
-          }
-        ]
-      }
+      { "order": 1, "prompt": "How often do you have a drink containing alcohol?", "options": [{ "label": "Never", "value": 0 }, { "label": "Monthly or less", "value": 1 }, { "label": "2-4 times a month", "value": 2 }, { "label": "2-3 times a week", "value": 3 }, { "label": "4 or more times a week", "value": 4 }] },
+      { "order": 2, "prompt": "How many drinks containing alcohol do you have on a typical day when you are drinking?", "options": [{ "label": "1 or 2", "value": 0 }, { "label": "3 or 4", "value": 1 }, { "label": "5 or 6", "value": 2 }, { "label": "7 to 9", "value": 3 }, { "label": "10 or more", "value": 4 }] },
+      { "order": 3, "prompt": "How often do you have six or more drinks on one occasion?", "options": [{ "label": "Never", "value": 0 }, { "label": "Less than monthly", "value": 1 }, { "label": "Monthly", "value": 2 }, { "label": "Weekly", "value": 3 }, { "label": "Daily or almost daily", "value": 4 }] },
+      { "order": 4, "prompt": "How often during the last year have you found that you were not able to stop drinking once you had started?", "options": [{ "label": "Never", "value": 0 }, { "label": "Less than monthly", "value": 1 }, { "label": "Monthly", "value": 2 }, { "label": "Weekly", "value": 3 }, { "label": "Daily or almost daily", "value": 4 }] },
+      { "order": 5, "prompt": "How often during the last year have you failed to do what was normally expected from you because of drinking?", "options": [{ "label": "Never", "value": 0 }, { "label": "Less than monthly", "value": 1 }, { "label": "Monthly", "value": 2 }, { "label": "Weekly", "value": 3 }, { "label": "Daily or almost daily", "value": 4 }] },
+      { "order": 6, "prompt": "How often during the last year have you needed a first drink in the morning to get yourself going after a heavy drinking session?", "options": [{ "label": "Never", "value": 0 }, { "label": "Less than monthly", "value": 1 }, { "label": "Monthly", "value": 2 }, { "label": "Weekly", "value": 3 }, { "label": "Daily or almost daily", "value": 4 }] },
+      { "order": 7, "prompt": "How often during the last year have you had a feeling of guilt or remorse after drinking?", "options": [{ "label": "Never", "value": 0 }, { "label": "Less than monthly", "value": 1 }, { "label": "Monthly", "value": 2 }, { "label": "Weekly", "value": 3 }, { "label": "Daily or almost daily", "value": 4 }] },
+      { "order": 8, "prompt": "How often during the last year have you been unable to remember what happened the night before because you had been drinking?", "options": [{ "label": "Never", "value": 0 }, { "label": "Less than monthly", "value": 1 }, { "label": "Monthly", "value": 2 }, { "label": "Weekly", "value": 3 }, { "label": "Daily or almost daily", "value": 4 }] },
+      { "order": 9, "prompt": "Have you or someone else been injured because of your drinking?", "options": [{ "label": "No", "value": 0 }, { "label": "Yes, but not in the last year", "value": 2 }, { "label": "Yes, during the last year", "value": 4 }] },
+      { "order": 10, "prompt": "Has a relative, friend, doctor, or other health worker been concerned about your drinking or suggested you cut down?", "options": [{ "label": "No", "value": 0 }, { "label": "Yes, but not in the last year", "value": 2 }, { "label": "Yes, during the last year", "value": 4 }] }
     ],
     "category": "SUBSTANCE_USE"
   },
@@ -1780,122 +1634,39 @@
   },
   {
     "slug": "pcl5",
-    "name": "PCL-5 (Short)",
-    "description": "PTSD Checklist for DSM-5 (sample short form)",
+    "name": "PCL-5",
+    "description": "PTSD Checklist for DSM-5 - A self-report measure of PTSD symptoms",
     "minAgeYears": 18,
+    "maxAgeYears": null,
     "audience": "PATIENT",
     "items": [
-      {
-        "order": 1,
-        "prompt": "Repeated, disturbing, and unwanted memories of the stressful experience?",
-        "options": [
-          {
-            "label": "Not at all",
-            "value": 0
-          },
-          {
-            "label": "A little bit",
-            "value": 1
-          },
-          {
-            "label": "Moderately",
-            "value": 2
-          },
-          {
-            "label": "Quite a bit",
-            "value": 3
-          },
-          {
-            "label": "Extremely",
-            "value": 4
-          }
-        ]
-      },
-      {
-        "order": 2,
-        "prompt": "Repeated, disturbing dreams of the stressful experience?",
-        "options": [
-          {
-            "label": "Not at all",
-            "value": 0
-          },
-          {
-            "label": "A little bit",
-            "value": 1
-          },
-          {
-            "label": "Moderately",
-            "value": 2
-          },
-          {
-            "label": "Quite a bit",
-            "value": 3
-          },
-          {
-            "label": "Extremely",
-            "value": 4
-          }
-        ]
-      },
-      {
-        "order": 3,
-        "prompt": "Suddenly feeling or acting as if the stressful experience were actually happening again?",
-        "options": [
-          {
-            "label": "Not at all",
-            "value": 0
-          },
-          {
-            "label": "A little bit",
-            "value": 1
-          },
-          {
-            "label": "Moderately",
-            "value": 2
-          },
-          {
-            "label": "Quite a bit",
-            "value": 3
-          },
-          {
-            "label": "Extremely",
-            "value": 4
-          }
-        ]
-      },
-      {
-        "order": 4,
-        "prompt": "Feeling very upset when something reminded you of the stressful experience?",
-        "options": [
-          {
-            "label": "Not at all",
-            "value": 0
-          },
-          {
-            "label": "A little bit",
-            "value": 1
-          },
-          {
-            "label": "Moderately",
-            "value": 2
-          },
-          {
-            "label": "Quite a bit",
-            "value": 3
-          },
-          {
-            "label": "Extremely",
-            "value": 4
-          }
-        ]
-      }
+      { "order": 1, "prompt": "Repeated, disturbing, and unwanted memories of the stressful experience?", "options": [{ "label": "Not at all", "value": 0 }, { "label": "A little bit", "value": 1 }, { "label": "Moderately", "value": 2 }, { "label": "Quite a bit", "value": 3 }, { "label": "Extremely", "value": 4 }] },
+      { "order": 2, "prompt": "Repeated, disturbing dreams of the stressful experience?", "options": [{ "label": "Not at all", "value": 0 }, { "label": "A little bit", "value": 1 }, { "label": "Moderately", "value": 2 }, { "label": "Quite a bit", "value": 3 }, { "label": "Extremely", "value": 4 }] },
+      { "order": 3, "prompt": "Suddenly feeling or acting as if the stressful experience were actually happening again (as if you were actually back there reliving it)?", "options": [{ "label": "Not at all", "value": 0 }, { "label": "A little bit", "value": 1 }, { "label": "Moderately", "value": 2 }, { "label": "Quite a bit", "value": 3 }, { "label": "Extremely", "value": 4 }] },
+      { "order": 4, "prompt": "Feeling very upset when something reminded you of the stressful experience?", "options": [{ "label": "Not at all", "value": 0 }, { "label": "A little bit", "value": 1 }, { "label": "Moderately", "value": 2 }, { "label": "Quite a bit", "value": 3 }, { "label": "Extremely", "value": 4 }] },
+      { "order": 5, "prompt": "Having strong physical reactions when something reminded you of the stressful experience (for example, heart pounding, trouble breathing, sweating)?", "options": [{ "label": "Not at all", "value": 0 }, { "label": "A little bit", "value": 1 }, { "label": "Moderately", "value": 2 }, { "label": "Quite a bit", "value": 3 }, { "label": "Extremely", "value": 4 }] },
+      { "order": 6, "prompt": "Avoiding memories, thoughts, or feelings related to the stressful experience?", "options": [{ "label": "Not at all", "value": 0 }, { "label": "A little bit", "value": 1 }, { "label": "Moderately", "value": 2 }, { "label": "Quite a bit", "value": 3 }, { "label": "Extremely", "value": 4 }] },
+      { "order": 7, "prompt": "Avoiding external reminders of the stressful experience (for example, people, places, conversations, activities, objects, or situations)?", "options": [{ "label": "Not at all", "value": 0 }, { "label": "A little bit", "value": 1 }, { "label": "Moderately", "value": 2 }, { "label": "Quite a bit", "value": 3 }, { "label": "Extremely", "value": 4 }] },
+      { "order": 8, "prompt": "Trouble remembering important parts of the stressful experience?", "options": [{ "label": "Not at all", "value": 0 }, { "label": "A little bit", "value": 1 }, { "label": "Moderately", "value": 2 }, { "label": "Quite a bit", "value": 3 }, { "label": "Extremely", "value": 4 }] },
+      { "order": 9, "prompt": "Having strong negative beliefs about yourself, other people, or the world (for example, having thoughts such as: I am bad, there is something seriously wrong with me, no one can be trusted, the world is completely dangerous)?", "options": [{ "label": "Not at all", "value": 0 }, { "label": "A little bit", "value": 1 }, { "label": "Moderately", "value": 2 }, { "label": "Quite a bit", "value": 3 }, { "label": "Extremely", "value": 4 }] },
+      { "order": 10, "prompt": "Blaming yourself or someone else for the stressful experience or for what happened after it?", "options": [{ "label": "Not at all", "value": 0 }, { "label": "A little bit", "value": 1 }, { "label": "Moderately", "value": 2 }, { "label": "Quite a bit", "value": 3 }, { "label": "Extremely", "value": 4 }] },
+      { "order": 11, "prompt": "Having strong negative feelings such as fear, horror, anger, guilt, or shame?", "options": [{ "label": "Not at all", "value": 0 }, { "label": "A little bit", "value": 1 }, { "label": "Moderately", "value": 2 }, { "label": "Quite a bit", "value": 3 }, { "label": "Extremely", "value": 4 }] },
+      { "order": 12, "prompt": "Loss of interest in activities that you used to enjoy?", "options": [{ "label": "Not at all", "value": 0 }, { "label": "A little bit", "value": 1 }, { "label": "Moderately", "value": 2 }, { "label": "Quite a bit", "value": 3 }, { "label": "Extremely", "value": 4 }] },
+      { "order": 13, "prompt": "Feeling distant or cut off from other people?", "options": [{ "label": "Not at all", "value": 0 }, { "label": "A little bit", "value": 1 }, { "label": "Moderately", "value": 2 }, { "label": "Quite a bit", "value": 3 }, { "label": "Extremely", "value": 4 }] },
+      { "order": 14, "prompt": "Trouble experiencing positive feelings (for example, being unable to feel happiness or loving feelings for people close to you)?", "options": [{ "label": "Not at all", "value": 0 }, { "label": "A little bit", "value": 1 }, { "label": "Moderately", "value": 2 }, { "label": "Quite a bit", "value": 3 }, { "label": "Extremely", "value": 4 }] },
+      { "order": 15, "prompt": "Irritable behavior, angry outbursts, or acting aggressively?", "options": [{ "label": "Not at all", "value": 0 }, { "label": "A little bit", "value": 1 }, { "label": "Moderately", "value": 2 }, { "label": "Quite a bit", "value": 3 }, { "label": "Extremely", "value": 4 }] },
+      { "order": 16, "prompt": "Taking too many risks or doing things that could cause you harm?", "options": [{ "label": "Not at all", "value": 0 }, { "label": "A little bit", "value": 1 }, { "label": "Moderately", "value": 2 }, { "label": "Quite a bit", "value": 3 }, { "label": "Extremely", "value": 4 }] },
+      { "order": 17, "prompt": "Being \"superalert\" or watchful or on guard?", "options": [{ "label": "Not at all", "value": 0 }, { "label": "A little bit", "value": 1 }, { "label": "Moderately", "value": 2 }, { "label": "Quite a bit", "value": 3 }, { "label": "Extremely", "value": 4 }] },
+      { "order": 18, "prompt": "Feeling jumpy or easily startled?", "options": [{ "label": "Not at all", "value": 0 }, { "label": "A little bit", "value": 1 }, { "label": "Moderately", "value": 2 }, { "label": "Quite a bit", "value": 3 }, { "label": "Extremely", "value": 4 }] },
+      { "order": 19, "prompt": "Having difficulty concentrating?", "options": [{ "label": "Not at all", "value": 0 }, { "label": "A little bit", "value": 1 }, { "label": "Moderately", "value": 2 }, { "label": "Quite a bit", "value": 3 }, { "label": "Extremely", "value": 4 }] },
+      { "order": 20, "prompt": "Trouble falling or staying asleep?", "options": [{ "label": "Not at all", "value": 0 }, { "label": "A little bit", "value": 1 }, { "label": "Moderately", "value": 2 }, { "label": "Quite a bit", "value": 3 }, { "label": "Extremely", "value": 4 }] }
     ],
     "category": "DEPRESSION_ANXIETY"
   },
   {
     "slug": "vanderbilt",
-    "name": "Vanderbilt ADHD (Short)",
-    "description": "NICHQ Vanderbilt Assessment Scale (sample short form)",
+    "name": "Vanderbilt ADHD",
+    "description": "NICHQ Vanderbilt Assessment Scale - A comprehensive ADHD assessment for children",
     "minAgeYears": 6,
     "maxAgeYears": 12,
     "audience": "PARENT",
@@ -1993,8 +1764,8 @@
   },
   {
     "slug": "scared",
-    "name": "SCARED (Short)",
-    "description": "Screen for Child Anxiety Related Disorders (sample short form)",
+    "name": "SCARED",
+    "description": "Screen for Child Anxiety Related Disorders - A questionnaire for childhood anxiety disorders",
     "minAgeYears": 8,
     "maxAgeYears": 18,
     "audience": "PATIENT",
@@ -2171,8 +1942,8 @@
   },
   {
     "slug": "ysr",
-    "name": "Youth Self-Report (Short)",
-    "description": "CBCL/YSR sample behavioral screener",
+    "name": "Youth Self-Report",
+    "description": "CBCL/YSR - A comprehensive behavioral assessment for adolescents",
     "minAgeYears": 11,
     "maxAgeYears": 18,
     "audience": "PATIENT",
@@ -2254,7 +2025,7 @@
   },
   {
     "slug": "cog-screen",
-    "name": "Cognitive Screening (Short)",
+    "name": "Cognitive Screening",
     "description": "Brief cognitive functioning screener for older adults",
     "minAgeYears": 65,
     "audience": "PATIENT",
@@ -3946,7 +3717,7 @@
   },
   {
     "slug": "wisc-v",
-    "name": "WISC-V (Sample Items)",
+    "name": "WISC-V",
     "description": "Wechsler Intelligence Scale for Children - Fifth Edition. A comprehensive clinical instrument for assessing the intellectual ability of children aged 6-16.",
     "minAgeYears": 6,
     "maxAgeYears": 16,
@@ -4129,7 +3900,7 @@
   },
   {
     "slug": "wais-iv",
-    "name": "WAIS-IV (Sample Items)",
+    "name": "WAIS-IV",
     "description": "Wechsler Adult Intelligence Scale - Fourth Edition. The most widely used clinical instrument for assessing adult cognitive ability (ages 16+).",
     "minAgeYears": 16,
     "maxAgeYears": null,
@@ -4340,7 +4111,7 @@
   },
   {
     "slug": "basc-3",
-    "name": "BASC-3 (Sample Items)",
+    "name": "BASC-3",
     "description": "Behavior Assessment System for Children - Third Edition. A comprehensive assessment of behavior and emotions for children and adolescents ages 2-21.",
     "minAgeYears": 6,
     "maxAgeYears": 21,
@@ -4615,7 +4386,7 @@
   },
   {
     "slug": "conners-3",
-    "name": "Conners 3 (Sample Items)",
+    "name": "Conners 3",
     "description": "Conners 3rd Edition. A thorough assessment of ADHD and its most common comorbid problems and disorders in children and adolescents ages 6-18.",
     "minAgeYears": 6,
     "maxAgeYears": 18,

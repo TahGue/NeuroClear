@@ -357,6 +357,10 @@ enum InstrumentAudience {
   PATIENT
   PARENT
   TEACHER
+  CHILD
+  TEEN
+  ADULT
+  SENIOR
 }
 
 enum InstrumentCategory {

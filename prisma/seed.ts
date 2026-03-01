@@ -143,30 +143,39 @@ async function main() {
     const localeData = JSON.parse(fs.readFileSync(localePath, 'utf-8'))
     
     for (const instrumentData of localeData) {
-      await prisma.instrument.upsert({
-        where: { slug_locale: { slug: instrumentData.slug, locale } },
-        update: {
-          name: instrumentData.name,
-          description: instrumentData.description,
-          category: instrumentData.category as InstrumentCategory ?? InstrumentCategory.COGNITIVE,
-          minAgeYears: instrumentData.minAgeYears,
-          maxAgeYears: instrumentData.maxAgeYears,
-          audience: instrumentData.audience,
-        },
-        create: {
-          slug: instrumentData.slug,
-          locale,
-          name: instrumentData.name,
-          description: instrumentData.description,
-          category: instrumentData.category as InstrumentCategory ?? InstrumentCategory.COGNITIVE,
-          minAgeYears: instrumentData.minAgeYears,
-          maxAgeYears: instrumentData.maxAgeYears,
-          audience: instrumentData.audience,
-          items: {
-            create: instrumentData.items
-          }
-        }
+      const existing = await prisma.instrument.findFirst({
+        where: { slug: instrumentData.slug, locale }
       });
+      
+      if (existing) {
+        await prisma.instrument.update({
+          where: { id: existing.id },
+          data: {
+            name: instrumentData.name,
+            description: instrumentData.description,
+            category: instrumentData.category as InstrumentCategory ?? InstrumentCategory.COGNITIVE,
+            minAgeYears: instrumentData.minAgeYears,
+            maxAgeYears: instrumentData.maxAgeYears,
+            audience: instrumentData.audience,
+          },
+        });
+      } else {
+        await prisma.instrument.create({
+          data: {
+            slug: instrumentData.slug,
+            locale,
+            name: instrumentData.name,
+            description: instrumentData.description,
+            category: instrumentData.category as InstrumentCategory ?? InstrumentCategory.COGNITIVE,
+            minAgeYears: instrumentData.minAgeYears,
+            maxAgeYears: instrumentData.maxAgeYears,
+            audience: instrumentData.audience,
+            items: {
+              create: instrumentData.items
+            }
+          }
+        });
+      }
     }
   }
 

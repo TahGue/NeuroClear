@@ -44,7 +44,8 @@
     "myTests": "My Tests",
     "home": "Home",
     "logout": "Logout",
-    "settings": "Settings"
+    "settings": "Settings",
+    "profile": "Profile"
   },
   "language": {
     "label": "Language",
@@ -218,6 +219,65 @@
       "viewAllReports": "View All Reports",
       "editPatientInfo": "Edit Patient Info",
       "deletePatient": "Are you sure you want to delete this patient and all their data? This action cannot be undone."
+    },
+    "dialogs": {
+      "add": {
+        "title": "Add New Patient",
+        "description": "Enter the patient's information to add them to the system."
+      },
+      "edit": {
+        "title": "Edit Patient",
+        "description": "Update the patient's information."
+      },
+      "delete": {
+        "title": "Delete Patient",
+        "description": "Are you sure you want to delete {name}? This action cannot be undone and will remove all associated data."
+      },
+      "fields": {
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "dateOfBirth": "Date of Birth",
+        "referralSource": "Referral Source",
+        "referralPlaceholder": "e.g., Dr. Smith, Self-referral",
+        "status": "Status"
+      },
+      "actions": {
+        "cancel": "Cancel",
+        "create": "Create Patient",
+        "save": "Save Changes",
+        "delete": "Delete Patient"
+      }
+    }
+  },
+  "profile": {
+    "title": "Profile",
+    "description": "Manage your account settings and preferences",
+    "sections": {
+      "personalInfo": "Personal Information",
+      "personalInfoDesc": "Update your personal details",
+      "stats": "Activity Statistics",
+      "security": "Security"
+    },
+    "fields": {
+      "name": "Full Name",
+      "namePlaceholder": "Enter your full name",
+      "email": "Email Address",
+      "role": "Role",
+      "memberSince": "Member Since"
+    },
+    "roles": {
+      "ADMIN": "Administrator",
+      "CLINICIAN": "Clinician",
+      "INTERN": "Intern",
+      "SUPERVISOR": "Supervisor"
+    },
+    "stats": {
+      "assignments": "Test Assignments",
+      "auditLogs": "Activity Logs"
+    },
+    "actions": {
+      "saveChanges": "Save Changes",
+      "changePassword": "Change Password"
     }
   },
   "assessments": {
@@ -274,6 +334,26 @@
       "teen": "Teenager",
       "adult": "Adult",
       "senior": "Senior"
+    },
+    "searchPlaceholder": "Search tests...",
+    "filters": {
+      "category": "Category",
+      "allCategories": "All Categories",
+      "status": "Status",
+      "allStatus": "All Status"
+    },
+    "sortBy": "Sort by",
+    "sortOptions": {
+      "name": "Name",
+      "category": "Category",
+      "audience": "Audience",
+      "items": "Items",
+      "assignments": "Assignments"
+    },
+    "resultsFound": "tests found",
+    "viewModes": {
+      "grid": "Grid View",
+      "list": "List View"
     }
   },
   "reports": {

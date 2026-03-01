@@ -7,10 +7,11 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { Search, Plus, Eye, Calendar, User, Users } from "lucide-react"
+import { Search, Eye, Calendar, User, Users, ArrowUpDown, ArrowUp, ArrowDown } from "lucide-react"
 import { formatDate, formatAge } from "@/lib/utils"
 import { EmptyState } from "@/components/ui/EmptyState"
 import { useI18n } from "@/lib/i18n-context"
+import { AddPatientDialog, EditPatientDialog, DeletePatientDialog } from "@/components/patients/patient-dialogs"
 
 type PatientData = {
   id: string
@@ -23,9 +24,14 @@ type PatientData = {
   lastEvaluation: Date | null
 }
 
+type SortField = "name" | "age" | "status" | "lastEvaluation"
+type SortDirection = "asc" | "desc"
+
 export function PatientsClient({ initialPatients }: { initialPatients: PatientData[] }) {
   const [searchTerm, setSearchTerm] = useState("")
   const [statusFilter, setStatusFilter] = useState("ALL")
+  const [sortField, setSortField] = useState<SortField>("name")
+  const [sortDirection, setSortDirection] = useState<SortDirection>("asc")
   const { t } = useI18n()
 
   const stats = useMemo(() => ({
@@ -51,16 +57,56 @@ export function PatientsClient({ initialPatients }: { initialPatients: PatientDa
       title: t("patients.stats.new.title"),
       description: t("patients.stats.new.description"),
       value: 2,
-      icon: Plus,
+      icon: Search,
     },
   }), [initialPatients, t])
 
-  const filteredPatients = initialPatients.filter(patient => {
-    const matchesSearch = `${patient.firstName} ${patient.lastName}`.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         patient.id.toLowerCase().includes(searchTerm.toLowerCase())
-    const matchesStatus = statusFilter === "ALL" || patient.status === statusFilter
-    return matchesSearch && matchesStatus
-  })
+  const filteredPatients = useMemo(() => {
+    let filtered = initialPatients.filter(patient => {
+      const matchesSearch = `${patient.firstName} ${patient.lastName}`.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                           patient.id.toLowerCase().includes(searchTerm.toLowerCase())
+      const matchesStatus = statusFilter === "ALL" || patient.status === statusFilter
+      return matchesSearch && matchesStatus
+    })
+
+    // Sort
+    filtered.sort((a, b) => {
+      let comparison = 0
+      switch (sortField) {
+        case "name":
+          comparison = `${a.lastName} ${a.firstName}`.localeCompare(`${b.lastName} ${b.firstName}`)
+          break
+        case "age":
+          comparison = new Date(a.dateOfBirth).getTime() - new Date(b.dateOfBirth).getTime()
+          break
+        case "status":
+          comparison = a.status.localeCompare(b.status)
+          break
+        case "lastEvaluation":
+          const aDate = a.lastEvaluation ? new Date(a.lastEvaluation).getTime() : 0
+          const bDate = b.lastEvaluation ? new Date(b.lastEvaluation).getTime() : 0
+          comparison = aDate - bDate
+          break
+      }
+      return sortDirection === "asc" ? comparison : -comparison
+    })
+
+    return filtered
+  }, [initialPatients, searchTerm, statusFilter, sortField, sortDirection])
+
+  const toggleSort = (field: SortField) => {
+    if (sortField === field) {
+      setSortDirection(prev => prev === "asc" ? "desc" : "asc")
+    } else {
+      setSortField(field)
+      setSortDirection("asc")
+    }
+  }
+
+  const getSortIcon = (field: SortField) => {
+    if (sortField !== field) return <ArrowUpDown className="h-4 w-4" />
+    return sortDirection === "asc" ? <ArrowUp className="h-4 w-4" /> : <ArrowDown className="h-4 w-4" />
+  }
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -78,10 +124,7 @@ export function PatientsClient({ initialPatients }: { initialPatients: PatientDa
           <h1 className="text-3xl font-bold text-foreground">{t("patients.title")}</h1>
           <p className="text-muted-foreground">{t("patients.description")}</p>
         </div>
-        <Button>
-          <Plus className="h-4 w-4 mr-2" />
-          {t("patients.cta")}
-        </Button>
+        <AddPatientDialog />
       </div>
 
       <div className="grid gap-4 md:grid-cols-4">
@@ -141,12 +184,32 @@ export function PatientsClient({ initialPatients }: { initialPatients: PatientDa
               <TableHeader>
                 <TableRow>
                   <TableHead>{t("patients.tableHeaders.id")}</TableHead>
-                  <TableHead>{t("patients.tableHeaders.name")}</TableHead>
-                  <TableHead>{t("patients.tableHeaders.age")}</TableHead>
+                  <TableHead>
+                    <Button variant="ghost" size="sm" onClick={() => toggleSort("name")} className="flex items-center gap-1">
+                      {t("patients.tableHeaders.name")}
+                      {getSortIcon("name")}
+                    </Button>
+                  </TableHead>
+                  <TableHead>
+                    <Button variant="ghost" size="sm" onClick={() => toggleSort("age")} className="flex items-center gap-1">
+                      {t("patients.tableHeaders.age")}
+                      {getSortIcon("age")}
+                    </Button>
+                  </TableHead>
                   <TableHead>{t("patients.tableHeaders.referral")}</TableHead>
-                  <TableHead>{t("patients.tableHeaders.status")}</TableHead>
+                  <TableHead>
+                    <Button variant="ghost" size="sm" onClick={() => toggleSort("status")} className="flex items-center gap-1">
+                      {t("patients.tableHeaders.status")}
+                      {getSortIcon("status")}
+                    </Button>
+                  </TableHead>
                   <TableHead>{t("patients.tableHeaders.activeBatteries")}</TableHead>
-                  <TableHead>{t("patients.tableHeaders.lastEvaluation")}</TableHead>
+                  <TableHead>
+                    <Button variant="ghost" size="sm" onClick={() => toggleSort("lastEvaluation")} className="flex items-center gap-1">
+                      {t("patients.tableHeaders.lastEvaluation")}
+                      {getSortIcon("lastEvaluation")}
+                    </Button>
+                  </TableHead>
                   <TableHead>{t("patients.tableHeaders.actions")}</TableHead>
                 </TableRow>
               </TableHeader>
@@ -184,12 +247,14 @@ export function PatientsClient({ initialPatients }: { initialPatients: PatientDa
                     </TableCell>
                     <TableCell>{patient.lastEvaluation ? formatDate(patient.lastEvaluation) : t("patients.table.lastEvaluationUnknown")}</TableCell>
                     <TableCell>
-                      <div className="flex space-x-2">
+                      <div className="flex space-x-1">
                         <Button variant="ghost" size="sm" asChild>
                           <Link href={`/patients/${patient.id}`}>
                             <Eye className="h-4 w-4" />
                           </Link>
                         </Button>
+                        <EditPatientDialog patient={patient} />
+                        <DeletePatientDialog patient={patient} />
                       </div>
                     </TableCell>
                   </TableRow>

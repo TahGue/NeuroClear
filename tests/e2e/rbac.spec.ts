@@ -18,10 +18,10 @@ test.describe("RBAC redirects (patient)", () => {
 test.describe("RBAC redirects (staff)", () => {
   test.use({ storageState: staffState })
 
-  test("staff visiting '/portal' is redirected to '/'", async ({ page }) => {
+  test("staff visiting '/portal' is redirected to /dashboard", async ({ page }) => {
     await page.goto("/portal", { waitUntil: "domcontentloaded" })
 
-    await expect(page).toHaveURL(/\/$/)
+    await expect(page).toHaveURL(/\/dashboard/)
     await expect(page.getByRole("heading", { name: /Dashboard/i })).toBeVisible()
   })
 })

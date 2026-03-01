@@ -209,171 +209,6 @@
     "category": "DEPRESSION_ANXIETY"
   },
   {
-    "slug": "gad7",
-    "name": "GAD-7",
-    "description": "Generalized Anxiety Disorder-7 (Angests-screening)",
-    "minAgeYears": 13,
-    "maxAgeYears": null,
-    "audience": "PATIENT",
-    "items": [
-      {
-        "order": 1,
-        "prompt": "Känner dig nervös, ängslig eller på helspänn",
-        "options": [
-          {
-            "label": "Inte alls",
-            "value": 0
-          },
-          {
-            "label": "Flera dagar",
-            "value": 1
-          },
-          {
-            "label": "Mer än hälften av dagarna",
-            "value": 2
-          },
-          {
-            "label": "Nästan varje dag",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "order": 2,
-        "prompt": "Kan inte sluta eller kontrollera din oro",
-        "options": [
-          {
-            "label": "Inte alls",
-            "value": 0
-          },
-          {
-            "label": "Flera dagar",
-            "value": 1
-          },
-          {
-            "label": "Mer än hälften av dagarna",
-            "value": 2
-          },
-          {
-            "label": "Nästan varje dag",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "order": 3,
-        "prompt": "Oroar dig för mycket om olika saker",
-        "options": [
-          {
-            "label": "Inte alls",
-            "value": 0
-          },
-          {
-            "label": "Flera dagar",
-            "value": 1
-          },
-          {
-            "label": "Mer än hälften av dagarna",
-            "value": 2
-          },
-          {
-            "label": "Nästan varje dag",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "order": 4,
-        "prompt": "Svårt att koppla av",
-        "options": [
-          {
-            "label": "Inte alls",
-            "value": 0
-          },
-          {
-            "label": "Flera dagar",
-            "value": 1
-          },
-          {
-            "label": "Mer än hälften av dagarna",
-            "value": 2
-          },
-          {
-            "label": "Nästan varje dag",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "order": 5,
-        "prompt": "Så rastlös att det är svårt att sitta stilla",
-        "options": [
-          {
-            "label": "Inte alls",
-            "value": 0
-          },
-          {
-            "label": "Flera dagar",
-            "value": 1
-          },
-          {
-            "label": "Mer än hälften av dagarna",
-            "value": 2
-          },
-          {
-            "label": "Nästan varje dag",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "order": 6,
-        "prompt": "Blir lätt irriterad eller lättretad",
-        "options": [
-          {
-            "label": "Inte alls",
-            "value": 0
-          },
-          {
-            "label": "Flera dagar",
-            "value": 1
-          },
-          {
-            "label": "Mer än hälften av dagarna",
-            "value": 2
-          },
-          {
-            "label": "Nästan varje dag",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "order": 7,
-        "prompt": "Känner dig rädd att något hemskt ska hända",
-        "options": [
-          {
-            "label": "Inte alls",
-            "value": 0
-          },
-          {
-            "label": "Flera dagar",
-            "value": 1
-          },
-          {
-            "label": "Mer än hälften av dagarna",
-            "value": 2
-          },
-          {
-            "label": "Nästan varje dag",
-            "value": 3
-          }
-        ]
-      }
-    ],
-    "category": "DEPRESSION_ANXIETY"
-  },
-  {
     "slug": "sdq",
     "name": "SDQ",
     "description": "Strengths and Difficulties Questionnaire (Screening för barn)",
@@ -563,6 +398,1726 @@
       }
     ],
     "category": "BEHAVIORAL"
+  },
+  {
+    "slug": "child-emotion-masks",
+    "name": "Känslomasker för barn",
+    "description": "Igenkänning av ansiktsuttryck för barn",
+    "minAgeYears": 6,
+    "maxAgeYears": 12,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "😀 Vilken känsla visas?",
+        "options": [
+          {
+            "label": "Glad",
+            "value": 1
+          },
+          {
+            "label": "Ledsen",
+            "value": 0
+          },
+          {
+            "label": "Arg",
+            "value": 0
+          },
+          {
+            "label": "Förvånad",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "😢 Vilken känsla visas?",
+        "options": [
+          {
+            "label": "Glad",
+            "value": 0
+          },
+          {
+            "label": "Ledsen",
+            "value": 1
+          },
+          {
+            "label": "Arg",
+            "value": 0
+          },
+          {
+            "label": "Rädd",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "😠 Vilken känsla visas?",
+        "options": [
+          {
+            "label": "Glad",
+            "value": 0
+          },
+          {
+            "label": "Ledsen",
+            "value": 0
+          },
+          {
+            "label": "Arg",
+            "value": 1
+          },
+          {
+            "label": "Förvånad",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "😮 Vilken känsla visas?",
+        "options": [
+          {
+            "label": "Glad",
+            "value": 0
+          },
+          {
+            "label": "Ledsen",
+            "value": 0
+          },
+          {
+            "label": "Arg",
+            "value": 0
+          },
+          {
+            "label": "Förvånad",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "😨 Vilken känsla visas?",
+        "options": [
+          {
+            "label": "Glad",
+            "value": 0
+          },
+          {
+            "label": "Arg",
+            "value": 0
+          },
+          {
+            "label": "Rädd",
+            "value": 1
+          },
+          {
+            "label": "Förvånad",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "EMOTIONAL_SOCIAL"
+  },
+  {
+    "slug": "child-pattern-weaving",
+    "name": "Mönstervävning för barn",
+    "description": "Mönsterigenkänningstest för barn",
+    "minAgeYears": 6,
+    "maxAgeYears": 12,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Vilket mönster kommer härnäst? 🔴 🔵 🔴 🔵 🔴 ?",
+        "options": [
+          {
+            "label": "🔴",
+            "value": 0
+          },
+          {
+            "label": "🔵",
+            "value": 1
+          },
+          {
+            "label": "🟢",
+            "value": 0
+          },
+          {
+            "label": "🟡",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Vilket mönster kommer härnäst? ⭐ ⭐ 🌙 ⭐ ⭐ ?",
+        "options": [
+          {
+            "label": "⭐",
+            "value": 0
+          },
+          {
+            "label": "🌙",
+            "value": 1
+          },
+          {
+            "label": "☀️",
+            "value": 0
+          },
+          {
+            "label": "🌟",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Vilket mönster kommer härnäst? 🐶 🐱 🐶 🐱 ?",
+        "options": [
+          {
+            "label": "🐶",
+            "value": 1
+          },
+          {
+            "label": "🐱",
+            "value": 0
+          },
+          {
+            "label": "🐰",
+            "value": 0
+          },
+          {
+            "label": "🐻",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Vilket mönster kommer härnäst? △ ○ △ ○ △ ?",
+        "options": [
+          {
+            "label": "△",
+            "value": 0
+          },
+          {
+            "label": "○",
+            "value": 1
+          },
+          {
+            "label": "□",
+            "value": 0
+          },
+          {
+            "label": "◇",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Vilket mönster kommer härnäst? 1 2 3 1 2 3 1 2 ?",
+        "options": [
+          {
+            "label": "1",
+            "value": 0
+          },
+          {
+            "label": "2",
+            "value": 0
+          },
+          {
+            "label": "3",
+            "value": 1
+          },
+          {
+            "label": "4",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "COGNITIVE"
+  },
+  {
+    "slug": "child-story-seeds",
+    "name": "Story Seeds (Child)",
+    "description": "Sequencing memory and comprehension.",
+    "minAgeYears": 6,
+    "maxAgeYears": 12,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Read carefully: The seed was planted. It rained. A sprout grew. The sun shone. A flower bloomed. What happened FIRST?",
+        "options": [
+          {
+            "label": "A sprout grew",
+            "value": 0
+          },
+          {
+            "label": "The seed was planted",
+            "value": 1
+          },
+          {
+            "label": "A flower bloomed",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "What made the sprout grow?",
+        "options": [
+          {
+            "label": "The wind",
+            "value": 0
+          },
+          {
+            "label": "Rain and sun",
+            "value": 1
+          },
+          {
+            "label": "The snow",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "What happened at the very end?",
+        "options": [
+          {
+            "label": "The seed was planted",
+            "value": 0
+          },
+          {
+            "label": "A flower bloomed",
+            "value": 1
+          },
+          {
+            "label": "It rained",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "COGNITIVE"
+  },
+  {
+    "slug": "child-breath-bell",
+    "name": "Breath & Bell (Child)",
+    "description": "Attention and state recovery through guided reflection.",
+    "minAgeYears": 6,
+    "maxAgeYears": 12,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Take a deep breath in... and out. How does your body feel right now?",
+        "options": [
+          {
+            "label": "Very wiggly",
+            "value": 0
+          },
+          {
+            "label": "A little wiggly",
+            "value": 1
+          },
+          {
+            "label": "Calm and still",
+            "value": 2
+          },
+          {
+            "label": "Very sleepy",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Imagine you are holding a hot cup of cocoa. Blow on it slowly to cool it down. How easy was it to breathe out slowly?",
+        "options": [
+          {
+            "label": "Very hard",
+            "value": 0
+          },
+          {
+            "label": "A little hard",
+            "value": 1
+          },
+          {
+            "label": "Easy",
+            "value": 2
+          },
+          {
+            "label": "Very easy",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Listen to an imaginary bell: DING... wait for it to fade in your mind. Did you wait until it was completely quiet?",
+        "options": [
+          {
+            "label": "No, I started thinking of other things",
+            "value": 0
+          },
+          {
+            "label": "Yes, I waited until it was quiet",
+            "value": 2
+          }
+        ]
+      }
+    ],
+    "category": "EMOTIONAL_SOCIAL"
+  },
+  {
+    "slug": "phqa",
+    "name": "PHQ-A",
+    "description": "Patient Health Questionnaire för ungdomar",
+    "minAgeYears": 13,
+    "maxAgeYears": 18,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Litet intresse eller glädje i att göra saker",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Känner dig nere, deprimerad",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Sömnproblem",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Känner dig trött",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Förändringar i aptit",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "Känner dig dålig om dig själv",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "Svårigheter att koncentrera dig",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 8,
+        "prompt": "Rastlöshet eller långsamhet",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 9,
+        "prompt": "Tankar om död eller självmord",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      }
+    ],
+    "category": "DEPRESSION_ANXIETY"
+  },
+  {
+    "slug": "teen-uncertainty-compass",
+    "name": "Uncertainty Compass",
+    "description": "Decision-making under uncertainty. Choose a path, learn from feedback.",
+    "minAgeYears": 13,
+    "maxAgeYears": 17,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "You find a mysterious box. Do you open it immediately or wait for instructions?",
+        "options": [
+          {
+            "label": "Open immediately",
+            "value": 1
+          },
+          {
+            "label": "Wait for instructions",
+            "value": 0
+          },
+          {
+            "label": "Leave it alone",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "You are navigating a new city and get lost. Do you ask a stranger or use a map app?",
+        "options": [
+          {
+            "label": "Ask a stranger",
+            "value": 1
+          },
+          {
+            "label": "Use map app",
+            "value": 0
+          },
+          {
+            "label": "Wander until I find it",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "A friend invites you to a party where you don't know anyone. Do you go?",
+        "options": [
+          {
+            "label": "Yes, definitely",
+            "value": 1
+          },
+          {
+            "label": "No, too stressful",
+            "value": 0
+          },
+          {
+            "label": "Maybe, if they stay with me",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "COGNITIVE"
+  },
+  {
+    "slug": "teen-social-harmony",
+    "name": "Social harmoni för tonåringar",
+    "description": "Förståelse av sociala situationer för tonåringar",
+    "minAgeYears": 13,
+    "maxAgeYears": 18,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Din vän berättar en hemlighet för dig. Vad ska du göra?",
+        "options": [
+          {
+            "label": "Berätta för alla",
+            "value": 0
+          },
+          {
+            "label": "Behåll den för dig själv",
+            "value": 1
+          },
+          {
+            "label": "Berätta för dina föräldrar",
+            "value": 0
+          },
+          {
+            "label": "Glöm bort den",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Någon tappar sina böcker i korridoren. Vad är det bästa svaret?",
+        "options": [
+          {
+            "label": "Skratta",
+            "value": 0
+          },
+          {
+            "label": "Ignorera",
+            "value": 0
+          },
+          {
+            "label": "Hjälp till att plocka upp",
+            "value": 1
+          },
+          {
+            "label": "Titta på",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "En vän verkar ledsen. Vad ska du göra?",
+        "options": [
+          {
+            "label": "Ignorera",
+            "value": 0
+          },
+          {
+            "label": "Fråga om allt är okej",
+            "value": 1
+          },
+          {
+            "label": "Berätta för andra",
+            "value": 0
+          },
+          {
+            "label": "Gå därifrån",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Du är sen till lektionen. Vad ska du göra?",
+        "options": [
+          {
+            "label": "Gå in högljutt",
+            "value": 0
+          },
+          {
+            "label": "Gå in tyst och be om ursäkt",
+            "value": 1
+          },
+          {
+            "label": "Gå inte in",
+            "value": 0
+          },
+          {
+            "label": "Skyll på någon annan",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Du ser någon bli mobbad. Vad ska du göra?",
+        "options": [
+          {
+            "label": "Skratta",
+            "value": 0
+          },
+          {
+            "label": "Delta",
+            "value": 0
+          },
+          {
+            "label": "Hjälp till eller hämta en vuxen",
+            "value": 1
+          },
+          {
+            "label": "Ignorera",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "EMOTIONAL_SOCIAL"
+  },
+  {
+    "slug": "teen-rhythm-meter",
+    "name": "Rhythm & Meter",
+    "description": "Working memory and cognitive flexibility under load.",
+    "minAgeYears": 13,
+    "maxAgeYears": 17,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Memorize this sequence: 1-4-2-8. Now, what was the third number?",
+        "options": [
+          {
+            "label": "1",
+            "value": 0
+          },
+          {
+            "label": "4",
+            "value": 0
+          },
+          {
+            "label": "2",
+            "value": 1
+          },
+          {
+            "label": "8",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Tap the odd number: 2, 6, 7, 10",
+        "options": [
+          {
+            "label": "2",
+            "value": 0
+          },
+          {
+            "label": "6",
+            "value": 0
+          },
+          {
+            "label": "7",
+            "value": 1
+          },
+          {
+            "label": "10",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "COGNITIVE"
+  },
+  {
+    "slug": "teen-ethics-motion",
+    "name": "Ethics in Motion",
+    "description": "Dilemma reasoning. There is no 'right' answer, just your perspective.",
+    "minAgeYears": 13,
+    "maxAgeYears": 17,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "You promised to help a friend move, but get a chance to go to a concert you really wanted to see. What do you do?",
+        "options": [
+          {
+            "label": "Help the friend (Loyalty)",
+            "value": 1
+          },
+          {
+            "label": "Go to concert (Self-interest)",
+            "value": 1
+          },
+          {
+            "label": "Try to do both poorly",
+            "value": 1
+          }
+        ]
+      }
+    ],
+    "category": "EMOTIONAL_SOCIAL"
+  },
+  {
+    "slug": "asrs",
+    "name": "ASRS",
+    "description": "Adult ADHD Self-Report Scale - A screening instrument for ADHD in adults",
+    "minAgeYears": 18,
+    "maxAgeYears": 64,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "How often do you have trouble wrapping up the final details of a project, once the challenging parts have been done?",
+        "options": [
+          {
+            "label": "Never",
+            "value": 0
+          },
+          {
+            "label": "Rarely",
+            "value": 1
+          },
+          {
+            "label": "Sometimes",
+            "value": 2
+          },
+          {
+            "label": "Often",
+            "value": 3
+          },
+          {
+            "label": "Very Often",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "How often do you have difficulty getting things in order when you have to do a task that requires organization?",
+        "options": [
+          {
+            "label": "Never",
+            "value": 0
+          },
+          {
+            "label": "Rarely",
+            "value": 1
+          },
+          {
+            "label": "Sometimes",
+            "value": 2
+          },
+          {
+            "label": "Often",
+            "value": 3
+          },
+          {
+            "label": "Very Often",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "How often do you have problems remembering appointments or obligations?",
+        "options": [
+          {
+            "label": "Never",
+            "value": 0
+          },
+          {
+            "label": "Rarely",
+            "value": 1
+          },
+          {
+            "label": "Sometimes",
+            "value": 2
+          },
+          {
+            "label": "Often",
+            "value": 3
+          },
+          {
+            "label": "Very Often",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "When you have a task that requires a lot of thought, how often do you avoid or delay getting started?",
+        "options": [
+          {
+            "label": "Never",
+            "value": 0
+          },
+          {
+            "label": "Rarely",
+            "value": 1
+          },
+          {
+            "label": "Sometimes",
+            "value": 2
+          },
+          {
+            "label": "Often",
+            "value": 3
+          },
+          {
+            "label": "Very Often",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "How often do you fidget or squirm with your hands or feet when you have to sit down for a long time?",
+        "options": [
+          {
+            "label": "Never",
+            "value": 0
+          },
+          {
+            "label": "Rarely",
+            "value": 1
+          },
+          {
+            "label": "Sometimes",
+            "value": 2
+          },
+          {
+            "label": "Often",
+            "value": 3
+          },
+          {
+            "label": "Very Often",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "How often do you feel overly active and compelled to do things, like you were driven by a motor?",
+        "options": [
+          {
+            "label": "Never",
+            "value": 0
+          },
+          {
+            "label": "Rarely",
+            "value": 1
+          },
+          {
+            "label": "Sometimes",
+            "value": 2
+          },
+          {
+            "label": "Often",
+            "value": 3
+          },
+          {
+            "label": "Very Often",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "How often do you make careless mistakes when you have to work on a boring or difficult project?",
+        "options": [
+          {
+            "label": "Never",
+            "value": 0
+          },
+          {
+            "label": "Rarely",
+            "value": 1
+          },
+          {
+            "label": "Sometimes",
+            "value": 2
+          },
+          {
+            "label": "Often",
+            "value": 3
+          },
+          {
+            "label": "Very Often",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 8,
+        "prompt": "How often do you have difficulty keeping your attention when you are doing boring or repetitive work?",
+        "options": [
+          {
+            "label": "Never",
+            "value": 0
+          },
+          {
+            "label": "Rarely",
+            "value": 1
+          },
+          {
+            "label": "Sometimes",
+            "value": 2
+          },
+          {
+            "label": "Often",
+            "value": 3
+          },
+          {
+            "label": "Very Often",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 9,
+        "prompt": "How often do you have difficulty concentrating on what people say to you, even when they are speaking to you directly?",
+        "options": [
+          {
+            "label": "Never",
+            "value": 0
+          },
+          {
+            "label": "Rarely",
+            "value": 1
+          },
+          {
+            "label": "Sometimes",
+            "value": 2
+          },
+          {
+            "label": "Often",
+            "value": 3
+          },
+          {
+            "label": "Very Often",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 10,
+        "prompt": "How often do you misplace or have difficulty finding things at home or at work?",
+        "options": [
+          {
+            "label": "Never",
+            "value": 0
+          },
+          {
+            "label": "Rarely",
+            "value": 1
+          },
+          {
+            "label": "Sometimes",
+            "value": 2
+          },
+          {
+            "label": "Often",
+            "value": 3
+          },
+          {
+            "label": "Very Often",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 11,
+        "prompt": "How often are you distracted by activity or noise around you?",
+        "options": [
+          {
+            "label": "Never",
+            "value": 0
+          },
+          {
+            "label": "Rarely",
+            "value": 1
+          },
+          {
+            "label": "Sometimes",
+            "value": 2
+          },
+          {
+            "label": "Often",
+            "value": 3
+          },
+          {
+            "label": "Very Often",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 12,
+        "prompt": "How often do you leave your seat in meetings or other situations in which you are expected to remain seated?",
+        "options": [
+          {
+            "label": "Never",
+            "value": 0
+          },
+          {
+            "label": "Rarely",
+            "value": 1
+          },
+          {
+            "label": "Sometimes",
+            "value": 2
+          },
+          {
+            "label": "Often",
+            "value": 3
+          },
+          {
+            "label": "Very Often",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 13,
+        "prompt": "How often do you feel restless or fidgety?",
+        "options": [
+          {
+            "label": "Never",
+            "value": 0
+          },
+          {
+            "label": "Rarely",
+            "value": 1
+          },
+          {
+            "label": "Sometimes",
+            "value": 2
+          },
+          {
+            "label": "Often",
+            "value": 3
+          },
+          {
+            "label": "Very Often",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 14,
+        "prompt": "How often do you have difficulty unwinding and relaxing when you have time to yourself?",
+        "options": [
+          {
+            "label": "Never",
+            "value": 0
+          },
+          {
+            "label": "Rarely",
+            "value": 1
+          },
+          {
+            "label": "Sometimes",
+            "value": 2
+          },
+          {
+            "label": "Often",
+            "value": 3
+          },
+          {
+            "label": "Very Often",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 15,
+        "prompt": "How often do you find yourself talking too much when you are in social situations?",
+        "options": [
+          {
+            "label": "Never",
+            "value": 0
+          },
+          {
+            "label": "Rarely",
+            "value": 1
+          },
+          {
+            "label": "Sometimes",
+            "value": 2
+          },
+          {
+            "label": "Often",
+            "value": 3
+          },
+          {
+            "label": "Very Often",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 16,
+        "prompt": "When you're in a conversation, how often do you find yourself finishing the sentences of the people you are talking to, before they can finish them themselves?",
+        "options": [
+          {
+            "label": "Never",
+            "value": 0
+          },
+          {
+            "label": "Rarely",
+            "value": 1
+          },
+          {
+            "label": "Sometimes",
+            "value": 2
+          },
+          {
+            "label": "Often",
+            "value": 3
+          },
+          {
+            "label": "Very Often",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 17,
+        "prompt": "How often do you have difficulty waiting your turn in situations when turn taking is required?",
+        "options": [
+          {
+            "label": "Never",
+            "value": 0
+          },
+          {
+            "label": "Rarely",
+            "value": 1
+          },
+          {
+            "label": "Sometimes",
+            "value": 2
+          },
+          {
+            "label": "Often",
+            "value": 3
+          },
+          {
+            "label": "Very Often",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 18,
+        "prompt": "How often do you interrupt others when they are busy?",
+        "options": [
+          {
+            "label": "Never",
+            "value": 0
+          },
+          {
+            "label": "Rarely",
+            "value": 1
+          },
+          {
+            "label": "Sometimes",
+            "value": 2
+          },
+          {
+            "label": "Often",
+            "value": 3
+          },
+          {
+            "label": "Very Often",
+            "value": 4
+          }
+        ]
+      }
+    ],
+    "category": "ADHD_ATTENTION"
+  },
+  {
+    "slug": "gds15",
+    "name": "GDS-15",
+    "description": "Geriatric Depression Scale-15",
+    "minAgeYears": 60,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Är du nöjd med ditt liv?",
+        "options": [
+          {
+            "label": "Ja",
+            "value": 0
+          },
+          {
+            "label": "Nej",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Har du gett upp många av dina aktiviteter och intressen?",
+        "options": [
+          {
+            "label": "Ja",
+            "value": 1
+          },
+          {
+            "label": "Nej",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Känner du att livet är tomt?",
+        "options": [
+          {
+            "label": "Ja",
+            "value": 1
+          },
+          {
+            "label": "Nej",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Känner du dig ofta uttråkad?",
+        "options": [
+          {
+            "label": "Ja",
+            "value": 1
+          },
+          {
+            "label": "Nej",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Är du på gott humör större delen av tiden?",
+        "options": [
+          {
+            "label": "Ja",
+            "value": 0
+          },
+          {
+            "label": "Nej",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "Är du rädd att något dåligt ska hända dig?",
+        "options": [
+          {
+            "label": "Ja",
+            "value": 1
+          },
+          {
+            "label": "Nej",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "Känner du dig lycklig större delen av tiden?",
+        "options": [
+          {
+            "label": "Ja",
+            "value": 0
+          },
+          {
+            "label": "Nej",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 8,
+        "prompt": "Känner du dig ofta hjälplös?",
+        "options": [
+          {
+            "label": "Ja",
+            "value": 1
+          },
+          {
+            "label": "Nej",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 9,
+        "prompt": "Föredrar du att stanna hemma istället för att gå ut och göra nya saker?",
+        "options": [
+          {
+            "label": "Ja",
+            "value": 1
+          },
+          {
+            "label": "Nej",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 10,
+        "prompt": "Har du fler minnesproblem än de flesta?",
+        "options": [
+          {
+            "label": "Ja",
+            "value": 1
+          },
+          {
+            "label": "Nej",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 11,
+        "prompt": "Tycker du att det är underbart att vara vid liv?",
+        "options": [
+          {
+            "label": "Ja",
+            "value": 0
+          },
+          {
+            "label": "Nej",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 12,
+        "prompt": "Känner du dig värdelös i ditt nuvarande tillstånd?",
+        "options": [
+          {
+            "label": "Ja",
+            "value": 1
+          },
+          {
+            "label": "Nej",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 13,
+        "prompt": "Känner du dig full av energi?",
+        "options": [
+          {
+            "label": "Ja",
+            "value": 0
+          },
+          {
+            "label": "Nej",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 14,
+        "prompt": "Känner du dig hopplös?",
+        "options": [
+          {
+            "label": "Ja",
+            "value": 1
+          },
+          {
+            "label": "Nej",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 15,
+        "prompt": "Tycker du att de flesta människor är bättre lottade än du?",
+        "options": [
+          {
+            "label": "Ja",
+            "value": 1
+          },
+          {
+            "label": "Nej",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "DEPRESSION_ANXIETY"
+  },
+  {
+    "slug": "gad7",
+    "name": "GAD-7",
+    "description": "Generalized Anxiety Disorder-7 (Angests-screening)",
+    "minAgeYears": 13,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Känner dig nervös, ängslig eller på helspänn",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Kan inte sluta eller kontrollera din oro",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Oroar dig för mycket om olika saker",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Svårt att koppla av",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Så rastlös att det är svårt att sitta stilla",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "Blir lätt irriterad eller lättretad",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "Känner dig rädd att något hemskt ska hända",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      }
+    ],
+    "category": "DEPRESSION_ANXIETY"
   },
   {
     "slug": "audit",
@@ -820,799 +2375,6 @@
     "category": "SUBSTANCE_USE"
   },
   {
-    "slug": "gds15",
-    "name": "GDS-15",
-    "description": "Geriatric Depression Scale-15",
-    "minAgeYears": 60,
-    "maxAgeYears": null,
-    "audience": "PATIENT",
-    "items": [
-      {
-        "order": 1,
-        "prompt": "Är du nöjd med ditt liv?",
-        "options": [
-          {
-            "label": "Ja",
-            "value": 0
-          },
-          {
-            "label": "Nej",
-            "value": 1
-          }
-        ]
-      },
-      {
-        "order": 2,
-        "prompt": "Har du gett upp många av dina aktiviteter och intressen?",
-        "options": [
-          {
-            "label": "Ja",
-            "value": 1
-          },
-          {
-            "label": "Nej",
-            "value": 0
-          }
-        ]
-      },
-      {
-        "order": 3,
-        "prompt": "Känner du att livet är tomt?",
-        "options": [
-          {
-            "label": "Ja",
-            "value": 1
-          },
-          {
-            "label": "Nej",
-            "value": 0
-          }
-        ]
-      },
-      {
-        "order": 4,
-        "prompt": "Känner du dig ofta uttråkad?",
-        "options": [
-          {
-            "label": "Ja",
-            "value": 1
-          },
-          {
-            "label": "Nej",
-            "value": 0
-          }
-        ]
-      },
-      {
-        "order": 5,
-        "prompt": "Är du på gott humör större delen av tiden?",
-        "options": [
-          {
-            "label": "Ja",
-            "value": 0
-          },
-          {
-            "label": "Nej",
-            "value": 1
-          }
-        ]
-      },
-      {
-        "order": 6,
-        "prompt": "Är du rädd att något dåligt ska hända dig?",
-        "options": [
-          {
-            "label": "Ja",
-            "value": 1
-          },
-          {
-            "label": "Nej",
-            "value": 0
-          }
-        ]
-      },
-      {
-        "order": 7,
-        "prompt": "Känner du dig lycklig större delen av tiden?",
-        "options": [
-          {
-            "label": "Ja",
-            "value": 0
-          },
-          {
-            "label": "Nej",
-            "value": 1
-          }
-        ]
-      },
-      {
-        "order": 8,
-        "prompt": "Känner du dig ofta hjälplös?",
-        "options": [
-          {
-            "label": "Ja",
-            "value": 1
-          },
-          {
-            "label": "Nej",
-            "value": 0
-          }
-        ]
-      },
-      {
-        "order": 9,
-        "prompt": "Föredrar du att stanna hemma istället för att gå ut och göra nya saker?",
-        "options": [
-          {
-            "label": "Ja",
-            "value": 1
-          },
-          {
-            "label": "Nej",
-            "value": 0
-          }
-        ]
-      },
-      {
-        "order": 10,
-        "prompt": "Har du fler minnesproblem än de flesta?",
-        "options": [
-          {
-            "label": "Ja",
-            "value": 1
-          },
-          {
-            "label": "Nej",
-            "value": 0
-          }
-        ]
-      },
-      {
-        "order": 11,
-        "prompt": "Tycker du att det är underbart att vara vid liv?",
-        "options": [
-          {
-            "label": "Ja",
-            "value": 0
-          },
-          {
-            "label": "Nej",
-            "value": 1
-          }
-        ]
-      },
-      {
-        "order": 12,
-        "prompt": "Känner du dig värdelös i ditt nuvarande tillstånd?",
-        "options": [
-          {
-            "label": "Ja",
-            "value": 1
-          },
-          {
-            "label": "Nej",
-            "value": 0
-          }
-        ]
-      },
-      {
-        "order": 13,
-        "prompt": "Känner du dig full av energi?",
-        "options": [
-          {
-            "label": "Ja",
-            "value": 0
-          },
-          {
-            "label": "Nej",
-            "value": 1
-          }
-        ]
-      },
-      {
-        "order": 14,
-        "prompt": "Känner du dig hopplös?",
-        "options": [
-          {
-            "label": "Ja",
-            "value": 1
-          },
-          {
-            "label": "Nej",
-            "value": 0
-          }
-        ]
-      },
-      {
-        "order": 15,
-        "prompt": "Tycker du att de flesta människor är bättre lottade än du?",
-        "options": [
-          {
-            "label": "Ja",
-            "value": 1
-          },
-          {
-            "label": "Nej",
-            "value": 0
-          }
-        ]
-      }
-    ],
-    "category": "DEPRESSION_ANXIETY"
-  },
-  {
-    "slug": "phqa",
-    "name": "PHQ-A",
-    "description": "Patient Health Questionnaire för ungdomar",
-    "minAgeYears": 13,
-    "maxAgeYears": 18,
-    "audience": "PATIENT",
-    "items": [
-      {
-        "order": 1,
-        "prompt": "Litet intresse eller glädje i att göra saker",
-        "options": [
-          {
-            "label": "Inte alls",
-            "value": 0
-          },
-          {
-            "label": "Flera dagar",
-            "value": 1
-          },
-          {
-            "label": "Mer än hälften av dagarna",
-            "value": 2
-          },
-          {
-            "label": "Nästan varje dag",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "order": 2,
-        "prompt": "Känner dig nere, deprimerad",
-        "options": [
-          {
-            "label": "Inte alls",
-            "value": 0
-          },
-          {
-            "label": "Flera dagar",
-            "value": 1
-          },
-          {
-            "label": "Mer än hälften av dagarna",
-            "value": 2
-          },
-          {
-            "label": "Nästan varje dag",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "order": 3,
-        "prompt": "Sömnproblem",
-        "options": [
-          {
-            "label": "Inte alls",
-            "value": 0
-          },
-          {
-            "label": "Flera dagar",
-            "value": 1
-          },
-          {
-            "label": "Mer än hälften av dagarna",
-            "value": 2
-          },
-          {
-            "label": "Nästan varje dag",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "order": 4,
-        "prompt": "Känner dig trött",
-        "options": [
-          {
-            "label": "Inte alls",
-            "value": 0
-          },
-          {
-            "label": "Flera dagar",
-            "value": 1
-          },
-          {
-            "label": "Mer än hälften av dagarna",
-            "value": 2
-          },
-          {
-            "label": "Nästan varje dag",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "order": 5,
-        "prompt": "Förändringar i aptit",
-        "options": [
-          {
-            "label": "Inte alls",
-            "value": 0
-          },
-          {
-            "label": "Flera dagar",
-            "value": 1
-          },
-          {
-            "label": "Mer än hälften av dagarna",
-            "value": 2
-          },
-          {
-            "label": "Nästan varje dag",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "order": 6,
-        "prompt": "Känner dig dålig om dig själv",
-        "options": [
-          {
-            "label": "Inte alls",
-            "value": 0
-          },
-          {
-            "label": "Flera dagar",
-            "value": 1
-          },
-          {
-            "label": "Mer än hälften av dagarna",
-            "value": 2
-          },
-          {
-            "label": "Nästan varje dag",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "order": 7,
-        "prompt": "Svårigheter att koncentrera dig",
-        "options": [
-          {
-            "label": "Inte alls",
-            "value": 0
-          },
-          {
-            "label": "Flera dagar",
-            "value": 1
-          },
-          {
-            "label": "Mer än hälften av dagarna",
-            "value": 2
-          },
-          {
-            "label": "Nästan varje dag",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "order": 8,
-        "prompt": "Rastlöshet eller långsamhet",
-        "options": [
-          {
-            "label": "Inte alls",
-            "value": 0
-          },
-          {
-            "label": "Flera dagar",
-            "value": 1
-          },
-          {
-            "label": "Mer än hälften av dagarna",
-            "value": 2
-          },
-          {
-            "label": "Nästan varje dag",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "order": 9,
-        "prompt": "Tankar om död eller självmord",
-        "options": [
-          {
-            "label": "Inte alls",
-            "value": 0
-          },
-          {
-            "label": "Flera dagar",
-            "value": 1
-          },
-          {
-            "label": "Mer än hälften av dagarna",
-            "value": 2
-          },
-          {
-            "label": "Nästan varje dag",
-            "value": 3
-          }
-        ]
-      }
-    ],
-    "category": "DEPRESSION_ANXIETY"
-  },
-  {
-    "slug": "child-emotion-masks",
-    "name": "Känslomasker för barn",
-    "description": "Igenkänning av ansiktsuttryck för barn",
-    "minAgeYears": 6,
-    "maxAgeYears": 12,
-    "audience": "PATIENT",
-    "items": [
-      {
-        "order": 1,
-        "prompt": "😀 Vilken känsla visas?",
-        "options": [
-          {
-            "label": "Glad",
-            "value": 1
-          },
-          {
-            "label": "Ledsen",
-            "value": 0
-          },
-          {
-            "label": "Arg",
-            "value": 0
-          },
-          {
-            "label": "Förvånad",
-            "value": 0
-          }
-        ]
-      },
-      {
-        "order": 2,
-        "prompt": "😢 Vilken känsla visas?",
-        "options": [
-          {
-            "label": "Glad",
-            "value": 0
-          },
-          {
-            "label": "Ledsen",
-            "value": 1
-          },
-          {
-            "label": "Arg",
-            "value": 0
-          },
-          {
-            "label": "Rädd",
-            "value": 0
-          }
-        ]
-      },
-      {
-        "order": 3,
-        "prompt": "😠 Vilken känsla visas?",
-        "options": [
-          {
-            "label": "Glad",
-            "value": 0
-          },
-          {
-            "label": "Ledsen",
-            "value": 0
-          },
-          {
-            "label": "Arg",
-            "value": 1
-          },
-          {
-            "label": "Förvånad",
-            "value": 0
-          }
-        ]
-      },
-      {
-        "order": 4,
-        "prompt": "😮 Vilken känsla visas?",
-        "options": [
-          {
-            "label": "Glad",
-            "value": 0
-          },
-          {
-            "label": "Ledsen",
-            "value": 0
-          },
-          {
-            "label": "Arg",
-            "value": 0
-          },
-          {
-            "label": "Förvånad",
-            "value": 1
-          }
-        ]
-      },
-      {
-        "order": 5,
-        "prompt": "😨 Vilken känsla visas?",
-        "options": [
-          {
-            "label": "Glad",
-            "value": 0
-          },
-          {
-            "label": "Arg",
-            "value": 0
-          },
-          {
-            "label": "Rädd",
-            "value": 1
-          },
-          {
-            "label": "Förvånad",
-            "value": 0
-          }
-        ]
-      }
-    ],
-    "category": "EMOTIONAL_SOCIAL"
-  },
-  {
-    "slug": "child-pattern-weaving",
-    "name": "Mönstervävning för barn",
-    "description": "Mönsterigenkänningstest för barn",
-    "minAgeYears": 6,
-    "maxAgeYears": 12,
-    "audience": "PATIENT",
-    "items": [
-      {
-        "order": 1,
-        "prompt": "Vilket mönster kommer härnäst? 🔴 🔵 🔴 🔵 🔴 ?",
-        "options": [
-          {
-            "label": "🔴",
-            "value": 0
-          },
-          {
-            "label": "🔵",
-            "value": 1
-          },
-          {
-            "label": "🟢",
-            "value": 0
-          },
-          {
-            "label": "🟡",
-            "value": 0
-          }
-        ]
-      },
-      {
-        "order": 2,
-        "prompt": "Vilket mönster kommer härnäst? ⭐ ⭐ 🌙 ⭐ ⭐ ?",
-        "options": [
-          {
-            "label": "⭐",
-            "value": 0
-          },
-          {
-            "label": "🌙",
-            "value": 1
-          },
-          {
-            "label": "☀️",
-            "value": 0
-          },
-          {
-            "label": "🌟",
-            "value": 0
-          }
-        ]
-      },
-      {
-        "order": 3,
-        "prompt": "Vilket mönster kommer härnäst? 🐶 🐱 🐶 🐱 ?",
-        "options": [
-          {
-            "label": "🐶",
-            "value": 1
-          },
-          {
-            "label": "🐱",
-            "value": 0
-          },
-          {
-            "label": "🐰",
-            "value": 0
-          },
-          {
-            "label": "🐻",
-            "value": 0
-          }
-        ]
-      },
-      {
-        "order": 4,
-        "prompt": "Vilket mönster kommer härnäst? △ ○ △ ○ △ ?",
-        "options": [
-          {
-            "label": "△",
-            "value": 0
-          },
-          {
-            "label": "○",
-            "value": 1
-          },
-          {
-            "label": "□",
-            "value": 0
-          },
-          {
-            "label": "◇",
-            "value": 0
-          }
-        ]
-      },
-      {
-        "order": 5,
-        "prompt": "Vilket mönster kommer härnäst? 1 2 3 1 2 3 1 2 ?",
-        "options": [
-          {
-            "label": "1",
-            "value": 0
-          },
-          {
-            "label": "2",
-            "value": 0
-          },
-          {
-            "label": "3",
-            "value": 1
-          },
-          {
-            "label": "4",
-            "value": 0
-          }
-        ]
-      }
-    ],
-    "category": "COGNITIVE"
-  },
-  {
-    "slug": "teen-social-harmony",
-    "name": "Social harmoni för tonåringar",
-    "description": "Förståelse av sociala situationer för tonåringar",
-    "minAgeYears": 13,
-    "maxAgeYears": 18,
-    "audience": "PATIENT",
-    "items": [
-      {
-        "order": 1,
-        "prompt": "Din vän berättar en hemlighet för dig. Vad ska du göra?",
-        "options": [
-          {
-            "label": "Berätta för alla",
-            "value": 0
-          },
-          {
-            "label": "Behåll den för dig själv",
-            "value": 1
-          },
-          {
-            "label": "Berätta för dina föräldrar",
-            "value": 0
-          },
-          {
-            "label": "Glöm bort den",
-            "value": 0
-          }
-        ]
-      },
-      {
-        "order": 2,
-        "prompt": "Någon tappar sina böcker i korridoren. Vad är det bästa svaret?",
-        "options": [
-          {
-            "label": "Skratta",
-            "value": 0
-          },
-          {
-            "label": "Ignorera",
-            "value": 0
-          },
-          {
-            "label": "Hjälp till att plocka upp",
-            "value": 1
-          },
-          {
-            "label": "Titta på",
-            "value": 0
-          }
-        ]
-      },
-      {
-        "order": 3,
-        "prompt": "En vän verkar ledsen. Vad ska du göra?",
-        "options": [
-          {
-            "label": "Ignorera",
-            "value": 0
-          },
-          {
-            "label": "Fråga om allt är okej",
-            "value": 1
-          },
-          {
-            "label": "Berätta för andra",
-            "value": 0
-          },
-          {
-            "label": "Gå därifrån",
-            "value": 0
-          }
-        ]
-      },
-      {
-        "order": 4,
-        "prompt": "Du är sen till lektionen. Vad ska du göra?",
-        "options": [
-          {
-            "label": "Gå in högljutt",
-            "value": 0
-          },
-          {
-            "label": "Gå in tyst och be om ursäkt",
-            "value": 1
-          },
-          {
-            "label": "Gå inte in",
-            "value": 0
-          },
-          {
-            "label": "Skyll på någon annan",
-            "value": 0
-          }
-        ]
-      },
-      {
-        "order": 5,
-        "prompt": "Du ser någon bli mobbad. Vad ska du göra?",
-        "options": [
-          {
-            "label": "Skratta",
-            "value": 0
-          },
-          {
-            "label": "Delta",
-            "value": 0
-          },
-          {
-            "label": "Hjälp till eller hämta en vuxen",
-            "value": 1
-          },
-          {
-            "label": "Ignorera",
-            "value": 0
-          }
-        ]
-      }
-    ],
-    "category": "EMOTIONAL_SOCIAL"
-  },
-  {
     "slug": "adult-debate-evidence",
     "name": "Debatt och bevis för vuxna",
     "description": "Bedömning av evidensbaserat resonemang",
@@ -1726,6 +2488,194 @@
           },
           {
             "label": "Beror på kontexten",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "COGNITIVE"
+  },
+  {
+    "slug": "adult-cognitive-marketplace",
+    "name": "Cognitive Load Marketplace",
+    "description": "Planning under constraints (time/budget).",
+    "minAgeYears": 18,
+    "maxAgeYears": 64,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "You have $50 and 1 hour to prepare a dinner for 4. Which is the most efficient choice?",
+        "options": [
+          {
+            "label": "Buy cheap ingredients and cook a simple stew ($20, 45 mins)",
+            "value": 2
+          },
+          {
+            "label": "Try a complex new recipe ($45, 90 mins)",
+            "value": 0
+          },
+          {
+            "label": "Order delivery ($55, 30 mins)",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Your car breaks down on the way to a meeting. Priority 1 is:",
+        "options": [
+          {
+            "label": "Call a tow truck",
+            "value": 1
+          },
+          {
+            "label": "Call the meeting organizer to inform them",
+            "value": 2
+          },
+          {
+            "label": "Try to fix the engine yourself",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "COGNITIVE"
+  },
+  {
+    "slug": "adult-temperament-balance",
+    "name": "Temperament Balance",
+    "description": "Emotion regulation strategy selection.",
+    "minAgeYears": 18,
+    "maxAgeYears": 64,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "You receive a critical email from your boss. What is your immediate response?",
+        "options": [
+          {
+            "label": "Reply angrily right away",
+            "value": 0
+          },
+          {
+            "label": "Take a walk, then reread it",
+            "value": 2
+          },
+          {
+            "label": "Ignore it",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "You are stuck in terrible traffic and running late. You choose to:",
+        "options": [
+          {
+            "label": "Honk and yell at cars",
+            "value": 0
+          },
+          {
+            "label": "Listen to a podcast/music",
+            "value": 2
+          },
+          {
+            "label": "Worry about the consequences",
+            "value": 1
+          }
+        ]
+      }
+    ],
+    "category": "EMOTIONAL_SOCIAL"
+  },
+  {
+    "slug": "adult-values-compass",
+    "name": "Values Compass",
+    "description": "Value clarity and goal alignment.",
+    "minAgeYears": 18,
+    "maxAgeYears": 64,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Which of these is most important to you right now?",
+        "options": [
+          {
+            "label": "Career advancement",
+            "value": 1
+          },
+          {
+            "label": "Family and relationships",
+            "value": 1
+          },
+          {
+            "label": "Personal health",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Does your current daily routine reflect this priority?",
+        "options": [
+          {
+            "label": "Yes, completely",
+            "value": 2
+          },
+          {
+            "label": "Somewhat",
+            "value": 1
+          },
+          {
+            "label": "Not at all",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "EMOTIONAL_SOCIAL"
+  },
+  {
+    "slug": "senior-processing-kind",
+    "name": "Processing Speed - Kind Mode",
+    "description": "Accessible, low-stress processing speed matching.",
+    "minAgeYears": 65,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Find the matching symbol: ☀️",
+        "options": [
+          {
+            "label": "🌙",
+            "value": 0
+          },
+          {
+            "label": "☀️",
+            "value": 1
+          },
+          {
+            "label": "⭐",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Find the matching symbol: ☂️",
+        "options": [
+          {
+            "label": "☂️",
+            "value": 1
+          },
+          {
+            "label": "🌧️",
+            "value": 0
+          },
+          {
+            "label": "❄️",
             "value": 0
           }
         ]
@@ -2035,6 +2985,949 @@
       }
     ],
     "category": "EMOTIONAL_SOCIAL"
+  },
+  {
+    "slug": "pcl5",
+    "name": "PCL-5",
+    "description": "PTSD Checklist for DSM-5 - A self-report measure of PTSD symptoms",
+    "minAgeYears": 18,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Repeated, disturbing, and unwanted memories of the stressful experience?",
+        "options": [
+          {
+            "label": "Not at all",
+            "value": 0
+          },
+          {
+            "label": "A little bit",
+            "value": 1
+          },
+          {
+            "label": "Moderately",
+            "value": 2
+          },
+          {
+            "label": "Quite a bit",
+            "value": 3
+          },
+          {
+            "label": "Extremely",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Repeated, disturbing dreams of the stressful experience?",
+        "options": [
+          {
+            "label": "Not at all",
+            "value": 0
+          },
+          {
+            "label": "A little bit",
+            "value": 1
+          },
+          {
+            "label": "Moderately",
+            "value": 2
+          },
+          {
+            "label": "Quite a bit",
+            "value": 3
+          },
+          {
+            "label": "Extremely",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Suddenly feeling or acting as if the stressful experience were actually happening again (as if you were actually back there reliving it)?",
+        "options": [
+          {
+            "label": "Not at all",
+            "value": 0
+          },
+          {
+            "label": "A little bit",
+            "value": 1
+          },
+          {
+            "label": "Moderately",
+            "value": 2
+          },
+          {
+            "label": "Quite a bit",
+            "value": 3
+          },
+          {
+            "label": "Extremely",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Feeling very upset when something reminded you of the stressful experience?",
+        "options": [
+          {
+            "label": "Not at all",
+            "value": 0
+          },
+          {
+            "label": "A little bit",
+            "value": 1
+          },
+          {
+            "label": "Moderately",
+            "value": 2
+          },
+          {
+            "label": "Quite a bit",
+            "value": 3
+          },
+          {
+            "label": "Extremely",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Having strong physical reactions when something reminded you of the stressful experience (for example, heart pounding, trouble breathing, sweating)?",
+        "options": [
+          {
+            "label": "Not at all",
+            "value": 0
+          },
+          {
+            "label": "A little bit",
+            "value": 1
+          },
+          {
+            "label": "Moderately",
+            "value": 2
+          },
+          {
+            "label": "Quite a bit",
+            "value": 3
+          },
+          {
+            "label": "Extremely",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "Avoiding memories, thoughts, or feelings related to the stressful experience?",
+        "options": [
+          {
+            "label": "Not at all",
+            "value": 0
+          },
+          {
+            "label": "A little bit",
+            "value": 1
+          },
+          {
+            "label": "Moderately",
+            "value": 2
+          },
+          {
+            "label": "Quite a bit",
+            "value": 3
+          },
+          {
+            "label": "Extremely",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "Avoiding external reminders of the stressful experience (for example, people, places, conversations, activities, objects, or situations)?",
+        "options": [
+          {
+            "label": "Not at all",
+            "value": 0
+          },
+          {
+            "label": "A little bit",
+            "value": 1
+          },
+          {
+            "label": "Moderately",
+            "value": 2
+          },
+          {
+            "label": "Quite a bit",
+            "value": 3
+          },
+          {
+            "label": "Extremely",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 8,
+        "prompt": "Trouble remembering important parts of the stressful experience?",
+        "options": [
+          {
+            "label": "Not at all",
+            "value": 0
+          },
+          {
+            "label": "A little bit",
+            "value": 1
+          },
+          {
+            "label": "Moderately",
+            "value": 2
+          },
+          {
+            "label": "Quite a bit",
+            "value": 3
+          },
+          {
+            "label": "Extremely",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 9,
+        "prompt": "Having strong negative beliefs about yourself, other people, or the world (for example, having thoughts such as: I am bad, there is something seriously wrong with me, no one can be trusted, the world is completely dangerous)?",
+        "options": [
+          {
+            "label": "Not at all",
+            "value": 0
+          },
+          {
+            "label": "A little bit",
+            "value": 1
+          },
+          {
+            "label": "Moderately",
+            "value": 2
+          },
+          {
+            "label": "Quite a bit",
+            "value": 3
+          },
+          {
+            "label": "Extremely",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 10,
+        "prompt": "Blaming yourself or someone else for the stressful experience or for what happened after it?",
+        "options": [
+          {
+            "label": "Not at all",
+            "value": 0
+          },
+          {
+            "label": "A little bit",
+            "value": 1
+          },
+          {
+            "label": "Moderately",
+            "value": 2
+          },
+          {
+            "label": "Quite a bit",
+            "value": 3
+          },
+          {
+            "label": "Extremely",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 11,
+        "prompt": "Having strong negative feelings such as fear, horror, anger, guilt, or shame?",
+        "options": [
+          {
+            "label": "Not at all",
+            "value": 0
+          },
+          {
+            "label": "A little bit",
+            "value": 1
+          },
+          {
+            "label": "Moderately",
+            "value": 2
+          },
+          {
+            "label": "Quite a bit",
+            "value": 3
+          },
+          {
+            "label": "Extremely",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 12,
+        "prompt": "Loss of interest in activities that you used to enjoy?",
+        "options": [
+          {
+            "label": "Not at all",
+            "value": 0
+          },
+          {
+            "label": "A little bit",
+            "value": 1
+          },
+          {
+            "label": "Moderately",
+            "value": 2
+          },
+          {
+            "label": "Quite a bit",
+            "value": 3
+          },
+          {
+            "label": "Extremely",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 13,
+        "prompt": "Feeling distant or cut off from other people?",
+        "options": [
+          {
+            "label": "Not at all",
+            "value": 0
+          },
+          {
+            "label": "A little bit",
+            "value": 1
+          },
+          {
+            "label": "Moderately",
+            "value": 2
+          },
+          {
+            "label": "Quite a bit",
+            "value": 3
+          },
+          {
+            "label": "Extremely",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 14,
+        "prompt": "Trouble experiencing positive feelings (for example, being unable to feel happiness or loving feelings for people close to you)?",
+        "options": [
+          {
+            "label": "Not at all",
+            "value": 0
+          },
+          {
+            "label": "A little bit",
+            "value": 1
+          },
+          {
+            "label": "Moderately",
+            "value": 2
+          },
+          {
+            "label": "Quite a bit",
+            "value": 3
+          },
+          {
+            "label": "Extremely",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 15,
+        "prompt": "Irritable behavior, angry outbursts, or acting aggressively?",
+        "options": [
+          {
+            "label": "Not at all",
+            "value": 0
+          },
+          {
+            "label": "A little bit",
+            "value": 1
+          },
+          {
+            "label": "Moderately",
+            "value": 2
+          },
+          {
+            "label": "Quite a bit",
+            "value": 3
+          },
+          {
+            "label": "Extremely",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 16,
+        "prompt": "Taking too many risks or doing things that could cause you harm?",
+        "options": [
+          {
+            "label": "Not at all",
+            "value": 0
+          },
+          {
+            "label": "A little bit",
+            "value": 1
+          },
+          {
+            "label": "Moderately",
+            "value": 2
+          },
+          {
+            "label": "Quite a bit",
+            "value": 3
+          },
+          {
+            "label": "Extremely",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 17,
+        "prompt": "Being \"superalert\" or watchful or on guard?",
+        "options": [
+          {
+            "label": "Not at all",
+            "value": 0
+          },
+          {
+            "label": "A little bit",
+            "value": 1
+          },
+          {
+            "label": "Moderately",
+            "value": 2
+          },
+          {
+            "label": "Quite a bit",
+            "value": 3
+          },
+          {
+            "label": "Extremely",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 18,
+        "prompt": "Feeling jumpy or easily startled?",
+        "options": [
+          {
+            "label": "Not at all",
+            "value": 0
+          },
+          {
+            "label": "A little bit",
+            "value": 1
+          },
+          {
+            "label": "Moderately",
+            "value": 2
+          },
+          {
+            "label": "Quite a bit",
+            "value": 3
+          },
+          {
+            "label": "Extremely",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 19,
+        "prompt": "Having difficulty concentrating?",
+        "options": [
+          {
+            "label": "Not at all",
+            "value": 0
+          },
+          {
+            "label": "A little bit",
+            "value": 1
+          },
+          {
+            "label": "Moderately",
+            "value": 2
+          },
+          {
+            "label": "Quite a bit",
+            "value": 3
+          },
+          {
+            "label": "Extremely",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 20,
+        "prompt": "Trouble falling or staying asleep?",
+        "options": [
+          {
+            "label": "Not at all",
+            "value": 0
+          },
+          {
+            "label": "A little bit",
+            "value": 1
+          },
+          {
+            "label": "Moderately",
+            "value": 2
+          },
+          {
+            "label": "Quite a bit",
+            "value": 3
+          },
+          {
+            "label": "Extremely",
+            "value": 4
+          }
+        ]
+      }
+    ],
+    "category": "DEPRESSION_ANXIETY"
+  },
+  {
+    "slug": "vanderbilt",
+    "name": "Vanderbilt ADHD",
+    "description": "NICHQ Vanderbilt Assessment Scale - A comprehensive ADHD assessment for children",
+    "minAgeYears": 6,
+    "maxAgeYears": 12,
+    "audience": "PARENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Does not pay attention to details or makes careless mistakes",
+        "options": [
+          {
+            "label": "Never",
+            "value": 0
+          },
+          {
+            "label": "Occasionally",
+            "value": 1
+          },
+          {
+            "label": "Often",
+            "value": 2
+          },
+          {
+            "label": "Very Often",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Has difficulty keeping attention to what needs to be done",
+        "options": [
+          {
+            "label": "Never",
+            "value": 0
+          },
+          {
+            "label": "Occasionally",
+            "value": 1
+          },
+          {
+            "label": "Often",
+            "value": 2
+          },
+          {
+            "label": "Very Often",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Does not seem to listen when spoken to directly",
+        "options": [
+          {
+            "label": "Never",
+            "value": 0
+          },
+          {
+            "label": "Occasionally",
+            "value": 1
+          },
+          {
+            "label": "Often",
+            "value": 2
+          },
+          {
+            "label": "Very Often",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Does not follow through when given directions and fails to finish activities",
+        "options": [
+          {
+            "label": "Never",
+            "value": 0
+          },
+          {
+            "label": "Occasionally",
+            "value": 1
+          },
+          {
+            "label": "Often",
+            "value": 2
+          },
+          {
+            "label": "Very Often",
+            "value": 3
+          }
+        ]
+      }
+    ],
+    "category": "ADHD_ATTENTION"
+  },
+  {
+    "slug": "scared",
+    "name": "SCARED",
+    "description": "Screen for Child Anxiety Related Disorders - A questionnaire for childhood anxiety disorders",
+    "minAgeYears": 8,
+    "maxAgeYears": 18,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "When I feel frightened, it is hard to breathe.",
+        "options": [
+          {
+            "label": "Not true or hardly ever true",
+            "value": 0
+          },
+          {
+            "label": "Somewhat true or sometimes true",
+            "value": 1
+          },
+          {
+            "label": "Very true or often true",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "I get headaches when I am at school.",
+        "options": [
+          {
+            "label": "Not true or hardly ever true",
+            "value": 0
+          },
+          {
+            "label": "Somewhat true or sometimes true",
+            "value": 1
+          },
+          {
+            "label": "Very true or often true",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "I don't like to be with people I don't know.",
+        "options": [
+          {
+            "label": "Not true or hardly ever true",
+            "value": 0
+          },
+          {
+            "label": "Somewhat true or sometimes true",
+            "value": 1
+          },
+          {
+            "label": "Very true or often true",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "I get scared if I sleep away from home.",
+        "options": [
+          {
+            "label": "Not true or hardly ever true",
+            "value": 0
+          },
+          {
+            "label": "Somewhat true or sometimes true",
+            "value": 1
+          },
+          {
+            "label": "Very true or often true",
+            "value": 2
+          }
+        ]
+      }
+    ],
+    "category": "DEPRESSION_ANXIETY"
+  },
+  {
+    "slug": "crafft",
+    "name": "CRAFFT",
+    "description": "Substance Abuse Screening Tool for Adolescents",
+    "minAgeYears": 12,
+    "maxAgeYears": 21,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Have you ever ridden in a CAR driven by someone (including yourself) who was 'high' or had been using alcohol or drugs?",
+        "options": [
+          {
+            "label": "No",
+            "value": 0
+          },
+          {
+            "label": "Yes",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Do you ever use alcohol or drugs to RELAX, feel better about yourself, or fit in?",
+        "options": [
+          {
+            "label": "No",
+            "value": 0
+          },
+          {
+            "label": "Yes",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Do you ever use alcohol or drugs while you are by yourself, or ALONE?",
+        "options": [
+          {
+            "label": "No",
+            "value": 0
+          },
+          {
+            "label": "Yes",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Do you ever FORGET things you did while using alcohol or drugs?",
+        "options": [
+          {
+            "label": "No",
+            "value": 0
+          },
+          {
+            "label": "Yes",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Do your FAMILY or FRIENDS ever tell you that you should cut down on your drinking or drug use?",
+        "options": [
+          {
+            "label": "No",
+            "value": 0
+          },
+          {
+            "label": "Yes",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "Have you ever gotten into TROUBLE while you were using alcohol or drugs?",
+        "options": [
+          {
+            "label": "No",
+            "value": 0
+          },
+          {
+            "label": "Yes",
+            "value": 1
+          }
+        ]
+      }
+    ],
+    "category": "SUBSTANCE_USE"
+  },
+  {
+    "slug": "ysr",
+    "name": "Youth Self-Report",
+    "description": "CBCL/YSR - A comprehensive behavioral assessment for adolescents",
+    "minAgeYears": 11,
+    "maxAgeYears": 18,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "I argue a lot.",
+        "options": [
+          {
+            "label": "Not True",
+            "value": 0
+          },
+          {
+            "label": "Somewhat or Sometimes True",
+            "value": 1
+          },
+          {
+            "label": "Very True or Often True",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "I have trouble concentrating or paying attention.",
+        "options": [
+          {
+            "label": "Not True",
+            "value": 0
+          },
+          {
+            "label": "Somewhat or Sometimes True",
+            "value": 1
+          },
+          {
+            "label": "Very True or Often True",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "I am nervous or tense.",
+        "options": [
+          {
+            "label": "Not True",
+            "value": 0
+          },
+          {
+            "label": "Somewhat or Sometimes True",
+            "value": 1
+          },
+          {
+            "label": "Very True or Often True",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "I feel worthless or inferior.",
+        "options": [
+          {
+            "label": "Not True",
+            "value": 0
+          },
+          {
+            "label": "Somewhat or Sometimes True",
+            "value": 1
+          },
+          {
+            "label": "Very True or Often True",
+            "value": 2
+          }
+        ]
+      }
+    ],
+    "category": "BEHAVIORAL"
+  },
+  {
+    "slug": "cog-screen",
+    "name": "Cognitive Screening",
+    "description": "Brief cognitive functioning screener for older adults",
+    "minAgeYears": 65,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Can remember 3 words after a short delay",
+        "options": [
+          {
+            "label": "Incorrect",
+            "value": 0
+          },
+          {
+            "label": "Correct",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Can draw a clock face showing a specific time",
+        "options": [
+          {
+            "label": "Incorrect",
+            "value": 0
+          },
+          {
+            "label": "Correct",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Knows the current year, month, and day",
+        "options": [
+          {
+            "label": "Incorrect",
+            "value": 0
+          },
+          {
+            "label": "Correct",
+            "value": 1
+          }
+        ]
+      }
+    ],
+    "category": "COGNITIVE"
   },
   {
     "slug": "matrix-reasoning-child",

@@ -62,11 +62,20 @@ async function loginAndSaveStorageState(params: {
   const page = await browser.newPage()
 
   await page.goto(`${params.baseURL}/login?callbackUrl=${encodeURIComponent(params.callbackPath)}`)
-  await page.locator('input[type="email"]').fill(params.email)
+  
+  // Wait for the form to be visible (inside Suspense boundary)
+  await page.getByRole("heading").first().waitFor({ state: "visible", timeout: 10000 })
+  
+  // Use placeholder-based selectors which are more reliable
+  await page.getByPlaceholder(/email/i).fill(params.email)
   await page.locator('input[type="password"]').fill(params.password)
-  await page.getByRole("button", { name: "Sign in" }).click()
+  
+  // Click the submit button (type="submit" inside a form)
+  await page.locator('form button[type="submit"]').click()
 
-  await page.waitForURL((url) => url.pathname === params.callbackPath)
+  // Wait for navigation to complete - check that we're no longer on /login
+  await page.waitForURL(/\/(dashboard|portal)/, { timeout: 20000 })
+  await page.waitForLoadState("networkidle")
 
   await page.context().storageState({ path: params.storageStatePath })
   await browser.close()
@@ -82,14 +91,16 @@ export default async function globalSetup(config: FullConfig) {
 
   await ensureServerRunning(baseURL)
 
+  // Staff login - callbackPath should be /dashboard (LoginForm redirects "/" to "/dashboard")
   await loginAndSaveStorageState({
     baseURL,
     email: "admin@neuroclear.app",
     password: "password123",
-    callbackPath: "/",
+    callbackPath: "/dashboard",
     storageStatePath: "playwright/.auth/staff.json",
   })
 
+  // Patient login - callbackPath is /portal
   await loginAndSaveStorageState({
     baseURL,
     email: "emma.patient@neuroclear.app",

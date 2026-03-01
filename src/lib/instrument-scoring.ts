@@ -322,30 +322,6 @@ export function scoreInstrument(slug: string, responses: Response[], totalItems?
         details: { slug },
       }
     }
-    case "audit": {
-      const interpretation = bandByThresholds(
-        totalScore,
-        [
-          { max: 7, label: "Low risk" },
-          { max: 15, label: "Medium risk" },
-          { max: 19, label: "High risk" },
-        ],
-        "Possible dependence"
-      )
-      const severityBands = [
-        { max: 7, severity: "minimal" as const },
-        { max: 15, severity: "mild" as const },
-        { max: 19, severity: "moderate" as const },
-      ]
-      return {
-        totalScore,
-        interpretation,
-        severity: getSeverityFromBands(totalScore, severityBands),
-        percentile: interpolatePercentile(totalScore, NORMS.audit),
-        normReference: NORMS.audit.reference,
-        details: { slug },
-      }
-    }
     case "asrs": {
       const interpretation = bandByThresholds(
         totalScore,

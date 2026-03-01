@@ -1,6 +1,7 @@
 import { requirePatientSession } from "@/lib/rbac"
 import { redirect } from "next/navigation"
 import { PortalNav } from "@/components/portal/PortalNav"
+import { SkipToContent } from "@/components/accessibility/SkipToContent"
 
 export default async function PortalLayout({
   children,
@@ -15,8 +16,9 @@ export default async function PortalLayout({
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <SkipToContent />
       <PortalNav />
-      <main className="mx-auto w-full max-w-6xl px-4 py-8">{children}</main>
+      <main id="main-content" tabIndex={-1} className="mx-auto w-full max-w-6xl px-4 py-8">{children}</main>
     </div>
   )
 }

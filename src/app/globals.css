@@ -1,25 +1,26 @@
 @import "tailwindcss";
 
+@theme {
+  --color-background: #fafbfc;
+  --color-foreground: #1a2e35;
+  --color-card: #ffffff;
+  --color-card-foreground: #1a2e35;
+  --color-primary: #4a9e8c;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #f0f4f3;
+  --color-secondary-foreground: #3d5a5a;
+  --color-muted: #f0f4f3;
+  --color-muted-foreground: #6b8a8a;
+  --color-accent: #e8f0ef;
+  --color-accent-foreground: #3d6b6b;
+  --color-destructive: #c45c5c;
+  --color-destructive-foreground: #ffffff;
+  --color-border: #d8e4e2;
+  --color-input: #d8e4e2;
+  --color-ring: #4a9e8c;
+}
+
 :root {
-  /* Calm Clinical Theme - Soft teal/sage palette */
-  --background: #fafbfc;
-  --foreground: #1a2e35;
-  --card: #ffffff;
-  --card-foreground: #1a2e35;
-  --primary: #4a9e8c;
-  --primary-foreground: #ffffff;
-  --secondary: #f0f4f3;
-  --secondary-foreground: #3d5a5a;
-  --muted: #f0f4f3;
-  --muted-foreground: #6b8a8a;
-  --accent: #e8f0ef;
-  --accent-foreground: #3d6b6b;
-  --destructive: #c45c5c;
-  --destructive-foreground: #ffffff;
-  --border: #d8e4e2;
-  --input: #d8e4e2;
-  --ring: #4a9e8c;
-  
   /* Semantic colors for categories */
   --category-primary: #4a9e8c;
   --category-secondary: #6b9ead;
@@ -110,4 +111,111 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--muted-foreground);
+}
+
+/* Accessibility: Large Text Mode */
+.text-lg {
+  font-size: 1.125rem !important;
+  line-height: 1.75 !important;
+}
+
+.text-lg h1 { font-size: 2.5rem !important; }
+.text-lg h2 { font-size: 2rem !important; }
+.text-lg h3 { font-size: 1.75rem !important; }
+.text-lg h4 { font-size: 1.5rem !important; }
+.text-lg p, .text-lg li, .text-lg span, .text-lg label { font-size: 1.125rem !important; }
+.text-lg input, .text-lg textarea, .text-lg select { font-size: 1.125rem !important; }
+.text-lg button { font-size: 1.125rem !important; }
+.text-lg .text-sm { font-size: 1rem !important; }
+.text-lg .text-xs { font-size: 0.875rem !important; }
+
+/* Accessibility: Reduced Motion */
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* Accessibility: High Contrast Mode */
+.high-contrast {
+  --color-background: #000000;
+  --color-foreground: #ffffff;
+  --color-card: #000000;
+  --color-card-foreground: #ffffff;
+  --color-primary: #00ffff;
+  --color-primary-foreground: #000000;
+  --color-secondary: #1a1a1a;
+  --color-secondary-foreground: #ffffff;
+  --color-muted: #1a1a1a;
+  --color-muted-foreground: #ffffff;
+  --color-accent: #ffff00;
+  --color-accent-foreground: #000000;
+  --color-destructive: #ff0000;
+  --color-destructive-foreground: #ffffff;
+  --color-border: #ffffff;
+  --color-input: #ffffff;
+  --color-ring: #00ffff;
+}
+
+.high-contrast * {
+  border-color: #ffffff !important;
+}
+
+.high-contrast a,
+.high-contrast button {
+  text-decoration: underline;
+}
+
+/* Accessibility: Focus Visible Styles */
+*:focus-visible {
+  outline: 3px solid var(--color-ring, #4a9e8c);
+  outline-offset: 2px;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Skip to content link */
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.skip-to-content:focus {
+  left: 0;
+  top: 0;
+  width: auto;
+  height: auto;
+  padding: 0.5rem 1rem;
+  background: var(--color-primary, #4a9e8c);
+  color: var(--color-primary-foreground, #ffffff);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Screen reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Focus trap for modals */
+[data-focus-trap] {
+  outline: none;
 }
