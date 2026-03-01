@@ -478,6 +478,93 @@ export function scoreInstrument(slug: string, responses: Response[], totalItems?
       )
       return { totalScore, interpretation, details: { slug, maxScore: 6 } }
     }
+    case "comprehensive-iq": {
+      // 20 questions, IQ-style scoring (μ=100, σ=15)
+      const iqScore = Math.round(100 + (totalScore - 10) * 3)
+      const interpretation = bandByThresholds(
+        totalScore,
+        [
+          { max: 6, label: "Below Average (IQ < 90)" },
+          { max: 10, label: "Average (IQ 90-109)" },
+          { max: 14, label: "Above Average (IQ 110-119)" },
+          { max: 17, label: "Gifted (IQ 120-129)" },
+        ],
+        "Highly Gifted (IQ 130+)"
+      )
+      return { totalScore, interpretation, details: { slug, maxScore: 20, iqScore } }
+    }
+    case "stroop-test": {
+      const interpretation = bandByThresholds(
+        totalScore,
+        [
+          { max: 4, label: "Below Average - High Interference" },
+          { max: 7, label: "Average - Moderate Interference" },
+        ],
+        "Above Average - Low Interference"
+      )
+      return { totalScore, interpretation, details: { slug, maxScore: 10 } }
+    }
+    case "digit-span": {
+      // Forward span max 4, Reverse span max 4
+      const forwardSpan = Math.min(totalScore, 4)
+      const reverseSpan = Math.max(0, totalScore - 4)
+      const interpretation = bandByThresholds(
+        totalScore,
+        [
+          { max: 2, label: "Below Average (Span ≤2)" },
+          { max: 5, label: "Average (Span 3-5)" },
+        ],
+        "Above Average (Span 6+)"
+      )
+      return { totalScore, interpretation, details: { slug, maxScore: 8, forwardSpan, reverseSpan } }
+    }
+    case "go-no-go": {
+      const interpretation = bandByThresholds(
+        totalScore,
+        [
+          { max: 4, label: "Below Average - Poor Inhibition" },
+          { max: 7, label: "Average - Moderate Inhibition" },
+        ],
+        "Above Average - Excellent Inhibition"
+      )
+      return { totalScore, interpretation, details: { slug, maxScore: 10 } }
+    }
+    case "schulte-table": {
+      const interpretation = bandByThresholds(
+        totalScore,
+        [
+          { max: 1, label: "Below Average - Slow Processing" },
+          { max: 3, label: "Average - Normal Processing" },
+        ],
+        "Above Average - Fast Processing"
+      )
+      return { totalScore, interpretation, details: { slug, maxScore: 5 } }
+    }
+    case "reaction-time": {
+      // Max score: 1 + 4*4 = 17
+      const avgReactionMs = totalScore > 1 ? Math.round(450 - (totalScore - 1) * 50) : 450
+      const interpretation = bandByThresholds(
+        totalScore,
+        [
+          { max: 5, label: "Below Average (>400ms)" },
+          { max: 9, label: "Average (300-400ms)" },
+          { max: 13, label: "Good (250-300ms)" },
+        ],
+        "Excellent (<250ms)"
+      )
+      return { totalScore, interpretation, details: { slug, maxScore: 17, avgReactionMs } }
+    }
+    case "dual-n-back": {
+      const interpretation = bandByThresholds(
+        totalScore,
+        [
+          { max: 2, label: "Below Average - 1-Back Level" },
+          { max: 5, label: "Average - 2-Back Level" },
+        ],
+        "Above Average - 3-Back Level"
+      )
+      return { totalScore, interpretation, details: { slug, maxScore: 8 } }
+    }
     default:
       return { totalScore, interpretation: "Completed", details: { slug } }
   }

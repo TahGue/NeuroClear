@@ -2527,5 +2527,699 @@
         ]
       }
     ]
+  },
+  {
+    "slug": "comprehensive-iq",
+    "name": "Comprehensive IQ Assessment",
+    "description": "A multi-domain IQ test evaluating Logical Reasoning, Pattern Recognition, Mathematical Ability, Verbal Comprehension, and Spatial Visualization.",
+    "minAgeYears": 16,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "LOGICAL REASONING: All roses are flowers. Some flowers fade quickly. Therefore:",
+        "options": [
+          { "label": "All roses fade quickly", "value": 0 },
+          { "label": "Some roses may fade quickly", "value": 1 },
+          { "label": "No roses fade quickly", "value": 0 },
+          { "label": "Only roses fade quickly", "value": 0 }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "LOGICAL REASONING: If A > B, and B > C, and C > D, then:",
+        "options": [
+          { "label": "A > D", "value": 1 },
+          { "label": "D > A", "value": 0 },
+          { "label": "A = D", "value": 0 },
+          { "label": "Cannot determine", "value": 0 }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "LOGICAL REASONING: In a race, you pass the person in second place. What place are you in?",
+        "options": [
+          { "label": "First", "value": 0 },
+          { "label": "Second", "value": 1 },
+          { "label": "Third", "value": 0 },
+          { "label": "It depends", "value": 0 }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "LOGICAL REASONING: If all Bloops are Razzies and all Razzies are Lazzies, then:",
+        "options": [
+          { "label": "All Lazzies are Bloops", "value": 0 },
+          { "label": "All Bloops are Lazzies", "value": 1 },
+          { "label": "Some Lazzies are Bloops", "value": 0 },
+          { "label": "No Bloops are Lazzies", "value": 0 }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "PATTERN RECOGNITION: What comes next? ◐ ◑ ◐ ◑ ◐ ?",
+        "options": [
+          { "label": "◐", "value": 0 },
+          { "label": "◑", "value": 1 },
+          { "label": "○", "value": 0 },
+          { "label": "●", "value": 0 }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "PATTERN RECOGNITION: Complete the sequence: 1, 4, 9, 16, 25, ?",
+        "options": [
+          { "label": "30", "value": 0 },
+          { "label": "36", "value": 1 },
+          { "label": "35", "value": 0 },
+          { "label": "49", "value": 0 }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "PATTERN RECOGNITION: Which shape completes the pattern? △ □ △ □ △ ?",
+        "options": [
+          { "label": "△", "value": 0 },
+          { "label": "□", "value": 1 },
+          { "label": "○", "value": 0 },
+          { "label": "◇", "value": 0 }
+        ]
+      },
+      {
+        "order": 8,
+        "prompt": "PATTERN RECOGNITION: 2, 6, 12, 20, 30, ?",
+        "options": [
+          { "label": "40", "value": 0 },
+          { "label": "42", "value": 1 },
+          { "label": "44", "value": 0 },
+          { "label": "36", "value": 0 }
+        ]
+      },
+      {
+        "order": 9,
+        "prompt": "MATHEMATICAL: If 3x + 7 = 22, what is x?",
+        "options": [
+          { "label": "3", "value": 0 },
+          { "label": "5", "value": 1 },
+          { "label": "7", "value": 0 },
+          { "label": "15", "value": 0 }
+        ]
+      },
+      {
+        "order": 10,
+        "prompt": "MATHEMATICAL: A train travels 60 km in 45 minutes. At this rate, how far will it travel in 2 hours?",
+        "options": [
+          { "label": "120 km", "value": 0 },
+          { "label": "160 km", "value": 1 },
+          { "label": "180 km", "value": 0 },
+          { "label": "90 km", "value": 0 }
+        ]
+      },
+      {
+        "order": 11,
+        "prompt": "MATHEMATICAL: What is 15% of 200?",
+        "options": [
+          { "label": "15", "value": 0 },
+          { "label": "30", "value": 1 },
+          { "label": "25", "value": 0 },
+          { "label": "35", "value": 0 }
+        ]
+      },
+      {
+        "order": 12,
+        "prompt": "MATHEMATICAL: If a shirt costs $40 and is discounted by 25%, what is the sale price?",
+        "options": [
+          { "label": "$35", "value": 0 },
+          { "label": "$30", "value": 1 },
+          { "label": "$25", "value": 0 },
+          { "label": "$32", "value": 0 }
+        ]
+      },
+      {
+        "order": 13,
+        "prompt": "VERBAL: Book is to Reading as Fork is to:",
+        "options": [
+          { "label": "Kitchen", "value": 0 },
+          { "label": "Eating", "value": 1 },
+          { "label": "Spoon", "value": 0 },
+          { "label": "Metal", "value": 0 }
+        ]
+      },
+      {
+        "order": 14,
+        "prompt": "VERBAL: Which word does NOT belong?",
+        "options": [
+          { "label": "Joyful", "value": 0 },
+          { "label": "Elated", "value": 0 },
+          { "label": "Melancholy", "value": 1 },
+          { "label": "Cheerful", "value": 0 }
+        ]
+      },
+      {
+        "order": 15,
+        "prompt": "VERBAL: 'Brevity' means:",
+        "options": [
+          { "label": "Long-windedness", "value": 0 },
+          { "label": "Conciseness", "value": 1 },
+          { "label": "Humor", "value": 0 },
+          { "label": "Anger", "value": 0 }
+        ]
+      },
+      {
+        "order": 16,
+        "prompt": "VERBAL: Antonym of 'Benevolent':",
+        "options": [
+          { "label": "Kind", "value": 0 },
+          { "label": "Malevolent", "value": 1 },
+          { "label": "Generous", "value": 0 },
+          { "label": "Caring", "value": 0 }
+        ]
+      },
+      {
+        "order": 17,
+        "prompt": "SPATIAL: Which cube can be formed from this net? [□□□/□□□ unfolded]",
+        "options": [
+          { "label": "Cube with 3 visible faces", "value": 1 },
+          { "label": "Cube with 4 visible faces", "value": 0 },
+          { "label": "Cube with 2 visible faces", "value": 0 },
+          { "label": "Cannot form a cube", "value": 0 }
+        ]
+      },
+      {
+        "order": 18,
+        "prompt": "SPATIAL: If you rotate the figure ↻ 90°, what does it become? △",
+        "options": [
+          { "label": "▷", "value": 1 },
+          { "label": "◁", "value": 0 },
+          { "label": "△", "value": 0 },
+          { "label": "▽", "value": 0 }
+        ]
+      },
+      {
+        "order": 19,
+        "prompt": "SPATIAL: How many cubes are needed to build this shape? [3x3 base, 2x2 middle, 1 top]",
+        "options": [
+          { "label": "10", "value": 0 },
+          { "label": "14", "value": 1 },
+          { "label": "12", "value": 0 },
+          { "label": "15", "value": 0 }
+        ]
+      },
+      {
+        "order": 20,
+        "prompt": "SPATIAL: Mirror image of 'b' is:",
+        "options": [
+          { "label": "d", "value": 1 },
+          { "label": "p", "value": 0 },
+          { "label": "q", "value": 0 },
+          { "label": "b", "value": 0 }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "stroop-test",
+    "name": "Stroop Color-Word Test",
+    "description": "A classic test of cognitive control and response inhibition. Name the color of the text, not the word itself.",
+    "minAgeYears": 7,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Name the COLOR of this word: <span style='color:red'>RED</span>",
+        "options": [
+          { "label": "Red", "value": 1 },
+          { "label": "Blue", "value": 0 },
+          { "label": "Green", "value": 0 },
+          { "label": "Yellow", "value": 0 }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Name the COLOR of this word: <span style='color:blue'>GREEN</span>",
+        "options": [
+          { "label": "Green", "value": 0 },
+          { "label": "Blue", "value": 1 },
+          { "label": "Red", "value": 0 },
+          { "label": "Yellow", "value": 0 }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Name the COLOR of this word: <span style='color:green'>BLUE</span>",
+        "options": [
+          { "label": "Blue", "value": 0 },
+          { "label": "Green", "value": 1 },
+          { "label": "Red", "value": 0 },
+          { "label": "Yellow", "value": 0 }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Name the COLOR of this word: <span style='color:red'>BLUE</span>",
+        "options": [
+          { "label": "Blue", "value": 0 },
+          { "label": "Red", "value": 1 },
+          { "label": "Green", "value": 0 },
+          { "label": "Yellow", "value": 0 }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Name the COLOR of this word: <span style='color:yellow'>GREEN</span>",
+        "options": [
+          { "label": "Green", "value": 0 },
+          { "label": "Yellow", "value": 1 },
+          { "label": "Blue", "value": 0 },
+          { "label": "Red", "value": 0 }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "Name the COLOR of this word: <span style='color:green'>RED</span>",
+        "options": [
+          { "label": "Red", "value": 0 },
+          { "label": "Green", "value": 1 },
+          { "label": "Blue", "value": 0 },
+          { "label": "Yellow", "value": 0 }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "Name the COLOR of this word: <span style='color:blue'>YELLOW</span>",
+        "options": [
+          { "label": "Yellow", "value": 0 },
+          { "label": "Blue", "value": 1 },
+          { "label": "Red", "value": 0 },
+          { "label": "Green", "value": 0 }
+        ]
+      },
+      {
+        "order": 8,
+        "prompt": "Name the COLOR of this word: <span style='color:yellow'>RED</span>",
+        "options": [
+          { "label": "Red", "value": 0 },
+          { "label": "Yellow", "value": 1 },
+          { "label": "Blue", "value": 0 },
+          { "label": "Green", "value": 0 }
+        ]
+      },
+      {
+        "order": 9,
+        "prompt": "Name the COLOR of this word: <span style='color:red'>GREEN</span>",
+        "options": [
+          { "label": "Green", "value": 0 },
+          { "label": "Red", "value": 1 },
+          { "label": "Blue", "value": 0 },
+          { "label": "Yellow", "value": 0 }
+        ]
+      },
+      {
+        "order": 10,
+        "prompt": "Name the COLOR of this word: <span style='color:blue'>BLUE</span>",
+        "options": [
+          { "label": "Blue", "value": 1 },
+          { "label": "Red", "value": 0 },
+          { "label": "Green", "value": 0 },
+          { "label": "Yellow", "value": 0 }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "digit-span",
+    "name": "Digit Span Test",
+    "description": "A working memory test. Remember and recall sequences of digits in forward and reverse order.",
+    "minAgeYears": 6,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Forward Span - Level 3: Remember this sequence: 7 2 9",
+        "options": [
+          { "label": "7 2 9", "value": 1 },
+          { "label": "7 9 2", "value": 0 },
+          { "label": "2 7 9", "value": 0 },
+          { "label": "9 2 7", "value": 0 }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Forward Span - Level 4: Remember this sequence: 4 8 1 6",
+        "options": [
+          { "label": "4 8 1 6", "value": 1 },
+          { "label": "4 6 1 8", "value": 0 },
+          { "label": "8 4 1 6", "value": 0 },
+          { "label": "4 8 6 1", "value": 0 }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Forward Span - Level 5: Remember this sequence: 3 9 2 7 5",
+        "options": [
+          { "label": "3 9 2 7 5", "value": 1 },
+          { "label": "3 9 5 7 2", "value": 0 },
+          { "label": "9 3 2 7 5", "value": 0 },
+          { "label": "3 9 2 5 7", "value": 0 }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Forward Span - Level 6: Remember this sequence: 8 1 4 9 2 6",
+        "options": [
+          { "label": "8 1 4 9 2 6", "value": 1 },
+          { "label": "8 1 4 6 2 9", "value": 0 },
+          { "label": "1 8 4 9 2 6", "value": 0 },
+          { "label": "8 1 4 9 6 2", "value": 0 }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Reverse Span - Level 3: The sequence was: 5 1 8. Enter it backwards:",
+        "options": [
+          { "label": "8 1 5", "value": 1 },
+          { "label": "5 1 8", "value": 0 },
+          { "label": "5 8 1", "value": 0 },
+          { "label": "1 5 8", "value": 0 }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "Reverse Span - Level 4: The sequence was: 2 7 3 9. Enter it backwards:",
+        "options": [
+          { "label": "9 3 7 2", "value": 1 },
+          { "label": "2 7 3 9", "value": 0 },
+          { "label": "9 7 3 2", "value": 0 },
+          { "label": "3 7 2 9", "value": 0 }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "Reverse Span - Level 5: The sequence was: 6 4 8 1 3. Enter it backwards:",
+        "options": [
+          { "label": "3 1 8 4 6", "value": 1 },
+          { "label": "6 4 8 1 3", "value": 0 },
+          { "label": "3 8 1 4 6", "value": 0 },
+          { "label": "6 4 3 1 8", "value": 0 }
+        ]
+      },
+      {
+        "order": 8,
+        "prompt": "Reverse Span - Level 6: The sequence was: 9 2 5 7 1 4. Enter it backwards:",
+        "options": [
+          { "label": "4 1 7 5 2 9", "value": 1 },
+          { "label": "9 2 5 7 1 4", "value": 0 },
+          { "label": "4 7 5 2 1 9", "value": 0 },
+          { "label": "9 4 1 7 5 2", "value": 0 }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "go-no-go",
+    "name": "Go/No-Go Response Inhibition Test",
+    "description": "Test your ability to inhibit responses. Press only for GREEN shapes, NOT for RED shapes.",
+    "minAgeYears": 6,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "🟢 GREEN circle - Should you press?",
+        "options": [
+          { "label": "YES - Press!", "value": 1 },
+          { "label": "NO - Don't press", "value": 0 }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "🔴 RED circle - Should you press?",
+        "options": [
+          { "label": "YES - Press!", "value": 0 },
+          { "label": "NO - Don't press", "value": 1 }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "🟢 GREEN square - Should you press?",
+        "options": [
+          { "label": "YES - Press!", "value": 1 },
+          { "label": "NO - Don't press", "value": 0 }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "🔴 RED triangle - Should you press?",
+        "options": [
+          { "label": "YES - Press!", "value": 0 },
+          { "label": "NO - Don't press", "value": 1 }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "🟢 GREEN triangle - Should you press?",
+        "options": [
+          { "label": "YES - Press!", "value": 1 },
+          { "label": "NO - Don't press", "value": 0 }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "🔴 RED square - Should you press?",
+        "options": [
+          { "label": "YES - Press!", "value": 0 },
+          { "label": "NO - Don't press", "value": 1 }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "🟢 GREEN star - Should you press?",
+        "options": [
+          { "label": "YES - Press!", "value": 1 },
+          { "label": "NO - Don't press", "value": 0 }
+        ]
+      },
+      {
+        "order": 8,
+        "prompt": "🔴 RED star - Should you press?",
+        "options": [
+          { "label": "YES - Press!", "value": 0 },
+          { "label": "NO - Don't press", "value": 1 }
+        ]
+      },
+      {
+        "order": 9,
+        "prompt": "🟢 GREEN diamond - Should you press?",
+        "options": [
+          { "label": "YES - Press!", "value": 1 },
+          { "label": "NO - Don't press", "value": 0 }
+        ]
+      },
+      {
+        "order": 10,
+        "prompt": "🔴 RED diamond - Should you press?",
+        "options": [
+          { "label": "YES - Press!", "value": 0 },
+          { "label": "NO - Don't press", "value": 1 }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "schulte-table",
+    "name": "Schulte Table Attention Test",
+    "description": "Find numbers 1-25 in order as quickly as possible. Tests attention and processing speed.",
+    "minAgeYears": 7,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "In this Schulte table, which cell contains '1'? [Row-Col format]\n| 14 | 9 | 5 | 21 | 17 |\n| 3 | 25 | 12 | 8 | 19 |\n| 22 | 1 | 15 | 6 | 24 |\n| 18 | 11 | 4 | 23 | 13 |\n| 20 | 7 | 16 | 2 | 10 |",
+        "options": [
+          { "label": "Row 3, Col 2", "value": 1 },
+          { "label": "Row 2, Col 1", "value": 0 },
+          { "label": "Row 1, Col 3", "value": 0 },
+          { "label": "Row 4, Col 5", "value": 0 }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Which cell contains '5'?",
+        "options": [
+          { "label": "Row 1, Col 3", "value": 1 },
+          { "label": "Row 2, Col 4", "value": 0 },
+          { "label": "Row 3, Col 1", "value": 0 },
+          { "label": "Row 5, Col 2", "value": 0 }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Which cell contains '10'?",
+        "options": [
+          { "label": "Row 5, Col 5", "value": 1 },
+          { "label": "Row 4, Col 3", "value": 0 },
+          { "label": "Row 2, Col 2", "value": 0 },
+          { "label": "Row 1, Col 1", "value": 0 }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Which cell contains '15'?",
+        "options": [
+          { "label": "Row 3, Col 3", "value": 1 },
+          { "label": "Row 4, Col 2", "value": 0 },
+          { "label": "Row 1, Col 5", "value": 0 },
+          { "label": "Row 2, Col 3", "value": 0 }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Which cell contains '20'?",
+        "options": [
+          { "label": "Row 5, Col 1", "value": 1 },
+          { "label": "Row 3, Col 5", "value": 0 },
+          { "label": "Row 4, Col 4", "value": 0 },
+          { "label": "Row 1, Col 2", "value": 0 }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "reaction-time",
+    "name": "Reaction Time Test",
+    "description": "Measure your reaction speed. Click as quickly as possible when you see the target.",
+    "minAgeYears": 6,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "When you see ⚡, how fast should you react?",
+        "options": [
+          { "label": "As fast as possible", "value": 1 },
+          { "label": "Wait 2 seconds", "value": 0 },
+          { "label": "Wait for another symbol", "value": 0 },
+          { "label": "Don't react", "value": 0 }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "⚡ REACT NOW! What was your approximate reaction time?",
+        "options": [
+          { "label": "Under 250ms (Excellent)", "value": 4 },
+          { "label": "250-350ms (Good)", "value": 3 },
+          { "label": "350-450ms (Average)", "value": 2 },
+          { "label": "Over 450ms (Below Average)", "value": 1 }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "⚡ REACT NOW! What was your approximate reaction time?",
+        "options": [
+          { "label": "Under 250ms (Excellent)", "value": 4 },
+          { "label": "250-350ms (Good)", "value": 3 },
+          { "label": "350-450ms (Average)", "value": 2 },
+          { "label": "Over 450ms (Below Average)", "value": 1 }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "⚡ REACT NOW! What was your approximate reaction time?",
+        "options": [
+          { "label": "Under 250ms (Excellent)", "value": 4 },
+          { "label": "250-350ms (Good)", "value": 3 },
+          { "label": "350-450ms (Average)", "value": 2 },
+          { "label": "Over 450ms (Below Average)", "value": 1 }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "⚡ REACT NOW! What was your approximate reaction time?",
+        "options": [
+          { "label": "Under 250ms (Excellent)", "value": 4 },
+          { "label": "250-350ms (Good)", "value": 3 },
+          { "label": "350-450ms (Average)", "value": 2 },
+          { "label": "Over 450ms (Below Average)", "value": 1 }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "dual-n-back",
+    "name": "Dual N-Back Working Memory Test",
+    "description": "A challenging working memory test. Remember both the position and the letter from N steps back.",
+    "minAgeYears": 12,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "1-BACK Practice: You saw 'A' in position 1. Now you see 'B' in position 2. Was the position the same as 1 step back?",
+        "options": [
+          { "label": "No (different position)", "value": 1 },
+          { "label": "Yes (same position)", "value": 0 }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "1-BACK: Position sequence: [1]→[2]→[3]. Is position 3 the same as 1 step back (position 2)?",
+        "options": [
+          { "label": "No", "value": 1 },
+          { "label": "Yes", "value": 0 }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "1-BACK: Letter sequence: A→B→B. Is the letter the same as 1 step back?",
+        "options": [
+          { "label": "Yes (B = B)", "value": 1 },
+          { "label": "No (A ≠ B)", "value": 0 }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "2-BACK: Position sequence: [1]→[2]→[3]→[2]. Is position 2 the same as 2 steps back (position 2)?",
+        "options": [
+          { "label": "Yes (position 2 = position 2)", "value": 1 },
+          { "label": "No", "value": 0 }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "2-BACK: Letter sequence: X→Y→X→Z. Is 'Z' the same as 2 steps back?",
+        "options": [
+          { "label": "No (Z ≠ X)", "value": 1 },
+          { "label": "Yes (Z = X)", "value": 0 }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "2-BACK DUAL: Sequence: (A,pos1)→(B,pos2)→(C,pos3)→(B,pos2). Match on position 2-back?",
+        "options": [
+          { "label": "Yes (pos2 = pos2)", "value": 1 },
+          { "label": "No", "value": 0 }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "2-BACK DUAL: Sequence: (X,pos1)→(Y,pos2)→(Z,pos3)→(Y,pos4). Match on letter 2-back?",
+        "options": [
+          { "label": "Yes (Y = Y)", "value": 1 },
+          { "label": "No", "value": 0 }
+        ]
+      },
+      {
+        "order": 8,
+        "prompt": "3-BACK: Letter sequence: P→Q→R→S→R. Is 'R' the same as 3 steps back?",
+        "options": [
+          { "label": "Yes (R = R)", "value": 1 },
+          { "label": "No", "value": 0 }
+        ]
+      }
+    ]
   }
 ]

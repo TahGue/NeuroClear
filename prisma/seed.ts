@@ -262,6 +262,103 @@ async function main() {
         assignedByUserId: adminUser.id,
         status: InstrumentAssignmentStatus.ASSIGNED,
       },
+      // Comprehensive IQ Test (adults 16+)
+      {
+        patientId: adultPatient.id,
+        instrumentId: getInst("comprehensive-iq").id,
+        assignedByUserId: adminUser.id,
+        status: InstrumentAssignmentStatus.ASSIGNED,
+      },
+      {
+        patientId: olderAdultPatient.id,
+        instrumentId: getInst("comprehensive-iq").id,
+        assignedByUserId: adminUser.id,
+        status: InstrumentAssignmentStatus.ASSIGNED,
+      },
+      // Stroop Test (all ages 7+)
+      {
+        patientId: childPatient.id,
+        instrumentId: getInst("stroop-test").id,
+        assignedByUserId: adminUser.id,
+        status: InstrumentAssignmentStatus.ASSIGNED,
+      },
+      {
+        patientId: adolescentPatient.id,
+        instrumentId: getInst("stroop-test").id,
+        assignedByUserId: adminUser.id,
+        status: InstrumentAssignmentStatus.ASSIGNED,
+      },
+      {
+        patientId: adultPatient.id,
+        instrumentId: getInst("stroop-test").id,
+        assignedByUserId: adminUser.id,
+        status: InstrumentAssignmentStatus.ASSIGNED,
+      },
+      // Digit Span (all ages)
+      {
+        patientId: childPatient.id,
+        instrumentId: getInst("digit-span").id,
+        assignedByUserId: adminUser.id,
+        status: InstrumentAssignmentStatus.ASSIGNED,
+      },
+      {
+        patientId: adultPatient.id,
+        instrumentId: getInst("digit-span").id,
+        assignedByUserId: adminUser.id,
+        status: InstrumentAssignmentStatus.ASSIGNED,
+      },
+      // Go/No-Go (all ages)
+      {
+        patientId: childPatient.id,
+        instrumentId: getInst("go-no-go").id,
+        assignedByUserId: adminUser.id,
+        status: InstrumentAssignmentStatus.ASSIGNED,
+      },
+      {
+        patientId: adultPatient.id,
+        instrumentId: getInst("go-no-go").id,
+        assignedByUserId: adminUser.id,
+        status: InstrumentAssignmentStatus.ASSIGNED,
+      },
+      // Schulte Table (all ages 7+)
+      {
+        patientId: adolescentPatient.id,
+        instrumentId: getInst("schulte-table").id,
+        assignedByUserId: adminUser.id,
+        status: InstrumentAssignmentStatus.ASSIGNED,
+      },
+      {
+        patientId: adultPatient.id,
+        instrumentId: getInst("schulte-table").id,
+        assignedByUserId: adminUser.id,
+        status: InstrumentAssignmentStatus.ASSIGNED,
+      },
+      // Reaction Time (all ages)
+      {
+        patientId: childPatient.id,
+        instrumentId: getInst("reaction-time").id,
+        assignedByUserId: adminUser.id,
+        status: InstrumentAssignmentStatus.ASSIGNED,
+      },
+      {
+        patientId: adultPatient.id,
+        instrumentId: getInst("reaction-time").id,
+        assignedByUserId: adminUser.id,
+        status: InstrumentAssignmentStatus.ASSIGNED,
+      },
+      // Dual N-Back (ages 12+)
+      {
+        patientId: adolescentPatient.id,
+        instrumentId: getInst("dual-n-back").id,
+        assignedByUserId: adminUser.id,
+        status: InstrumentAssignmentStatus.ASSIGNED,
+      },
+      {
+        patientId: adultPatient.id,
+        instrumentId: getInst("dual-n-back").id,
+        assignedByUserId: adminUser.id,
+        status: InstrumentAssignmentStatus.ASSIGNED,
+      },
     ],
   })
 
