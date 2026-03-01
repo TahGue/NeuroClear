@@ -1,0 +1,4698 @@
+[
+  {
+    "slug": "phq9",
+    "name": "PHQ-9",
+    "description": "Patient Health Questionnaire-9 (Depressionsscreening)",
+    "minAgeYears": 13,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Litet intresse eller glädje i att göra saker",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Känner dig nere, deprimerad eller hopplös",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Svårigheter att somna eller sova, eller sover för mycket",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Känner dig trött eller har lite energi",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Dålig aptit eller äter för mycket",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "Känner dig dålig om dig själv - eller att du är en misslyckad eller har låtit din familj ner",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "Svårigheter att koncentrera dig på saker som att läsa tidningen eller titta på TV",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 8,
+        "prompt": "Rör dig eller talar så långsamt att andra människor kunde ha märkt? Eller så rastlös att du rör dig mer än vanligt",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 9,
+        "prompt": "Tankar att du skulle vara bättre död eller att skada dig själv på något sätt",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      }
+    ],
+    "category": "DEPRESSION_ANXIETY"
+  },
+  {
+    "slug": "gad7",
+    "name": "GAD-7",
+    "description": "Generalized Anxiety Disorder-7 (Angests-screening)",
+    "minAgeYears": 13,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Känner dig nervös, ängslig eller på helspänn",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Kan inte sluta eller kontrollera din oro",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Oroar dig för mycket om olika saker",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Svårt att koppla av",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Så rastlös att det är svårt att sitta stilla",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "Blir lätt irriterad eller lättretad",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "Känner dig rädd att något hemskt ska hända",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      }
+    ],
+    "category": "DEPRESSION_ANXIETY"
+  },
+  {
+    "slug": "sdq",
+    "name": "SDQ",
+    "description": "Strengths and Difficulties Questionnaire (Screening för barn)",
+    "minAgeYears": 3,
+    "maxAgeYears": 16,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Omtänksam, delar med sig till andra barn",
+        "options": [
+          {
+            "label": "Stämmer inte",
+            "value": 0
+          },
+          {
+            "label": "Stämmer delvis",
+            "value": 1
+          },
+          {
+            "label": "Stämmer definitivt",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Rastlös, överaktiv, kan inte sitta stilla länge",
+        "options": [
+          {
+            "label": "Stämmer inte",
+            "value": 0
+          },
+          {
+            "label": "Stämmer delvis",
+            "value": 1
+          },
+          {
+            "label": "Stämmer definitivt",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Klagar ofta på huvudvärk, ont i magen eller illamående",
+        "options": [
+          {
+            "label": "Stämmer inte",
+            "value": 0
+          },
+          {
+            "label": "Stämmer delvis",
+            "value": 1
+          },
+          {
+            "label": "Stämmer definitivt",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Delar gärna med sig till andra barn",
+        "options": [
+          {
+            "label": "Stämmer inte",
+            "value": 0
+          },
+          {
+            "label": "Stämmer delvis",
+            "value": 1
+          },
+          {
+            "label": "Stämmer definitivt",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Har ofta raseriutbrott eller blir snabbt arg",
+        "options": [
+          {
+            "label": "Stämmer inte",
+            "value": 0
+          },
+          {
+            "label": "Stämmer delvis",
+            "value": 1
+          },
+          {
+            "label": "Stämmer definitivt",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "Ganska ensam, leker ofta ensam",
+        "options": [
+          {
+            "label": "Stämmer inte",
+            "value": 0
+          },
+          {
+            "label": "Stämmer delvis",
+            "value": 1
+          },
+          {
+            "label": "Stämmer definitivt",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "Generellt lydig, gör vanligtvis vad vuxna ber om",
+        "options": [
+          {
+            "label": "Stämmer inte",
+            "value": 0
+          },
+          {
+            "label": "Stämmer delvis",
+            "value": 1
+          },
+          {
+            "label": "Stämmer definitivt",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "order": 8,
+        "prompt": "Ofta orolig eller ledsen, deprimerad",
+        "options": [
+          {
+            "label": "Stämmer inte",
+            "value": 0
+          },
+          {
+            "label": "Stämmer delvis",
+            "value": 1
+          },
+          {
+            "label": "Stämmer definitivt",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "order": 9,
+        "prompt": "Hjälpsam om någon är skadad, sjuk eller ledsen",
+        "options": [
+          {
+            "label": "Stämmer inte",
+            "value": 0
+          },
+          {
+            "label": "Stämmer delvis",
+            "value": 1
+          },
+          {
+            "label": "Stämmer definitivt",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "order": 10,
+        "prompt": "Ständigt i rörelse, kan inte sitta stilla",
+        "options": [
+          {
+            "label": "Stämmer inte",
+            "value": 0
+          },
+          {
+            "label": "Stämmer delvis",
+            "value": 1
+          },
+          {
+            "label": "Stämmer definitivt",
+            "value": 2
+          }
+        ]
+      }
+    ],
+    "category": "BEHAVIORAL"
+  },
+  {
+    "slug": "audit",
+    "name": "AUDIT",
+    "description": "Alcohol Use Disorders Identification Test",
+    "minAgeYears": 18,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Hur ofta dricker du alkoholhaltiga drycker?",
+        "options": [
+          {
+            "label": "Aldrig",
+            "value": 0
+          },
+          {
+            "label": "En gång i månaden eller mindre",
+            "value": 1
+          },
+          {
+            "label": "2-4 gånger i månaden",
+            "value": 2
+          },
+          {
+            "label": "2-3 gånger i veckan",
+            "value": 3
+          },
+          {
+            "label": "4 gånger eller mer i veckan",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Hur många standardglas dricker du en typisk dag när du dricker?",
+        "options": [
+          {
+            "label": "1 eller 2",
+            "value": 0
+          },
+          {
+            "label": "3 eller 4",
+            "value": 1
+          },
+          {
+            "label": "5 eller 6",
+            "value": 2
+          },
+          {
+            "label": "7 till 9",
+            "value": 3
+          },
+          {
+            "label": "10 eller fler",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Hur ofta dricker du sex eller fler glas på ett tillfälle?",
+        "options": [
+          {
+            "label": "Aldrig",
+            "value": 0
+          },
+          {
+            "label": "Mindre än en gång i månaden",
+            "value": 1
+          },
+          {
+            "label": "En gång i månaden",
+            "value": 2
+          },
+          {
+            "label": "En gång i veckan",
+            "value": 3
+          },
+          {
+            "label": "Varje dag eller nästan",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Under det senaste året, hur ofta har du märkt att du inte kunde sluta dricka när du väl hade börjat?",
+        "options": [
+          {
+            "label": "Aldrig",
+            "value": 0
+          },
+          {
+            "label": "Mindre än en gång i månaden",
+            "value": 1
+          },
+          {
+            "label": "En gång i månaden",
+            "value": 2
+          },
+          {
+            "label": "En gång i veckan",
+            "value": 3
+          },
+          {
+            "label": "Varje dag eller nästan",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Under det senaste året, hur ofta har du misslyckats med att göra det som förväntades av dig på grund av ditt drickande?",
+        "options": [
+          {
+            "label": "Aldrig",
+            "value": 0
+          },
+          {
+            "label": "Mindre än en gång i månaden",
+            "value": 1
+          },
+          {
+            "label": "En gång i månaden",
+            "value": 2
+          },
+          {
+            "label": "En gång i veckan",
+            "value": 3
+          },
+          {
+            "label": "Varje dag eller nästan",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "Under det senaste året, hur ofta har du behövt en drink på morgonen för att komma på fötter efter en tung drickarkväll?",
+        "options": [
+          {
+            "label": "Aldrig",
+            "value": 0
+          },
+          {
+            "label": "Mindre än en gång i månaden",
+            "value": 1
+          },
+          {
+            "label": "En gång i månaden",
+            "value": 2
+          },
+          {
+            "label": "En gång i veckan",
+            "value": 3
+          },
+          {
+            "label": "Varje dag eller nästan",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "Under det senaste året, hur ofta har du haft skuldkänslor eller ånger efter att ha druckit?",
+        "options": [
+          {
+            "label": "Aldrig",
+            "value": 0
+          },
+          {
+            "label": "Mindre än en gång i månaden",
+            "value": 1
+          },
+          {
+            "label": "En gång i månaden",
+            "value": 2
+          },
+          {
+            "label": "En gång i veckan",
+            "value": 3
+          },
+          {
+            "label": "Varje dag eller nästan",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 8,
+        "prompt": "Under det senaste året, hur ofta har du inte kunnat komma ihåg vad som hände kvällen innan för att du hade druckit?",
+        "options": [
+          {
+            "label": "Aldrig",
+            "value": 0
+          },
+          {
+            "label": "Mindre än en gång i månaden",
+            "value": 1
+          },
+          {
+            "label": "En gång i månaden",
+            "value": 2
+          },
+          {
+            "label": "En gång i veckan",
+            "value": 3
+          },
+          {
+            "label": "Varje dag eller nästan",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 9,
+        "prompt": "Har du eller någon annan skadats på grund av ditt drickande?",
+        "options": [
+          {
+            "label": "Nej",
+            "value": 0
+          },
+          {
+            "label": "Ja, men inte under det senaste året",
+            "value": 2
+          },
+          {
+            "label": "Ja, under det senaste året",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 10,
+        "prompt": "Har en släkting, vän, läkare eller annan vårdpersonal bett dig minska ditt drickande?",
+        "options": [
+          {
+            "label": "Nej",
+            "value": 0
+          },
+          {
+            "label": "Ja, men inte under det senaste året",
+            "value": 2
+          },
+          {
+            "label": "Ja, under det senaste året",
+            "value": 4
+          }
+        ]
+      }
+    ],
+    "category": "SUBSTANCE_USE"
+  },
+  {
+    "slug": "gds15",
+    "name": "GDS-15",
+    "description": "Geriatric Depression Scale-15",
+    "minAgeYears": 60,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Är du nöjd med ditt liv?",
+        "options": [
+          {
+            "label": "Ja",
+            "value": 0
+          },
+          {
+            "label": "Nej",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Har du gett upp många av dina aktiviteter och intressen?",
+        "options": [
+          {
+            "label": "Ja",
+            "value": 1
+          },
+          {
+            "label": "Nej",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Känner du att livet är tomt?",
+        "options": [
+          {
+            "label": "Ja",
+            "value": 1
+          },
+          {
+            "label": "Nej",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Känner du dig ofta uttråkad?",
+        "options": [
+          {
+            "label": "Ja",
+            "value": 1
+          },
+          {
+            "label": "Nej",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Är du på gott humör större delen av tiden?",
+        "options": [
+          {
+            "label": "Ja",
+            "value": 0
+          },
+          {
+            "label": "Nej",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "Är du rädd att något dåligt ska hända dig?",
+        "options": [
+          {
+            "label": "Ja",
+            "value": 1
+          },
+          {
+            "label": "Nej",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "Känner du dig lycklig större delen av tiden?",
+        "options": [
+          {
+            "label": "Ja",
+            "value": 0
+          },
+          {
+            "label": "Nej",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 8,
+        "prompt": "Känner du dig ofta hjälplös?",
+        "options": [
+          {
+            "label": "Ja",
+            "value": 1
+          },
+          {
+            "label": "Nej",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 9,
+        "prompt": "Föredrar du att stanna hemma istället för att gå ut och göra nya saker?",
+        "options": [
+          {
+            "label": "Ja",
+            "value": 1
+          },
+          {
+            "label": "Nej",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 10,
+        "prompt": "Har du fler minnesproblem än de flesta?",
+        "options": [
+          {
+            "label": "Ja",
+            "value": 1
+          },
+          {
+            "label": "Nej",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 11,
+        "prompt": "Tycker du att det är underbart att vara vid liv?",
+        "options": [
+          {
+            "label": "Ja",
+            "value": 0
+          },
+          {
+            "label": "Nej",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 12,
+        "prompt": "Känner du dig värdelös i ditt nuvarande tillstånd?",
+        "options": [
+          {
+            "label": "Ja",
+            "value": 1
+          },
+          {
+            "label": "Nej",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 13,
+        "prompt": "Känner du dig full av energi?",
+        "options": [
+          {
+            "label": "Ja",
+            "value": 0
+          },
+          {
+            "label": "Nej",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 14,
+        "prompt": "Känner du dig hopplös?",
+        "options": [
+          {
+            "label": "Ja",
+            "value": 1
+          },
+          {
+            "label": "Nej",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 15,
+        "prompt": "Tycker du att de flesta människor är bättre lottade än du?",
+        "options": [
+          {
+            "label": "Ja",
+            "value": 1
+          },
+          {
+            "label": "Nej",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "DEPRESSION_ANXIETY"
+  },
+  {
+    "slug": "phqa",
+    "name": "PHQ-A",
+    "description": "Patient Health Questionnaire för ungdomar",
+    "minAgeYears": 13,
+    "maxAgeYears": 18,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Litet intresse eller glädje i att göra saker",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Känner dig nere, deprimerad",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Sömnproblem",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Känner dig trött",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Förändringar i aptit",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "Känner dig dålig om dig själv",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "Svårigheter att koncentrera dig",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 8,
+        "prompt": "Rastlöshet eller långsamhet",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 9,
+        "prompt": "Tankar om död eller självmord",
+        "options": [
+          {
+            "label": "Inte alls",
+            "value": 0
+          },
+          {
+            "label": "Flera dagar",
+            "value": 1
+          },
+          {
+            "label": "Mer än hälften av dagarna",
+            "value": 2
+          },
+          {
+            "label": "Nästan varje dag",
+            "value": 3
+          }
+        ]
+      }
+    ],
+    "category": "DEPRESSION_ANXIETY"
+  },
+  {
+    "slug": "child-emotion-masks",
+    "name": "Känslomasker för barn",
+    "description": "Igenkänning av ansiktsuttryck för barn",
+    "minAgeYears": 6,
+    "maxAgeYears": 12,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "😀 Vilken känsla visas?",
+        "options": [
+          {
+            "label": "Glad",
+            "value": 1
+          },
+          {
+            "label": "Ledsen",
+            "value": 0
+          },
+          {
+            "label": "Arg",
+            "value": 0
+          },
+          {
+            "label": "Förvånad",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "😢 Vilken känsla visas?",
+        "options": [
+          {
+            "label": "Glad",
+            "value": 0
+          },
+          {
+            "label": "Ledsen",
+            "value": 1
+          },
+          {
+            "label": "Arg",
+            "value": 0
+          },
+          {
+            "label": "Rädd",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "😠 Vilken känsla visas?",
+        "options": [
+          {
+            "label": "Glad",
+            "value": 0
+          },
+          {
+            "label": "Ledsen",
+            "value": 0
+          },
+          {
+            "label": "Arg",
+            "value": 1
+          },
+          {
+            "label": "Förvånad",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "😮 Vilken känsla visas?",
+        "options": [
+          {
+            "label": "Glad",
+            "value": 0
+          },
+          {
+            "label": "Ledsen",
+            "value": 0
+          },
+          {
+            "label": "Arg",
+            "value": 0
+          },
+          {
+            "label": "Förvånad",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "😨 Vilken känsla visas?",
+        "options": [
+          {
+            "label": "Glad",
+            "value": 0
+          },
+          {
+            "label": "Arg",
+            "value": 0
+          },
+          {
+            "label": "Rädd",
+            "value": 1
+          },
+          {
+            "label": "Förvånad",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "EMOTIONAL_SOCIAL"
+  },
+  {
+    "slug": "child-pattern-weaving",
+    "name": "Mönstervävning för barn",
+    "description": "Mönsterigenkänningstest för barn",
+    "minAgeYears": 6,
+    "maxAgeYears": 12,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Vilket mönster kommer härnäst? 🔴 🔵 🔴 🔵 🔴 ?",
+        "options": [
+          {
+            "label": "🔴",
+            "value": 0
+          },
+          {
+            "label": "🔵",
+            "value": 1
+          },
+          {
+            "label": "🟢",
+            "value": 0
+          },
+          {
+            "label": "🟡",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Vilket mönster kommer härnäst? ⭐ ⭐ 🌙 ⭐ ⭐ ?",
+        "options": [
+          {
+            "label": "⭐",
+            "value": 0
+          },
+          {
+            "label": "🌙",
+            "value": 1
+          },
+          {
+            "label": "☀️",
+            "value": 0
+          },
+          {
+            "label": "🌟",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Vilket mönster kommer härnäst? 🐶 🐱 🐶 🐱 ?",
+        "options": [
+          {
+            "label": "🐶",
+            "value": 1
+          },
+          {
+            "label": "🐱",
+            "value": 0
+          },
+          {
+            "label": "🐰",
+            "value": 0
+          },
+          {
+            "label": "🐻",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Vilket mönster kommer härnäst? △ ○ △ ○ △ ?",
+        "options": [
+          {
+            "label": "△",
+            "value": 0
+          },
+          {
+            "label": "○",
+            "value": 1
+          },
+          {
+            "label": "□",
+            "value": 0
+          },
+          {
+            "label": "◇",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Vilket mönster kommer härnäst? 1 2 3 1 2 3 1 2 ?",
+        "options": [
+          {
+            "label": "1",
+            "value": 0
+          },
+          {
+            "label": "2",
+            "value": 0
+          },
+          {
+            "label": "3",
+            "value": 1
+          },
+          {
+            "label": "4",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "COGNITIVE"
+  },
+  {
+    "slug": "teen-social-harmony",
+    "name": "Social harmoni för tonåringar",
+    "description": "Förståelse av sociala situationer för tonåringar",
+    "minAgeYears": 13,
+    "maxAgeYears": 18,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Din vän berättar en hemlighet för dig. Vad ska du göra?",
+        "options": [
+          {
+            "label": "Berätta för alla",
+            "value": 0
+          },
+          {
+            "label": "Behåll den för dig själv",
+            "value": 1
+          },
+          {
+            "label": "Berätta för dina föräldrar",
+            "value": 0
+          },
+          {
+            "label": "Glöm bort den",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Någon tappar sina böcker i korridoren. Vad är det bästa svaret?",
+        "options": [
+          {
+            "label": "Skratta",
+            "value": 0
+          },
+          {
+            "label": "Ignorera",
+            "value": 0
+          },
+          {
+            "label": "Hjälp till att plocka upp",
+            "value": 1
+          },
+          {
+            "label": "Titta på",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "En vän verkar ledsen. Vad ska du göra?",
+        "options": [
+          {
+            "label": "Ignorera",
+            "value": 0
+          },
+          {
+            "label": "Fråga om allt är okej",
+            "value": 1
+          },
+          {
+            "label": "Berätta för andra",
+            "value": 0
+          },
+          {
+            "label": "Gå därifrån",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Du är sen till lektionen. Vad ska du göra?",
+        "options": [
+          {
+            "label": "Gå in högljutt",
+            "value": 0
+          },
+          {
+            "label": "Gå in tyst och be om ursäkt",
+            "value": 1
+          },
+          {
+            "label": "Gå inte in",
+            "value": 0
+          },
+          {
+            "label": "Skyll på någon annan",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Du ser någon bli mobbad. Vad ska du göra?",
+        "options": [
+          {
+            "label": "Skratta",
+            "value": 0
+          },
+          {
+            "label": "Delta",
+            "value": 0
+          },
+          {
+            "label": "Hjälp till eller hämta en vuxen",
+            "value": 1
+          },
+          {
+            "label": "Ignorera",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "EMOTIONAL_SOCIAL"
+  },
+  {
+    "slug": "adult-debate-evidence",
+    "name": "Debatt och bevis för vuxna",
+    "description": "Bedömning av evidensbaserat resonemang",
+    "minAgeYears": 18,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "En studie visar att 90% av människor föredrar kaffe framför te. Betyder det att kaffe är bättre?",
+        "options": [
+          {
+            "label": "Ja, det är bevisat",
+            "value": 0
+          },
+          {
+            "label": "Nej, preferens ≠ kvalitet",
+            "value": 1
+          },
+          {
+            "label": "Kanske",
+            "value": 0
+          },
+          {
+            "label": "Studien är fel",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Om alla A är B, och några B är C, kan vi säga att några A är C?",
+        "options": [
+          {
+            "label": "Ja",
+            "value": 0
+          },
+          {
+            "label": "Nej",
+            "value": 1
+          },
+          {
+            "label": "Kanske",
+            "value": 0
+          },
+          {
+            "label": "Omöjligt att avgöra",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "En reklam säger '9 av 10 läkare rekommenderar'. Är detta vetenskapligt bevis?",
+        "options": [
+          {
+            "label": "Ja, starkt bevis",
+            "value": 0
+          },
+          {
+            "label": "Nej, det är marknadsföring",
+            "value": 1
+          },
+          {
+            "label": "Kanske",
+            "value": 0
+          },
+          {
+            "label": "Beror på produkten",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Korrelation ≠ kausalitet. Om A och B ökar tillsammans, orsakar A B?",
+        "options": [
+          {
+            "label": "Ja",
+            "value": 0
+          },
+          {
+            "label": "Nej, endast korrelation",
+            "value": 1
+          },
+          {
+            "label": "Kanske",
+            "value": 0
+          },
+          {
+            "label": "B orsakar A",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Ett argument är 'ad hominem' när man attackerar personen istället för argumentet. Är detta giltigt?",
+        "options": [
+          {
+            "label": "Ja, alltid",
+            "value": 0
+          },
+          {
+            "label": "Nej, det är en fallacy",
+            "value": 1
+          },
+          {
+            "label": "Ibland",
+            "value": 0
+          },
+          {
+            "label": "Beror på kontexten",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "COGNITIVE"
+  },
+  {
+    "slug": "senior-wisdom-ambiguity",
+    "name": "Visdom och tvetydighet för seniorer",
+    "description": "Tolkning av tvetydiga situationer",
+    "minAgeYears": 60,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "« Glaset är halvfullt eller halvtomt? » Vad avslöjar denna fråga?",
+        "options": [
+          {
+            "label": "Ingenting",
+            "value": 0
+          },
+          {
+            "label": "Perspektiv och attityd",
+            "value": 1
+          },
+          {
+            "label": "Mängden vatten",
+            "value": 0
+          },
+          {
+            "label": "Glasets storlek",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "« Handlingar talar högre än ord. » Vad betyder detta?",
+        "options": [
+          {
+            "label": "Ropa högt",
+            "value": 0
+          },
+          {
+            "label": "Beteende > löften",
+            "value": 1
+          },
+          {
+            "label": "Tala mindre",
+            "value": 0
+          },
+          {
+            "label": "Lyssna mer",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "En vän har inte ringt dig på länge. Vad är den mest välvilliga tolkningen?",
+        "options": [
+          {
+            "label": "Hen gillar dig inte längre",
+            "value": 0
+          },
+          {
+            "label": "Hen kanske är upptagen",
+            "value": 1
+          },
+          {
+            "label": "Hen är sjuk",
+            "value": 0
+          },
+          {
+            "label": "Hen undviker dig",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "« När lyckans dörr stängs, öppnas en annan. » Vad betyder detta?",
+        "options": [
+          {
+            "label": "Bokstavliga dörrar",
+            "value": 0
+          },
+          {
+            "label": "Nya möjligheter",
+            "value": 1
+          },
+          {
+            "label": "Stäng dörrar",
+            "value": 0
+          },
+          {
+            "label": "Lyckan är slut",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "« Erfarenhet är den bästa läraren. » Håller du med?",
+        "options": [
+          {
+            "label": "Nej, böcker är bättre",
+            "value": 0
+          },
+          {
+            "label": "Ja, lärande genom praktik",
+            "value": 1
+          },
+          {
+            "label": "Ibland",
+            "value": 0
+          },
+          {
+            "label": "Båda är lika",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "EMOTIONAL_SOCIAL"
+  },
+  {
+    "slug": "senior-gentle-attention",
+    "name": "Mild uppmärksamhet för seniorer",
+    "description": "Lätta uppmärksamhetsövningar",
+    "minAgeYears": 60,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Hur många gånger förekommer ordet « uppmärksamhet » i denna mening : « Uppmärksamhet är viktigt, var uppmärksam » ?",
+        "options": [
+          {
+            "label": "1",
+            "value": 0
+          },
+          {
+            "label": "2",
+            "value": 1
+          },
+          {
+            "label": "3",
+            "value": 0
+          },
+          {
+            "label": "4",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Memorera denna sekvens : Röd, Blå, Grön. Vilken var den andra färgen?",
+        "options": [
+          {
+            "label": "Röd",
+            "value": 0
+          },
+          {
+            "label": "Blå",
+            "value": 1
+          },
+          {
+            "label": "Grön",
+            "value": 0
+          },
+          {
+            "label": "Gul",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Vilken form hör inte hemma i denna grupp ? ⬤ ⬤ ⬤ ◆",
+        "options": [
+          {
+            "label": "⬤ (cirkel)",
+            "value": 0
+          },
+          {
+            "label": "◆ (romb)",
+            "value": 1
+          },
+          {
+            "label": "Alla är identiska",
+            "value": 0
+          },
+          {
+            "label": "Ingen",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Räkna vokalerna i : « Hej världen »",
+        "options": [
+          {
+            "label": "4",
+            "value": 0
+          },
+          {
+            "label": "5",
+            "value": 1
+          },
+          {
+            "label": "6",
+            "value": 0
+          },
+          {
+            "label": "7",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Vilken bokstav kommer efter C i alfabetet?",
+        "options": [
+          {
+            "label": "B",
+            "value": 0
+          },
+          {
+            "label": "D",
+            "value": 1
+          },
+          {
+            "label": "E",
+            "value": 0
+          },
+          {
+            "label": "A",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "COGNITIVE"
+  },
+  {
+    "slug": "senior-life-chapters",
+    "name": "Livskapitel",
+    "description": "Livsberättelse och minnen",
+    "minAgeYears": 60,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Beskriv ett barndomsminne som gör dig glad.",
+        "options": [
+          {
+            "label": "Fortsätt",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Vad har varit din största prestation i livet?",
+        "options": [
+          {
+            "label": "Fortsätt",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Vem har haft mest positivt inflytande på ditt liv?",
+        "options": [
+          {
+            "label": "Fortsätt",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Vilket råd skulle du ge ditt yngre jag?",
+        "options": [
+          {
+            "label": "Fortsätt",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Vad ger dig mest glädje idag?",
+        "options": [
+          {
+            "label": "Avsluta",
+            "value": 1
+          }
+        ]
+      }
+    ],
+    "category": "EMOTIONAL_SOCIAL"
+  },
+  {
+    "slug": "matrix-reasoning-child",
+    "name": "Matrisresonemang för barn",
+    "description": "Icke-verbal bedömning av flytande intelligens och mönsterigenkänning.",
+    "minAgeYears": 6,
+    "maxAgeYears": 12,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Vilken emoji kommer härnäst? 🌙 🌙 ☀️ 🌙 🌙 ?",
+        "options": [
+          {
+            "label": "🌙",
+            "value": 0
+          },
+          {
+            "label": "☀️",
+            "value": 1
+          },
+          {
+            "label": "⭐",
+            "value": 0
+          },
+          {
+            "label": "🌍",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Vilken emoji kompletterar mönstret? 🍎 🍊 🍎 🍊 🍎 ?",
+        "options": [
+          {
+            "label": "🍎",
+            "value": 0
+          },
+          {
+            "label": "🍊",
+            "value": 1
+          },
+          {
+            "label": "🍋",
+            "value": 0
+          },
+          {
+            "label": "🍇",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Vilken emoji kompletterar serien? 🐶 🐱 🐭 🐶 🐱 ?",
+        "options": [
+          {
+            "label": "🐶",
+            "value": 0
+          },
+          {
+            "label": "🐱",
+            "value": 0
+          },
+          {
+            "label": "🐭",
+            "value": 1
+          },
+          {
+            "label": "🐰",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Vilken emoji kommer härnäst? ⬆️ ➡️ ⬇️ ⬆️ ➡️ ?",
+        "options": [
+          {
+            "label": "⬆️",
+            "value": 0
+          },
+          {
+            "label": "➡️",
+            "value": 0
+          },
+          {
+            "label": "⬇️",
+            "value": 1
+          },
+          {
+            "label": "⬅️",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Vilken emoji kompletterar mönstret? 🔴 🔵 🟢 🔴 🔵 ?",
+        "options": [
+          {
+            "label": "🔴",
+            "value": 0
+          },
+          {
+            "label": "🔵",
+            "value": 0
+          },
+          {
+            "label": "🟢",
+            "value": 1
+          },
+          {
+            "label": "🟡",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "IQ_INTELLIGENCE"
+  },
+  {
+    "slug": "matrix-reasoning-adult",
+    "name": "Matrisresonemang för vuxna",
+    "description": "Icke-verbal bedömning av flytande intelligens, abstrakt resonemang och arbetsminne.",
+    "minAgeYears": 13,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Vilket symbol kompletterar serien? ◯ ◯ ● ◯ ◯ ?",
+        "options": [
+          {
+            "label": "◯",
+            "value": 0
+          },
+          {
+            "label": "●",
+            "value": 1
+          },
+          {
+            "label": "◐",
+            "value": 0
+          },
+          {
+            "label": "◑",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Vilket tal kommer härnäst? 2, 4, 8, 16, ?",
+        "options": [
+          {
+            "label": "24",
+            "value": 0
+          },
+          {
+            "label": "32",
+            "value": 1
+          },
+          {
+            "label": "20",
+            "value": 0
+          },
+          {
+            "label": "18",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Om ◯ = 1, ● = 2, då ◯● = ?",
+        "options": [
+          {
+            "label": "2",
+            "value": 0
+          },
+          {
+            "label": "3",
+            "value": 1
+          },
+          {
+            "label": "4",
+            "value": 0
+          },
+          {
+            "label": "12",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Vilket symbol kompletterar matrisen? [△][□][○] [□][○][?] [○][?][△]",
+        "options": [
+          {
+            "label": "△",
+            "value": 1
+          },
+          {
+            "label": "□",
+            "value": 0
+          },
+          {
+            "label": "○",
+            "value": 0
+          },
+          {
+            "label": "◇",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Vilken emoji kompletterar mönstret? 🌑 🌒 🌓 🌔 ?",
+        "options": [
+          {
+            "label": "🌑",
+            "value": 0
+          },
+          {
+            "label": "🌔",
+            "value": 0
+          },
+          {
+            "label": "🌕",
+            "value": 1
+          },
+          {
+            "label": "🌙",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "Vilket är nästa tal i serien? 2, 4, 8, 16, 32, ?",
+        "options": [
+          {
+            "label": "48",
+            "value": 0
+          },
+          {
+            "label": "64",
+            "value": 1
+          },
+          {
+            "label": "128",
+            "value": 0
+          },
+          {
+            "label": "256",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "IQ_INTELLIGENCE"
+  },
+  {
+    "slug": "comprehensive-iq",
+    "name": "Omfattande IQ-bedömning",
+    "description": "Multi-domän IQ-test som bedömer logiskt resonemang, mönsterigenkänning, matematisk förmåga, verbal förståelse och rumsuppfattning.",
+    "minAgeYears": 16,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "LOGISKT RESONEMANG : Alla rosor är blommor. Vissa blommor vissnar snabbt. Alltså :",
+        "options": [
+          {
+            "label": "Alla rosor vissnar snabbt",
+            "value": 0
+          },
+          {
+            "label": "Vissa rosor kan vissna snabbt",
+            "value": 1
+          },
+          {
+            "label": "Inga rosor vissnar snabbt",
+            "value": 0
+          },
+          {
+            "label": "Bara rosor vissnar snabbt",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "LOGISKT RESONEMANG : Om A > B, och B > C, och C > D, då :",
+        "options": [
+          {
+            "label": "A > D",
+            "value": 1
+          },
+          {
+            "label": "D > A",
+            "value": 0
+          },
+          {
+            "label": "A = D",
+            "value": 0
+          },
+          {
+            "label": "Omöjligt att avgöra",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "LOGISKT RESONEMANG : I ett lopp, passerar du personen på andra plats. Vilken är din position?",
+        "options": [
+          {
+            "label": "Första",
+            "value": 0
+          },
+          {
+            "label": "Andra",
+            "value": 1
+          },
+          {
+            "label": "Tredje",
+            "value": 0
+          },
+          {
+            "label": "Beror på",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "LOGISKT RESONEMANG : Om alla Blips är Razz och alla Razz är Lazz, då :",
+        "options": [
+          {
+            "label": "Alla Lazz är Blips",
+            "value": 0
+          },
+          {
+            "label": "Alla Blips är Lazz",
+            "value": 1
+          },
+          {
+            "label": "Vissa Lazz är Blips",
+            "value": 0
+          },
+          {
+            "label": "Inga Blips är Lazz",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "MÖNSTERIGENKÄNNING : Vad kommer härnäst? ◐ ◑ ◐ ◑ ◐ ?",
+        "options": [
+          {
+            "label": "◐",
+            "value": 0
+          },
+          {
+            "label": "◑",
+            "value": 1
+          },
+          {
+            "label": "○",
+            "value": 0
+          },
+          {
+            "label": "●",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "MÖNSTERIGENKÄNNING : Komplettera sekvensen : 1, 4, 9, 16, 25, ?",
+        "options": [
+          {
+            "label": "30",
+            "value": 0
+          },
+          {
+            "label": "36",
+            "value": 1
+          },
+          {
+            "label": "35",
+            "value": 0
+          },
+          {
+            "label": "49",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "MÖNSTERIGENKÄNNING : Vilken form kompletterar mönstret? △ □ △ □ △ ?",
+        "options": [
+          {
+            "label": "△",
+            "value": 0
+          },
+          {
+            "label": "□",
+            "value": 1
+          },
+          {
+            "label": "○",
+            "value": 0
+          },
+          {
+            "label": "◇",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 8,
+        "prompt": "MÖNSTERIGENKÄNNING : 2, 6, 12, 20, 30, ?",
+        "options": [
+          {
+            "label": "40",
+            "value": 0
+          },
+          {
+            "label": "42",
+            "value": 1
+          },
+          {
+            "label": "44",
+            "value": 0
+          },
+          {
+            "label": "36",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 9,
+        "prompt": "MATEMATIK : Om 3x + 7 = 22, vad är x?",
+        "options": [
+          {
+            "label": "3",
+            "value": 0
+          },
+          {
+            "label": "5",
+            "value": 1
+          },
+          {
+            "label": "7",
+            "value": 0
+          },
+          {
+            "label": "15",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 10,
+        "prompt": "MATEMATIK : Ett tåg färdas 60 km på 45 minuter. I den takt, hur långt färdas det på 2 timmar?",
+        "options": [
+          {
+            "label": "120 km",
+            "value": 0
+          },
+          {
+            "label": "160 km",
+            "value": 1
+          },
+          {
+            "label": "180 km",
+            "value": 0
+          },
+          {
+            "label": "90 km",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 11,
+        "prompt": "MATEMATIK : Vad är 15% av 200?",
+        "options": [
+          {
+            "label": "15",
+            "value": 0
+          },
+          {
+            "label": "30",
+            "value": 1
+          },
+          {
+            "label": "25",
+            "value": 0
+          },
+          {
+            "label": "35",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 12,
+        "prompt": "MATEMATIK : Om en skjorta kostar 40 och är 25% rabatt, vad är det rabatterade priset?",
+        "options": [
+          {
+            "label": "35",
+            "value": 0
+          },
+          {
+            "label": "30",
+            "value": 1
+          },
+          {
+            "label": "25",
+            "value": 0
+          },
+          {
+            "label": "32",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 13,
+        "prompt": "VERBAL : Bok är till Läsning som Gaffel är till :",
+        "options": [
+          {
+            "label": "Kök",
+            "value": 0
+          },
+          {
+            "label": "Äta",
+            "value": 1
+          },
+          {
+            "label": "Sked",
+            "value": 0
+          },
+          {
+            "label": "Metall",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 14,
+        "prompt": "VERBAL : Vilket ord hör INTE hemma?",
+        "options": [
+          {
+            "label": "Glad",
+            "value": 0
+          },
+          {
+            "label": "Munter",
+            "value": 0
+          },
+          {
+            "label": "Melankolisk",
+            "value": 1
+          },
+          {
+            "label": "Lekfull",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 15,
+        "prompt": "VERBAL : « Korthet » betyder :",
+        "options": [
+          {
+            "label": "Längd",
+            "value": 0
+          },
+          {
+            "label": "Koncisitet",
+            "value": 1
+          },
+          {
+            "label": "Humor",
+            "value": 0
+          },
+          {
+            "label": "Ilska",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 16,
+        "prompt": "VERBAL : Motsats till « Vänlig » :",
+        "options": [
+          {
+            "label": "Snäll",
+            "value": 0
+          },
+          {
+            "label": "Ovänlig",
+            "value": 1
+          },
+          {
+            "label": "Generös",
+            "value": 0
+          },
+          {
+            "label": "Omtänksam",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 17,
+        "prompt": "RUMSLIG : Vilken kub kan formas från denna nät? [□□□/□□□ utvikt]",
+        "options": [
+          {
+            "label": "Kub med 3 synliga ytor",
+            "value": 1
+          },
+          {
+            "label": "Kub med 4 synliga ytor",
+            "value": 0
+          },
+          {
+            "label": "Kub med 2 synliga ytor",
+            "value": 0
+          },
+          {
+            "label": "Omöjligt att forma en kub",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 18,
+        "prompt": "RUMSLIG : Om du roterar figuren ↻ 90°, vad blir den? △",
+        "options": [
+          {
+            "label": "▷",
+            "value": 1
+          },
+          {
+            "label": "◁",
+            "value": 0
+          },
+          {
+            "label": "△",
+            "value": 0
+          },
+          {
+            "label": "▽",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 19,
+        "prompt": "RUMSLIG : Hur många kuber behövs för att bygga denna form? [bas 3x3, mitten 2x2, topp 1]",
+        "options": [
+          {
+            "label": "10",
+            "value": 0
+          },
+          {
+            "label": "14",
+            "value": 1
+          },
+          {
+            "label": "12",
+            "value": 0
+          },
+          {
+            "label": "15",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 20,
+        "prompt": "RUMSLIG : Spegelbilden av 'b' är :",
+        "options": [
+          {
+            "label": "d",
+            "value": 1
+          },
+          {
+            "label": "p",
+            "value": 0
+          },
+          {
+            "label": "q",
+            "value": 0
+          },
+          {
+            "label": "b",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "IQ_INTELLIGENCE"
+  },
+  {
+    "slug": "stroop-test",
+    "name": "Stroop Färg-Ord Test",
+    "description": "Ett klassiskt test av kognitiv kontroll och svarsinhibition. Namnge färgen på texten, inte ordet självt.",
+    "minAgeYears": 7,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Namnge FÄRGEN på detta ord : <span style='color:red'>RÖD</span>",
+        "options": [
+          {
+            "label": "Röd",
+            "value": 1
+          },
+          {
+            "label": "Blå",
+            "value": 0
+          },
+          {
+            "label": "Grön",
+            "value": 0
+          },
+          {
+            "label": "Gul",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Namnge FÄRGEN på detta ord : <span style='color:blue'>GRÖN</span>",
+        "options": [
+          {
+            "label": "Grön",
+            "value": 0
+          },
+          {
+            "label": "Blå",
+            "value": 1
+          },
+          {
+            "label": "Röd",
+            "value": 0
+          },
+          {
+            "label": "Gul",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Namnge FÄRGEN på detta ord : <span style='color:green'>BLÅ</span>",
+        "options": [
+          {
+            "label": "Blå",
+            "value": 0
+          },
+          {
+            "label": "Grön",
+            "value": 1
+          },
+          {
+            "label": "Röd",
+            "value": 0
+          },
+          {
+            "label": "Gul",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Namnge FÄRGEN på detta ord : <span style='color:red'>BLÅ</span>",
+        "options": [
+          {
+            "label": "Blå",
+            "value": 0
+          },
+          {
+            "label": "Röd",
+            "value": 1
+          },
+          {
+            "label": "Grön",
+            "value": 0
+          },
+          {
+            "label": "Gul",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Namnge FÄRGEN på detta ord : <span style='color:yellow'>GRÖN</span>",
+        "options": [
+          {
+            "label": "Grön",
+            "value": 0
+          },
+          {
+            "label": "Gul",
+            "value": 1
+          },
+          {
+            "label": "Blå",
+            "value": 0
+          },
+          {
+            "label": "Röd",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "Namnge FÄRGEN på detta ord : <span style='color:green'>RÖD</span>",
+        "options": [
+          {
+            "label": "Röd",
+            "value": 0
+          },
+          {
+            "label": "Grön",
+            "value": 1
+          },
+          {
+            "label": "Blå",
+            "value": 0
+          },
+          {
+            "label": "Gul",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "Namnge FÄRGEN på detta ord : <span style='color:blue'>GUL</span>",
+        "options": [
+          {
+            "label": "Gul",
+            "value": 0
+          },
+          {
+            "label": "Blå",
+            "value": 1
+          },
+          {
+            "label": "Röd",
+            "value": 0
+          },
+          {
+            "label": "Grön",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 8,
+        "prompt": "Namnge FÄRGEN på detta ord : <span style='color:yellow'>RÖD</span>",
+        "options": [
+          {
+            "label": "Röd",
+            "value": 0
+          },
+          {
+            "label": "Gul",
+            "value": 1
+          },
+          {
+            "label": "Blå",
+            "value": 0
+          },
+          {
+            "label": "Grön",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 9,
+        "prompt": "Namnge FÄRGEN på detta ord : <span style='color:red'>GRÖN</span>",
+        "options": [
+          {
+            "label": "Grön",
+            "value": 0
+          },
+          {
+            "label": "Röd",
+            "value": 1
+          },
+          {
+            "label": "Blå",
+            "value": 0
+          },
+          {
+            "label": "Gul",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 10,
+        "prompt": "Namnge FÄRGEN på detta ord : <span style='color:blue'>BLÅ</span>",
+        "options": [
+          {
+            "label": "Blå",
+            "value": 1
+          },
+          {
+            "label": "Röd",
+            "value": 0
+          },
+          {
+            "label": "Grön",
+            "value": 0
+          },
+          {
+            "label": "Gul",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "COGNITIVE"
+  },
+  {
+    "slug": "digit-span",
+    "name": "Sifferspanntest",
+    "description": "Ett arbetsminnestest. Memorera och återge sifferserier i direkt och omvänd ordning.",
+    "minAgeYears": 6,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Direkt spann - Nivå 3 : Memorera denna sekvens : 7 2 9",
+        "options": [
+          {
+            "label": "7 2 9",
+            "value": 1
+          },
+          {
+            "label": "7 9 2",
+            "value": 0
+          },
+          {
+            "label": "2 7 9",
+            "value": 0
+          },
+          {
+            "label": "9 2 7",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Direkt spann - Nivå 4 : Memorera denna sekvens : 4 8 1 6",
+        "options": [
+          {
+            "label": "4 8 1 6",
+            "value": 1
+          },
+          {
+            "label": "4 6 1 8",
+            "value": 0
+          },
+          {
+            "label": "8 4 1 6",
+            "value": 0
+          },
+          {
+            "label": "4 8 6 1",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Direkt spann - Nivå 5 : Memorera denna sekvens : 3 9 2 7 5",
+        "options": [
+          {
+            "label": "3 9 2 7 5",
+            "value": 1
+          },
+          {
+            "label": "3 9 5 7 2",
+            "value": 0
+          },
+          {
+            "label": "9 3 2 7 5",
+            "value": 0
+          },
+          {
+            "label": "3 9 2 5 7",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Direkt spann - Nivå 6 : Memorera denna sekvens : 8 1 4 9 2 6",
+        "options": [
+          {
+            "label": "8 1 4 9 2 6",
+            "value": 1
+          },
+          {
+            "label": "8 1 4 6 2 9",
+            "value": 0
+          },
+          {
+            "label": "1 8 4 9 2 6",
+            "value": 0
+          },
+          {
+            "label": "8 1 4 9 6 2",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Omvänt spann - Nivå 3 : Sekvensen var : 5 1 8. Ange den baklänges :",
+        "options": [
+          {
+            "label": "8 1 5",
+            "value": 1
+          },
+          {
+            "label": "5 1 8",
+            "value": 0
+          },
+          {
+            "label": "5 8 1",
+            "value": 0
+          },
+          {
+            "label": "1 5 8",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "Omvänt spann - Nivå 4 : Sekvensen var : 2 7 3 9. Ange den baklänges :",
+        "options": [
+          {
+            "label": "9 3 7 2",
+            "value": 1
+          },
+          {
+            "label": "2 7 3 9",
+            "value": 0
+          },
+          {
+            "label": "9 7 3 2",
+            "value": 0
+          },
+          {
+            "label": "3 7 2 9",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "Omvänt spann - Nivå 5 : Sekvensen var : 6 4 8 1 3. Ange den baklänges :",
+        "options": [
+          {
+            "label": "3 1 8 4 6",
+            "value": 1
+          },
+          {
+            "label": "6 4 8 1 3",
+            "value": 0
+          },
+          {
+            "label": "3 8 1 4 6",
+            "value": 0
+          },
+          {
+            "label": "6 4 3 1 8",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 8,
+        "prompt": "Omvänt spann - Nivå 6 : Sekvensen var : 9 2 5 7 1 4. Ange den baklänges :",
+        "options": [
+          {
+            "label": "4 1 7 5 2 9",
+            "value": 1
+          },
+          {
+            "label": "9 2 5 7 1 4",
+            "value": 0
+          },
+          {
+            "label": "4 7 5 2 1 9",
+            "value": 0
+          },
+          {
+            "label": "9 4 1 7 5 2",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "COGNITIVE"
+  },
+  {
+    "slug": "go-no-go",
+    "name": "Go/No-Go Svarsinhibitionstest",
+    "description": "Testa din förmåga att inhibera svar. Tryck endast för GRÖNA former, INTE för RÖDA former.",
+    "minAgeYears": 6,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "🟢 GRÖN CIRKEL - Ska du trycka?",
+        "options": [
+          {
+            "label": "JA - Tryck!",
+            "value": 1
+          },
+          {
+            "label": "NEJ - Tryck inte",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "🔴 RÖD CIRKEL - Ska du trycka?",
+        "options": [
+          {
+            "label": "JA - Tryck!",
+            "value": 0
+          },
+          {
+            "label": "NEJ - Tryck inte",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "🟢 GRÖN KVADRAT - Ska du trycka?",
+        "options": [
+          {
+            "label": "JA - Tryck!",
+            "value": 1
+          },
+          {
+            "label": "NEJ - Tryck inte",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "🔴 RÖD TRIANGEL - Ska du trycka?",
+        "options": [
+          {
+            "label": "JA - Tryck!",
+            "value": 0
+          },
+          {
+            "label": "NEJ - Tryck inte",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "🟢 GRÖN TRIANGEL - Ska du trycka?",
+        "options": [
+          {
+            "label": "JA - Tryck!",
+            "value": 1
+          },
+          {
+            "label": "NEJ - Tryck inte",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "🔴 RÖD KVADRAT - Ska du trycka?",
+        "options": [
+          {
+            "label": "JA - Tryck!",
+            "value": 0
+          },
+          {
+            "label": "NEJ - Tryck inte",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "🟢 GRÖN STJÄRNA - Ska du trycka?",
+        "options": [
+          {
+            "label": "JA - Tryck!",
+            "value": 1
+          },
+          {
+            "label": "NEJ - Tryck inte",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 8,
+        "prompt": "🔴 RÖD STJÄRNA - Ska du trycka?",
+        "options": [
+          {
+            "label": "JA - Tryck!",
+            "value": 0
+          },
+          {
+            "label": "NEJ - Tryck inte",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 9,
+        "prompt": "🟢 GRÖN ROMB - Ska du trycka?",
+        "options": [
+          {
+            "label": "JA - Tryck!",
+            "value": 1
+          },
+          {
+            "label": "NEJ - Tryck inte",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 10,
+        "prompt": "🔴 RÖD ROMB - Ska du trycka?",
+        "options": [
+          {
+            "label": "JA - Tryck!",
+            "value": 0
+          },
+          {
+            "label": "NEJ - Tryck inte",
+            "value": 1
+          }
+        ]
+      }
+    ],
+    "category": "COGNITIVE"
+  },
+  {
+    "slug": "schulte-table",
+    "name": "Schulte-tabell Uppmärksamhetstest",
+    "description": "Hitta siffrorna 1 till 25 i ordning så snabbt som möjligt. Testar uppmärksamhet och bearbetningshastighet.",
+    "minAgeYears": 7,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "I denna Schulte-tabell, vilken cell innehåller '1'? [Format Rad-Kolumn]\n| 14 | 9 | 5 | 21 | 17 |\n| 3 | 25 | 12 | 8 | 19 |\n| 22 | 1 | 15 | 6 | 24 |\n| 18 | 11 | 4 | 23 | 13 |\n| 20 | 7 | 16 | 2 | 10 |",
+        "options": [
+          {
+            "label": "Rad 3, Kolumn 2",
+            "value": 1
+          },
+          {
+            "label": "Rad 2, Kolumn 1",
+            "value": 0
+          },
+          {
+            "label": "Rad 1, Kolumn 3",
+            "value": 0
+          },
+          {
+            "label": "Rad 4, Kolumn 5",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Vilken cell innehåller '5'?",
+        "options": [
+          {
+            "label": "Rad 1, Kolumn 3",
+            "value": 1
+          },
+          {
+            "label": "Rad 2, Kolumn 4",
+            "value": 0
+          },
+          {
+            "label": "Rad 3, Kolumn 1",
+            "value": 0
+          },
+          {
+            "label": "Rad 5, Kolumn 2",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Vilken cell innehåller '10'?",
+        "options": [
+          {
+            "label": "Rad 5, Kolumn 5",
+            "value": 1
+          },
+          {
+            "label": "Rad 4, Kolumn 3",
+            "value": 0
+          },
+          {
+            "label": "Rad 2, Kolumn 2",
+            "value": 0
+          },
+          {
+            "label": "Rad 1, Kolumn 1",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Vilken cell innehåller '15'?",
+        "options": [
+          {
+            "label": "Rad 3, Kolumn 3",
+            "value": 1
+          },
+          {
+            "label": "Rad 4, Kolumn 2",
+            "value": 0
+          },
+          {
+            "label": "Rad 1, Kolumn 5",
+            "value": 0
+          },
+          {
+            "label": "Rad 2, Kolumn 3",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Vilken cell innehåller '20'?",
+        "options": [
+          {
+            "label": "Rad 5, Kolumn 1",
+            "value": 1
+          },
+          {
+            "label": "Rad 3, Kolumn 5",
+            "value": 0
+          },
+          {
+            "label": "Rad 4, Kolumn 4",
+            "value": 0
+          },
+          {
+            "label": "Rad 1, Kolumn 2",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "COGNITIVE"
+  },
+  {
+    "slug": "reaction-time",
+    "name": "Reaktionstidstest",
+    "description": "Mät din reaktionshastighet. Klicka så snabbt som möjligt när du ser målet.",
+    "minAgeYears": 6,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "När du ser ⚡, hur snabbt ska du reagera?",
+        "options": [
+          {
+            "label": "Så snabbt som möjligt",
+            "value": 1
+          },
+          {
+            "label": "Vänta 2 sekunder",
+            "value": 0
+          },
+          {
+            "label": "Vänta på en annan symbol",
+            "value": 0
+          },
+          {
+            "label": "Reagera inte",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "⚡ REAGERA NU! Vad var din ungefärliga reaktionstid?",
+        "options": [
+          {
+            "label": "Under 250ms (Utmärkt)",
+            "value": 4
+          },
+          {
+            "label": "250-350ms (Bra)",
+            "value": 3
+          },
+          {
+            "label": "350-450ms (Genomsnittlig)",
+            "value": 2
+          },
+          {
+            "label": "Över 450ms (Under genomsnittet)",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "⚡ REAGERA NU! Vad var din ungefärliga reaktionstid?",
+        "options": [
+          {
+            "label": "Under 250ms (Utmärkt)",
+            "value": 4
+          },
+          {
+            "label": "250-350ms (Bra)",
+            "value": 3
+          },
+          {
+            "label": "350-450ms (Genomsnittlig)",
+            "value": 2
+          },
+          {
+            "label": "Över 450ms (Under genomsnittet)",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "⚡ REAGERA NU! Vad var din ungefärliga reaktionstid?",
+        "options": [
+          {
+            "label": "Under 250ms (Utmärkt)",
+            "value": 4
+          },
+          {
+            "label": "250-350ms (Bra)",
+            "value": 3
+          },
+          {
+            "label": "350-450ms (Genomsnittlig)",
+            "value": 2
+          },
+          {
+            "label": "Över 450ms (Under genomsnittet)",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "⚡ REAGERA NU! Vad var din ungefärliga reaktionstid?",
+        "options": [
+          {
+            "label": "Under 250ms (Utmärkt)",
+            "value": 4
+          },
+          {
+            "label": "250-350ms (Bra)",
+            "value": 3
+          },
+          {
+            "label": "350-450ms (Genomsnittlig)",
+            "value": 2
+          },
+          {
+            "label": "Över 450ms (Under genomsnittet)",
+            "value": 1
+          }
+        ]
+      }
+    ],
+    "category": "COGNITIVE"
+  },
+  {
+    "slug": "dual-n-back",
+    "name": "Dubbel N-Back Arbetsminnestest",
+    "description": "Ett krävande arbetsminnestest. Memorera både position och bokstav från N steg tillbaka.",
+    "minAgeYears": 12,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Övning 1-BACK : Du såg 'A' i position 1. Nu ser du 'B' i position 2. Var positionen samma som 1 steg tillbaka?",
+        "options": [
+          {
+            "label": "Nej (olik position)",
+            "value": 1
+          },
+          {
+            "label": "Ja (samma position)",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "1-BACK : Positionssekvens : [1]→[2]→[3]. Är position 3 samma som 1 steg tillbaka (position 2)?",
+        "options": [
+          {
+            "label": "Nej",
+            "value": 1
+          },
+          {
+            "label": "Ja",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "1-BACK : Bokstavssekvens : A→B→B. Är bokstaven samma som 1 steg tillbaka?",
+        "options": [
+          {
+            "label": "Ja (B = B)",
+            "value": 1
+          },
+          {
+            "label": "Nej (A ≠ B)",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "2-BACK : Positionssekvens : [1]→[2]→[3]→[2]. Är position 2 samma som 2 steg tillbaka (position 2)?",
+        "options": [
+          {
+            "label": "Ja (position 2 = position 2)",
+            "value": 1
+          },
+          {
+            "label": "Nej",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "2-BACK : Bokstavssekvens : X→Y→X→Z. Är 'Z' samma som 2 steg tillbaka?",
+        "options": [
+          {
+            "label": "Nej (Z ≠ X)",
+            "value": 1
+          },
+          {
+            "label": "Ja (Z = X)",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "2-BACK DUBBEL : Sekvens : (A,pos1)→(B,pos2)→(C,pos3)→(B,pos2). Matchning på position 2 steg tillbaka?",
+        "options": [
+          {
+            "label": "Ja (pos2 = pos2)",
+            "value": 1
+          },
+          {
+            "label": "Nej",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "2-BACK DUBBEL : Sekvens : (X,pos1)→(Y,pos2)→(Z,pos3)→(Y,pos4). Matchning på bokstav 2 steg tillbaka?",
+        "options": [
+          {
+            "label": "Ja (Y = Y)",
+            "value": 1
+          },
+          {
+            "label": "Nej",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 8,
+        "prompt": "3-BACK : Bokstavssekvens : P→Q→R→S→R. Är 'R' samma som 3 steg tillbaka?",
+        "options": [
+          {
+            "label": "Ja (R = R)",
+            "value": 1
+          },
+          {
+            "label": "Nej",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "COGNITIVE"
+  },
+  {
+    "slug": "wisc-v",
+    "name": "WISC-V (Exempel)",
+    "description": "Wechsler Intelligence Scale for Children - Femte upplagan. Ett omfattande kliniskt instrument för bedömning av intellektuell förmåga hos barn 6-16 år.",
+    "minAgeYears": 6,
+    "maxAgeYears": 16,
+    "audience": "CHILD",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "BLOCKDESIGN : Använd dessa röda och vita block, kan du skapa detta mönster? (Tvåfärgat mönstermatchning)",
+        "options": [
+          {
+            "label": "Korrekt inom tidsgräns",
+            "value": 2
+          },
+          {
+            "label": "Korrekt men övertid",
+            "value": 1
+          },
+          {
+            "label": "Inkorrekt",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "LIKHETER : På vilket sätt är en båt och en bil lika?",
+        "options": [
+          {
+            "label": "Båda är fordon/transportmedel",
+            "value": 2
+          },
+          {
+            "label": "Båda har motorer/hjul",
+            "value": 1
+          },
+          {
+            "label": "De är inte lika",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "LIKHETER : På vilket sätt är en katt och en mus lika?",
+        "options": [
+          {
+            "label": "Båda är djur/däggdjur",
+            "value": 2
+          },
+          {
+            "label": "Båda har päls/svansar",
+            "value": 1
+          },
+          {
+            "label": "De är inte lika",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "ORDFÖRRÅD : Vad betyder 'komplicerad'?",
+        "options": [
+          {
+            "label": "Något svårt att förstå med många delar",
+            "value": 2
+          },
+          {
+            "label": "Svårt att göra",
+            "value": 1
+          },
+          {
+            "label": "Inkorrekt eller vagt",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "MATRISER : Vilken form kompletterar detta mönster? [●][●][○][●][●][?]",
+        "options": [
+          {
+            "label": "○ (cirkel)",
+            "value": 1
+          },
+          {
+            "label": "● (ifylld cirkel)",
+            "value": 0
+          },
+          {
+            "label": "■ (kvadrat)",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "SIFFERSPANN : Upprepa dessa siffror baklänges : 4-7-2",
+        "options": [
+          {
+            "label": "2-7-4 (korrekt)",
+            "value": 1
+          },
+          {
+            "label": "Inkorrekt sekvens",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "KODNING : Kopiera symbolen som matchar varje siffra så snabbt du kan. (Tidsbegränsad uppgift)",
+        "options": [
+          {
+            "label": "Korrekt klarad inom tid",
+            "value": 2
+          },
+          {
+            "label": "Klarad med några fel",
+            "value": 1
+          },
+          {
+            "label": "Kunde inte slutföra",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 8,
+        "prompt": "FÖRSTÅELSE : Varför har vi trafikregler?",
+        "options": [
+          {
+            "label": "För att skydda människor och förhindra olyckor",
+            "value": 2
+          },
+          {
+            "label": "För att ge böter/tjäna pengar",
+            "value": 1
+          },
+          {
+            "label": "Vet inte",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 9,
+        "prompt": "FIGURVIKTER : Vilken sida av vågen kommer vara tyngst?",
+        "options": [
+          {
+            "label": "Korrekt identifiering",
+            "value": 1
+          },
+          {
+            "label": "Inkorrekt",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 10,
+        "prompt": "BILDPUZZEL : Vilka 3 bitar går ihop för att bilda denna bild?",
+        "options": [
+          {
+            "label": "Alla 3 korrekta bitar valda",
+            "value": 2
+          },
+          {
+            "label": "2 av 3 korrekta",
+            "value": 1
+          },
+          {
+            "label": "Inkorrekt val",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "COGNITIVE"
+  },
+  {
+    "slug": "wais-iv",
+    "name": "WAIS-IV (Exempel)",
+    "description": "Wechsler Adult Intelligence Scale - Fjärde upplagan. Det mest använda kliniska instrumentet för bedömning av kognitiv förmåga hos vuxna (16+ år).",
+    "minAgeYears": 16,
+    "maxAgeYears": null,
+    "audience": "ADULT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "LIKHETER : På vilket sätt är ett bord och en stol lika?",
+        "options": [
+          {
+            "label": "Båda är möbler använda för att sitta/arbeta",
+            "value": 2
+          },
+          {
+            "label": "Båda gjorda av trä/har ben",
+            "value": 1
+          },
+          {
+            "label": "De ser olika ut",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "LIKHETER : På vilket sätt är en rättegång och ett experiment lika?",
+        "options": [
+          {
+            "label": "Båda testar hypoteser/söker sanning genom systematisk process",
+            "value": 2
+          },
+          {
+            "label": "Båda har procedurer/resultat",
+            "value": 1
+          },
+          {
+            "label": "Inte lika",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "ORDFÖRRÅD : Vad betyder 'plagiera'?",
+        "options": [
+          {
+            "label": "Att kopiera någon annans arbete och presentera det som sitt eget",
+            "value": 2
+          },
+          {
+            "label": "Att stjäla eller kopiera",
+            "value": 1
+          },
+          {
+            "label": "Att skriva dåligt",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "ORDFÖRRÅD : Vad betyder 'gåta'?",
+        "options": [
+          {
+            "label": "Ett svårt problem eller pussel utan tydlig lösning",
+            "value": 2
+          },
+          {
+            "label": "En förvirrande situation",
+            "value": 1
+          },
+          {
+            "label": "En typ av spel",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "BLOCKDESIGN : Arrangera dessa block för att matcha det visade mönstret. (Tidsbegränsad)",
+        "options": [
+          {
+            "label": "Korrekt inom tidsgräns",
+            "value": 2
+          },
+          {
+            "label": "Korrekt men övertid",
+            "value": 1
+          },
+          {
+            "label": "Inkorrekt",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "MATRISER : Identifiera det saknade elementet som kompletterar mönstret.",
+        "options": [
+          {
+            "label": "Korrekt element identifierat",
+            "value": 1
+          },
+          {
+            "label": "Inkorrekt",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "SIFFERSPANN : Upprepa sekvensen baklänges : 7-3-9-1-4",
+        "options": [
+          {
+            "label": "4-1-9-3-7 (korrekt)",
+            "value": 1
+          },
+          {
+            "label": "Inkorrekt sekvens",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 8,
+        "prompt": "ARITMETIK : Om 4 personer kan måla 4 hus på 4 dagar, hur många dagar skulle det ta 8 personer att måla 8 hus?",
+        "options": [
+          {
+            "label": "4 dagar",
+            "value": 1
+          },
+          {
+            "label": "8 dagar",
+            "value": 0
+          },
+          {
+            "label": "2 dagar",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 9,
+        "prompt": "ALLMÄNKUNSKAP : Vem skrev 'Romeo och Julia'?",
+        "options": [
+          {
+            "label": "William Shakespeare",
+            "value": 1
+          },
+          {
+            "label": "Charles Dickens",
+            "value": 0
+          },
+          {
+            "label": "Vet inte",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 10,
+        "prompt": "FÖRSTÅELSE : Varför är det viktigt att medborgare röstar i val?",
+        "options": [
+          {
+            "label": "För att delta i demokratin och ha en röst i styrningen",
+            "value": 2
+          },
+          {
+            "label": "För att välja ledare",
+            "value": 1
+          },
+          {
+            "label": "Det krävs enligt lag",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 11,
+        "prompt": "BOKSTAV-SIFFER-SEKVENS : Omordna denna sekvens : B-4-A-2-C-3 (sätt siffror först i ordning, sedan bokstäver alfabetiskt)",
+        "options": [
+          {
+            "label": "2-3-4-A-B-C",
+            "value": 1
+          },
+          {
+            "label": "Inkorrekt ordning",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 12,
+        "prompt": "SYMBOLSÖKNING : Förekommer målsymbolen i sökgruppen? (Tidsbegränsad)",
+        "options": [
+          {
+            "label": "Ja/Nej korrekt identifierat",
+            "value": 1
+          },
+          {
+            "label": "Inkorrekt",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "COGNITIVE"
+  },
+  {
+    "slug": "basc-3",
+    "name": "BASC-3 (Exempel)",
+    "description": "Beteendebedömningssystem för barn - Tredje upplagan. En omfattande bedömning av beteende och känslor för barn och ungdomar 2-21 år.",
+    "minAgeYears": 6,
+    "maxAgeYears": 21,
+    "audience": "CHILD",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Jag tycker om att vara med andra barn i min ålder.",
+        "options": [
+          {
+            "label": "Aldrig",
+            "value": 0
+          },
+          {
+            "label": "Ibland",
+            "value": 1
+          },
+          {
+            "label": "Ofta",
+            "value": 2
+          },
+          {
+            "label": "Alltid",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Jag oroar mig över vad andra barn tycker om mig.",
+        "options": [
+          {
+            "label": "Aldrig",
+            "value": 0
+          },
+          {
+            "label": "Ibland",
+            "value": 1
+          },
+          {
+            "label": "Ofta",
+            "value": 2
+          },
+          {
+            "label": "Alltid",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Jag har svårt att sitta stilla under en lång tid.",
+        "options": [
+          {
+            "label": "Aldrig",
+            "value": 0
+          },
+          {
+            "label": "Ibland",
+            "value": 1
+          },
+          {
+            "label": "Ofta",
+            "value": 2
+          },
+          {
+            "label": "Alltid",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Jag blir arg när saker inte går som jag vill.",
+        "options": [
+          {
+            "label": "Aldrig",
+            "value": 0
+          },
+          {
+            "label": "Ibland",
+            "value": 1
+          },
+          {
+            "label": "Ofta",
+            "value": 2
+          },
+          {
+            "label": "Alltid",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Jag känner mig ledsen mestadels.",
+        "options": [
+          {
+            "label": "Aldrig",
+            "value": 0
+          },
+          {
+            "label": "Ibland",
+            "value": 1
+          },
+          {
+            "label": "Ofta",
+            "value": 2
+          },
+          {
+            "label": "Alltid",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "Jag klarar mig bra i skolan.",
+        "options": [
+          {
+            "label": "Aldrig",
+            "value": 0
+          },
+          {
+            "label": "Ibland",
+            "value": 1
+          },
+          {
+            "label": "Ofta",
+            "value": 2
+          },
+          {
+            "label": "Alltid",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "Jag har svårt att skaffa vänner.",
+        "options": [
+          {
+            "label": "Aldrig",
+            "value": 0
+          },
+          {
+            "label": "Ibland",
+            "value": 1
+          },
+          {
+            "label": "Ofta",
+            "value": 2
+          },
+          {
+            "label": "Alltid",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 8,
+        "prompt": "Jag är bra på att följa regler.",
+        "options": [
+          {
+            "label": "Aldrig",
+            "value": 0
+          },
+          {
+            "label": "Ibland",
+            "value": 1
+          },
+          {
+            "label": "Ofta",
+            "value": 2
+          },
+          {
+            "label": "Alltid",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 9,
+        "prompt": "Jag känner mig nervös eller orolig.",
+        "options": [
+          {
+            "label": "Aldrig",
+            "value": 0
+          },
+          {
+            "label": "Ibland",
+            "value": 1
+          },
+          {
+            "label": "Ofta",
+            "value": 2
+          },
+          {
+            "label": "Alltid",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 10,
+        "prompt": "Jag gillar att prova nya saker.",
+        "options": [
+          {
+            "label": "Aldrig",
+            "value": 0
+          },
+          {
+            "label": "Ibland",
+            "value": 1
+          },
+          {
+            "label": "Ofta",
+            "value": 2
+          },
+          {
+            "label": "Alltid",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 11,
+        "prompt": "Jag har ofta huvudvärk eller magont.",
+        "options": [
+          {
+            "label": "Aldrig",
+            "value": 0
+          },
+          {
+            "label": "Ibland",
+            "value": 1
+          },
+          {
+            "label": "Ofta",
+            "value": 2
+          },
+          {
+            "label": "Alltid",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 12,
+        "prompt": "Jag gillar mig själv.",
+        "options": [
+          {
+            "label": "Aldrig",
+            "value": 0
+          },
+          {
+            "label": "Ibland",
+            "value": 1
+          },
+          {
+            "label": "Ofta",
+            "value": 2
+          },
+          {
+            "label": "Alltid",
+            "value": 3
+          }
+        ]
+      }
+    ],
+    "category": "COGNITIVE"
+  },
+  {
+    "slug": "conners-3",
+    "name": "Conners 3 (Exempel)",
+    "description": "Conners tredje upplaga. En grundlig bedömning av ADHD och dess vanligaste samtidiga problem och störningar hos barn och ungdomar 6-18 år.",
+    "minAgeYears": 6,
+    "maxAgeYears": 18,
+    "audience": "CHILD",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Har svårt att uppmärksamma detaljer eller gör slarvfel i skolarbetet.",
+        "options": [
+          {
+            "label": "Inte alls sant",
+            "value": 0
+          },
+          {
+            "label": "Lite sant",
+            "value": 1
+          },
+          {
+            "label": "Ganska sant",
+            "value": 2
+          },
+          {
+            "label": "Mycket sant",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Har svårt att bibehålla uppmärksamhet i uppgifter eller lekaktiviteter.",
+        "options": [
+          {
+            "label": "Inte alls sant",
+            "value": 0
+          },
+          {
+            "label": "Lite sant",
+            "value": 1
+          },
+          {
+            "label": "Ganska sant",
+            "value": 2
+          },
+          {
+            "label": "Mycket sant",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Verkar inte lyssna när man talar direkt till hen.",
+        "options": [
+          {
+            "label": "Inte alls sant",
+            "value": 0
+          },
+          {
+            "label": "Lite sant",
+            "value": 1
+          },
+          {
+            "label": "Ganska sant",
+            "value": 2
+          },
+          {
+            "label": "Mycket sant",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Har svårt att följa instruktioner och slutför inte skolarbetet.",
+        "options": [
+          {
+            "label": "Inte alls sant",
+            "value": 0
+          },
+          {
+            "label": "Lite sant",
+            "value": 1
+          },
+          {
+            "label": "Ganska sant",
+            "value": 2
+          },
+          {
+            "label": "Mycket sant",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Har svårt att organisera uppgifter och aktiviteter.",
+        "options": [
+          {
+            "label": "Inte alls sant",
+            "value": 0
+          },
+          {
+            "label": "Lite sant",
+            "value": 1
+          },
+          {
+            "label": "Ganska sant",
+            "value": 2
+          },
+          {
+            "label": "Mycket sant",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "Undviker, ogillar eller är ovillig att engagera sig i uppgifter som kräver ihållande mental ansträngning.",
+        "options": [
+          {
+            "label": "Inte alls sant",
+            "value": 0
+          },
+          {
+            "label": "Lite sant",
+            "value": 1
+          },
+          {
+            "label": "Ganska sant",
+            "value": 2
+          },
+          {
+            "label": "Mycket sant",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "Tappar saker som behövs för uppgifter eller aktiviteter (t.ex. skolmaterial, pennor, böcker).",
+        "options": [
+          {
+            "label": "Inte alls sant",
+            "value": 0
+          },
+          {
+            "label": "Lite sant",
+            "value": 1
+          },
+          {
+            "label": "Ganska sant",
+            "value": 2
+          },
+          {
+            "label": "Mycket sant",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 8,
+        "prompt": "Lätt distraherad av yttre stimuli.",
+        "options": [
+          {
+            "label": "Inte alls sant",
+            "value": 0
+          },
+          {
+            "label": "Lite sant",
+            "value": 1
+          },
+          {
+            "label": "Ganska sant",
+            "value": 2
+          },
+          {
+            "label": "Mycket sant",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 9,
+        "prompt": "Glömsk i dagliga aktiviteter.",
+        "options": [
+          {
+            "label": "Inte alls sant",
+            "value": 0
+          },
+          {
+            "label": "Lite sant",
+            "value": 1
+          },
+          {
+            "label": "Ganska sant",
+            "value": 2
+          },
+          {
+            "label": "Mycket sant",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 10,
+        "prompt": "Vrider händer eller fötter eller vrids på stolen.",
+        "options": [
+          {
+            "label": "Inte alls sant",
+            "value": 0
+          },
+          {
+            "label": "Lite sant",
+            "value": 1
+          },
+          {
+            "label": "Ganska sant",
+            "value": 2
+          },
+          {
+            "label": "Mycket sant",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 11,
+        "prompt": "Lämnar platsen i klassrummet eller i andra situationer där det förväntas sitta kvar.",
+        "options": [
+          {
+            "label": "Inte alls sant",
+            "value": 0
+          },
+          {
+            "label": "Lite sant",
+            "value": 1
+          },
+          {
+            "label": "Ganska sant",
+            "value": 2
+          },
+          {
+            "label": "Mycket sant",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 12,
+        "prompt": "Springer omkring eller klättrar överdrivet i situationer där det är olämpligt.",
+        "options": [
+          {
+            "label": "Inte alls sant",
+            "value": 0
+          },
+          {
+            "label": "Lite sant",
+            "value": 1
+          },
+          {
+            "label": "Ganska sant",
+            "value": 2
+          },
+          {
+            "label": "Mycket sant",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 13,
+        "prompt": "Har svårt att leka eller engagera sig i fritidsaktiviteter lugnt.",
+        "options": [
+          {
+            "label": "Inte alls sant",
+            "value": 0
+          },
+          {
+            "label": "Lite sant",
+            "value": 1
+          },
+          {
+            "label": "Ganska sant",
+            "value": 2
+          },
+          {
+            "label": "Mycket sant",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 14,
+        "prompt": "Pratar överdrivet mycket.",
+        "options": [
+          {
+            "label": "Inte alls sant",
+            "value": 0
+          },
+          {
+            "label": "Lite sant",
+            "value": 1
+          },
+          {
+            "label": "Ganska sant",
+            "value": 2
+          },
+          {
+            "label": "Mycket sant",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 15,
+        "prompt": "Kastar ur sig svar innan frågor är färdigställda.",
+        "options": [
+          {
+            "label": "Inte alls sant",
+            "value": 0
+          },
+          {
+            "label": "Lite sant",
+            "value": 1
+          },
+          {
+            "label": "Ganska sant",
+            "value": 2
+          },
+          {
+            "label": "Mycket sant",
+            "value": 3
+          }
+        ]
+      }
+    ],
+    "category": "COGNITIVE"
+  }
+]

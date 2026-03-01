@@ -22,6 +22,7 @@ export function Sidebar() {
   const navigation = [
     { name: t("navigation.dashboard"), href: "/dashboard", icon: LayoutDashboard },
     { name: t("navigation.patients"), href: "/patients", icon: Users },
+    { name: t("navigation.tests"), href: "/tests", icon: Brain },
     { name: t("navigation.scoreEntry"), href: "/score-entry", icon: ClipboardList },
     { name: t("navigation.reports"), href: "/reports", icon: FileText },
     { name: t("navigation.assessmentLibrary"), href: "/assessments", icon: BookOpen },

@@ -35,6 +35,7 @@
   "navigation": {
     "dashboard": "Dashboard",
     "patients": "Patients",
+    "tests": "Cognitive Tests",
     "assessments": "Assessments",
     "reports": "Reports",
     "scoreEntry": "Score Entry",
@@ -56,7 +57,9 @@
     }
   },
   "header": {
-    "searchPlaceholder": "Search patients, assessments, reports..."
+    "searchPlaceholder": "Search patients, assessments, reports...",
+    "notifications": "Notifications",
+    "profile": "Profile"
   },
   "sidebar": {
     "tagline": "Assessment Platform",
@@ -224,6 +227,54 @@
     "platform": "Platform",
     "domain": "Domain",
     "assignToPatient": "Assign to Patient"
+  },
+  "tests": {
+    "title": "Cognitive Tests",
+    "description": "Browse and manage all available cognitive tests and assessments",
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "years": "years",
+    "items": "items",
+    "assigned": "assigned",
+    "completed": "completed",
+    "noTests": "No tests available",
+    "noTestsDescription": "There are no cognitive tests in the system yet.",
+    "buttons": {
+      "view": "View Details",
+      "assign": "Assign to Patient"
+    },
+    "detail": {
+      "title": "Test Details",
+      "description": "Test description",
+      "questions": "Questions",
+      "ageRange": "Age Range",
+      "audience": "Target Audience",
+      "statistics": "Statistics",
+      "totalAssignments": "Total Assignments",
+      "totalCompletions": "Total Completions",
+      "assignToPatient": "Assign to Patient"
+    },
+    "assign": {
+      "title": "Assign Test",
+      "description": "Assign this test to a patient",
+      "selectPatient": "Select Patient",
+      "dueDate": "Due Date (Optional)",
+      "assign": "Assign",
+      "assigning": "Assigning...",
+      "success": "Test assigned successfully",
+      "validation": {
+        "patientRequired": "Please select a patient"
+      }
+    },
+    "audiences": {
+      "patient": "Patient",
+      "child": "Child",
+      "teen": "Teenager",
+      "adult": "Adult",
+      "senior": "Senior"
+    }
   },
   "reports": {
     "title": "Reports",
@@ -456,6 +507,68 @@
         "testRequired": "Please select a test"
       },
       "success": "Test assigned successfully"
+    },
+    "scoring": {
+      "severity": {
+        "minimal": "Minimal",
+        "mild": "Mild",
+        "moderate": "Moderate",
+        "moderatelySevere": "Moderately Severe",
+        "severe": "Severe",
+        "none": "None"
+      },
+      "interpretations": {
+        "belowAverage": "Below Average",
+        "average": "Average",
+        "aboveAverage": "Above Average",
+        "excellent": "Excellent",
+        "good": "Good",
+        "fair": "Fair",
+        "poor": "Poor"
+      },
+      "ranges": {
+        "phq9": {
+          "minimal": "Minimal depression",
+          "mild": "Mild depression",
+          "moderate": "Moderate depression",
+          "moderatelySevere": "Moderately severe depression",
+          "severe": "Severe depression"
+        },
+        "gad7": {
+          "minimal": "Minimal anxiety",
+          "mild": "Mild anxiety",
+          "moderate": "Moderate anxiety",
+          "severe": "Severe anxiety"
+        },
+        "sdq": {
+          "normal": "Normal",
+          "borderline": "Borderline",
+          "abnormal": "Abnormal"
+        },
+        "audit": {
+          "lowRisk": "Low risk",
+          "hazardous": "Hazardous drinking",
+          "harmful": "Harmful drinking",
+          "dependence": "Possible dependence"
+        },
+        "gds15": {
+          "normal": "Normal (no depression)",
+          "mild": "Mild depression",
+          "moderate": "Moderate depression",
+          "severe": "Severe depression"
+        },
+        "iq": {
+          "belowAverage": "Below average intelligence",
+          "average": "Average intelligence",
+          "aboveAverage": "Above average intelligence"
+        },
+        "cognitive": {
+          "impaired": "Impaired",
+          "borderline": "Borderline",
+          "normal": "Normal",
+          "high": "High functioning"
+        }
+      }
     }
   },
   "accessibility": {

@@ -178,9 +178,11 @@ model Recommendation {
 
 model Instrument {
   id          String           @id @default(cuid())
-  slug        String           @unique
+  slug        String
+  locale      String           @default("en")
   name        String
   description String?
+  category    InstrumentCategory @default(COGNITIVE)
   minAgeYears Int?
   maxAgeYears Int?
   audience    InstrumentAudience @default(PATIENT)
@@ -192,6 +194,7 @@ model Instrument {
   sessions    InstrumentSession[]
   assignments InstrumentAssignment[]
 
+  @@unique([slug, locale])
   @@map("instruments")
 }
 
@@ -354,6 +357,17 @@ enum InstrumentAudience {
   PATIENT
   PARENT
   TEACHER
+}
+
+enum InstrumentCategory {
+  DEPRESSION_ANXIETY
+  ADHD_ATTENTION
+  BEHAVIORAL
+  SUBSTANCE_USE
+  COGNITIVE
+  IQ_INTELLIGENCE
+  EMOTIONAL_SOCIAL
+  DEVELOPMENTAL
 }
 
 enum InstrumentAssignmentStatus {

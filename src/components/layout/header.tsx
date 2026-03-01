@@ -1,7 +1,8 @@
 "use client"
 
-import { Bell, Search, User } from "lucide-react"
+import { Bell, Search, User, LogOut } from "lucide-react"
 import { signOut } from "next-auth/react"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
@@ -38,7 +39,7 @@ export function Header() {
           onLocaleChange={setLocale}
         />
         
-        <Button variant="ghost" size="icon" className="relative">
+        <Button variant="ghost" size="icon" className="relative" aria-label={t("header.notifications")}>
           <Bell className="h-5 w-5" />
           <Badge className="absolute -top-1 -right-1 h-5 w-5 rounded-full p-0 flex items-center justify-center text-xs">
             3
@@ -46,11 +47,14 @@ export function Header() {
         </Button>
         
         <Button variant="outline" size="sm" onClick={() => signOut({ callbackUrl: "/login" })}>
+          <LogOut className="h-4 w-4 mr-2" />
           {t("navigation.logout")}
         </Button>
 
-        <Button variant="ghost" size="icon">
-          <User className="h-5 w-5" />
+        <Button asChild variant="ghost" size="icon" aria-label={t("header.profile")}>
+          <Link href="/profile">
+            <User className="h-5 w-5" />
+          </Link>
         </Button>
       </div>
     </header>

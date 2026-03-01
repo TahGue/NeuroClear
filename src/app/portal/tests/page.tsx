@@ -69,8 +69,14 @@ export default async function PortalTestsPage() {
   })
 
   const instruments = await prisma.instrument.findMany({
-    where: { status: "ACTIVE" },
-    orderBy: { name: "asc" },
+    where: { 
+      status: "ACTIVE",
+      OR: [
+        { locale },
+        { locale: "en" }
+      ]
+    },
+    orderBy: [{ locale: "asc" }, { name: "asc" }],
     select: instrumentSelect,
   })
   type InstrumentWithAge = (typeof instruments)[number]

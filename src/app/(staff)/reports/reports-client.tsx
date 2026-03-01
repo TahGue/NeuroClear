@@ -103,9 +103,11 @@ export function ReportsClient({ initialReports }: { initialReports: ReportRow[] 
           <h1 className="text-3xl font-bold text-foreground">{t("reports.title")}</h1>
           <p className="text-muted-foreground">{t("reports.description")}</p>
         </div>
-        <Button>
-          <Plus className="h-4 w-4 mr-2" />
-          {t("reports.generateNewReport")}
+        <Button asChild>
+          <Link href="/assessments">
+            <Plus className="h-4 w-4 mr-2" />
+            {t("reports.generateNewReport")}
+          </Link>
         </Button>
       </div>
 

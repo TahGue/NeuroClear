@@ -29,9 +29,9 @@ export default async function LandingPage() {
             <span className="text-xl font-bold tracking-tight">NeuroClear</span>
           </div>
           <nav className="flex items-center gap-4">
-            <Link href="/login">
-              <Button variant="outline">Sign In</Button>
-            </Link>
+            <Button asChild variant="outline">
+              <Link href="/login">Sign In</Link>
+            </Button>
           </nav>
         </div>
       </header>
@@ -48,12 +48,12 @@ export default async function LandingPage() {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
-            <Link href="/login">
-              <Button size="lg" className="gap-2">
+            <Button asChild size="lg" className="gap-2">
+              <Link href="/login">
                 Access Clinical Dashboard
                 <ArrowRight className="h-4 w-4" />
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
         </div>
         

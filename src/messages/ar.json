@@ -31,6 +31,7 @@
   "navigation": {
     "dashboard": "لوحة التحكم",
     "patients": "المرضى",
+    "tests": "الاختبارات المعرفية",
     "assessments": "التقييمات",
     "reports": "التقارير",
     "scoreEntry": "إدخال الدرجات",
@@ -52,7 +53,9 @@
     }
   },
   "header": {
-    "searchPlaceholder": "ابحث في المرضى والتقييمات والتقارير..."
+    "searchPlaceholder": "ابحث في المرضى والتقييمات والتقارير...",
+    "notifications": "الإشعارات",
+    "profile": "الملف الشخصي"
   },
   "sidebar": {
     "tagline": "منصة التقييم",
@@ -185,6 +188,54 @@
     "platform": "المنصة",
     "domain": "المجال",
     "assignToPatient": "تعيين للمريض"
+  },
+  "tests": {
+    "title": "الاختبارات المعرفية",
+    "description": "تصفح وإدارة جميع الاختبارات والتقييمات المعرفية المتاحة",
+    "status": {
+      "active": "نشط",
+      "inactive": "غير نشط"
+    },
+    "years": "سنوات",
+    "items": "عناصر",
+    "assigned": "معينة",
+    "completed": "مكتملة",
+    "noTests": "لا توجد اختبارات متاحة",
+    "noTestsDescription": "لا توجد اختبارات معرفية في النظام بعد.",
+    "buttons": {
+      "view": "عرض التفاصيل",
+      "assign": "تعيين لمريض"
+    },
+    "detail": {
+      "title": "تفاصيل الاختبار",
+      "description": "وصف الاختبار",
+      "questions": "الأسئلة",
+      "ageRange": "الفئة العمرية",
+      "audience": "الجمهور المستهدف",
+      "statistics": "الإحصائيات",
+      "totalAssignments": "إجمالي التعيينات",
+      "totalCompletions": "إجمالي الإكمال",
+      "assignToPatient": "تعيين لمريض"
+    },
+    "assign": {
+      "title": "تعيين اختبار",
+      "description": "تعيين هذا الاختبار لمريض",
+      "selectPatient": "اختر مريض",
+      "dueDate": "تاريخ الاستحقاق (اختياري)",
+      "assign": "تعيين",
+      "assigning": "جاري التعيين...",
+      "success": "تم تعيين الاختبار بنجاح",
+      "validation": {
+        "patientRequired": "يرجى اختيار مريض"
+      }
+    },
+    "audiences": {
+      "patient": "مريض",
+      "child": "طفل",
+      "teen": "مراهق",
+      "adult": "بالغ",
+      "senior": "كبير السن"
+    }
   },
   "reports": {
     "title": "التقارير",
@@ -395,6 +446,68 @@
       "assigning": "جاري التعيين...",
       "validation": { "testRequired": "يرجى اختيار اختبار" },
       "success": "تم تعيين الاختبار بنجاح"
+    },
+    "scoring": {
+      "severity": {
+        "minimal": "ضئيل",
+        "mild": "خفيف",
+        "moderate": "متوسط",
+        "moderatelySevere": "متوسط الشدة",
+        "severe": "شديد",
+        "none": "لا شيء"
+      },
+      "interpretations": {
+        "belowAverage": "أقل من المتوسط",
+        "average": "متوسط",
+        "aboveAverage": "أعلى من المتوسط",
+        "excellent": "ممتاز",
+        "good": "جيد",
+        "fair": "مقبول",
+        "poor": "ضعيف"
+      },
+      "ranges": {
+        "phq9": {
+          "minimal": "اكتئاب ضئيل",
+          "mild": "اكتئاب خفيف",
+          "moderate": "اكتئاب متوسط",
+          "moderatelySevere": "اكتئاب متوسط الشدة",
+          "severe": "اكتئاب شديد"
+        },
+        "gad7": {
+          "minimal": "قلق ضئيل",
+          "mild": "قلق خفيف",
+          "moderate": "قلق متوسط",
+          "severe": "قلق شديد"
+        },
+        "sdq": {
+          "normal": "طبيعي",
+          "borderline": "حدودي",
+          "abnormal": "غير طبيعي"
+        },
+        "audit": {
+          "lowRisk": "مخاطر منخفضة",
+          "hazardous": "شرب خطير",
+          "harmful": "شرب ضار",
+          "dependence": "اعتماد محتمل"
+        },
+        "gds15": {
+          "normal": "طبيعي (لا اكتئاب)",
+          "mild": "اكتئاب خفيف",
+          "moderate": "اكتئاب متوسط",
+          "severe": "اكتئاب شديد"
+        },
+        "iq": {
+          "belowAverage": "ذكاء أقل من المتوسط",
+          "average": "ذكاء متوسط",
+          "aboveAverage": "ذكاء أعلى من المتوسط"
+        },
+        "cognitive": {
+          "impaired": "ضعف إدراكي",
+          "borderline": "حدودي",
+          "normal": "طبيعي",
+          "high": "أداء عالي"
+        }
+      }
     }
   },
   "accessibility": {

@@ -10,6 +10,7 @@ import {
   Priority,
   InstrumentAudience,
   InstrumentAssignmentStatus,
+  InstrumentCategory,
   UserRole,
 } from "@prisma/client"
 import * as bcrypt from "bcryptjs"
@@ -132,22 +133,41 @@ async function main() {
 
   const instrumentsData = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/en.json'), 'utf-8'));
   
-  for (const instrumentData of instrumentsData) {
-    await prisma.instrument.upsert({
-      where: { slug: instrumentData.slug },
-      update: {},
-      create: {
-        slug: instrumentData.slug,
-        name: instrumentData.name,
-        description: instrumentData.description,
-        minAgeYears: instrumentData.minAgeYears,
-        maxAgeYears: instrumentData.maxAgeYears,
-        audience: instrumentData.audience,
-        items: {
-          create: instrumentData.items
+  // Seed instruments for all locales
+  const locales = ['en', 'fr', 'ar', 'sv'] as const;
+  
+  for (const locale of locales) {
+    const localePath = path.join(__dirname, 'data', `${locale}.json`)
+    if (!fs.existsSync(localePath)) continue
+    
+    const localeData = JSON.parse(fs.readFileSync(localePath, 'utf-8'))
+    
+    for (const instrumentData of localeData) {
+      await prisma.instrument.upsert({
+        where: { slug_locale: { slug: instrumentData.slug, locale } },
+        update: {
+          name: instrumentData.name,
+          description: instrumentData.description,
+          category: instrumentData.category as InstrumentCategory ?? InstrumentCategory.COGNITIVE,
+          minAgeYears: instrumentData.minAgeYears,
+          maxAgeYears: instrumentData.maxAgeYears,
+          audience: instrumentData.audience,
+        },
+        create: {
+          slug: instrumentData.slug,
+          locale,
+          name: instrumentData.name,
+          description: instrumentData.description,
+          category: instrumentData.category as InstrumentCategory ?? InstrumentCategory.COGNITIVE,
+          minAgeYears: instrumentData.minAgeYears,
+          maxAgeYears: instrumentData.maxAgeYears,
+          audience: instrumentData.audience,
+          items: {
+            create: instrumentData.items
+          }
         }
-      }
-    });
+      });
+    }
   }
 
   const allInstruments = await prisma.instrument.findMany();

@@ -152,9 +152,9 @@ export function ReportBuilderClient({ initialReport }: { initialReport: ReportDa
 
         <TabsContent value="narrative" className="space-y-4">
           {isFinalized && (
-            <Card className="border-amber-200 bg-amber-50">
+            <Card className="border-[var(--status-warning)]/30 bg-[var(--status-warning)]/5">
               <CardContent className="py-4">
-                <p className="text-sm text-amber-800 flex items-center gap-2">
+                <p className="text-sm text-[var(--status-warning)] flex items-center gap-2">
                   <Lock className="h-4 w-4" />
                   This report has been finalized and cannot be edited. Download PDF for the signed copy.
                 </p>

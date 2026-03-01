@@ -1,0 +1,4698 @@
+[
+  {
+    "slug": "phq9",
+    "name": "PHQ-9",
+    "description": "Questionnaire de Santé Patient-9 (Dépistage de la dépression)",
+    "minAgeYears": 13,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Peu d'intérêt ou de plaisir à faire les choses",
+        "options": [
+          {
+            "label": "Pas du tout",
+            "value": 0
+          },
+          {
+            "label": "Plusieurs jours",
+            "value": 1
+          },
+          {
+            "label": "Plus de la moitié des jours",
+            "value": 2
+          },
+          {
+            "label": "Presque tous les jours",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Se sentir triste, déprimé ou désespéré",
+        "options": [
+          {
+            "label": "Pas du tout",
+            "value": 0
+          },
+          {
+            "label": "Plusieurs jours",
+            "value": 1
+          },
+          {
+            "label": "Plus de la moitié des jours",
+            "value": 2
+          },
+          {
+            "label": "Presque tous les jours",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Difficulté à s'endormir ou à rester endormi, ou trop dormir",
+        "options": [
+          {
+            "label": "Pas du tout",
+            "value": 0
+          },
+          {
+            "label": "Plusieurs jours",
+            "value": 1
+          },
+          {
+            "label": "Plus de la moitié des jours",
+            "value": 2
+          },
+          {
+            "label": "Presque tous les jours",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Se sentir fatigué ou avoir peu d'énergie",
+        "options": [
+          {
+            "label": "Pas du tout",
+            "value": 0
+          },
+          {
+            "label": "Plusieurs jours",
+            "value": 1
+          },
+          {
+            "label": "Plus de la moitié des jours",
+            "value": 2
+          },
+          {
+            "label": "Presque tous les jours",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Perte d'appétit ou manger trop",
+        "options": [
+          {
+            "label": "Pas du tout",
+            "value": 0
+          },
+          {
+            "label": "Plusieurs jours",
+            "value": 1
+          },
+          {
+            "label": "Plus de la moitié des jours",
+            "value": 2
+          },
+          {
+            "label": "Presque tous les jours",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "Mauvaise opinion de soi-même, ou se sentir un échec ou avoir déçu sa famille",
+        "options": [
+          {
+            "label": "Pas du tout",
+            "value": 0
+          },
+          {
+            "label": "Plusieurs jours",
+            "value": 1
+          },
+          {
+            "label": "Plus de la moitié des jours",
+            "value": 2
+          },
+          {
+            "label": "Presque tous les jours",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "Difficulté à se concentrer sur des choses comme lire le journal ou regarder la télévision",
+        "options": [
+          {
+            "label": "Pas du tout",
+            "value": 0
+          },
+          {
+            "label": "Plusieurs jours",
+            "value": 1
+          },
+          {
+            "label": "Plus de la moitié des jours",
+            "value": 2
+          },
+          {
+            "label": "Presque tous les jours",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 8,
+        "prompt": "Bouger ou parler si lentement que d'autres personnes pouvaient le remarquer, ou être si agité que vous bougez beaucoup plus que d'habitude",
+        "options": [
+          {
+            "label": "Pas du tout",
+            "value": 0
+          },
+          {
+            "label": "Plusieurs jours",
+            "value": 1
+          },
+          {
+            "label": "Plus de la moitié des jours",
+            "value": 2
+          },
+          {
+            "label": "Presque tous les jours",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 9,
+        "prompt": "Pensées que vous seriez mieux mort, ou de vous blesser d'une façon ou d'une autre",
+        "options": [
+          {
+            "label": "Pas du tout",
+            "value": 0
+          },
+          {
+            "label": "Plusieurs jours",
+            "value": 1
+          },
+          {
+            "label": "Plus de la moitié des jours",
+            "value": 2
+          },
+          {
+            "label": "Presque tous les jours",
+            "value": 3
+          }
+        ]
+      }
+    ],
+    "category": "DEPRESSION_ANXIETY"
+  },
+  {
+    "slug": "gad7",
+    "name": "GAD-7",
+    "description": "Trouble d'Anxiété Généralisée-7 (Dépistage de l'anxiété)",
+    "minAgeYears": 13,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Se sentir nerveux, anxieux ou à cran",
+        "options": [
+          {
+            "label": "Pas du tout",
+            "value": 0
+          },
+          {
+            "label": "Plusieurs jours",
+            "value": 1
+          },
+          {
+            "label": "Plus de la moitié des jours",
+            "value": 2
+          },
+          {
+            "label": "Presque tous les jours",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Ne pas pouvoir arrêter ou contrôler l'inquiétude",
+        "options": [
+          {
+            "label": "Pas du tout",
+            "value": 0
+          },
+          {
+            "label": "Plusieurs jours",
+            "value": 1
+          },
+          {
+            "label": "Plus de la moitié des jours",
+            "value": 2
+          },
+          {
+            "label": "Presque tous les jours",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Trop s'inquiéter de différentes choses",
+        "options": [
+          {
+            "label": "Pas du tout",
+            "value": 0
+          },
+          {
+            "label": "Plusieurs jours",
+            "value": 1
+          },
+          {
+            "label": "Plus de la moitié des jours",
+            "value": 2
+          },
+          {
+            "label": "Presque tous les jours",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Difficulté à se détendre",
+        "options": [
+          {
+            "label": "Pas du tout",
+            "value": 0
+          },
+          {
+            "label": "Plusieurs jours",
+            "value": 1
+          },
+          {
+            "label": "Plus de la moitié des jours",
+            "value": 2
+          },
+          {
+            "label": "Presque tous les jours",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Être si agité qu'il est difficile de rester assis",
+        "options": [
+          {
+            "label": "Pas du tout",
+            "value": 0
+          },
+          {
+            "label": "Plusieurs jours",
+            "value": 1
+          },
+          {
+            "label": "Plus de la moitié des jours",
+            "value": 2
+          },
+          {
+            "label": "Presque tous les jours",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "Devenir facilement ennuyé ou irritable",
+        "options": [
+          {
+            "label": "Pas du tout",
+            "value": 0
+          },
+          {
+            "label": "Plusieurs jours",
+            "value": 1
+          },
+          {
+            "label": "Plus de la moitié des jours",
+            "value": 2
+          },
+          {
+            "label": "Presque tous les jours",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "Avoir peur que quelque chose d'horrible puisse arriver",
+        "options": [
+          {
+            "label": "Pas du tout",
+            "value": 0
+          },
+          {
+            "label": "Plusieurs jours",
+            "value": 1
+          },
+          {
+            "label": "Plus de la moitié des jours",
+            "value": 2
+          },
+          {
+            "label": "Presque tous les jours",
+            "value": 3
+          }
+        ]
+      }
+    ],
+    "category": "DEPRESSION_ANXIETY"
+  },
+  {
+    "slug": "sdq",
+    "name": "SDQ",
+    "description": "Questionnaire des Forces et Difficultés (Dépistage pour enfants)",
+    "minAgeYears": 3,
+    "maxAgeYears": 16,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Considéré(e), attentionné(e), aime aider les autres",
+        "options": [
+          {
+            "label": "Pas vrai",
+            "value": 0
+          },
+          {
+            "label": "Partiellement vrai",
+            "value": 1
+          },
+          {
+            "label": "Certainement vrai",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Agité(e), hyperactif(ve), ne peut pas rester longtemps tranquille",
+        "options": [
+          {
+            "label": "Pas vrai",
+            "value": 0
+          },
+          {
+            "label": "Partiellement vrai",
+            "value": 1
+          },
+          {
+            "label": "Certainement vrai",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Se plaint souvent de maux de tête, de ventre ou de nausées",
+        "options": [
+          {
+            "label": "Pas vrai",
+            "value": 0
+          },
+          {
+            "label": "Partiellement vrai",
+            "value": 1
+          },
+          {
+            "label": "Certainement vrai",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Partage volontiers avec d'autres enfants",
+        "options": [
+          {
+            "label": "Pas vrai",
+            "value": 0
+          },
+          {
+            "label": "Partiellement vrai",
+            "value": 1
+          },
+          {
+            "label": "Certainement vrai",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "A souvent des colères ou se met vite en colère",
+        "options": [
+          {
+            "label": "Pas vrai",
+            "value": 0
+          },
+          {
+            "label": "Partiellement vrai",
+            "value": 1
+          },
+          {
+            "label": "Certainement vrai",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "Plutôt solitaire, joue souvent seul(e)",
+        "options": [
+          {
+            "label": "Pas vrai",
+            "value": 0
+          },
+          {
+            "label": "Partiellement vrai",
+            "value": 1
+          },
+          {
+            "label": "Certainement vrai",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "Généralement obéissant(e), fait habituellement ce que les adultes demandent",
+        "options": [
+          {
+            "label": "Pas vrai",
+            "value": 0
+          },
+          {
+            "label": "Partiellement vrai",
+            "value": 1
+          },
+          {
+            "label": "Certainement vrai",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "order": 8,
+        "prompt": "Souvent inquiet(ète) ou triste, déprimé(e)",
+        "options": [
+          {
+            "label": "Pas vrai",
+            "value": 0
+          },
+          {
+            "label": "Partiellement vrai",
+            "value": 1
+          },
+          {
+            "label": "Certainement vrai",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "order": 9,
+        "prompt": "Serviable si quelqu'un est blessé, malade ou triste",
+        "options": [
+          {
+            "label": "Pas vrai",
+            "value": 0
+          },
+          {
+            "label": "Partiellement vrai",
+            "value": 1
+          },
+          {
+            "label": "Certainement vrai",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "order": 10,
+        "prompt": "Toujours en train de bouger, ne tient pas en place",
+        "options": [
+          {
+            "label": "Pas vrai",
+            "value": 0
+          },
+          {
+            "label": "Partiellement vrai",
+            "value": 1
+          },
+          {
+            "label": "Certainement vrai",
+            "value": 2
+          }
+        ]
+      }
+    ],
+    "category": "BEHAVIORAL"
+  },
+  {
+    "slug": "audit",
+    "name": "AUDIT",
+    "description": "Test de Dépistage des Troubles Liés à l'Alcool",
+    "minAgeYears": 18,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "À quelle fréquence buvez-vous des boissons alcoolisées ?",
+        "options": [
+          {
+            "label": "Jamais",
+            "value": 0
+          },
+          {
+            "label": "Une fois par mois ou moins",
+            "value": 1
+          },
+          {
+            "label": "2 à 4 fois par mois",
+            "value": 2
+          },
+          {
+            "label": "2 à 3 fois par semaine",
+            "value": 3
+          },
+          {
+            "label": "4 fois ou plus par semaine",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Combien de verres standards buvez-vous un jour typique où vous buvez ?",
+        "options": [
+          {
+            "label": "1 ou 2",
+            "value": 0
+          },
+          {
+            "label": "3 ou 4",
+            "value": 1
+          },
+          {
+            "label": "5 ou 6",
+            "value": 2
+          },
+          {
+            "label": "7 à 9",
+            "value": 3
+          },
+          {
+            "label": "10 ou plus",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "À quelle fréquence buvez-vous six verres ou plus lors d'une occasion ?",
+        "options": [
+          {
+            "label": "Jamais",
+            "value": 0
+          },
+          {
+            "label": "Moins d'une fois par mois",
+            "value": 1
+          },
+          {
+            "label": "Une fois par mois",
+            "value": 2
+          },
+          {
+            "label": "Une fois par semaine",
+            "value": 3
+          },
+          {
+            "label": "Tous les jours ou presque",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Au cours de l'année dernière, à quelle fréquence avez-vous constaté que vous n'arriviez pas à arrêter de boire une fois que vous aviez commencé ?",
+        "options": [
+          {
+            "label": "Jamais",
+            "value": 0
+          },
+          {
+            "label": "Moins d'une fois par mois",
+            "value": 1
+          },
+          {
+            "label": "Une fois par mois",
+            "value": 2
+          },
+          {
+            "label": "Une fois par semaine",
+            "value": 3
+          },
+          {
+            "label": "Tous les jours ou presque",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Au cours de l'année dernière, à quelle fréquence n'avez-vous pas pu faire ce qui était attendu de vous à cause de votre consommation d'alcool ?",
+        "options": [
+          {
+            "label": "Jamais",
+            "value": 0
+          },
+          {
+            "label": "Moins d'une fois par mois",
+            "value": 1
+          },
+          {
+            "label": "Une fois par mois",
+            "value": 2
+          },
+          {
+            "label": "Une fois par semaine",
+            "value": 3
+          },
+          {
+            "label": "Tous les jours ou presque",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "Au cours de l'année dernière, à quelle fréquence avez-vous eu besoin d'un premier verre le matin pour vous remettre sur pied après une forte consommation ?",
+        "options": [
+          {
+            "label": "Jamais",
+            "value": 0
+          },
+          {
+            "label": "Moins d'une fois par mois",
+            "value": 1
+          },
+          {
+            "label": "Une fois par mois",
+            "value": 2
+          },
+          {
+            "label": "Une fois par semaine",
+            "value": 3
+          },
+          {
+            "label": "Tous les jours ou presque",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "Au cours de l'année dernière, à quelle fréquence avez-vous eu un sentiment de culpabilité ou de remords après avoir bu ?",
+        "options": [
+          {
+            "label": "Jamais",
+            "value": 0
+          },
+          {
+            "label": "Moins d'une fois par mois",
+            "value": 1
+          },
+          {
+            "label": "Une fois par mois",
+            "value": 2
+          },
+          {
+            "label": "Une fois par semaine",
+            "value": 3
+          },
+          {
+            "label": "Tous les jours ou presque",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 8,
+        "prompt": "Au cours de l'année dernière, à quelle fréquence n'avez-vous pas pu vous souvenir de ce qui s'était passé la veille parce que vous aviez bu ?",
+        "options": [
+          {
+            "label": "Jamais",
+            "value": 0
+          },
+          {
+            "label": "Moins d'une fois par mois",
+            "value": 1
+          },
+          {
+            "label": "Une fois par mois",
+            "value": 2
+          },
+          {
+            "label": "Une fois par semaine",
+            "value": 3
+          },
+          {
+            "label": "Tous les jours ou presque",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 9,
+        "prompt": "Vous ou quelqu'un d'autre avez-vous été blessé(e) à cause de votre consommation d'alcool ?",
+        "options": [
+          {
+            "label": "Non",
+            "value": 0
+          },
+          {
+            "label": "Oui, mais pas au cours de l'année dernière",
+            "value": 2
+          },
+          {
+            "label": "Oui, au cours de l'année dernière",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "order": 10,
+        "prompt": "Un parent, un ami, un médecin ou un autre professionnel de santé vous a-t-il déjà demandé de réduire votre consommation d'alcool ?",
+        "options": [
+          {
+            "label": "Non",
+            "value": 0
+          },
+          {
+            "label": "Oui, mais pas au cours de l'année dernière",
+            "value": 2
+          },
+          {
+            "label": "Oui, au cours de l'année dernière",
+            "value": 4
+          }
+        ]
+      }
+    ],
+    "category": "SUBSTANCE_USE"
+  },
+  {
+    "slug": "gds15",
+    "name": "GDS-15",
+    "description": "Échelle de Dépression Gériatrique-15",
+    "minAgeYears": 60,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Êtes-vous satisfait(e) de votre vie ?",
+        "options": [
+          {
+            "label": "Oui",
+            "value": 0
+          },
+          {
+            "label": "Non",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Avez-vous abandonné beaucoup de vos activités et intérêts ?",
+        "options": [
+          {
+            "label": "Oui",
+            "value": 1
+          },
+          {
+            "label": "Non",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Sentiez-vous que la vie est vide ?",
+        "options": [
+          {
+            "label": "Oui",
+            "value": 1
+          },
+          {
+            "label": "Non",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Vous sentez-vous souvent ennuyé(e) ?",
+        "options": [
+          {
+            "label": "Oui",
+            "value": 1
+          },
+          {
+            "label": "Non",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Êtes-vous d'humeur gaie la plupart du temps ?",
+        "options": [
+          {
+            "label": "Oui",
+            "value": 0
+          },
+          {
+            "label": "Non",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "Avez-vous peur qu'il vous arrive quelque chose de mauvais ?",
+        "options": [
+          {
+            "label": "Oui",
+            "value": 1
+          },
+          {
+            "label": "Non",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "Vous sentez-vous heureux(se) la plupart du temps ?",
+        "options": [
+          {
+            "label": "Oui",
+            "value": 0
+          },
+          {
+            "label": "Non",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 8,
+        "prompt": "Vous sentez-vous souvent impuissant(e) ?",
+        "options": [
+          {
+            "label": "Oui",
+            "value": 1
+          },
+          {
+            "label": "Non",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 9,
+        "prompt": "Préférez-vous rester à la maison plutôt que de sortir et faire des choses nouvelles ?",
+        "options": [
+          {
+            "label": "Oui",
+            "value": 1
+          },
+          {
+            "label": "Non",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 10,
+        "prompt": "Avez-vous plus de problèmes de mémoire que la plupart des gens ?",
+        "options": [
+          {
+            "label": "Oui",
+            "value": 1
+          },
+          {
+            "label": "Non",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 11,
+        "prompt": "Pensez-vous que c'est merveilleux d'être en vie ?",
+        "options": [
+          {
+            "label": "Oui",
+            "value": 0
+          },
+          {
+            "label": "Non",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 12,
+        "prompt": "Vous sentez-vous inutile dans votre état actuel ?",
+        "options": [
+          {
+            "label": "Oui",
+            "value": 1
+          },
+          {
+            "label": "Non",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 13,
+        "prompt": "Vous sentez-vous plein(e) d'énergie ?",
+        "options": [
+          {
+            "label": "Oui",
+            "value": 0
+          },
+          {
+            "label": "Non",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 14,
+        "prompt": "Vous sentez-vous désespéré(e) ?",
+        "options": [
+          {
+            "label": "Oui",
+            "value": 1
+          },
+          {
+            "label": "Non",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 15,
+        "prompt": "Pensez-vous que la plupart des gens sont mieux lotis que vous ?",
+        "options": [
+          {
+            "label": "Oui",
+            "value": 1
+          },
+          {
+            "label": "Non",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "DEPRESSION_ANXIETY"
+  },
+  {
+    "slug": "phqa",
+    "name": "PHQ-A",
+    "description": "Questionnaire de Santé Patient pour Adolescents",
+    "minAgeYears": 13,
+    "maxAgeYears": 18,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Peu d'intérêt ou de plaisir à faire les choses",
+        "options": [
+          {
+            "label": "Pas du tout",
+            "value": 0
+          },
+          {
+            "label": "Plusieurs jours",
+            "value": 1
+          },
+          {
+            "label": "Plus de la moitié des jours",
+            "value": 2
+          },
+          {
+            "label": "Presque tous les jours",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Se sentir triste, déprimé(e)",
+        "options": [
+          {
+            "label": "Pas du tout",
+            "value": 0
+          },
+          {
+            "label": "Plusieurs jours",
+            "value": 1
+          },
+          {
+            "label": "Plus de la moitié des jours",
+            "value": 2
+          },
+          {
+            "label": "Presque tous les jours",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Problèmes de sommeil",
+        "options": [
+          {
+            "label": "Pas du tout",
+            "value": 0
+          },
+          {
+            "label": "Plusieurs jours",
+            "value": 1
+          },
+          {
+            "label": "Plus de la moitié des jours",
+            "value": 2
+          },
+          {
+            "label": "Presque tous les jours",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Se sentir fatigué(e)",
+        "options": [
+          {
+            "label": "Pas du tout",
+            "value": 0
+          },
+          {
+            "label": "Plusieurs jours",
+            "value": 1
+          },
+          {
+            "label": "Plus de la moitié des jours",
+            "value": 2
+          },
+          {
+            "label": "Presque tous les jours",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Changements d'appétit",
+        "options": [
+          {
+            "label": "Pas du tout",
+            "value": 0
+          },
+          {
+            "label": "Plusieurs jours",
+            "value": 1
+          },
+          {
+            "label": "Plus de la moitié des jours",
+            "value": 2
+          },
+          {
+            "label": "Presque tous les jours",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "Se sentir mauvais(mauvaise) vis-à-vis de soi-même",
+        "options": [
+          {
+            "label": "Pas du tout",
+            "value": 0
+          },
+          {
+            "label": "Plusieurs jours",
+            "value": 1
+          },
+          {
+            "label": "Plus de la moitié des jours",
+            "value": 2
+          },
+          {
+            "label": "Presque tous les jours",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "Difficulté à se concentrer",
+        "options": [
+          {
+            "label": "Pas du tout",
+            "value": 0
+          },
+          {
+            "label": "Plusieurs jours",
+            "value": 1
+          },
+          {
+            "label": "Plus de la moitié des jours",
+            "value": 2
+          },
+          {
+            "label": "Presque tous les jours",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 8,
+        "prompt": "Agitation ou lenteur",
+        "options": [
+          {
+            "label": "Pas du tout",
+            "value": 0
+          },
+          {
+            "label": "Plusieurs jours",
+            "value": 1
+          },
+          {
+            "label": "Plus de la moitié des jours",
+            "value": 2
+          },
+          {
+            "label": "Presque tous les jours",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 9,
+        "prompt": "Pensées de mort ou de suicide",
+        "options": [
+          {
+            "label": "Pas du tout",
+            "value": 0
+          },
+          {
+            "label": "Plusieurs jours",
+            "value": 1
+          },
+          {
+            "label": "Plus de la moitié des jours",
+            "value": 2
+          },
+          {
+            "label": "Presque tous les jours",
+            "value": 3
+          }
+        ]
+      }
+    ],
+    "category": "DEPRESSION_ANXIETY"
+  },
+  {
+    "slug": "child-emotion-masks",
+    "name": "Masques Émotionnels pour Enfants",
+    "description": "Reconnaissance des émotions faciales pour enfants",
+    "minAgeYears": 6,
+    "maxAgeYears": 12,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "😀 Quel sentiment est montré ?",
+        "options": [
+          {
+            "label": "Heureux",
+            "value": 1
+          },
+          {
+            "label": "Triste",
+            "value": 0
+          },
+          {
+            "label": "En colère",
+            "value": 0
+          },
+          {
+            "label": "Surpris",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "😢 Quel sentiment est montré ?",
+        "options": [
+          {
+            "label": "Heureux",
+            "value": 0
+          },
+          {
+            "label": "Triste",
+            "value": 1
+          },
+          {
+            "label": "En colère",
+            "value": 0
+          },
+          {
+            "label": "Peur",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "😠 Quel sentiment est montré ?",
+        "options": [
+          {
+            "label": "Heureux",
+            "value": 0
+          },
+          {
+            "label": "Triste",
+            "value": 0
+          },
+          {
+            "label": "En colère",
+            "value": 1
+          },
+          {
+            "label": "Surpris",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "😮 Quel sentiment est montré ?",
+        "options": [
+          {
+            "label": "Heureux",
+            "value": 0
+          },
+          {
+            "label": "Triste",
+            "value": 0
+          },
+          {
+            "label": "En colère",
+            "value": 0
+          },
+          {
+            "label": "Surpris",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "😨 Quel sentiment est montré ?",
+        "options": [
+          {
+            "label": "Heureux",
+            "value": 0
+          },
+          {
+            "label": "En colère",
+            "value": 0
+          },
+          {
+            "label": "Peur",
+            "value": 1
+          },
+          {
+            "label": "Surpris",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "EMOTIONAL_SOCIAL"
+  },
+  {
+    "slug": "child-pattern-weaving",
+    "name": "Tissage de Motifs pour Enfants",
+    "description": "Test de reconnaissance de motifs pour enfants",
+    "minAgeYears": 6,
+    "maxAgeYears": 12,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Quel motif vient ensuite ? 🔴 🔵 🔴 🔵 🔴 ?",
+        "options": [
+          {
+            "label": "🔴",
+            "value": 0
+          },
+          {
+            "label": "🔵",
+            "value": 1
+          },
+          {
+            "label": "🟢",
+            "value": 0
+          },
+          {
+            "label": "🟡",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Quel motif vient ensuite ? ⭐ ⭐ 🌙 ⭐ ⭐ ?",
+        "options": [
+          {
+            "label": "⭐",
+            "value": 0
+          },
+          {
+            "label": "🌙",
+            "value": 1
+          },
+          {
+            "label": "☀️",
+            "value": 0
+          },
+          {
+            "label": "🌟",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Quel motif vient ensuite ? 🐶 🐱 🐶 🐱 ?",
+        "options": [
+          {
+            "label": "🐶",
+            "value": 1
+          },
+          {
+            "label": "🐱",
+            "value": 0
+          },
+          {
+            "label": "🐰",
+            "value": 0
+          },
+          {
+            "label": "🐻",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Quel motif vient ensuite ? △ ○ △ ○ △ ?",
+        "options": [
+          {
+            "label": "△",
+            "value": 0
+          },
+          {
+            "label": "○",
+            "value": 1
+          },
+          {
+            "label": "□",
+            "value": 0
+          },
+          {
+            "label": "◇",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Quel motif vient ensuite ? 1 2 3 1 2 3 1 2 ?",
+        "options": [
+          {
+            "label": "1",
+            "value": 0
+          },
+          {
+            "label": "2",
+            "value": 0
+          },
+          {
+            "label": "3",
+            "value": 1
+          },
+          {
+            "label": "4",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "COGNITIVE"
+  },
+  {
+    "slug": "teen-social-harmony",
+    "name": "Harmonie Sociale pour Adolescents",
+    "description": "Compréhension des situations sociales pour adolescents",
+    "minAgeYears": 13,
+    "maxAgeYears": 18,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Votre ami vous dit un secret. Que devriez-vous faire ?",
+        "options": [
+          {
+            "label": "Le raconter à tout le monde",
+            "value": 0
+          },
+          {
+            "label": "Le garder pour vous",
+            "value": 1
+          },
+          {
+            "label": "Le dire à vos parents",
+            "value": 0
+          },
+          {
+            "label": "L'oublier",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Quelqu'un laisse tomber ses livres dans le couloir. Quelle est la meilleure réponse ?",
+        "options": [
+          {
+            "label": "Rire",
+            "value": 0
+          },
+          {
+            "label": "Ignorer",
+            "value": 0
+          },
+          {
+            "label": "Aider à ramasser",
+            "value": 1
+          },
+          {
+            "label": "Regarder",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Un ami semble triste. Que devriez-vous faire ?",
+        "options": [
+          {
+            "label": "L'ignorer",
+            "value": 0
+          },
+          {
+            "label": "Demander si tout va bien",
+            "value": 1
+          },
+          {
+            "label": "Raconter aux autres",
+            "value": 0
+          },
+          {
+            "label": "Vous en aller",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Vous êtes en retard en classe. Que devriez-vous faire ?",
+        "options": [
+          {
+            "label": "Entrer bruyamment",
+            "value": 0
+          },
+          {
+            "label": "Entrer discrètement et vous excuser",
+            "value": 1
+          },
+          {
+            "label": "Ne pas entrer",
+            "value": 0
+          },
+          {
+            "label": "Blâmer quelqu'un d'autre",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Vous voyez quelqu'un se faire intimider. Que devriez-vous faire ?",
+        "options": [
+          {
+            "label": "Rire",
+            "value": 0
+          },
+          {
+            "label": "Rejoindre",
+            "value": 0
+          },
+          {
+            "label": "Aider ou appeler un adulte",
+            "value": 1
+          },
+          {
+            "label": "Ignorer",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "EMOTIONAL_SOCIAL"
+  },
+  {
+    "slug": "adult-debate-evidence",
+    "name": "Débat et Preuves pour Adultes",
+    "description": "Évaluation du raisonnement basé sur les preuves",
+    "minAgeYears": 18,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Une étude montre que 90% des gens préfèrent le café au thé. Cela signifie-t-il que le café est meilleur ?",
+        "options": [
+          {
+            "label": "Oui, c'est prouvé",
+            "value": 0
+          },
+          {
+            "label": "Non, préférence ≠ qualité",
+            "value": 1
+          },
+          {
+            "label": "Peut-être",
+            "value": 0
+          },
+          {
+            "label": "L'étude est fausse",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Si tous les A sont B, et certains B sont C, peut-on dire que certains A sont C ?",
+        "options": [
+          {
+            "label": "Oui",
+            "value": 0
+          },
+          {
+            "label": "Non",
+            "value": 1
+          },
+          {
+            "label": "Peut-être",
+            "value": 0
+          },
+          {
+            "label": "Impossible à déterminer",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Une publicité dit '9 médecins sur 10 recommandent'. Est-ce une preuve scientifique ?",
+        "options": [
+          {
+            "label": "Oui, preuve solide",
+            "value": 0
+          },
+          {
+            "label": "Non, c'est marketing",
+            "value": 1
+          },
+          {
+            "label": "Peut-être",
+            "value": 0
+          },
+          {
+            "label": "Dépend du produit",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Corrélation ≠ causalité. Si A et B augmentent ensemble, A cause-t-il B ?",
+        "options": [
+          {
+            "label": "Oui",
+            "value": 0
+          },
+          {
+            "label": "Non, corrélation seulement",
+            "value": 1
+          },
+          {
+            "label": "Peut-être",
+            "value": 0
+          },
+          {
+            "label": "B cause A",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Un argument est 'ad hominem' quand on attaque la personne au lieu de l'argument. Est-ce valide ?",
+        "options": [
+          {
+            "label": "Oui, toujours",
+            "value": 0
+          },
+          {
+            "label": "Non, c'est un sophisme",
+            "value": 1
+          },
+          {
+            "label": "Parfois",
+            "value": 0
+          },
+          {
+            "label": "Dépend du contexte",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "COGNITIVE"
+  },
+  {
+    "slug": "senior-wisdom-ambiguity",
+    "name": "Sagesse et Ambiguïté pour Seniors",
+    "description": "Interprétation de situations ambiguës",
+    "minAgeYears": 60,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "« Le verre est à moitié vide ou à moitié plein ? » Que révèle cette question ?",
+        "options": [
+          {
+            "label": "Rien",
+            "value": 0
+          },
+          {
+            "label": "Perspective et attitude",
+            "value": 1
+          },
+          {
+            "label": "Quantité d'eau",
+            "value": 0
+          },
+          {
+            "label": "Taille du verre",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "« Les actions parlent plus fort que les mots. » Que signifie ceci ?",
+        "options": [
+          {
+            "label": "Crier fort",
+            "value": 0
+          },
+          {
+            "label": "Comportement > promesses",
+            "value": 1
+          },
+          {
+            "label": "Parler moins",
+            "value": 0
+          },
+          {
+            "label": "Écouter plus",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Un ami ne vous appelle pas depuis longtemps. Quelle est l'interprétation la plus charitable ?",
+        "options": [
+          {
+            "label": "Il ne vous aime plus",
+            "value": 0
+          },
+          {
+            "label": "Il est peut-être occupé",
+            "value": 1
+          },
+          {
+            "label": "Il est malade",
+            "value": 0
+          },
+          {
+            "label": "Il vous évite",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "« Quand la porte du bonheur se ferme, une autre s'ouvre. » Que signifie ceci ?",
+        "options": [
+          {
+            "label": "Portes littérales",
+            "value": 0
+          },
+          {
+            "label": "Nouvelles opportunités",
+            "value": 1
+          },
+          {
+            "label": "Fermez les portes",
+            "value": 0
+          },
+          {
+            "label": "Le bonheur est fini",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "« L'expérience est le meilleur professeur. » Êtes-vous d'accord ?",
+        "options": [
+          {
+            "label": "Non, les livres sont meilleurs",
+            "value": 0
+          },
+          {
+            "label": "Oui, l'apprentissage par la pratique",
+            "value": 1
+          },
+          {
+            "label": "Parfois",
+            "value": 0
+          },
+          {
+            "label": "Les deux sont égaux",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "EMOTIONAL_SOCIAL"
+  },
+  {
+    "slug": "senior-gentle-attention",
+    "name": "Attention Douce pour Seniors",
+    "description": "Exercices d'attention légers",
+    "minAgeYears": 60,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Combien de fois le mot « attention » apparaît-il dans cette phrase : « L'attention est importante, faites attention » ?",
+        "options": [
+          {
+            "label": "1",
+            "value": 0
+          },
+          {
+            "label": "2",
+            "value": 1
+          },
+          {
+            "label": "3",
+            "value": 0
+          },
+          {
+            "label": "4",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Retenez cette séquence : Rouge, Bleu, Vert. Quelle était la deuxième couleur ?",
+        "options": [
+          {
+            "label": "Rouge",
+            "value": 0
+          },
+          {
+            "label": "Bleu",
+            "value": 1
+          },
+          {
+            "label": "Vert",
+            "value": 0
+          },
+          {
+            "label": "Jaune",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Quelle forme n'appartient pas à ce groupe ? ⬤ ⬤ ⬤ ◆",
+        "options": [
+          {
+            "label": "⬤ (cercle)",
+            "value": 0
+          },
+          {
+            "label": "◆ (losange)",
+            "value": 1
+          },
+          {
+            "label": "Tous sont identiques",
+            "value": 0
+          },
+          {
+            "label": "Aucun",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Comptez les voyelles dans : « Bonjour le monde »",
+        "options": [
+          {
+            "label": "4",
+            "value": 0
+          },
+          {
+            "label": "5",
+            "value": 1
+          },
+          {
+            "label": "6",
+            "value": 0
+          },
+          {
+            "label": "7",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Quelle lettre vient après C dans l'alphabet ?",
+        "options": [
+          {
+            "label": "B",
+            "value": 0
+          },
+          {
+            "label": "D",
+            "value": 1
+          },
+          {
+            "label": "E",
+            "value": 0
+          },
+          {
+            "label": "A",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "COGNITIVE"
+  },
+  {
+    "slug": "senior-life-chapters",
+    "name": "Chapitres de Vie",
+    "description": "Récit de vie et souvenirs",
+    "minAgeYears": 60,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Décrivez un souvenir d'enfance qui vous rend heureux(se).",
+        "options": [
+          {
+            "label": "Continuer",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Quelle a été votre plus grande réalisation dans la vie ?",
+        "options": [
+          {
+            "label": "Continuer",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Qui a eu l'influence la plus positive sur votre vie ?",
+        "options": [
+          {
+            "label": "Continuer",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Quel conseil donneriez-vous à votre moi plus jeune ?",
+        "options": [
+          {
+            "label": "Continuer",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Qu'est-ce qui vous apporte le plus de joie aujourd'hui ?",
+        "options": [
+          {
+            "label": "Terminer",
+            "value": 1
+          }
+        ]
+      }
+    ],
+    "category": "EMOTIONAL_SOCIAL"
+  },
+  {
+    "slug": "matrix-reasoning-child",
+    "name": "Raisonnement sur Matrices pour Enfants",
+    "description": "Évaluation non-verbale de l'intelligence fluide et de la reconnaissance de motifs.",
+    "minAgeYears": 6,
+    "maxAgeYears": 12,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Quel emoji vient ensuite ? 🌙 🌙 ☀️ 🌙 🌙 ?",
+        "options": [
+          {
+            "label": "🌙",
+            "value": 0
+          },
+          {
+            "label": "☀️",
+            "value": 1
+          },
+          {
+            "label": "⭐",
+            "value": 0
+          },
+          {
+            "label": "🌍",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Quel emoji complète le motif ? 🍎 🍊 🍎 🍊 🍎 ?",
+        "options": [
+          {
+            "label": "🍎",
+            "value": 0
+          },
+          {
+            "label": "🍊",
+            "value": 1
+          },
+          {
+            "label": "🍋",
+            "value": 0
+          },
+          {
+            "label": "🍇",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Quel emoji complète la série ? 🐶 🐱 🐭 🐶 🐱 ?",
+        "options": [
+          {
+            "label": "🐶",
+            "value": 0
+          },
+          {
+            "label": "🐱",
+            "value": 0
+          },
+          {
+            "label": "🐭",
+            "value": 1
+          },
+          {
+            "label": "🐰",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Quel emoji vient ensuite ? ⬆️ ➡️ ⬇️ ⬆️ ➡️ ?",
+        "options": [
+          {
+            "label": "⬆️",
+            "value": 0
+          },
+          {
+            "label": "➡️",
+            "value": 0
+          },
+          {
+            "label": "⬇️",
+            "value": 1
+          },
+          {
+            "label": "⬅️",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Quel emoji complète le motif ? 🔴 🔵 🟢 🔴 🔵 ?",
+        "options": [
+          {
+            "label": "🔴",
+            "value": 0
+          },
+          {
+            "label": "🔵",
+            "value": 0
+          },
+          {
+            "label": "🟢",
+            "value": 1
+          },
+          {
+            "label": "🟡",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "IQ_INTELLIGENCE"
+  },
+  {
+    "slug": "matrix-reasoning-adult",
+    "name": "Raisonnement sur Matrices pour Adultes",
+    "description": "Évaluation non-verbale de l'intelligence fluide, du raisonnement abstrait et de la mémoire de travail.",
+    "minAgeYears": 13,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Quel symbole complète la série ? ◯ ◯ ● ◯ ◯ ?",
+        "options": [
+          {
+            "label": "◯",
+            "value": 0
+          },
+          {
+            "label": "●",
+            "value": 1
+          },
+          {
+            "label": "◐",
+            "value": 0
+          },
+          {
+            "label": "◑",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Quel nombre vient ensuite ? 2, 4, 8, 16, ?",
+        "options": [
+          {
+            "label": "24",
+            "value": 0
+          },
+          {
+            "label": "32",
+            "value": 1
+          },
+          {
+            "label": "20",
+            "value": 0
+          },
+          {
+            "label": "18",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Si ◯ = 1, ● = 2, alors ◯● = ?",
+        "options": [
+          {
+            "label": "2",
+            "value": 0
+          },
+          {
+            "label": "3",
+            "value": 1
+          },
+          {
+            "label": "4",
+            "value": 0
+          },
+          {
+            "label": "12",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Quel symbole complète la matrice ? [△][□][○] [□][○][?] [○][?][△]",
+        "options": [
+          {
+            "label": "△",
+            "value": 1
+          },
+          {
+            "label": "□",
+            "value": 0
+          },
+          {
+            "label": "○",
+            "value": 0
+          },
+          {
+            "label": "◇",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Quel emoji complète le motif ? 🌑 🌒 🌓 🌔 ?",
+        "options": [
+          {
+            "label": "🌑",
+            "value": 0
+          },
+          {
+            "label": "🌔",
+            "value": 0
+          },
+          {
+            "label": "🌕",
+            "value": 1
+          },
+          {
+            "label": "🌙",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "Quel est le prochain nombre dans la série ? 2, 4, 8, 16, 32, ?",
+        "options": [
+          {
+            "label": "48",
+            "value": 0
+          },
+          {
+            "label": "64",
+            "value": 1
+          },
+          {
+            "label": "128",
+            "value": 0
+          },
+          {
+            "label": "256",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "IQ_INTELLIGENCE"
+  },
+  {
+    "slug": "comprehensive-iq",
+    "name": "Évaluation IQ Complète",
+    "description": "Test IQ multi-domaine évaluant le raisonnement logique, la reconnaissance de motifs, les capacités mathématiques, la compréhension verbale et la visualisation spatiale.",
+    "minAgeYears": 16,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "RAISONNEMENT LOGIQUE : Toutes les roses sont des fleurs. Certaines fleurs fanent rapidement. Donc :",
+        "options": [
+          {
+            "label": "Toutes les roses fanent rapidement",
+            "value": 0
+          },
+          {
+            "label": "Certaines roses peuvent faner rapidement",
+            "value": 1
+          },
+          {
+            "label": "Aucune rose ne fane rapidement",
+            "value": 0
+          },
+          {
+            "label": "Seules les roses fanent rapidement",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "RAISONNEMENT LOGIQUE : Si A > B, et B > C, et C > D, alors :",
+        "options": [
+          {
+            "label": "A > D",
+            "value": 1
+          },
+          {
+            "label": "D > A",
+            "value": 0
+          },
+          {
+            "label": "A = D",
+            "value": 0
+          },
+          {
+            "label": "Impossible à déterminer",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "RAISONNEMENT LOGIQUE : Dans une course, vous dépassez la personne en deuxième position. Quelle est votre position ?",
+        "options": [
+          {
+            "label": "Premier",
+            "value": 0
+          },
+          {
+            "label": "Deuxième",
+            "value": 1
+          },
+          {
+            "label": "Troisième",
+            "value": 0
+          },
+          {
+            "label": "Ça dépend",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "RAISONNEMENT LOGIQUE : Si tous les Blips sont des Razz et tous les Razz sont des Lazz, alors :",
+        "options": [
+          {
+            "label": "Tous les Lazz sont des Blips",
+            "value": 0
+          },
+          {
+            "label": "Tous les Blips sont des Lazz",
+            "value": 1
+          },
+          {
+            "label": "Certains Lazz sont des Blips",
+            "value": 0
+          },
+          {
+            "label": "Aucun Blip n'est un Lazz",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "RECONNAISSANCE DE MOTIFS : Quel vient ensuite ? ◐ ◑ ◐ ◑ ◐ ?",
+        "options": [
+          {
+            "label": "◐",
+            "value": 0
+          },
+          {
+            "label": "◑",
+            "value": 1
+          },
+          {
+            "label": "○",
+            "value": 0
+          },
+          {
+            "label": "●",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "RECONNAISSANCE DE MOTIFS : Complétez la séquence : 1, 4, 9, 16, 25, ?",
+        "options": [
+          {
+            "label": "30",
+            "value": 0
+          },
+          {
+            "label": "36",
+            "value": 1
+          },
+          {
+            "label": "35",
+            "value": 0
+          },
+          {
+            "label": "49",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "RECONNAISSANCE DE MOTIFS : Quelle forme complète le motif ? △ □ △ □ △ ?",
+        "options": [
+          {
+            "label": "△",
+            "value": 0
+          },
+          {
+            "label": "□",
+            "value": 1
+          },
+          {
+            "label": "○",
+            "value": 0
+          },
+          {
+            "label": "◇",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 8,
+        "prompt": "RECONNAISSANCE DE MOTIFS : 2, 6, 12, 20, 30, ?",
+        "options": [
+          {
+            "label": "40",
+            "value": 0
+          },
+          {
+            "label": "42",
+            "value": 1
+          },
+          {
+            "label": "44",
+            "value": 0
+          },
+          {
+            "label": "36",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 9,
+        "prompt": "MATHÉMATIQUES : Si 3x + 7 = 22, que vaut x ?",
+        "options": [
+          {
+            "label": "3",
+            "value": 0
+          },
+          {
+            "label": "5",
+            "value": 1
+          },
+          {
+            "label": "7",
+            "value": 0
+          },
+          {
+            "label": "15",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 10,
+        "prompt": "MATHÉMATIQUES : Un train parcourt 60 km en 45 minutes. À ce rythme, quelle distance parcourra-t-il en 2 heures ?",
+        "options": [
+          {
+            "label": "120 km",
+            "value": 0
+          },
+          {
+            "label": "160 km",
+            "value": 1
+          },
+          {
+            "label": "180 km",
+            "value": 0
+          },
+          {
+            "label": "90 km",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 11,
+        "prompt": "MATHÉMATIQUES : Que font 15% de 200 ?",
+        "options": [
+          {
+            "label": "15",
+            "value": 0
+          },
+          {
+            "label": "30",
+            "value": 1
+          },
+          {
+            "label": "25",
+            "value": 0
+          },
+          {
+            "label": "35",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 12,
+        "prompt": "MATHÉMATIQUES : Si une chemise coûte 40€ et est soldée à 25%, quel est le prix soldé ?",
+        "options": [
+          {
+            "label": "35€",
+            "value": 0
+          },
+          {
+            "label": "30€",
+            "value": 1
+          },
+          {
+            "label": "25€",
+            "value": 0
+          },
+          {
+            "label": "32€",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 13,
+        "prompt": "VERBAL : Livre est à Lecture comme Fourchette est à :",
+        "options": [
+          {
+            "label": "Cuisine",
+            "value": 0
+          },
+          {
+            "label": "Manger",
+            "value": 1
+          },
+          {
+            "label": "Cuillère",
+            "value": 0
+          },
+          {
+            "label": "Métal",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 14,
+        "prompt": "VERBAL : Quel mot n'appartient PAS ?",
+        "options": [
+          {
+            "label": "Joyeux",
+            "value": 0
+          },
+          {
+            "label": "Enjoué",
+            "value": 0
+          },
+          {
+            "label": "Mélancolique",
+            "value": 1
+          },
+          {
+            "label": "Gai",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 15,
+        "prompt": "VERBAL : « Brévité » signifie :",
+        "options": [
+          {
+            "label": "Longueur",
+            "value": 0
+          },
+          {
+            "label": "Concision",
+            "value": 1
+          },
+          {
+            "label": "Humour",
+            "value": 0
+          },
+          {
+            "label": "Colère",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 16,
+        "prompt": "VERBAL : Antonyme de « Bienveillant » :",
+        "options": [
+          {
+            "label": "Gentil",
+            "value": 0
+          },
+          {
+            "label": "Malveillant",
+            "value": 1
+          },
+          {
+            "label": "Généreux",
+            "value": 0
+          },
+          {
+            "label": "Attentionné",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 17,
+        "prompt": "SPATIAL : Quel cube peut être formé à partir de ce patron ? [□□□/□□□ déplié]",
+        "options": [
+          {
+            "label": "Cube avec 3 faces visibles",
+            "value": 1
+          },
+          {
+            "label": "Cube avec 4 faces visibles",
+            "value": 0
+          },
+          {
+            "label": "Cube avec 2 faces visibles",
+            "value": 0
+          },
+          {
+            "label": "Impossible de former un cube",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 18,
+        "prompt": "SPATIAL : Si vous faites pivoter la figure ↻ 90°, que devient-elle ? △",
+        "options": [
+          {
+            "label": "▷",
+            "value": 1
+          },
+          {
+            "label": "◁",
+            "value": 0
+          },
+          {
+            "label": "△",
+            "value": 0
+          },
+          {
+            "label": "▽",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 19,
+        "prompt": "SPATIAL : Combien de cubes sont nécessaires pour construire cette forme ? [base 3x3, milieu 2x2, sommet 1]",
+        "options": [
+          {
+            "label": "10",
+            "value": 0
+          },
+          {
+            "label": "14",
+            "value": 1
+          },
+          {
+            "label": "12",
+            "value": 0
+          },
+          {
+            "label": "15",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 20,
+        "prompt": "SPATIAL : L'image miroir de 'b' est :",
+        "options": [
+          {
+            "label": "d",
+            "value": 1
+          },
+          {
+            "label": "p",
+            "value": 0
+          },
+          {
+            "label": "q",
+            "value": 0
+          },
+          {
+            "label": "b",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "IQ_INTELLIGENCE"
+  },
+  {
+    "slug": "stroop-test",
+    "name": "Test Stroop Couleur-Mot",
+    "description": "Un test classique de contrôle cognitif et d'inhibition de réponse. Nommez la couleur du texte, pas le mot lui-même.",
+    "minAgeYears": 7,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Nommez la COULEUR de ce mot : <span style='color:red'>ROUGE</span>",
+        "options": [
+          {
+            "label": "Rouge",
+            "value": 1
+          },
+          {
+            "label": "Bleu",
+            "value": 0
+          },
+          {
+            "label": "Vert",
+            "value": 0
+          },
+          {
+            "label": "Jaune",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Nommez la COULEUR de ce mot : <span style='color:blue'>VERT</span>",
+        "options": [
+          {
+            "label": "Vert",
+            "value": 0
+          },
+          {
+            "label": "Bleu",
+            "value": 1
+          },
+          {
+            "label": "Rouge",
+            "value": 0
+          },
+          {
+            "label": "Jaune",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Nommez la COULEUR de ce mot : <span style='color:green'>BLEU</span>",
+        "options": [
+          {
+            "label": "Bleu",
+            "value": 0
+          },
+          {
+            "label": "Vert",
+            "value": 1
+          },
+          {
+            "label": "Rouge",
+            "value": 0
+          },
+          {
+            "label": "Jaune",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Nommez la COULEUR de ce mot : <span style='color:red'>BLEU</span>",
+        "options": [
+          {
+            "label": "Bleu",
+            "value": 0
+          },
+          {
+            "label": "Rouge",
+            "value": 1
+          },
+          {
+            "label": "Vert",
+            "value": 0
+          },
+          {
+            "label": "Jaune",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Nommez la COULEUR de ce mot : <span style='color:yellow'>VERT</span>",
+        "options": [
+          {
+            "label": "Vert",
+            "value": 0
+          },
+          {
+            "label": "Jaune",
+            "value": 1
+          },
+          {
+            "label": "Bleu",
+            "value": 0
+          },
+          {
+            "label": "Rouge",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "Nommez la COULEUR de ce mot : <span style='color:green'>ROUGE</span>",
+        "options": [
+          {
+            "label": "Rouge",
+            "value": 0
+          },
+          {
+            "label": "Vert",
+            "value": 1
+          },
+          {
+            "label": "Bleu",
+            "value": 0
+          },
+          {
+            "label": "Jaune",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "Nommez la COULEUR de ce mot : <span style='color:blue'>JAUNE</span>",
+        "options": [
+          {
+            "label": "Jaune",
+            "value": 0
+          },
+          {
+            "label": "Bleu",
+            "value": 1
+          },
+          {
+            "label": "Rouge",
+            "value": 0
+          },
+          {
+            "label": "Vert",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 8,
+        "prompt": "Nommez la COULEUR de ce mot : <span style='color:yellow'>ROUGE</span>",
+        "options": [
+          {
+            "label": "Rouge",
+            "value": 0
+          },
+          {
+            "label": "Jaune",
+            "value": 1
+          },
+          {
+            "label": "Bleu",
+            "value": 0
+          },
+          {
+            "label": "Vert",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 9,
+        "prompt": "Nommez la COULEUR de ce mot : <span style='color:red'>VERT</span>",
+        "options": [
+          {
+            "label": "Vert",
+            "value": 0
+          },
+          {
+            "label": "Rouge",
+            "value": 1
+          },
+          {
+            "label": "Bleu",
+            "value": 0
+          },
+          {
+            "label": "Jaune",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 10,
+        "prompt": "Nommez la COULEUR de ce mot : <span style='color:blue'>BLEU</span>",
+        "options": [
+          {
+            "label": "Bleu",
+            "value": 1
+          },
+          {
+            "label": "Rouge",
+            "value": 0
+          },
+          {
+            "label": "Vert",
+            "value": 0
+          },
+          {
+            "label": "Jaune",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "COGNITIVE"
+  },
+  {
+    "slug": "digit-span",
+    "name": "Test d'Empan de Chiffres",
+    "description": "Un test de mémoire de travail. Mémorisez et rappelez des séquences de chiffres dans l'ordre direct et inverse.",
+    "minAgeYears": 6,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Empan Direct - Niveau 3 : Mémorisez cette séquence : 7 2 9",
+        "options": [
+          {
+            "label": "7 2 9",
+            "value": 1
+          },
+          {
+            "label": "7 9 2",
+            "value": 0
+          },
+          {
+            "label": "2 7 9",
+            "value": 0
+          },
+          {
+            "label": "9 2 7",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Empan Direct - Niveau 4 : Mémorisez cette séquence : 4 8 1 6",
+        "options": [
+          {
+            "label": "4 8 1 6",
+            "value": 1
+          },
+          {
+            "label": "4 6 1 8",
+            "value": 0
+          },
+          {
+            "label": "8 4 1 6",
+            "value": 0
+          },
+          {
+            "label": "4 8 6 1",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Empan Direct - Niveau 5 : Mémorisez cette séquence : 3 9 2 7 5",
+        "options": [
+          {
+            "label": "3 9 2 7 5",
+            "value": 1
+          },
+          {
+            "label": "3 9 5 7 2",
+            "value": 0
+          },
+          {
+            "label": "9 3 2 7 5",
+            "value": 0
+          },
+          {
+            "label": "3 9 2 5 7",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Empan Direct - Niveau 6 : Mémorisez cette séquence : 8 1 4 9 2 6",
+        "options": [
+          {
+            "label": "8 1 4 9 2 6",
+            "value": 1
+          },
+          {
+            "label": "8 1 4 6 2 9",
+            "value": 0
+          },
+          {
+            "label": "1 8 4 9 2 6",
+            "value": 0
+          },
+          {
+            "label": "8 1 4 9 6 2",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Empan Inverse - Niveau 3 : La séquence était : 5 1 8. Entrez-la à l'envers :",
+        "options": [
+          {
+            "label": "8 1 5",
+            "value": 1
+          },
+          {
+            "label": "5 1 8",
+            "value": 0
+          },
+          {
+            "label": "5 8 1",
+            "value": 0
+          },
+          {
+            "label": "1 5 8",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "Empan Inverse - Niveau 4 : La séquence était : 2 7 3 9. Entrez-la à l'envers :",
+        "options": [
+          {
+            "label": "9 3 7 2",
+            "value": 1
+          },
+          {
+            "label": "2 7 3 9",
+            "value": 0
+          },
+          {
+            "label": "9 7 3 2",
+            "value": 0
+          },
+          {
+            "label": "3 7 2 9",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "Empan Inverse - Niveau 5 : La séquence était : 6 4 8 1 3. Entrez-la à l'envers :",
+        "options": [
+          {
+            "label": "3 1 8 4 6",
+            "value": 1
+          },
+          {
+            "label": "6 4 8 1 3",
+            "value": 0
+          },
+          {
+            "label": "3 8 1 4 6",
+            "value": 0
+          },
+          {
+            "label": "6 4 3 1 8",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 8,
+        "prompt": "Empan Inverse - Niveau 6 : La séquence était : 9 2 5 7 1 4. Entrez-la à l'envers :",
+        "options": [
+          {
+            "label": "4 1 7 5 2 9",
+            "value": 1
+          },
+          {
+            "label": "9 2 5 7 1 4",
+            "value": 0
+          },
+          {
+            "label": "4 7 5 2 1 9",
+            "value": 0
+          },
+          {
+            "label": "9 4 1 7 5 2",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "COGNITIVE"
+  },
+  {
+    "slug": "go-no-go",
+    "name": "Test d'Inhibition de Réponse Go/No-Go",
+    "description": "Testez votre capacité à inhiber les réponses. Appuyez uniquement pour les formes VERTES, PAS pour les formes ROUGES.",
+    "minAgeYears": 6,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "🟢 CERCLE VERT - Devez-vous appuyer ?",
+        "options": [
+          {
+            "label": "OUI - Appuyez !",
+            "value": 1
+          },
+          {
+            "label": "NON - N'appuyez pas",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "🔴 CERCLE ROUGE - Devez-vous appuyer ?",
+        "options": [
+          {
+            "label": "OUI - Appuyez !",
+            "value": 0
+          },
+          {
+            "label": "NON - N'appuyez pas",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "🟢 CARRÉ VERT - Devez-vous appuyer ?",
+        "options": [
+          {
+            "label": "OUI - Appuyez !",
+            "value": 1
+          },
+          {
+            "label": "NON - N'appuyez pas",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "🔴 TRIANGLE ROUGE - Devez-vous appuyer ?",
+        "options": [
+          {
+            "label": "OUI - Appuyez !",
+            "value": 0
+          },
+          {
+            "label": "NON - N'appuyez pas",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "🟢 TRIANGLE VERT - Devez-vous appuyer ?",
+        "options": [
+          {
+            "label": "OUI - Appuyez !",
+            "value": 1
+          },
+          {
+            "label": "NON - N'appuyez pas",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "🔴 CARRÉ ROUGE - Devez-vous appuyer ?",
+        "options": [
+          {
+            "label": "OUI - Appuyez !",
+            "value": 0
+          },
+          {
+            "label": "NON - N'appuyez pas",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "🟢 ÉTOILE VERTE - Devez-vous appuyer ?",
+        "options": [
+          {
+            "label": "OUI - Appuyez !",
+            "value": 1
+          },
+          {
+            "label": "NON - N'appuyez pas",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 8,
+        "prompt": "🔴 ÉTOILE ROUGE - Devez-vous appuyer ?",
+        "options": [
+          {
+            "label": "OUI - Appuyez !",
+            "value": 0
+          },
+          {
+            "label": "NON - N'appuyez pas",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 9,
+        "prompt": "🟢 LOSANGE VERT - Devez-vous appuyer ?",
+        "options": [
+          {
+            "label": "OUI - Appuyez !",
+            "value": 1
+          },
+          {
+            "label": "NON - N'appuyez pas",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 10,
+        "prompt": "🔴 LOSANGE ROUGE - Devez-vous appuyer ?",
+        "options": [
+          {
+            "label": "OUI - Appuyez !",
+            "value": 0
+          },
+          {
+            "label": "NON - N'appuyez pas",
+            "value": 1
+          }
+        ]
+      }
+    ],
+    "category": "COGNITIVE"
+  },
+  {
+    "slug": "schulte-table",
+    "name": "Test d'Attention par Table de Schulte",
+    "description": "Trouvez les nombres de 1 à 25 dans l'ordre le plus rapidement possible. Teste l'attention et la vitesse de traitement.",
+    "minAgeYears": 7,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Dans cette table de Schulte, quelle cellule contient '1' ? [Format Ligne-Colonne]\n| 14 | 9 | 5 | 21 | 17 |\n| 3 | 25 | 12 | 8 | 19 |\n| 22 | 1 | 15 | 6 | 24 |\n| 18 | 11 | 4 | 23 | 13 |\n| 20 | 7 | 16 | 2 | 10 |",
+        "options": [
+          {
+            "label": "Ligne 3, Colonne 2",
+            "value": 1
+          },
+          {
+            "label": "Ligne 2, Colonne 1",
+            "value": 0
+          },
+          {
+            "label": "Ligne 1, Colonne 3",
+            "value": 0
+          },
+          {
+            "label": "Ligne 4, Colonne 5",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Quelle cellule contient '5' ?",
+        "options": [
+          {
+            "label": "Ligne 1, Colonne 3",
+            "value": 1
+          },
+          {
+            "label": "Ligne 2, Colonne 4",
+            "value": 0
+          },
+          {
+            "label": "Ligne 3, Colonne 1",
+            "value": 0
+          },
+          {
+            "label": "Ligne 5, Colonne 2",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Quelle cellule contient '10' ?",
+        "options": [
+          {
+            "label": "Ligne 5, Colonne 5",
+            "value": 1
+          },
+          {
+            "label": "Ligne 4, Colonne 3",
+            "value": 0
+          },
+          {
+            "label": "Ligne 2, Colonne 2",
+            "value": 0
+          },
+          {
+            "label": "Ligne 1, Colonne 1",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Quelle cellule contient '15' ?",
+        "options": [
+          {
+            "label": "Ligne 3, Colonne 3",
+            "value": 1
+          },
+          {
+            "label": "Ligne 4, Colonne 2",
+            "value": 0
+          },
+          {
+            "label": "Ligne 1, Colonne 5",
+            "value": 0
+          },
+          {
+            "label": "Ligne 2, Colonne 3",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Quelle cellule contient '20' ?",
+        "options": [
+          {
+            "label": "Ligne 5, Colonne 1",
+            "value": 1
+          },
+          {
+            "label": "Ligne 3, Colonne 5",
+            "value": 0
+          },
+          {
+            "label": "Ligne 4, Colonne 4",
+            "value": 0
+          },
+          {
+            "label": "Ligne 1, Colonne 2",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "COGNITIVE"
+  },
+  {
+    "slug": "reaction-time",
+    "name": "Test de Temps de Réaction",
+    "description": "Mesurez votre vitesse de réaction. Cliquez le plus rapidement possible quand vous voyez la cible.",
+    "minAgeYears": 6,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Quand vous voyez ⚡, à quelle vitesse devez-vous réagir ?",
+        "options": [
+          {
+            "label": "Le plus vite possible",
+            "value": 1
+          },
+          {
+            "label": "Attendez 2 secondes",
+            "value": 0
+          },
+          {
+            "label": "Attendez un autre symbole",
+            "value": 0
+          },
+          {
+            "label": "Ne réagissez pas",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "⚡ RÉAGISSEZ MAINTENANT ! Quel était votre temps de réaction approximatif ?",
+        "options": [
+          {
+            "label": "Moins de 250ms (Excellent)",
+            "value": 4
+          },
+          {
+            "label": "250-350ms (Bon)",
+            "value": 3
+          },
+          {
+            "label": "350-450ms (Moyen)",
+            "value": 2
+          },
+          {
+            "label": "Plus de 450ms (En dessous de la moyenne)",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "⚡ RÉAGISSEZ MAINTENANT ! Quel était votre temps de réaction approximatif ?",
+        "options": [
+          {
+            "label": "Moins de 250ms (Excellent)",
+            "value": 4
+          },
+          {
+            "label": "250-350ms (Bon)",
+            "value": 3
+          },
+          {
+            "label": "350-450ms (Moyen)",
+            "value": 2
+          },
+          {
+            "label": "Plus de 450ms (En dessous de la moyenne)",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "⚡ RÉAGISSEZ MAINTENANT ! Quel était votre temps de réaction approximatif ?",
+        "options": [
+          {
+            "label": "Moins de 250ms (Excellent)",
+            "value": 4
+          },
+          {
+            "label": "250-350ms (Bon)",
+            "value": 3
+          },
+          {
+            "label": "350-450ms (Moyen)",
+            "value": 2
+          },
+          {
+            "label": "Plus de 450ms (En dessous de la moyenne)",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "⚡ RÉAGISSEZ MAINTENANT ! Quel était votre temps de réaction approximatif ?",
+        "options": [
+          {
+            "label": "Moins de 250ms (Excellent)",
+            "value": 4
+          },
+          {
+            "label": "250-350ms (Bon)",
+            "value": 3
+          },
+          {
+            "label": "350-450ms (Moyen)",
+            "value": 2
+          },
+          {
+            "label": "Plus de 450ms (En dessous de la moyenne)",
+            "value": 1
+          }
+        ]
+      }
+    ],
+    "category": "COGNITIVE"
+  },
+  {
+    "slug": "dual-n-back",
+    "name": "Test de Mémoire de Travail Double N-Back",
+    "description": "Un test de mémoire de travail exigeant. Mémorisez à la fois la position et la lettre depuis N étapes en arrière.",
+    "minAgeYears": 12,
+    "maxAgeYears": null,
+    "audience": "PATIENT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "Pratique 1-BACK : Vous avez vu 'A' en position 1. Maintenant vous voyez 'B' en position 2. La position était-elle la même qu'il y a 1 étape ?",
+        "options": [
+          {
+            "label": "Non (position différente)",
+            "value": 1
+          },
+          {
+            "label": "Oui (même position)",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "1-BACK : Séquence de positions : [1]→[2]→[3]. La position 3 est-elle la même qu'il y a 1 étape (position 2) ?",
+        "options": [
+          {
+            "label": "Non",
+            "value": 1
+          },
+          {
+            "label": "Oui",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "1-BACK : Séquence de lettres : A→B→B. La lettre est-elle la même qu'il y a 1 étape ?",
+        "options": [
+          {
+            "label": "Oui (B = B)",
+            "value": 1
+          },
+          {
+            "label": "Non (A ≠ B)",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "2-BACK : Séquence de positions : [1]→[2]→[3]→[2]. La position 2 est-elle la même qu'il y a 2 étapes (position 2) ?",
+        "options": [
+          {
+            "label": "Oui (position 2 = position 2)",
+            "value": 1
+          },
+          {
+            "label": "Non",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "2-BACK : Séquence de lettres : X→Y→X→Z. 'Z' est-il le même qu'il y a 2 étapes ?",
+        "options": [
+          {
+            "label": "Non (Z ≠ X)",
+            "value": 1
+          },
+          {
+            "label": "Oui (Z = X)",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "2-BACK DOUBLE : Séquence : (A,pos1)→(B,pos2)→(C,pos3)→(B,pos2). Correspondance sur la position 2 étapes en arrière ?",
+        "options": [
+          {
+            "label": "Oui (pos2 = pos2)",
+            "value": 1
+          },
+          {
+            "label": "Non",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "2-BACK DOUBLE : Séquence : (X,pos1)→(Y,pos2)→(Z,pos3)→(Y,pos4). Correspondance sur la lettre 2 étapes en arrière ?",
+        "options": [
+          {
+            "label": "Oui (Y = Y)",
+            "value": 1
+          },
+          {
+            "label": "Non",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 8,
+        "prompt": "3-BACK : Séquence de lettres : P→Q→R→S→R. 'R' est-il le même qu'il y a 3 étapes ?",
+        "options": [
+          {
+            "label": "Oui (R = R)",
+            "value": 1
+          },
+          {
+            "label": "Non",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "COGNITIVE"
+  },
+  {
+    "slug": "wisc-v",
+    "name": "WISC-V (Exemples)",
+    "description": "Échelle d'intelligence de Wechsler pour enfants - Cinquième édition. Un instrument clinique complet pour évaluer les capacités intellectuelles des enfants de 6 à 16 ans.",
+    "minAgeYears": 6,
+    "maxAgeYears": 16,
+    "audience": "CHILD",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "CUBES : Avec ces blocs rouges et blancs, pouvez-vous reproduire ce motif ? (Correspondance de motifs bicolores)",
+        "options": [
+          {
+            "label": "Correct dans les temps",
+            "value": 2
+          },
+          {
+            "label": "Correct mais hors délai",
+            "value": 1
+          },
+          {
+            "label": "Incorrect",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "SIMILITUDES : En quoi un bateau et une voiture sont-ils semblables ?",
+        "options": [
+          {
+            "label": "Ce sont tous deux des véhicules/moyens de transport",
+            "value": 2
+          },
+          {
+            "label": "Ils ont tous deux un moteur/des roues",
+            "value": 1
+          },
+          {
+            "label": "Ils ne sont pas semblables",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "SIMILITUDES : En quoi un chat et une souris sont-ils semblables ?",
+        "options": [
+          {
+            "label": "Ce sont tous deux des animaux/mammifères",
+            "value": 2
+          },
+          {
+            "label": "Ils ont tous deux des poils/une queue",
+            "value": 1
+          },
+          {
+            "label": "Ils ne sont pas semblables",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "VOCABULAIRE : Que signifie 'compliqué' ?",
+        "options": [
+          {
+            "label": "Quelque chose de difficile à comprendre avec plusieurs parties",
+            "value": 2
+          },
+          {
+            "label": "Difficile à faire",
+            "value": 1
+          },
+          {
+            "label": "Incorrect ou vague",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "MATRICES : Quelle forme complète ce motif ? [●][●][○][●][●][?]",
+        "options": [
+          {
+            "label": "○ (cercle)",
+            "value": 1
+          },
+          {
+            "label": "● (cercle plein)",
+            "value": 0
+          },
+          {
+            "label": "■ (carré)",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "MÉMOIRE DES CHIFFRES : Répétez ces chiffres à l'envers : 4-7-2",
+        "options": [
+          {
+            "label": "2-7-4 (correct)",
+            "value": 1
+          },
+          {
+            "label": "Séquence incorrecte",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "CODE : Copiez le symbole qui correspond à chaque chiffre le plus rapidement possible. (Tâche chronométrée)",
+        "options": [
+          {
+            "label": "Terminé correctement dans les temps",
+            "value": 2
+          },
+          {
+            "label": "Terminé avec quelques erreurs",
+            "value": 1
+          },
+          {
+            "label": "Impossible à terminer",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 8,
+        "prompt": "COMPRÉHENSION : Pourquoi avons-nous des règles de circulation ?",
+        "options": [
+          {
+            "label": "Pour protéger les gens et éviter les accidents",
+            "value": 2
+          },
+          {
+            "label": "Pour donner des contraventions/gagner de l'argent",
+            "value": 1
+          },
+          {
+            "label": "Je ne sais pas",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 9,
+        "prompt": "BALANCE : Quel côté de la balance sera le plus lourd ?",
+        "options": [
+          {
+            "label": "Identification correcte",
+            "value": 1
+          },
+          {
+            "label": "Incorrect",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 10,
+        "prompt": "PUZZLES VISUELS : Quelles 3 pièces s'assemblent pour former cette image ?",
+        "options": [
+          {
+            "label": "Les 3 pièces correctes sélectionnées",
+            "value": 2
+          },
+          {
+            "label": "2 sur 3 correctes",
+            "value": 1
+          },
+          {
+            "label": "Sélection incorrecte",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "COGNITIVE"
+  },
+  {
+    "slug": "wais-iv",
+    "name": "WAIS-IV (Exemples)",
+    "description": "Échelle d'intelligence de Wechsler pour adultes - Quatrième édition. L'instrument clinique le plus utilisé pour évaluer les capacités cognitives des adultes (16 ans et plus).",
+    "minAgeYears": 16,
+    "maxAgeYears": null,
+    "audience": "ADULT",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "SIMILITUDES : En quoi une table et une chaise sont-elles semblables ?",
+        "options": [
+          {
+            "label": "Ce sont tous deux des meubles utilisés pour s'asseoir/travailler",
+            "value": 2
+          },
+          {
+            "label": "Tous deux en bois/avec des pieds",
+            "value": 1
+          },
+          {
+            "label": "Ils ont l'air différents",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "SIMILITUDES : En quoi un procès et une expérience sont-ils semblables ?",
+        "options": [
+          {
+            "label": "Tous deux testent des hypothèses/recherchent la vérité par un processus systématique",
+            "value": 2
+          },
+          {
+            "label": "Tous deux ont des procédures/résultats",
+            "value": 1
+          },
+          {
+            "label": "Pas semblables",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "VOCABULAIRE : Que signifie 'plagier' ?",
+        "options": [
+          {
+            "label": "Copier le travail de quelqu'un d'autre et le présenter comme le sien",
+            "value": 2
+          },
+          {
+            "label": "Voler ou copier",
+            "value": 1
+          },
+          {
+            "label": "Écrire mal",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "VOCABULAIRE : Que signifie 'énigme' ?",
+        "options": [
+          {
+            "label": "Un problème ou puzzle difficile sans solution claire",
+            "value": 2
+          },
+          {
+            "label": "Une situation confuse",
+            "value": 1
+          },
+          {
+            "label": "Un type de jeu",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "CUBES : Arrangez ces blocs pour correspondre au motif montré. (Chronométré)",
+        "options": [
+          {
+            "label": "Correct dans les temps",
+            "value": 2
+          },
+          {
+            "label": "Correct mais hors délai",
+            "value": 1
+          },
+          {
+            "label": "Incorrect",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "MATRICES : Identifiez l'élément manquant qui complète le motif.",
+        "options": [
+          {
+            "label": "Élément correct identifié",
+            "value": 1
+          },
+          {
+            "label": "Incorrect",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "MÉMOIRE DES CHIFFRES : Répétez la séquence à l'envers : 7-3-9-1-4",
+        "options": [
+          {
+            "label": "4-1-9-3-7 (correct)",
+            "value": 1
+          },
+          {
+            "label": "Séquence incorrecte",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 8,
+        "prompt": "ARITHMÉTIQUE : Si 4 personnes peuvent peindre 4 maisons en 4 jours, combien de jours faudra-t-il à 8 personnes pour peindre 8 maisons ?",
+        "options": [
+          {
+            "label": "4 jours",
+            "value": 1
+          },
+          {
+            "label": "8 jours",
+            "value": 0
+          },
+          {
+            "label": "2 jours",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 9,
+        "prompt": "INFORMATION : Qui a écrit 'Roméo et Juliette' ?",
+        "options": [
+          {
+            "label": "William Shakespeare",
+            "value": 1
+          },
+          {
+            "label": "Charles Dickens",
+            "value": 0
+          },
+          {
+            "label": "Je ne sais pas",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 10,
+        "prompt": "COMPRÉHENSION : Pourquoi est-il important que les citoyens votent aux élections ?",
+        "options": [
+          {
+            "label": "Pour participer à la démocratie et avoir voix au chapitre",
+            "value": 2
+          },
+          {
+            "label": "Pour choisir des dirigeants",
+            "value": 1
+          },
+          {
+            "label": "C'est requis par la loi",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 11,
+        "prompt": "SÉQUENCE LETTRES-CHIFFRES : Réorganisez cette séquence : B-4-A-2-C-3 (mettez les chiffres d'abord en ordre, puis les lettres alphabétiquement)",
+        "options": [
+          {
+            "label": "2-3-4-A-B-C",
+            "value": 1
+          },
+          {
+            "label": "Ordre incorrect",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "order": 12,
+        "prompt": "RECHERCHE DE SYMBOLES : Le symbole cible apparaît-il dans le groupe de recherche ? (Chronométré)",
+        "options": [
+          {
+            "label": "Oui/Non correctement identifié",
+            "value": 1
+          },
+          {
+            "label": "Incorrect",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "category": "COGNITIVE"
+  },
+  {
+    "slug": "basc-3",
+    "name": "BASC-3 (Exemples)",
+    "description": "Système d'évaluation du comportement pour enfants - Troisième édition. Une évaluation complète du comportement et des émotions pour les enfants et adolescents de 2 à 21 ans.",
+    "minAgeYears": 6,
+    "maxAgeYears": 21,
+    "audience": "CHILD",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "J'aime être avec d'autres enfants de mon âge.",
+        "options": [
+          {
+            "label": "Jamais",
+            "value": 0
+          },
+          {
+            "label": "Parfois",
+            "value": 1
+          },
+          {
+            "label": "Souvent",
+            "value": 2
+          },
+          {
+            "label": "Toujours",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "Je me soucie de ce que les autres enfants pensent de moi.",
+        "options": [
+          {
+            "label": "Jamais",
+            "value": 0
+          },
+          {
+            "label": "Parfois",
+            "value": 1
+          },
+          {
+            "label": "Souvent",
+            "value": 2
+          },
+          {
+            "label": "Toujours",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "J'ai du mal à rester assis pendant longtemps.",
+        "options": [
+          {
+            "label": "Jamais",
+            "value": 0
+          },
+          {
+            "label": "Parfois",
+            "value": 1
+          },
+          {
+            "label": "Souvent",
+            "value": 2
+          },
+          {
+            "label": "Toujours",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "Je me mets en colère quand les choses ne se passent pas comme je veux.",
+        "options": [
+          {
+            "label": "Jamais",
+            "value": 0
+          },
+          {
+            "label": "Parfois",
+            "value": 1
+          },
+          {
+            "label": "Souvent",
+            "value": 2
+          },
+          {
+            "label": "Toujours",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "Je me sens triste la plupart du temps.",
+        "options": [
+          {
+            "label": "Jamais",
+            "value": 0
+          },
+          {
+            "label": "Parfois",
+            "value": 1
+          },
+          {
+            "label": "Souvent",
+            "value": 2
+          },
+          {
+            "label": "Toujours",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "Je réussis bien à l'école.",
+        "options": [
+          {
+            "label": "Jamais",
+            "value": 0
+          },
+          {
+            "label": "Parfois",
+            "value": 1
+          },
+          {
+            "label": "Souvent",
+            "value": 2
+          },
+          {
+            "label": "Toujours",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "J'ai du mal à me faire des amis.",
+        "options": [
+          {
+            "label": "Jamais",
+            "value": 0
+          },
+          {
+            "label": "Parfois",
+            "value": 1
+          },
+          {
+            "label": "Souvent",
+            "value": 2
+          },
+          {
+            "label": "Toujours",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 8,
+        "prompt": "Je suis bon pour suivre les règles.",
+        "options": [
+          {
+            "label": "Jamais",
+            "value": 0
+          },
+          {
+            "label": "Parfois",
+            "value": 1
+          },
+          {
+            "label": "Souvent",
+            "value": 2
+          },
+          {
+            "label": "Toujours",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 9,
+        "prompt": "Je me sens nerveux ou anxieux.",
+        "options": [
+          {
+            "label": "Jamais",
+            "value": 0
+          },
+          {
+            "label": "Parfois",
+            "value": 1
+          },
+          {
+            "label": "Souvent",
+            "value": 2
+          },
+          {
+            "label": "Toujours",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 10,
+        "prompt": "J'aime essayer de nouvelles choses.",
+        "options": [
+          {
+            "label": "Jamais",
+            "value": 0
+          },
+          {
+            "label": "Parfois",
+            "value": 1
+          },
+          {
+            "label": "Souvent",
+            "value": 2
+          },
+          {
+            "label": "Toujours",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 11,
+        "prompt": "J'ai souvent des maux de tête ou des maux de ventre.",
+        "options": [
+          {
+            "label": "Jamais",
+            "value": 0
+          },
+          {
+            "label": "Parfois",
+            "value": 1
+          },
+          {
+            "label": "Souvent",
+            "value": 2
+          },
+          {
+            "label": "Toujours",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 12,
+        "prompt": "Je m'aime bien.",
+        "options": [
+          {
+            "label": "Jamais",
+            "value": 0
+          },
+          {
+            "label": "Parfois",
+            "value": 1
+          },
+          {
+            "label": "Souvent",
+            "value": 2
+          },
+          {
+            "label": "Toujours",
+            "value": 3
+          }
+        ]
+      }
+    ],
+    "category": "COGNITIVE"
+  },
+  {
+    "slug": "conners-3",
+    "name": "Conners 3 (Exemples)",
+    "description": "Conners 3ème édition. Une évaluation approfondie du TDAH et de ses problèmes comorbides les plus courants chez les enfants et adolescents de 6 à 18 ans.",
+    "minAgeYears": 6,
+    "maxAgeYears": 18,
+    "audience": "CHILD",
+    "items": [
+      {
+        "order": 1,
+        "prompt": "A du mal à faire attention aux détails ou fait des erreurs d'inattention dans les devoirs.",
+        "options": [
+          {
+            "label": "Pas vrai du tout",
+            "value": 0
+          },
+          {
+            "label": "Un peu vrai",
+            "value": 1
+          },
+          {
+            "label": "Assez vrai",
+            "value": 2
+          },
+          {
+            "label": "Très vrai",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "prompt": "A du mal à maintenir l'attention dans les tâches ou les activités de jeu.",
+        "options": [
+          {
+            "label": "Pas vrai du tout",
+            "value": 0
+          },
+          {
+            "label": "Un peu vrai",
+            "value": 1
+          },
+          {
+            "label": "Assez vrai",
+            "value": 2
+          },
+          {
+            "label": "Très vrai",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "prompt": "Ne semble pas écouter quand on lui parle directement.",
+        "options": [
+          {
+            "label": "Pas vrai du tout",
+            "value": 0
+          },
+          {
+            "label": "Un peu vrai",
+            "value": 1
+          },
+          {
+            "label": "Assez vrai",
+            "value": 2
+          },
+          {
+            "label": "Très vrai",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "prompt": "A du mal à suivre les instructions et ne termine pas les devoirs.",
+        "options": [
+          {
+            "label": "Pas vrai du tout",
+            "value": 0
+          },
+          {
+            "label": "Un peu vrai",
+            "value": 1
+          },
+          {
+            "label": "Assez vrai",
+            "value": 2
+          },
+          {
+            "label": "Très vrai",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 5,
+        "prompt": "A du mal à organiser les tâches et les activités.",
+        "options": [
+          {
+            "label": "Pas vrai du tout",
+            "value": 0
+          },
+          {
+            "label": "Un peu vrai",
+            "value": 1
+          },
+          {
+            "label": "Assez vrai",
+            "value": 2
+          },
+          {
+            "label": "Très vrai",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 6,
+        "prompt": "Évite, n'aime pas ou est réticent à s'engager dans des tâches nécessitant un effort mental soutenu.",
+        "options": [
+          {
+            "label": "Pas vrai du tout",
+            "value": 0
+          },
+          {
+            "label": "Un peu vrai",
+            "value": 1
+          },
+          {
+            "label": "Assez vrai",
+            "value": 2
+          },
+          {
+            "label": "Très vrai",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 7,
+        "prompt": "Perd les objets nécessaires aux tâches ou activités (ex: matériel scolaire, crayons, livres).",
+        "options": [
+          {
+            "label": "Pas vrai du tout",
+            "value": 0
+          },
+          {
+            "label": "Un peu vrai",
+            "value": 1
+          },
+          {
+            "label": "Assez vrai",
+            "value": 2
+          },
+          {
+            "label": "Très vrai",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 8,
+        "prompt": "Est facilement distrait par des stimuli externes.",
+        "options": [
+          {
+            "label": "Pas vrai du tout",
+            "value": 0
+          },
+          {
+            "label": "Un peu vrai",
+            "value": 1
+          },
+          {
+            "label": "Assez vrai",
+            "value": 2
+          },
+          {
+            "label": "Très vrai",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 9,
+        "prompt": "Est oublieux dans les activités quotidiennes.",
+        "options": [
+          {
+            "label": "Pas vrai du tout",
+            "value": 0
+          },
+          {
+            "label": "Un peu vrai",
+            "value": 1
+          },
+          {
+            "label": "Assez vrai",
+            "value": 2
+          },
+          {
+            "label": "Très vrai",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 10,
+        "prompt": "Gigote avec les mains ou les pieds ou se tortille sur son siège.",
+        "options": [
+          {
+            "label": "Pas vrai du tout",
+            "value": 0
+          },
+          {
+            "label": "Un peu vrai",
+            "value": 1
+          },
+          {
+            "label": "Assez vrai",
+            "value": 2
+          },
+          {
+            "label": "Très vrai",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 11,
+        "prompt": "Quitte son siège en classe ou dans d'autres situations où il doit rester assis.",
+        "options": [
+          {
+            "label": "Pas vrai du tout",
+            "value": 0
+          },
+          {
+            "label": "Un peu vrai",
+            "value": 1
+          },
+          {
+            "label": "Assez vrai",
+            "value": 2
+          },
+          {
+            "label": "Très vrai",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 12,
+        "prompt": "Court ou grimpe excessivement dans des situations inappropriées.",
+        "options": [
+          {
+            "label": "Pas vrai du tout",
+            "value": 0
+          },
+          {
+            "label": "Un peu vrai",
+            "value": 1
+          },
+          {
+            "label": "Assez vrai",
+            "value": 2
+          },
+          {
+            "label": "Très vrai",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 13,
+        "prompt": "A du mal à jouer ou à s'engager dans des activités de loisirs calmement.",
+        "options": [
+          {
+            "label": "Pas vrai du tout",
+            "value": 0
+          },
+          {
+            "label": "Un peu vrai",
+            "value": 1
+          },
+          {
+            "label": "Assez vrai",
+            "value": 2
+          },
+          {
+            "label": "Très vrai",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 14,
+        "prompt": "Parle excessivement.",
+        "options": [
+          {
+            "label": "Pas vrai du tout",
+            "value": 0
+          },
+          {
+            "label": "Un peu vrai",
+            "value": 1
+          },
+          {
+            "label": "Assez vrai",
+            "value": 2
+          },
+          {
+            "label": "Très vrai",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "order": 15,
+        "prompt": "Répond avant que les questions ne soient terminées.",
+        "options": [
+          {
+            "label": "Pas vrai du tout",
+            "value": 0
+          },
+          {
+            "label": "Un peu vrai",
+            "value": 1
+          },
+          {
+            "label": "Assez vrai",
+            "value": 2
+          },
+          {
+            "label": "Très vrai",
+            "value": 3
+          }
+        ]
+      }
+    ],
+    "category": "COGNITIVE"
+  }
+]

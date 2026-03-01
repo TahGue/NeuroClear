@@ -32,6 +32,7 @@
   "navigation": {
     "dashboard": "Översikt",
     "patients": "Patienter",
+    "tests": "Kognitiva tester",
     "assessments": "Bedömningar",
     "reports": "Rapporter",
     "scoreEntry": "Poängregistrering",
@@ -53,7 +54,9 @@
     }
   },
   "header": {
-    "searchPlaceholder": "Sök patienter, bedömningar, rapporter..."
+    "searchPlaceholder": "Sök patienter, bedömningar, rapporter...",
+    "notifications": "Aviseringar",
+    "profile": "Profil"
   },
   "sidebar": {
     "tagline": "Bedömningsplattform",
@@ -186,6 +189,54 @@
     "platform": "Plattform",
     "domain": "Domän",
     "assignToPatient": "Tilldela patient"
+  },
+  "tests": {
+    "title": "Kognitiva tester",
+    "description": "Bläddra och hantera alla tillgängliga kognitiva tester och bedömningar",
+    "status": {
+      "active": "Aktiv",
+      "inactive": "Inaktiv"
+    },
+    "years": "år",
+    "items": "objekt",
+    "assigned": "tilldelade",
+    "completed": "slutförda",
+    "noTests": "Inga tester tillgängliga",
+    "noTestsDescription": "Det finns inga kognitiva tester i systemet ännu.",
+    "buttons": {
+      "view": "Visa detaljer",
+      "assign": "Tilldela patient"
+    },
+    "detail": {
+      "title": "Testdetaljer",
+      "description": "Testbeskrivning",
+      "questions": "Frågor",
+      "ageRange": "Åldersintervall",
+      "audience": "Målgrupp",
+      "statistics": "Statistik",
+      "totalAssignments": "Totala tilldelningar",
+      "totalCompletions": "Totala slutföranden",
+      "assignToPatient": "Tilldela patient"
+    },
+    "assign": {
+      "title": "Tilldela test",
+      "description": "Tilldela detta test till en patient",
+      "selectPatient": "Välj patient",
+      "dueDate": "Förfallodatum (valfritt)",
+      "assign": "Tilldela",
+      "assigning": "Tilldelar...",
+      "success": "Testet har tilldelats",
+      "validation": {
+        "patientRequired": "Välj en patient"
+      }
+    },
+    "audiences": {
+      "patient": "Patient",
+      "child": "Barn",
+      "teen": "Tonåring",
+      "adult": "Vuxen",
+      "senior": "Senior"
+    }
   },
   "reports": {
     "title": "Rapporter",
@@ -396,6 +447,68 @@
       "assigning": "Tilldelar...",
       "validation": { "testRequired": "Välj ett test" },
       "success": "Testet har tilldelats"
+    },
+    "scoring": {
+      "severity": {
+        "minimal": "Minimal",
+        "mild": "Mild",
+        "moderate": "Måttlig",
+        "moderatelySevere": "Måttligt svår",
+        "severe": "Svår",
+        "none": "Ingen"
+      },
+      "interpretations": {
+        "belowAverage": "Under genomsnittet",
+        "average": "Genomsnittlig",
+        "aboveAverage": "Över genomsnittet",
+        "excellent": "Utmärkt",
+        "good": "Bra",
+        "fair": "Godkänd",
+        "poor": "Dålig"
+      },
+      "ranges": {
+        "phq9": {
+          "minimal": "Minimal depression",
+          "mild": "Mild depression",
+          "moderate": "Måttlig depression",
+          "moderatelySevere": "Måttligt svår depression",
+          "severe": "Svår depression"
+        },
+        "gad7": {
+          "minimal": "Minimal ångest",
+          "mild": "Mild ångest",
+          "moderate": "Måttlig ångest",
+          "severe": "Svår ångest"
+        },
+        "sdq": {
+          "normal": "Normal",
+          "borderline": "Gränsfall",
+          "abnormal": "Onormal"
+        },
+        "audit": {
+          "lowRisk": "Låg risk",
+          "hazardous": "Riskabelt drickande",
+          "harmful": "Skadligt drickande",
+          "dependence": "Möjligt beroende"
+        },
+        "gds15": {
+          "normal": "Normal (ingen depression)",
+          "mild": "Mild depression",
+          "moderate": "Måttlig depression",
+          "severe": "Svår depression"
+        },
+        "iq": {
+          "belowAverage": "Under genomsnittlig intelligens",
+          "average": "Genomsnittlig intelligens",
+          "aboveAverage": "Över genomsnittlig intelligens"
+        },
+        "cognitive": {
+          "impaired": "Nedsatt",
+          "borderline": "Gränsfall",
+          "normal": "Normal",
+          "high": "Hög funktionsnivå"
+        }
+      }
     }
   },
   "accessibility": {

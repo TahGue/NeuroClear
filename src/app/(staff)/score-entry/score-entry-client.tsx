@@ -199,14 +199,14 @@ function ScoreEntryForm({ initialPatients, initialAssessments }: ScoreEntryClien
 
   const getIndexColor = (index: string) => {
     const colors = {
-      VCI: "bg-blue-100 text-blue-800",
-      VSI: "bg-green-100 text-green-800",
-      WMI: "bg-yellow-100 text-yellow-800",
-      PSI: "bg-red-100 text-red-800",
-      FRI: "bg-purple-100 text-purple-800",
-      FSIQ: "bg-gray-100 text-gray-800",
+      VCI: "bg-[var(--status-info)]/10 text-[var(--status-info)]",
+      VSI: "bg-[var(--status-success)]/10 text-[var(--status-success)]",
+      WMI: "bg-[var(--status-warning)]/10 text-[var(--status-warning)]",
+      PSI: "bg-[var(--status-error)]/10 text-[var(--status-error)]",
+      FRI: "bg-[var(--category-secondary)]/10 text-[var(--category-secondary)]",
+      FSIQ: "bg-muted text-muted-foreground",
     }
-    return colors[index as keyof typeof colors] || "bg-gray-100 text-gray-800"
+    return colors[index as keyof typeof colors] || "bg-muted text-muted-foreground"
   }
 
   // Get unique indices for the current subtests

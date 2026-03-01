@@ -56,25 +56,25 @@ export function AssessmentsClient({
 
   const getDomainColor = (domain: string) => {
     const colors = {
-      COGNITIVE: "bg-blue-100 text-blue-800",
-      ADAPTIVE: "bg-green-100 text-green-800",
-      BEHAVIORAL: "bg-yellow-100 text-yellow-800",
-      EXECUTIVE_FUNCTION: "bg-purple-100 text-purple-800",
-      ACADEMIC: "bg-red-100 text-red-800",
-      EMOTIONAL: "bg-pink-100 text-pink-800",
-      SOCIAL: "bg-indigo-100 text-indigo-800",
+      COGNITIVE: "bg-[var(--status-info)]/10 text-[var(--status-info)]",
+      ADAPTIVE: "bg-[var(--status-success)]/10 text-[var(--status-success)]",
+      BEHAVIORAL: "bg-[var(--status-warning)]/10 text-[var(--status-warning)]",
+      EXECUTIVE_FUNCTION: "bg-[var(--category-secondary)]/10 text-[var(--category-secondary)]",
+      ACADEMIC: "bg-[var(--category-tertiary)]/10 text-[var(--category-tertiary)]",
+      EMOTIONAL: "bg-[var(--category-accent)]/10 text-[var(--category-accent)]",
+      SOCIAL: "bg-[var(--category-primary)]/10 text-[var(--category-primary)]",
     }
-    return colors[domain as keyof typeof colors] || "bg-gray-100 text-gray-800"
+    return colors[domain as keyof typeof colors] || "bg-muted text-muted-foreground"
   }
 
   const getPlatformColor = (platform: string) => {
     const colors = {
-      "Q_INTERACTIVE": "bg-blue-100 text-blue-800",
-      "Q_GLOBAL": "bg-green-100 text-green-800",
-      "MHS_ONLINE": "bg-yellow-100 text-yellow-800",
-      "ALTO": "bg-red-100 text-red-800",
+      "Q_INTERACTIVE": "bg-[var(--status-info)]/10 text-[var(--status-info)]",
+      "Q_GLOBAL": "bg-[var(--status-success)]/10 text-[var(--status-success)]",
+      "MHS_ONLINE": "bg-[var(--status-warning)]/10 text-[var(--status-warning)]",
+      "ALTO": "bg-[var(--category-accent)]/10 text-[var(--category-accent)]",
     }
-    return colors[platform as keyof typeof colors] || "bg-gray-100 text-gray-800"
+    return colors[platform as keyof typeof colors] || "bg-muted text-muted-foreground"
   }
 
   const getDomainLabel = (domain: string) => {

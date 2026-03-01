@@ -1,45 +1,65 @@
 @import "tailwindcss";
 
 :root {
-  /* Base Patient Palette (Softer, calming, light-mode by default) */
-  --background: #f8fafc;
-  --foreground: #1e293b;
+  /* Calm Clinical Theme - Soft teal/sage palette */
+  --background: #fafbfc;
+  --foreground: #1a2e35;
   --card: #ffffff;
-  --card-foreground: #1e293b;
-  --primary: #0ea5e9; /* Soft Indigo/Blue */
+  --card-foreground: #1a2e35;
+  --primary: #4a9e8c;
   --primary-foreground: #ffffff;
-  --secondary: #f1f5f9;
-  --secondary-foreground: #334155;
-  --muted: #f1f5f9;
-  --muted-foreground: #64748b;
-  --accent: #e0e7ff;
-  --accent-foreground: #3730a3;
-  --destructive: #ef4444;
+  --secondary: #f0f4f3;
+  --secondary-foreground: #3d5a5a;
+  --muted: #f0f4f3;
+  --muted-foreground: #6b8a8a;
+  --accent: #e8f0ef;
+  --accent-foreground: #3d6b6b;
+  --destructive: #c45c5c;
   --destructive-foreground: #ffffff;
-  --border: #e2e8f0;
-  --input: #e2e8f0;
-  --ring: #0ea5e9;
+  --border: #d8e4e2;
+  --input: #d8e4e2;
+  --ring: #4a9e8c;
+  
+  /* Semantic colors for categories */
+  --category-primary: #4a9e8c;
+  --category-secondary: #6b9ead;
+  --category-tertiary: #8caeb8;
+  --category-quaternary: #a8c4c0;
+  --category-accent: #7ba39b;
+  
+  /* Status colors - muted */
+  --status-success: #5a9a7a;
+  --status-warning: #b8925a;
+  --status-error: #c45c5c;
+  --status-info: #5a8ab8;
+  
+  /* Audience colors - soft pastels */
+  --audience-patient: #5a9a8a;
+  --audience-child: #9a7ab8;
+  --audience-teen: #5a8ab8;
+  --audience-adult: #5a9a7a;
+  --audience-senior: #b87a5a;
 }
 
-/* Staff / Admin Theme (Clean, high-contrast, professional) */
+/* Staff / Admin Theme - Professional slate */
 .staff-theme {
-  --background: #fdfdfd;
-  --foreground: #0f172a;
+  --background: #f8f9fa;
+  --foreground: #1a2e35;
   --card: #ffffff;
-  --card-foreground: #0f172a;
-  --primary: #0f172a; /* Deep Slate */
+  --card-foreground: #1a2e35;
+  --primary: #3d6b6b;
   --primary-foreground: #ffffff;
-  --secondary: #f1f5f9;
-  --secondary-foreground: #1e293b;
-  --muted: #f8fafc;
-  --muted-foreground: #64748b;
-  --accent: #f1f5f9;
-  --accent-foreground: #0f172a;
-  --destructive: #dc2626;
-  --destructive-foreground: #f8fafc;
-  --border: #e2e8f0;
-  --input: #e2e8f0;
-  --ring: #0f172a;
+  --secondary: #f0f4f3;
+  --secondary-foreground: #3d5a5a;
+  --muted: #f0f4f3;
+  --muted-foreground: #6b8a8a;
+  --accent: #e8f0ef;
+  --accent-foreground: #3d6b6b;
+  --destructive: #c45c5c;
+  --destructive-foreground: #ffffff;
+  --border: #d8e4e2;
+  --input: #d8e4e2;
+  --ring: #3d6b6b;
 }
 
 body {
@@ -55,11 +75,11 @@ body {
 .card {
   background: var(--card);
   border: 1px solid var(--border);
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
 }
 
 .card:hover {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
 }
 
 .bg-muted {

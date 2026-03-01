@@ -32,6 +32,7 @@
   "navigation": {
     "dashboard": "Tableau de bord",
     "patients": "Patients",
+    "tests": "Tests cognitifs",
     "assessments": "Évaluations",
     "reports": "Rapports",
     "scoreEntry": "Saisie des scores",
@@ -53,7 +54,9 @@
     }
   },
   "header": {
-    "searchPlaceholder": "Rechercher patients, évaluations, rapports..."
+    "searchPlaceholder": "Rechercher patients, évaluations, rapports...",
+    "notifications": "Notifications",
+    "profile": "Profil"
   },
   "sidebar": {
     "tagline": "Plateforme d'évaluation",
@@ -189,6 +192,54 @@
     "platform": "Plateforme",
     "domain": "Domaine",
     "assignToPatient": "Assigner au patient"
+  },
+  "tests": {
+    "title": "Tests cognitifs",
+    "description": "Parcourir et gérer tous les tests et évaluations cognitives disponibles",
+    "status": {
+      "active": "Actif",
+      "inactive": "Inactif"
+    },
+    "years": "ans",
+    "items": "items",
+    "assigned": "assignés",
+    "completed": "complétés",
+    "noTests": "Aucun test disponible",
+    "noTestsDescription": "Il n'y a pas encore de tests cognitifs dans le système.",
+    "buttons": {
+      "view": "Voir les détails",
+      "assign": "Assigner à un patient"
+    },
+    "detail": {
+      "title": "Détails du test",
+      "description": "Description du test",
+      "questions": "Questions",
+      "ageRange": "Tranche d'âge",
+      "audience": "Public cible",
+      "statistics": "Statistiques",
+      "totalAssignments": "Total des assignations",
+      "totalCompletions": "Total des complétions",
+      "assignToPatient": "Assigner à un patient"
+    },
+    "assign": {
+      "title": "Assigner un test",
+      "description": "Assigner ce test à un patient",
+      "selectPatient": "Sélectionner un patient",
+      "dueDate": "Date d'échéance (optionnel)",
+      "assign": "Assigner",
+      "assigning": "Assignation...",
+      "success": "Test assigné avec succès",
+      "validation": {
+        "patientRequired": "Veuillez sélectionner un patient"
+      }
+    },
+    "audiences": {
+      "patient": "Patient",
+      "child": "Enfant",
+      "teen": "Adolescent",
+      "adult": "Adulte",
+      "senior": "Personne âgée"
+    }
   },
   "reports": {
     "title": "Rapports",
@@ -399,6 +450,68 @@
       "assigning": "Assignation...",
       "validation": { "testRequired": "Veuillez sélectionner un test" },
       "success": "Test assigné avec succès"
+    },
+    "scoring": {
+      "severity": {
+        "minimal": "Minimal",
+        "mild": "Léger",
+        "moderate": "Modéré",
+        "moderatelySevere": "Modérément sévère",
+        "severe": "Sévère",
+        "none": "Aucun"
+      },
+      "interpretations": {
+        "belowAverage": "En dessous de la moyenne",
+        "average": "Moyen",
+        "aboveAverage": "Au dessus de la moyenne",
+        "excellent": "Excellent",
+        "good": "Bon",
+        "fair": "Correct",
+        "poor": "Faible"
+      },
+      "ranges": {
+        "phq9": {
+          "minimal": "Dépression minimale",
+          "mild": "Dépression légère",
+          "moderate": "Dépression modérée",
+          "moderatelySevere": "Dépression modérément sévère",
+          "severe": "Dépression sévère"
+        },
+        "gad7": {
+          "minimal": "Anxiété minimale",
+          "mild": "Anxiété légère",
+          "moderate": "Anxiété modérée",
+          "severe": "Anxiété sévère"
+        },
+        "sdq": {
+          "normal": "Normal",
+          "borderline": "Limite",
+          "abnormal": "Anormal"
+        },
+        "audit": {
+          "lowRisk": "Risque faible",
+          "hazardous": "Consommation dangereuse",
+          "harmful": "Consommation nuisible",
+          "dependence": "Dépendance possible"
+        },
+        "gds15": {
+          "normal": "Normal (pas de dépression)",
+          "mild": "Dépression légère",
+          "moderate": "Dépression modérée",
+          "severe": "Dépression sévère"
+        },
+        "iq": {
+          "belowAverage": "Intelligence en dessous de la moyenne",
+          "average": "Intelligence moyenne",
+          "aboveAverage": "Intelligence au dessus de la moyenne"
+        },
+        "cognitive": {
+          "impaired": "Altéré",
+          "borderline": "Limite",
+          "normal": "Normal",
+          "high": "Haut fonctionnement"
+        }
+      }
     }
   },
   "accessibility": {

@@ -4,6 +4,7 @@ import { redirect } from "next/navigation"
 import { z } from "zod"
 import { requirePatientSession } from "@/lib/rbac"
 import { saveInstrumentResponse, submitInstrumentSession } from "../actions"
+import { getServerLocale } from "@/lib/i18n-server"
 
 export const dynamic = "force-dynamic"
 
@@ -41,6 +42,7 @@ export default async function InstrumentRunPage({
   const { slug } = await params
 
   const { patientId } = await requirePatientSession()
+  const locale = await getServerLocale()
 
   const patient = await prisma.patient.findUnique({
     where: { id: patientId },
@@ -51,11 +53,19 @@ export default async function InstrumentRunPage({
 
   const ageYears = getAgeYears(patient.dateOfBirth)
 
-  const instrument = await prisma.instrument.findUnique({
-    where: { slug },
+  // Try to find instrument in user's locale, fallback to English
+  const instrument = await prisma.instrument.findFirst({
+    where: {
+      slug,
+      OR: [
+        { locale },
+        { locale: "en" }
+      ]
+    },
     include: {
       items: { orderBy: { order: "asc" } },
     },
+    orderBy: { locale: "asc" } // Prefer user's locale over en
   })
 
   if (!instrument) redirect("/portal/tests")
