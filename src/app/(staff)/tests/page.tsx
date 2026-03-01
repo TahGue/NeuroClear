@@ -7,10 +7,10 @@ export const dynamic = "force-dynamic"
 export default async function AdminTestsPage() {
   const locale = await getServerLocale()
 
-  // Get all unique instruments (by slug) with English as base
-  const instruments = await prisma.instrument.findMany({
-    where: { locale: "en" },
-    orderBy: [{ category: "asc" }, { name: "asc" }],
+  // Get instruments in user's locale first
+  const localeInstruments = await prisma.instrument.findMany({
+    where: { locale },
+    orderBy: [{ name: "asc" }],
     include: {
       _count: {
         select: {
@@ -21,6 +21,31 @@ export default async function AdminTestsPage() {
       },
     },
   })
+
+  // Get English instruments as fallback
+  const englishInstruments = await prisma.instrument.findMany({
+    where: { locale: "en" },
+    orderBy: [{ name: "asc" }],
+    include: {
+      _count: {
+        select: {
+          items: true,
+          assignments: true,
+          sessions: true,
+        },
+      },
+    },
+  })
+
+  // Merge: prefer user's locale, fallback to English for missing slugs
+  const instrumentsBySlug = new Map<string, typeof englishInstruments[number]>()
+  for (const inst of englishInstruments) {
+    instrumentsBySlug.set(inst.slug, inst)
+  }
+  for (const inst of localeInstruments) {
+    instrumentsBySlug.set(inst.slug, inst) // Overwrite with localized version
+  }
+  const instruments = Array.from(instrumentsBySlug.values())
 
   // Serialize for client component
   const serializedInstruments = instruments.map(instrument => ({

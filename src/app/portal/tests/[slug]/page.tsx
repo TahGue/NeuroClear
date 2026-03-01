@@ -53,20 +53,29 @@ export default async function InstrumentRunPage({
 
   const ageYears = getAgeYears(patient.dateOfBirth)
 
-  // Try to find instrument in user's locale, fallback to English
-  const instrument = await prisma.instrument.findFirst({
+  // Try to find instrument in user's locale first, fallback to English
+  let instrument = await prisma.instrument.findFirst({
     where: {
       slug,
-      OR: [
-        { locale },
-        { locale: "en" }
-      ]
+      locale,
     },
     include: {
       items: { orderBy: { order: "asc" } },
     },
-    orderBy: { locale: "asc" } // Prefer user's locale over en
   })
+
+  // Fallback to English if not found in user's locale
+  if (!instrument && locale !== "en") {
+    instrument = await prisma.instrument.findFirst({
+      where: {
+        slug,
+        locale: "en",
+      },
+      include: {
+        items: { orderBy: { order: "asc" } },
+      },
+    })
+  }
 
   if (!instrument) redirect("/portal/tests")
 

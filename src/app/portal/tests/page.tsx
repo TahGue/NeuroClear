@@ -68,17 +68,32 @@ export default async function PortalTestsPage() {
     status: true,
   })
 
-  const instruments = await prisma.instrument.findMany({
+  // Get instruments in user's locale, then merge with English as fallback
+  const localeInstruments = await prisma.instrument.findMany({
     where: { 
       status: "ACTIVE",
-      OR: [
-        { locale },
-        { locale: "en" }
-      ]
+      locale,
     },
-    orderBy: [{ locale: "asc" }, { name: "asc" }],
     select: instrumentSelect,
   })
+
+  const englishInstruments = await prisma.instrument.findMany({
+    where: { 
+      status: "ACTIVE",
+      locale: "en",
+    },
+    select: instrumentSelect,
+  })
+
+  // Merge: prefer user's locale, fallback to English for missing slugs
+  const instrumentsBySlug = new Map<string, typeof englishInstruments[number]>()
+  for (const inst of englishInstruments) {
+    instrumentsBySlug.set(inst.slug, inst)
+  }
+  for (const inst of localeInstruments) {
+    instrumentsBySlug.set(inst.slug, inst) // Overwrite with localized version
+  }
+  const instruments = Array.from(instrumentsBySlug.values())
   type InstrumentWithAge = (typeof instruments)[number]
 
   const ageFilteredInstruments = instruments.filter((instrument: InstrumentWithAge) =>
