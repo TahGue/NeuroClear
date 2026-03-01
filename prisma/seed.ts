@@ -163,7 +163,7 @@ async function main() {
         patientId: childPatient.id,
         instrumentId: getInst("sdq").id,
         assignedByUserId: adminUser.id,
-        status: InstrumentAssignmentStatus.COMPLETED,
+        status: InstrumentAssignmentStatus.SUBMITTED,
       },
       {
         patientId: childPatient.id,
@@ -193,7 +193,7 @@ async function main() {
         patientId: adultPatient.id,
         instrumentId: getInst("phq9").id,
         assignedByUserId: adminUser.id,
-        status: InstrumentAssignmentStatus.COMPLETED,
+        status: InstrumentAssignmentStatus.SUBMITTED,
       },
       {
         patientId: adultPatient.id,

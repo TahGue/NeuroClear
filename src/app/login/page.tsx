@@ -1,12 +1,17 @@
 import { Suspense } from "react"
 import { LoginForm } from "@/components/auth/LoginForm"
-import { getServerLocale, getT } from "@/lib/i18n"
+import { locales } from "@/lib/i18n"
+import { getServerLocale, getT } from "@/lib/i18n-server"
 
 export const dynamic = "force-dynamic"
 
 export default async function LoginPage() {
   const locale = await getServerLocale()
   const t = await getT(locale)
+  const languageOptions = locales.map((loc) => ({
+    value: loc,
+    label: t(`language.options.${loc}`),
+  }))
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background p-6">
@@ -22,8 +27,10 @@ export default async function LoginPage() {
           submittingLabel={t("login.submitting")}
           invalidCredentialsLabel={t("login.invalid")}
           languageLabel={t("language.label")}
-          languageEnLabel={t("language.en")}
-          languageFrLabel={t("language.fr")}
+          languageOptions={languageOptions}
+          emailRequiredLabel={t("auth.login.emailRequired")}
+          emailInvalidLabel={t("auth.login.emailInvalid")}
+          passwordRequiredLabel={t("auth.login.passwordRequired")}
         />
       </Suspense>
     </div>

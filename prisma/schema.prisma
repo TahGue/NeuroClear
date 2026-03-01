@@ -132,6 +132,10 @@ model Report {
   
   evaluation            Evaluation @relation(fields: [evaluationId], references: [id])
   
+  signatureName         String?
+  signatureTitle        String?
+  signedAt              DateTime?
+  
   @@map("reports")
 }
 

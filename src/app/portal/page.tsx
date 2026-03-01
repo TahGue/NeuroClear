@@ -5,38 +5,35 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { formatDate, formatDateTime, formatPlatform } from "@/lib/utils"
 import { requirePatientSession } from "@/lib/rbac"
-import { PortalLogoutButton } from "@/components/auth/PortalLogoutButton"
+import { EmptyState } from "@/components/ui/EmptyState"
+import { getServerLocale, getT } from "@/lib/i18n-server"
+import { Prisma } from "@prisma/client"
 
 export const dynamic = "force-dynamic"
 
 export default async function PortalPage() {
   const { patientId } = await requirePatientSession()
+  const locale = await getServerLocale()
+  const t = await getT(locale)
 
-  const patient = await prisma.patient.findUnique({
+  const portalPatientQuery = Prisma.validator<Prisma.PatientFindUniqueArgs>()({
     where: { id: patientId },
     include: {
       instrumentAssignments: {
         include: { instrument: true },
-        orderBy: { createdAt: "desc" },
       },
       instrumentSessions: {
         include: {
           instrument: {
             include: {
-              _count: {
-                select: {
-                  items: true,
-                },
-              },
+              _count: { select: { items: true } },
             },
           },
           result: true,
           _count: { select: { responses: true } },
         },
-        orderBy: { createdAt: "desc" },
       },
       evaluations: {
-        orderBy: { createdAt: "desc" },
         include: {
           assessment: true,
           report: true,
@@ -45,32 +42,39 @@ export default async function PortalPage() {
     },
   })
 
+  type PatientWithPortalData = Prisma.PatientGetPayload<typeof portalPatientQuery>
+
+  const patient = await prisma.patient.findUnique(portalPatientQuery)
+
   if (!patient) {
     return (
-      <div className="p-6">
-        <Card>
-          <CardHeader>
-            <CardTitle>Patient not found</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-sm text-muted-foreground">We couldn&apos;t find your patient record.</p>
-          </CardContent>
-        </Card>
-      </div>
+      <EmptyState
+        title={t("portal.messages.missingPatientTitle")}
+        description={t("portal.messages.missingPatientDescription")}
+        actionLabel={t("navigation.logout")}
+        actionHref="/api/auth/signout"
+      />
     )
   }
 
-  const activeAssignments = patient.instrumentAssignments.filter((a) => a.status !== "SUBMITTED")
-  const completedAssignments = patient.instrumentAssignments.filter((a) => a.status === "SUBMITTED")
+  type AssignmentWithInstrument = PatientWithPortalData["instrumentAssignments"][number]
+  type SessionWithMeta = PatientWithPortalData["instrumentSessions"][number]
+  type EvaluationWithRelations = PatientWithPortalData["evaluations"][number]
 
-  const latestSessionByInstrumentId = new Map<string, (typeof patient.instrumentSessions)[number]>()
-  for (const s of patient.instrumentSessions) {
+  const assignments = patient.instrumentAssignments as AssignmentWithInstrument[]
+  const sessions = patient.instrumentSessions as SessionWithMeta[]
+  const evaluations = patient.evaluations as EvaluationWithRelations[]
+
+  const activeAssignments = assignments.filter((assignment) => assignment.status !== "SUBMITTED")
+  const completedAssignments = assignments.filter((assignment) => assignment.status === "SUBMITTED")
+  const latestSessionByInstrumentId = new Map<string, SessionWithMeta>()
+  for (const s of sessions) {
     if (!latestSessionByInstrumentId.has(s.instrumentId)) {
       latestSessionByInstrumentId.set(s.instrumentId, s)
     }
   }
 
-  const sortedActiveAssignments = [...activeAssignments].sort((a, b) => {
+  const sortedActiveAssignments = [...activeAssignments].sort((a: AssignmentWithInstrument, b: AssignmentWithInstrument) => {
     const aDue = a.dueDate?.getTime() ?? Number.POSITIVE_INFINITY
     const bDue = b.dueDate?.getTime() ?? Number.POSITIVE_INFINITY
     if (aDue !== bDue) return aDue - bDue
@@ -84,7 +88,7 @@ export default async function PortalPage() {
     return b.createdAt.getTime() - a.createdAt.getTime()
   })
 
-  const sortedCompletedAssignments = [...completedAssignments].sort((a, b) => {
+  const sortedCompletedAssignments = [...completedAssignments].sort((a: AssignmentWithInstrument, b: AssignmentWithInstrument) => {
     const aSession = latestSessionByInstrumentId.get(a.instrumentId)
     const bSession = latestSessionByInstrumentId.get(b.instrumentId)
     const aSubmitted = aSession?.submittedAt?.getTime() ?? 0
@@ -93,7 +97,7 @@ export default async function PortalPage() {
     return b.createdAt.getTime() - a.createdAt.getTime()
   })
 
-  const continueAssignment = [...activeAssignments].sort((a, b) => {
+  const continueAssignment = [...activeAssignments].sort((a: AssignmentWithInstrument, b: AssignmentWithInstrument) => {
     const aSession = latestSessionByInstrumentId.get(a.instrumentId)
     const bSession = latestSessionByInstrumentId.get(b.instrumentId)
     const aTime = aSession?.updatedAt?.getTime() ?? 0
@@ -105,32 +109,34 @@ export default async function PortalPage() {
     : "/portal/tests"
 
   return (
-    <div className="min-h-screen bg-background p-6 space-y-6">
+    <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold text-foreground">Welcome, {patient.firstName}</h1>
-        <p className="text-muted-foreground">Your tests, evaluations, and reports</p>
+        <h1 className="text-3xl font-bold text-foreground">
+          {t("portal.welcome")}, {patient.firstName}
+        </h1>
+        <p className="text-muted-foreground">{t("portal.home.subtitle")}</p>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
         <Card>
           <CardHeader className="space-y-2">
-            <CardTitle className="text-lg">My Tests</CardTitle>
-            <p className="text-sm text-muted-foreground">Assigned and available screeners</p>
+            <CardTitle className="text-lg">{t("portal.home.testsCard.title")}</CardTitle>
+            <p className="text-sm text-muted-foreground">{t("portal.home.testsCard.description")}</p>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="flex gap-2">
               <Button asChild>
-                <Link href="/portal/tests">View tests</Link>
+                <Link href="/portal/tests">{t("portal.buttons.viewTests")}</Link>
               </Button>
               <Button asChild variant="outline">
-                <Link href={continueHref}>Continue</Link>
+                <Link href={continueHref}>{t("portal.buttons.startContinue")}</Link>
               </Button>
             </div>
 
             <div className="space-y-2">
-              <p className="text-sm font-medium">Assigned / In progress</p>
+              <p className="text-sm font-medium">{t("portal.home.testsCard.assignedLabel")}</p>
               {activeAssignments.length === 0 ? (
-                <p className="text-sm text-muted-foreground">No assigned tests right now.</p>
+                <p className="text-sm text-muted-foreground">{t("portal.home.testsCard.noAssigned")}</p>
               ) : (
                 <div className="space-y-2">
                   {sortedActiveAssignments.slice(0, 5).map((a) => {
@@ -143,21 +149,29 @@ export default async function PortalPage() {
                         <div className="space-y-1">
                           <p className="font-medium">{a.instrument.name}</p>
                           <div className="flex flex-wrap gap-2 text-xs">
-                            <Badge variant="secondary">{a.status.replace("_", " ")}</Badge>
+                            <Badge variant="secondary">{t(`status.assignment.${a.status}`)}</Badge>
                             {a.dueDate ? (
-                              <Badge variant="outline">Due {formatDate(a.dueDate)}</Badge>
+                              <Badge variant="outline">
+                                {t("portal.badges.due")} {formatDate(a.dueDate)}
+                              </Badge>
                             ) : null}
                             {latest?.status ? (
-                              <Badge variant="outline">{latest.status.replace("_", " ")}</Badge>
+                              <Badge variant="outline">{t(`status.assignment.${latest.status}`)}</Badge>
                             ) : null}
-                            <Badge variant="outline">Progress {progressText}</Badge>
+                            <Badge variant="outline">
+                              {t("portal.badges.progress")} {progressText}
+                            </Badge>
                             {latest?.updatedAt ? (
-                              <Badge variant="outline">Saved {formatDateTime(latest.updatedAt)}</Badge>
+                              <Badge variant="outline">
+                                {t("portal.badges.saved")} {formatDateTime(latest.updatedAt)}
+                              </Badge>
                             ) : null}
                           </div>
                         </div>
                         <Button asChild size="sm">
-                          <Link href={`/portal/tests/${a.instrument.slug}`}>Start / Continue</Link>
+                          <Link href={`/portal/tests/${a.instrument.slug}`}>
+                            {t("portal.buttons.startContinue")}
+                          </Link>
                         </Button>
                       </div>
                     )
@@ -167,9 +181,9 @@ export default async function PortalPage() {
             </div>
 
             <div className="space-y-2">
-              <p className="text-sm font-medium">Completed</p>
+              <p className="text-sm font-medium">{t("portal.home.testsCard.completedLabel")}</p>
               {completedAssignments.length === 0 ? (
-                <p className="text-sm text-muted-foreground">No completed tests yet.</p>
+                <p className="text-sm text-muted-foreground">{t("portal.home.testsCard.noCompleted")}</p>
               ) : (
                 <div className="space-y-2">
                   {sortedCompletedAssignments.slice(0, 5).map((a) => {
@@ -179,14 +193,16 @@ export default async function PortalPage() {
                         <div className="space-y-1">
                           <p className="font-medium">{a.instrument.name}</p>
                           <p className="text-xs text-muted-foreground">
-                            Score: {latest?.result?.totalScore ?? "--"} — {latest?.result?.interpretation ?? "--"}
+                            {t("portal.results.score")}: {latest?.result?.totalScore ?? "--"} — {latest?.result?.interpretation ?? t("common.notAvailable")}
                           </p>
                           {latest?.submittedAt ? (
-                            <p className="text-xs text-muted-foreground">Submitted {formatDateTime(latest.submittedAt)}</p>
+                            <p className="text-xs text-muted-foreground">
+                              {t("portal.badges.submitted")} {formatDateTime(latest.submittedAt)}
+                            </p>
                           ) : null}
                         </div>
                         <Button asChild size="sm" variant="outline">
-                          <Link href={`/portal/tests/${a.instrument.slug}`}>View</Link>
+                          <Link href={`/portal/tests/${a.instrument.slug}`}>{t("portal.buttons.view")}</Link>
                         </Button>
                       </div>
                     )
@@ -199,35 +215,46 @@ export default async function PortalPage() {
 
         <Card>
           <CardHeader className="space-y-2">
-            <CardTitle className="text-lg">Evaluations & Reports</CardTitle>
-            <p className="text-sm text-muted-foreground">Your clinician-administered assessments</p>
+            <CardTitle className="text-lg">{t("portal.home.evaluationsCard.title")}</CardTitle>
+            <p className="text-sm text-muted-foreground">{t("portal.home.evaluationsCard.description")}</p>
           </CardHeader>
           <CardContent className="space-y-2">
-            {patient.evaluations.length === 0 ? (
-              <p className="text-sm text-muted-foreground">No evaluations yet.</p>
+            {evaluations.length === 0 ? (
+              <p className="text-sm text-muted-foreground">{t("portal.home.evaluationsCard.empty")}</p>
             ) : (
-              patient.evaluations.slice(0, 5).map((ev) => (
+              evaluations.slice(0, 5).map((ev: EvaluationWithRelations) => (
                 <div key={ev.id} className="flex items-center justify-between border-b py-2">
                   <div className="space-y-1">
                     <p className="font-medium">{ev.assessment.name}</p>
                     <div className="flex flex-wrap gap-2 text-xs">
                       <Badge variant="outline">{formatPlatform(ev.assessment.platform)}</Badge>
-                      <Badge variant="secondary">{ev.status.replace("_", " ")}</Badge>
+                      <Badge variant="secondary">{t(`status.evaluation.${ev.status}`)}</Badge>
                     </div>
                     <p className="text-xs text-muted-foreground">
-                      {ev.administeredDate ? formatDate(ev.administeredDate) : "Date not set"}
+                      {ev.administeredDate ? formatDate(ev.administeredDate) : t("portal.home.evaluationsCard.dateNotSet")}
                     </p>
                   </div>
                   {ev.report ? (
                     <Button asChild size="sm" variant="outline">
-                      <Link href={`/reports?id=${ev.report.id}`}>View report</Link>
+                      <Link href={`/reports?id=${ev.report.id}`}>{t("portal.home.evaluationsCard.viewReport")}</Link>
                     </Button>
                   ) : (
-                    <Badge variant="outline">No report</Badge>
+                    <Badge variant="outline">{t("common.notAvailable")}</Badge>
                   )}
                 </div>
               ))
             )}
+          </CardContent>
+        </Card>
+
+        <Card className="bg-muted/50 border-dashed md:col-span-2">
+          <CardContent className="p-6 text-center space-y-2">
+            <p className="text-sm font-medium">{t("portal.home.support.title")}</p>
+            <p className="text-sm text-muted-foreground">{t("portal.home.support.description")}</p>
+            <Button variant="link" asChild className="mt-2 h-auto p-0">
+              <a href="mailto:support@example.com">{t("portal.home.support.contact")}</a>
+            </Button>
+            <p className="text-xs text-muted-foreground mt-4 pt-4 border-t">{t("portal.home.support.privacy")}</p>
           </CardContent>
         </Card>
       </div>

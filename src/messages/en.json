@@ -1,13 +1,474 @@
 {
-  "login.title": "Sign in",
-  "login.description": "Use your email and password to access NeuroClear",
-  "login.email": "Email",
-  "login.password": "Password",
-  "login.emailPlaceholder": "you@example.com",
-  "login.submit": "Sign in",
-  "login.submitting": "Signing in...",
-  "login.invalid": "Invalid email or password",
-  "language.label": "Language",
-  "language.en": "English",
-  "language.fr": "Français"
+  "_meta": {
+    "language": "English",
+    "locale": "en"
+  },
+  "common": {
+    "appName": "NeuroClear",
+    "loading": "Loading...",
+    "saving": "Saving...",
+    "submitting": "Submitting...",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "add": "Add",
+    "search": "Search",
+    "filter": "Filter",
+    "export": "Export",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "confirm": "Confirm",
+    "done": "Done",
+    "success": "Success",
+    "error": "Error",
+    "warning": "Warning",
+    "required": "Required",
+    "optional": "Optional",
+    "select": "Select",
+    "all": "All",
+    "none": "None",
+    "notAvailable": "N/A"
+  },
+  "navigation": {
+    "dashboard": "Dashboard",
+    "patients": "Patients",
+    "assessments": "Assessments",
+    "reports": "Reports",
+    "scoreEntry": "Score Entry",
+    "assessmentLibrary": "Assessment Library",
+    "portal": "Patient Portal",
+    "myTests": "My Tests",
+    "home": "Home",
+    "logout": "Logout",
+    "settings": "Settings"
+  },
+  "language": {
+    "label": "Language",
+    "switch": "Switch language",
+    "options": {
+      "en": "English",
+      "fr": "Français",
+      "ar": "العربية",
+      "sv": "Svenska"
+    }
+  },
+  "header": {
+    "searchPlaceholder": "Search patients, assessments, reports..."
+  },
+  "sidebar": {
+    "tagline": "Assessment Platform",
+    "systemStatusLabel": "System Status",
+    "systemStatusValue": "All systems operational"
+  },
+  "status": {
+    "evaluation": {
+      "IN_PROGRESS": "In progress",
+      "PENDING_REVIEW": "Pending review",
+      "COMPLETED": "Completed"
+    },
+    "assignment": {
+      "ASSIGNED": "Assigned",
+      "IN_PROGRESS": "In progress",
+      "SUBMITTED": "Submitted"
+    },
+    "priority": {
+      "HIGH": "High",
+      "MEDIUM": "Medium",
+      "LOW": "Low"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Sign in",
+      "description": "Use your email and password to access NeuroClear",
+      "email": "Email",
+      "password": "Password",
+      "emailPlaceholder": "you@example.com",
+      "submit": "Sign in",
+      "submitting": "Signing in...",
+      "invalid": "Invalid email or password",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Please enter a valid email",
+      "passwordRequired": "Password is required"
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "description": "Overview of assessment platform activity",
+    "cards": {
+      "activeEvaluations": {
+        "title": "Active Evaluations",
+        "description": "Currently in progress"
+      },
+      "completedReports": {
+        "title": "Completed Reports",
+        "description": "Ready for distribution"
+      },
+      "pendingReviews": {
+        "title": "Pending Reviews",
+        "description": "Awaiting approval"
+      },
+      "totalPatients": {
+        "title": "Total Patients",
+        "description": "Registered in platform"
+      }
+    },
+    "charts": {
+      "platformTitle": "Platform Activity Breakdown",
+      "platformDescription": "Distribution of assessments by platform",
+      "domainTitle": "Domain Distribution",
+      "domainDescription": "Assessments by domain type"
+    },
+    "recent": {
+      "title": "Recent Evaluations",
+      "description": "Latest assessment activities",
+      "columns": {
+        "id": "ID",
+        "patient": "Patient",
+        "assessment": "Assessment",
+        "platform": "Platform",
+        "status": "Status",
+        "date": "Date"
+      },
+      "notSet": "Not set"
+    }
+  },
+  "patients": {
+    "title": "Patients",
+    "description": "Manage patient roster and assessment history",
+    "cta": "Add Patient",
+    "stats": {
+      "total": {
+        "title": "Total Patients",
+        "description": "Registered patients"
+      },
+      "active": {
+        "title": "Active",
+        "description": "Currently in treatment"
+      },
+      "pending": {
+        "title": "Pending Evaluations",
+        "description": "With active batteries"
+      },
+      "new": {
+        "title": "New This Month",
+        "description": "Recently added"
+      }
+    },
+    "roster": {
+      "title": "Patient Roster",
+      "description": "Search and filter patient records",
+      "searchPlaceholder": "Search patients...",
+      "statusFilter": {
+        "all": "All status",
+        "active": "Active",
+        "inactive": "Inactive",
+        "discharged": "Discharged"
+      }
+    },
+    "tableHeaders": {
+      "id": "Patient ID",
+      "name": "Name",
+      "age": "Age",
+      "referral": "Referral Source",
+      "status": "Status",
+      "activeBatteries": "Active Test Batteries",
+      "lastEvaluation": "Last Evaluation",
+      "actions": "Actions"
+    },
+    "status": {
+      "ACTIVE": "Active",
+      "INACTIVE": "Inactive",
+      "DISCHARGED": "Discharged"
+    },
+    "empty": {
+      "title": "No patients found",
+      "description": "Try adjusting your search or filters."
+    },
+    "table": {
+      "dobLabel": "DOB",
+      "ageSuffix": "years",
+      "referralUnknown": "Not provided",
+      "noActiveBatteries": "None",
+      "lastEvaluationUnknown": "N/A",
+      "view": "View details"
+    },
+    "detail": {
+      "personalInfo": "Personal Information",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "dateOfBirth": "Date of Birth"
+    },
+    "form": {
+      "validation": {
+        "firstNameRequired": "First name is required",
+        "lastNameRequired": "Last name is required"
+      }
+    },
+    "quickActions": {
+      "title": "Quick Actions",
+      "description": "Common tasks for this patient",
+      "startNewEvaluation": "Start New Evaluation",
+      "viewAllReports": "View All Reports",
+      "editPatientInfo": "Edit Patient Info",
+      "deletePatient": "Are you sure you want to delete this patient and all their data? This action cannot be undone."
+    }
+  },
+  "assessments": {
+    "title": "Assessments",
+    "description": "Manage assessment batteries and scoring",
+    "name": "Name",
+    "platform": "Platform",
+    "domain": "Domain",
+    "assignToPatient": "Assign to Patient"
+  },
+  "reports": {
+    "title": "Reports",
+    "description": "View and manage psychological assessment reports",
+    "cta": "Generate New Report",
+    "metrics": {
+      "total": {
+        "title": "Total Reports",
+        "description": "Generated reports"
+      },
+      "completed": {
+        "title": "Completed",
+        "description": "Ready for distribution"
+      },
+      "inProgress": {
+        "title": "In Progress",
+        "description": "Currently being written"
+      },
+      "pendingReview": {
+        "title": "Pending Review",
+        "description": "Awaiting approval"
+      }
+    },
+    "list": {
+      "title": "Report List",
+      "description": "Select a report to view",
+      "searchPlaceholder": "Search reports...",
+      "statusFilter": {
+        "label": "Status",
+        "options": {
+          "ALL": "All statuses",
+          "COMPLETED": "Completed",
+          "IN_PROGRESS": "In progress",
+          "PENDING_REVIEW": "Pending review"
+        }
+      },
+      "empty": {
+        "title": "No reports found",
+        "description": "Try adjusting your search or filters."
+      }
+    },
+    "tabs": {
+      "scores": "Scores",
+      "diagnostics": "Diagnostics",
+      "narrative": "Narrative",
+      "recommendations": "Recommendations"
+    },
+    "scores": {
+      "detailTitle": "Composite Scores Detail",
+      "detailDescription": "Index scores and percentile ranks"
+    },
+    "diagnostics": {
+      "title": "Diagnostic Impressions",
+      "description": "DSM-5 and ICD-11 diagnostic formulations",
+      "supportingEvidence": "Supporting Evidence",
+      "empty": "No diagnostic impressions recorded."
+    },
+    "narrative": {
+      "title": "Narrative Report",
+      "description": "Structured psychological report sections",
+      "empty": "No narrative sections recorded."
+    },
+    "recommendations": {
+      "title": "Recommendations",
+      "description": "Evidence-based interventions and accommodations",
+      "empty": "No recommendations recorded.",
+      "categories": {
+        "ACADEMIC_ACCOMMODATIONS": "Academic Accommodations",
+        "THERAPY": "Therapy",
+        "EDUCATIONAL_PLANNING": "Educational Planning",
+        "RE_EVALUATION": "Re-evaluation"
+      }
+    },
+    "actions": {
+      "openBuilder": "Open Report Builder"
+    },
+    "builder": {
+      "title": "Report Builder",
+      "finalize": {
+        "title": "Finalize Report",
+        "description": "Enter your credentials to finalize this report",
+        "name": "Full Name",
+        "titleField": "Title/Credentials",
+        "confirm": "Confirm and Finalize",
+        "finalized": "Report Finalized",
+        "locked": "This report has been finalized"
+      },
+      "export": {
+        "pdf": "Download PDF"
+      },
+      "preview": "Report Preview"
+    }
+  },
+  "scoreEntry": {
+    "title": "Score Entry",
+    "description": "Enter raw and scaled scores for assessments",
+    "adminDetails": "Administration Details",
+    "adminDescription": "Enter evaluation information and select assessment",
+    "patient": "Patient",
+    "assessment": "Assessment",
+    "platform": "Platform",
+    "adminDate": "Administration Date",
+    "adminBy": "Administered By",
+    "adminByPlaceholder": "Enter clinician name",
+    "selectPatient": "Select patient",
+    "selectAssessment": "Select assessment",
+    "autoFilled": "Auto-filled from assessment",
+    "subtestTab": "Subtest Scores",
+    "compositeTab": "Composite Scores",
+    "summaryTab": "Summary",
+    "saveEvaluation": "Save Evaluation",
+    "subtests": {
+      "description": "Enter raw scores and scaled scores",
+      "headers": {
+        "subtest": "Subtest",
+        "raw": "Raw Score",
+        "scaled": "Scaled Score"
+      }
+    },
+    "composites": {
+      "title": "Composite Scores",
+      "description": "Index scores and percentiles",
+      "calculate": "Calculate from subtests",
+      "headers": {
+        "index": "Index",
+        "fullName": "Full Name",
+        "score": "Score",
+        "percentile": "Percentile"
+      }
+    },
+    "summary": {
+      "title": "Evaluation Summary",
+      "description": "Review and save the complete evaluation",
+      "detailsTitle": "Administration Details",
+      "scoreTitle": "Score Summary",
+      "notSelected": "Not selected",
+      "notSet": "Not set"
+    },
+    "actions": {
+      "save": "Save Evaluation",
+      "saving": "Saving..."
+    },
+    "errors": {
+      "saveFailed": "Failed to save evaluation."
+    },
+    "loading": "Loading form...",
+    "validation": {
+      "patientRequired": "Please select a patient",
+      "assessmentRequired": "Please select an assessment",
+      "dateRequired": "Please select an administration date"
+    }
+  },
+  "portal": {
+    "testsPage": {
+      "title": "Tests",
+      "description": "Take assigned screeners and view results"
+    },
+    "welcome": "Welcome",
+    "description": "Take assigned screeners and view results",
+    "assignedTests": "Assigned Tests",
+    "assignedDescription": "Tests assigned to you by your clinician",
+    "completedTests": "Completed Tests",
+    "availableTests": "Available Tests",
+    "availableDescription": "Additional tests available for your age group",
+    "noAssignedTests": "No assigned tests yet.",
+    "noAvailable": "No additional tests available.",
+    "startTest": "Start Test",
+    "resumeTest": "Resume",
+    "viewResults": "View Results",
+    "dueDate": "Due",
+    "progress": "Progress",
+    "ageLabel": "Age",
+    "badges": {
+      "due": "Due",
+      "progress": "Progress",
+      "saved": "Saved",
+      "submitted": "Submitted"
+    },
+    "buttons": {
+      "start": "Start",
+      "startContinue": "Start / Continue",
+      "view": "View",
+      "viewTests": "View tests",
+      "back": "Back to portal"
+    },
+    "messages": {
+      "missingPatientTitle": "Patient not found",
+      "missingPatientDescription": "We couldn't find your patient record."
+    },
+    "results": {
+      "title": "Test Results",
+      "score": "Score",
+      "interpretation": "Interpretation",
+      "disclaimer": "These results are for screening purposes only"
+    },
+    "home": {
+      "subtitle": "Your tests, evaluations, and reports",
+      "testsCard": {
+        "title": "My Tests",
+        "description": "Assigned and available screeners",
+        "assignedLabel": "Assigned / In progress",
+        "noAssigned": "No assigned tests right now.",
+        "completedLabel": "Completed",
+        "noCompleted": "No completed tests yet."
+      },
+      "evaluationsCard": {
+        "title": "Evaluations & Reports",
+        "description": "Your clinician-administered assessments",
+        "empty": "No evaluations yet.",
+        "dateNotSet": "Date not set",
+        "viewReport": "View report"
+      },
+      "support": {
+        "title": "Need Help?",
+        "description": "If you have questions about your tests or need technical support, please contact your clinician.",
+        "contact": "Contact Support",
+        "privacy": "Your data is stored securely and is only accessible to your clinical team."
+      }
+    }
+  },
+  "instruments": {
+    "assign": {
+      "title": "Assign Test",
+      "description": "Assign a test to this patient",
+      "selectTest": "Select Test",
+      "dueDate": "Due Date (Optional)",
+      "assign": "Assign",
+      "assigning": "Assigning...",
+      "validation": {
+        "testRequired": "Please select a test"
+      },
+      "success": "Test assigned successfully"
+    }
+  },
+  "accessibility": {
+    "title": "Accessibility Settings",
+    "largeText": "Large Text",
+    "largeTextDescription": "Increase text size throughout",
+    "reducedMotion": "Reduced Motion",
+    "reducedMotionDescription": "Minimize animations"
+  },
+  "errors": {
+    "generic": "An error occurred. Please try again.",
+    "notFound": "Page not found",
+    "unauthorized": "You are not authorized",
+    "validationFailed": "Please check your input"
+  }
 }

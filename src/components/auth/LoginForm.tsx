@@ -10,6 +10,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher"
+import { Locale } from "@/lib/i18n"
 import {
   Form,
   FormControl,
@@ -21,7 +22,7 @@ import {
 import { toast } from "sonner"
 
 type Props = {
-  locale: "en" | "fr"
+  locale: Locale
   title: string
   description: string
   emailLabel: string
@@ -31,8 +32,10 @@ type Props = {
   submittingLabel: string
   invalidCredentialsLabel: string
   languageLabel: string
-  languageEnLabel: string
-  languageFrLabel: string
+  languageOptions: { value: Locale; label: string }[]
+  emailRequiredLabel: string
+  emailInvalidLabel: string
+  passwordRequiredLabel: string
 }
 
 export function LoginForm({
@@ -46,16 +49,21 @@ export function LoginForm({
   submittingLabel,
   invalidCredentialsLabel,
   languageLabel,
-  languageEnLabel,
-  languageFrLabel,
+  languageOptions,
+  emailRequiredLabel,
+  emailInvalidLabel,
+  passwordRequiredLabel,
 }: Props) {
   const router = useRouter()
   const searchParams = useSearchParams()
   const callbackUrl = searchParams.get("callbackUrl")
 
   const formSchema = z.object({
-    email: z.string().min(1, { message: "Email is required" }).email({ message: "Invalid email format" }),
-    password: z.string().min(1, { message: "Password is required" }),
+    email: z
+      .string()
+      .min(1, { message: emailRequiredLabel })
+      .email({ message: emailInvalidLabel }),
+    password: z.string().min(1, { message: passwordRequiredLabel }),
   })
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -94,7 +102,7 @@ export function LoginForm({
       </CardHeader>
       <CardContent>
         <div className="mb-4 flex justify-end">
-          <LanguageSwitcher locale={locale} label={languageLabel} enLabel={languageEnLabel} frLabel={languageFrLabel} />
+          <LanguageSwitcher locale={locale} label={languageLabel} options={languageOptions} />
         </div>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">

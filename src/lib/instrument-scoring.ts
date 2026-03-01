@@ -2,10 +2,112 @@ import type { Prisma } from "@prisma/client"
 
 type Response = { value: number }
 
+export type SeverityLevel = "minimal" | "mild" | "moderate" | "severe" | "none"
+
 export type ScoreResult = {
   totalScore: number
   interpretation: string
+  severity?: SeverityLevel
+  percentile?: number
+  normReference?: string
   details?: Prisma.InputJsonValue
+  subscales?: Record<string, { score: number; interpretation: string }>
+}
+
+type NormsTable = {
+  ageRanges?: Array<{ min: number; max: number }>
+  percentiles: Array<{ score: number; percentile: number }>
+  reference: string
+}
+
+const NORMS: Record<string, NormsTable> = {
+  phq9: {
+    percentiles: [
+      { score: 0, percentile: 15 },
+      { score: 5, percentile: 50 },
+      { score: 10, percentile: 80 },
+      { score: 15, percentile: 90 },
+      { score: 20, percentile: 97 },
+    ],
+    reference: "Kroenke K et al. J Gen Intern Med. 2001;16:606-613",
+  },
+  gad7: {
+    percentiles: [
+      { score: 0, percentile: 20 },
+      { score: 5, percentile: 55 },
+      { score: 10, percentile: 85 },
+      { score: 15, percentile: 95 },
+    ],
+    reference: "Spitzer RL et al. Arch Gen Psychiatry. 2006;63:1092-1097",
+  },
+  audit: {
+    percentiles: [
+      { score: 0, percentile: 25 },
+      { score: 8, percentile: 60 },
+      { score: 16, percentile: 85 },
+      { score: 20, percentile: 95 },
+    ],
+    reference: "Saunders JB et al. Addiction. 1993;88:349-362",
+  },
+  scared: {
+    percentiles: [
+      { score: 0, percentile: 30 },
+      { score: 15, percentile: 60 },
+      { score: 25, percentile: 85 },
+      { score: 30, percentile: 95 },
+    ],
+    reference: "Birmaher B et al. J Am Acad Child Adolesc Psychiatry. 1997;36:545-553",
+  },
+  sdq: {
+    percentiles: [
+      { score: 0, percentile: 50 },
+      { score: 3, percentile: 80 },
+      { score: 5, percentile: 90 },
+      { score: 7, percentile: 97 },
+    ],
+    reference: "Goodman R. J Child Psychol Psychiatry. 1997;38:581-586",
+  },
+  pcl5: {
+    percentiles: [
+      { score: 0, percentile: 20 },
+      { score: 20, percentile: 55 },
+      { score: 33, percentile: 75 },
+      { score: 50, percentile: 90 },
+    ],
+    reference: "Weathers FW et al. PTSD Checklist for DSM-5 (PCL-5). 2013",
+  },
+  vanderbilt: {
+    percentiles: [
+      { score: 0, percentile: 25 },
+      { score: 12, percentile: 60 },
+      { score: 24, percentile: 85 },
+      { score: 36, percentile: 95 },
+    ],
+    reference: "Wolraich ML et al. Pediatrics. 2003;113:e745-e760",
+  },
+}
+
+function interpolatePercentile(score: number, norms: NormsTable): number {
+  const { percentiles } = norms
+  if (score <= percentiles[0].score) return percentiles[0].percentile
+  if (score >= percentiles[percentiles.length - 1].score) return 99
+
+  for (let i = 0; i < percentiles.length - 1; i++) {
+    const lower = percentiles[i]
+    const upper = percentiles[i + 1]
+    if (score >= lower.score && score <= upper.score) {
+      const ratio = (score - lower.score) / (upper.score - lower.score)
+      return Math.round(lower.percentile + ratio * (upper.percentile - lower.percentile))
+    }
+  }
+  return 50
+}
+
+function getSeverityFromBands(score: number, bands: Array<{ max: number; severity: SeverityLevel }>): SeverityLevel {
+  for (const band of bands) {
+    if (score <= band.max) return band.severity
+  }
+  return "severe"
 }
 
 function bandByThresholds(
@@ -76,7 +178,14 @@ export function scoreInstrument(slug: string, responses: Response[], totalItems?
         ],
         "Provisional PTSD diagnosis"
       )
-      return { totalScore, interpretation, details: { slug, maxScore: 80 } } // Full is 80, short form max varies
+      return {
+        totalScore,
+        interpretation,
+        severity: totalScore >= 33 ? "moderate" : "minimal",
+        percentile: interpolatePercentile(totalScore, NORMS.pcl5),
+        normReference: NORMS.pcl5.reference,
+        details: { slug, maxScore: 80, threshold: 33 },
+      }
     }
     case "vanderbilt": {
       const interpretation = bandByThresholds(
@@ -86,7 +195,14 @@ export function scoreInstrument(slug: string, responses: Response[], totalItems?
         ],
         "Positive for ADHD symptoms"
       )
-      return { totalScore, interpretation, details: { slug } }
+      return {
+        totalScore,
+        interpretation,
+        severity: totalScore > 11 ? "moderate" : "minimal",
+        percentile: interpolatePercentile(totalScore, NORMS.vanderbilt),
+        normReference: NORMS.vanderbilt.reference,
+        details: { slug },
+      }
     }
     case "scared": {
       const interpretation = bandByThresholds(
@@ -96,7 +212,14 @@ export function scoreInstrument(slug: string, responses: Response[], totalItems?
         ],
         "Significant anxiety symptoms"
       )
-      return { totalScore, interpretation, details: { slug } }
+      return {
+        totalScore,
+        interpretation,
+        severity: totalScore > 24 ? "moderate" : "minimal",
+        percentile: interpolatePercentile(totalScore, NORMS.scared),
+        normReference: NORMS.scared.reference,
+        details: { slug },
+      }
     }
     case "sdq": {
       const interpretation = bandByThresholds(
@@ -108,7 +231,14 @@ export function scoreInstrument(slug: string, responses: Response[], totalItems?
         ],
         "Very high"
       )
-      return { totalScore, interpretation, details: { slug, maxScore: 6 } }
+      return {
+        totalScore,
+        interpretation,
+        severity: totalScore >= 6 ? "severe" : totalScore >= 4 ? "moderate" : totalScore >= 2 ? "mild" : "minimal",
+        percentile: interpolatePercentile(totalScore, NORMS.sdq),
+        normReference: NORMS.sdq.reference,
+        details: { slug, maxScore: 6 },
+      }
     }
     case "phqa": {
       const interpretation = bandByThresholds(
@@ -133,7 +263,14 @@ export function scoreInstrument(slug: string, responses: Response[], totalItems?
         ],
         "Possible dependence"
       )
-      return { totalScore, interpretation, details: { slug } }
+      return {
+        totalScore,
+        interpretation,
+        severity: totalScore >= 16 ? "severe" : totalScore >= 8 ? "moderate" : "minimal",
+        percentile: interpolatePercentile(totalScore, NORMS.audit),
+        normReference: NORMS.audit.reference,
+        details: { slug },
+      }
     }
     case "phq9": {
       const interpretation = bandByThresholds(
@@ -146,7 +283,20 @@ export function scoreInstrument(slug: string, responses: Response[], totalItems?
         ],
         "Severe depression"
       )
-      return { totalScore, interpretation, details: { slug } }
+      const severityBands = [
+        { max: 4, severity: "minimal" as const },
+        { max: 9, severity: "mild" as const },
+        { max: 14, severity: "moderate" as const },
+        { max: 19, severity: "moderate" as const },
+      ]
+      return {
+        totalScore,
+        interpretation,
+        severity: getSeverityFromBands(totalScore, severityBands),
+        percentile: interpolatePercentile(totalScore, NORMS.phq9),
+        normReference: NORMS.phq9.reference,
+        details: { slug, maxScore: 27 },
+      }
     }
     case "gad7": {
       const interpretation = bandByThresholds(
@@ -158,7 +308,43 @@ export function scoreInstrument(slug: string, responses: Response[], totalItems?
         ],
         "Severe anxiety"
       )
-      return { totalScore, interpretation, details: { slug } }
+      const severityBands = [
+        { max: 4, severity: "minimal" as const },
+        { max: 9, severity: "mild" as const },
+        { max: 14, severity: "moderate" as const },
+      ]
+      return {
+        totalScore,
+        interpretation,
+        severity: getSeverityFromBands(totalScore, severityBands),
+        percentile: interpolatePercentile(totalScore, NORMS.gad7),
+        normReference: NORMS.gad7.reference,
+        details: { slug },
+      }
+    }
+    case "audit": {
+      const interpretation = bandByThresholds(
+        totalScore,
+        [
+          { max: 7, label: "Low risk" },
+          { max: 15, label: "Medium risk" },
+          { max: 19, label: "High risk" },
+        ],
+        "Possible dependence"
+      )
+      const severityBands = [
+        { max: 7, severity: "minimal" as const },
+        { max: 15, severity: "mild" as const },
+        { max: 19, severity: "moderate" as const },
+      ]
+      return {
+        totalScore,
+        interpretation,
+        severity: getSeverityFromBands(totalScore, severityBands),
+        percentile: interpolatePercentile(totalScore, NORMS.audit),
+        normReference: NORMS.audit.reference,
+        details: { slug },
+      }
     }
     case "asrs": {
       const interpretation = bandByThresholds(

@@ -1,0 +1,413 @@
+{
+  "_meta": { "language": "العربية", "locale": "ar" },
+  "common": {
+    "appName": "نيوروكلير",
+    "loading": "جاري التحميل...",
+    "saving": "جاري الحفظ...",
+    "submitting": "جاري الإرسال...",
+    "cancel": "إلغاء",
+    "save": "حفظ",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "create": "إنشاء",
+    "add": "إضافة",
+    "search": "بحث",
+    "filter": "تصفية",
+    "export": "تصدير",
+    "close": "إغلاق",
+    "back": "رجوع",
+    "next": "التالي",
+    "confirm": "تأكيد",
+    "done": "تم",
+    "success": "تم بنجاح",
+    "error": "خطأ",
+    "warning": "تنبيه",
+    "required": "مطلوب",
+    "optional": "اختياري",
+    "select": "اختر",
+    "all": "الكل",
+    "none": "لا شيء"
+  },
+  "navigation": {
+    "dashboard": "لوحة التحكم",
+    "patients": "المرضى",
+    "assessments": "التقييمات",
+    "reports": "التقارير",
+    "scoreEntry": "إدخال الدرجات",
+    "assessmentLibrary": "مكتبة التقييمات",
+    "portal": "بوابة المريض",
+    "myTests": "اختباراتي",
+    "home": "الرئيسية",
+    "logout": "تسجيل الخروج",
+    "settings": "الإعدادات"
+  },
+  "language": {
+    "label": "اللغة",
+    "switch": "تغيير اللغة",
+    "options": {
+      "en": "English",
+      "fr": "Français",
+      "ar": "العربية",
+      "sv": "Svenska"
+    }
+  },
+  "header": {
+    "searchPlaceholder": "ابحث في المرضى والتقييمات والتقارير..."
+  },
+  "sidebar": {
+    "tagline": "منصة التقييم",
+    "systemStatusLabel": "حالة النظام",
+    "systemStatusValue": "جميع الأنظمة تعمل"
+  },
+  "status": {
+    "evaluation": {
+      "IN_PROGRESS": "قيد التقدم",
+      "PENDING_REVIEW": "بانتظار المراجعة",
+      "COMPLETED": "مكتمل"
+    },
+    "assignment": {
+      "ASSIGNED": "مُكلَّف",
+      "IN_PROGRESS": "قيد التنفيذ",
+      "SUBMITTED": "تم الإرسال"
+    },
+    "priority": {
+      "HIGH": "مرتفعة",
+      "MEDIUM": "متوسطة",
+      "LOW": "منخفضة"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "تسجيل الدخول",
+      "description": "استخدم بريدك الإلكتروني وكلمة المرور للوصول إلى نيوروكلير",
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "emailPlaceholder": "you@example.com",
+      "submit": "تسجيل الدخول",
+      "submitting": "جاري تسجيل الدخول...",
+      "invalid": "البريد أو كلمة المرور غير صحيحة"
+    }
+  },
+  "dashboard": {
+    "title": "لوحة التحكم",
+    "description": "نظرة عامة على نشاط منصة التقييم",
+    "cards": {
+      "activeEvaluations": { "title": "تقييمات جارية", "description": "نشطة حالياً" },
+      "completedReports": { "title": "تقارير مكتملة", "description": "جاهزة للتسليم" },
+      "pendingReviews": { "title": "مراجعات معلقة", "description": "بانتظار الموافقة" },
+      "totalPatients": { "title": "إجمالي المرضى", "description": "مسجلون في المنصة" }
+    },
+    "charts": {
+      "platformTitle": "توزيع حسب المنصة",
+      "platformDescription": "توزيع التقييمات بحسب المنصة",
+      "domainTitle": "توزيع حسب المجال",
+      "domainDescription": "التقييمات بحسب نوع المجال"
+    },
+    "recent": {
+      "title": "أحدث التقييمات",
+      "description": "أحدث الأنشطة",
+      "columns": {
+        "id": "المعرف",
+        "patient": "المريض",
+        "assessment": "التقييم",
+        "platform": "المنصة",
+        "status": "الحالة",
+        "date": "التاريخ"
+      },
+      "notSet": "غير محدد"
+    }
+  },
+  "patients": {
+    "title": "المرضى",
+    "description": "إدارة قائمة المرضى وسجل التقييمات",
+    "cta": "إضافة مريض",
+    "stats": {
+      "total": { "title": "إجمالي المرضى", "description": "مرضى مسجّلون" },
+      "active": { "title": "نشطون", "description": "يتلقون العلاج حالياً" },
+      "pending": { "title": "تقييمات معلقة", "description": "ببطاريات نشطة" },
+      "new": { "title": "جدد هذا الشهر", "description": "أضيفوا مؤخراً" }
+    },
+    "roster": {
+      "title": "سجل المرضى",
+      "description": "ابحث وفلتر سجلات المرضى",
+      "searchPlaceholder": "ابحث عن مرضى...",
+      "statusFilter": {
+        "all": "كل الحالات",
+        "active": "نشط",
+        "inactive": "غير نشط",
+        "discharged": "مُخلى"
+      }
+    },
+    "tableHeaders": {
+      "id": "معرّف المريض",
+      "name": "الاسم",
+      "age": "العمر",
+      "referral": "مصدر الإحالة",
+      "status": "الحالة",
+      "activeBatteries": "بطاريات نشطة",
+      "lastEvaluation": "آخر تقييم",
+      "actions": "إجراءات"
+    },
+    "status": {
+      "ACTIVE": "نشط",
+      "INACTIVE": "غير نشط",
+      "DISCHARGED": "مُخلى"
+    },
+    "empty": {
+      "title": "لا يوجد مرضى",
+      "description": "جرّب تعديل البحث أو عوامل التصفية."
+    },
+    "table": {
+      "dobLabel": "تاريخ الميلاد",
+      "ageSuffix": "سنة",
+      "referralUnknown": "غير محدد",
+      "noActiveBatteries": "لا يوجد",
+      "lastEvaluationUnknown": "غير متاح",
+      "view": "عرض التفاصيل"
+    },
+    "detail": {
+      "personalInfo": "معلومات شخصية",
+      "firstName": "الاسم الأول",
+      "lastName": "اسم العائلة",
+      "dateOfBirth": "تاريخ الميلاد"
+    },
+    "form": {
+      "validation": {
+        "firstNameRequired": "الاسم الأول مطلوب",
+        "lastNameRequired": "اسم العائلة مطلوب"
+      }
+    }
+  },
+  "assessments": {
+    "title": "التقييمات",
+    "description": "إدارة حزم التقييم والتصحيح",
+    "name": "الاسم",
+    "platform": "المنصة",
+    "domain": "المجال",
+    "assignToPatient": "تعيين للمريض"
+  },
+  "reports": {
+    "title": "التقارير",
+    "description": "عرض وإدارة تقارير التقييم",
+    "cta": "إنشاء تقرير جديد",
+    "metrics": {
+      "total": { "title": "إجمالي التقارير", "description": "تقارير منشأة" },
+      "completed": { "title": "مكتملة", "description": "جاهزة للتسليم" },
+      "inProgress": { "title": "قيد الإعداد", "description": "تُكتب حالياً" },
+      "pendingReview": { "title": "بانتظار المراجعة", "description": "تحتاج إلى موافقة" }
+    },
+    "list": {
+      "title": "قائمة التقارير",
+      "description": "اختر تقريراً لعرضه",
+      "searchPlaceholder": "ابحث في التقارير...",
+      "statusFilter": {
+        "label": "الحالة",
+        "options": {
+          "ALL": "كل الحالات",
+          "COMPLETED": "مكتمل",
+          "IN_PROGRESS": "قيد الإعداد",
+          "PENDING_REVIEW": "بانتظار المراجعة"
+        }
+      },
+      "empty": {
+        "title": "لا توجد تقارير",
+        "description": "عدّل البحث أو عوامل التصفية."
+      }
+    },
+    "tabs": {
+      "scores": "الدرجات",
+      "diagnostics": "التشخيص",
+      "narrative": "السرد",
+      "recommendations": "التوصيات"
+    },
+    "scores": {
+      "detailTitle": "تفاصيل الدرجات الكلية",
+      "detailDescription": "درجات الفهارس والرتب المئوية"
+    },
+    "diagnostics": {
+      "title": "الانطباعات التشخيصية",
+      "description": "تشخيصات DSM-5 و ICD-11",
+      "supportingEvidence": "أدلة داعمة",
+      "empty": "لا توجد انطباعات تشخيصية."
+    },
+    "narrative": {
+      "title": "التقرير السردي",
+      "description": "أقسام التقرير المنظمة",
+      "empty": "لا توجد أقسام سردية."
+    },
+    "recommendations": {
+      "title": "التوصيات",
+      "description": "تدخلات وتسهيلات مبنية على الأدلة",
+      "empty": "لا توجد توصيات مسجلة.",
+      "categories": {
+        "ACADEMIC_ACCOMMODATIONS": "تسهيلات أكاديمية",
+        "THERAPY": "علاج",
+        "EDUCATIONAL_PLANNING": "تخطيط تعليمي",
+        "RE_EVALUATION": "إعادة تقييم"
+      }
+    },
+    "actions": {
+      "openBuilder": "فتح منشئ التقارير"
+    },
+    "builder": {
+      "title": "منشئ التقارير",
+      "finalize": {
+        "title": "تأكيد التقرير",
+        "description": "أدخل بياناتك لاعتماد التقرير",
+        "name": "الاسم الكامل",
+        "titleField": "الوظيفة / المؤهل",
+        "confirm": "تأكيد وإنهاء",
+        "finalized": "تم اعتماد التقرير",
+        "locked": "تم إقفال هذا التقرير"
+      },
+      "export": { "pdf": "تحميل PDF" },
+      "preview": "معاينة التقرير"
+    }
+  },
+  "scoreEntry": {
+    "title": "إدخال الدرجات",
+    "description": "أدخل الدرجات الخام والمحولة",
+    "adminDetails": "تفاصيل التنفيذ",
+    "adminDescription": "أدخل معلومات التقييم واختر الأداة",
+    "patient": "المريض",
+    "assessment": "التقييم",
+    "platform": "المنصة",
+    "adminDate": "تاريخ التنفيذ",
+    "adminBy": "نفذه",
+    "adminByPlaceholder": "اسم الأخصائي",
+    "selectPatient": "اختر المريض",
+    "selectAssessment": "اختر التقييم",
+    "autoFilled": "يُملأ تلقائياً من التقييم",
+    "subtestTab": "درجات الاختبارات الفرعية",
+    "compositeTab": "الدرجات الكلية",
+    "summaryTab": "الملخص",
+    "saveEvaluation": "حفظ التقييم",
+    "subtests": {
+      "description": "أدخل الدرجات الخام والمحولة",
+      "headers": {
+        "subtest": "اختبار فرعي",
+        "raw": "درجة خام",
+        "scaled": "درجة محولة"
+      }
+    },
+    "composites": {
+      "title": "الدرجات الكلية",
+      "description": "درجات الفهارس والرتب المئوية",
+      "calculate": "احسب من الاختبارات الفرعية",
+      "headers": {
+        "index": "الفهرس",
+        "fullName": "الاسم الكامل",
+        "score": "الدرجة",
+        "percentile": "النسبة المئوية"
+      }
+    },
+    "summary": {
+      "title": "ملخص التقييم",
+      "description": "راجع واحفظ التقييم الكامل",
+      "detailsTitle": "تفاصيل التنفيذ",
+      "scoreTitle": "ملخص الدرجات",
+      "notSelected": "غير محدد",
+      "notSet": "غير متاح"
+    },
+    "actions": {
+      "save": "حفظ التقييم",
+      "saving": "جارٍ الحفظ..."
+    },
+    "errors": {
+      "saveFailed": "فشل حفظ التقييم."
+    },
+    "loading": "جاري تحميل النموذج...",
+    "validation": {
+      "patientRequired": "يرجى اختيار مريض",
+      "assessmentRequired": "يرجى اختيار تقييم",
+      "dateRequired": "يرجى اختيار تاريخ التنفيذ"
+    }
+  },
+  "portal": {
+    "testsPage": {
+      "title": "الاختبارات",
+      "description": "أجب عن الاختبارات المخصصة واطلع على النتائج"
+    },
+    "welcome": "مرحباً",
+    "description": "أجب عن الاختبارات المخصصة واطلع على النتائج",
+    "assignedTests": "اختبارات مخصصة",
+    "assignedDescription": "اختبارات خصصها لك الأخصائي",
+    "completedTests": "اختبارات منتهية",
+    "availableTests": "اختبارات متاحة",
+    "availableDescription": "اختبارات إضافية مناسبة لعمرك",
+    "noAssignedTests": "لا توجد اختبارات مخصصة بعد.",
+    "noAvailable": "لا توجد اختبارات إضافية.",
+    "startTest": "ابدأ الاختبار",
+    "resumeTest": "متابعة",
+    "viewResults": "عرض النتائج",
+    "dueDate": "الموعد",
+    "progress": "التقدم",
+    "ageLabel": "العمر",
+    "badges": {
+      "due": "الموعد",
+      "progress": "التقدم",
+      "saved": "تم الحفظ",
+      "submitted": "تم الإرسال"
+    },
+    "buttons": {
+      "start": "ابدأ",
+      "startContinue": "ابدأ / تابع",
+      "view": "عرض",
+      "viewTests": "عرض الاختبارات",
+      "back": "العودة إلى البوابة"
+    },
+    "messages": {
+      "missingPatientTitle": "لم يتم العثور على المريض",
+      "missingPatientDescription": "تعذر العثور على سجل المريض."
+    },
+    "results": {
+      "title": "نتائج الاختبار",
+      "score": "الدرجة",
+      "interpretation": "التفسير",
+      "disclaimer": "هذه النتائج للاسترشاد فقط"
+    },
+    "home": {
+      "subtitle": "اختباراتك وتقييماتك وتقاريرك",
+      "testsCard": {
+        "title": "اختباراتي",
+        "description": "استبيانات مخصصة ومفتوحة",
+        "assignedLabel": "مخصصة / قيد التنفيذ",
+        "noAssigned": "لا توجد اختبارات مخصصة حالياً.",
+        "completedLabel": "منتهية",
+        "noCompleted": "لا توجد اختبارات منتهية بعد."
+      },
+      "evaluationsCard": {
+        "title": "التقييمات والتقارير",
+        "description": "التقييمات التي نفذها الأخصائي",
+        "empty": "لا توجد تقييمات حتى الآن.",
+        "dateNotSet": "التاريخ غير محدد",
+        "viewReport": "عرض التقرير"
+      }
+    }
+  },
+  "instruments": {
+    "assign": {
+      "title": "تعيين اختبار",
+      "description": "قم بتعيين اختبار لهذا المريض",
+      "selectTest": "اختر اختباراً",
+      "dueDate": "تاريخ الاستحقاق (اختياري)",
+      "assign": "تعيين",
+      "assigning": "جاري التعيين...",
+      "validation": { "testRequired": "يرجى اختيار اختبار" },
+      "success": "تم تعيين الاختبار بنجاح"
+    }
+  },
+  "accessibility": {
+    "title": "إعدادات إمكانية الوصول",
+    "largeText": "نص كبير",
+    "largeTextDescription": "تكبير حجم النص",
+    "reducedMotion": "تقليل الحركة",
+    "reducedMotionDescription": "تقليل الرسوم المتحركة"
+  },
+  "errors": {
+    "generic": "حدث خطأ. يرجى المحاولة مرة أخرى.",
+    "notFound": "الصفحة غير موجودة",
+    "unauthorized": "غير مصرح لك",
+    "validationFailed": "يرجى التحقق من المدخلات"
+  }
+}

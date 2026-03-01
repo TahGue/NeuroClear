@@ -5,7 +5,10 @@ import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
 import { formatDate, formatDateTime } from "@/lib/utils"
 import { requirePatientSession } from "@/lib/rbac"
-import { PortalLogoutButton } from "@/components/auth/PortalLogoutButton"
+import { Progress } from "@/components/ui/progress"
+import { EmptyState } from "@/components/ui/EmptyState"
+import { getServerLocale, getT } from "@/lib/i18n-server"
+import { Prisma } from "@prisma/client"
 
 export const dynamic = "force-dynamic"
 
@@ -27,6 +30,8 @@ function isInstrumentInAgeRange(
 
 export default async function PortalTestsPage() {
   const { patientId } = await requirePatientSession()
+  const locale = await getServerLocale()
+  const t = await getT(locale)
 
   const patient = await prisma.patient.findUnique({
     where: { id: patientId },
@@ -35,17 +40,12 @@ export default async function PortalTestsPage() {
 
   if (!patient) {
     return (
-      <div className="p-6">
-        <Card>
-          <CardHeader>
-            <CardTitle>Patient not found</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-sm text-muted-foreground mb-4">We couldn&apos;t find your patient record.</p>
-            <PortalLogoutButton />
-          </CardContent>
-        </Card>
-      </div>
+      <EmptyState
+        title={t("portal.messages.missingPatientTitle")}
+        description={t("portal.messages.missingPatientDescription")}
+        actionLabel={t("portal.buttons.back")}
+        actionHref="/portal"
+      />
     )
   }
 
@@ -56,14 +56,30 @@ export default async function PortalTestsPage() {
     include: { instrument: true },
     orderBy: { createdAt: "desc" },
   })
+  type AssignmentWithInstrument = (typeof assignments)[number]
+
+  const instrumentSelect = Prisma.validator<Prisma.InstrumentSelect>()({
+    id: true,
+    name: true,
+    description: true,
+    slug: true,
+    minAgeYears: true,
+    maxAgeYears: true,
+    status: true,
+  })
 
   const instruments = await prisma.instrument.findMany({
     where: { status: "ACTIVE" },
     orderBy: { name: "asc" },
+    select: instrumentSelect,
   })
+  type InstrumentWithAge = (typeof instruments)[number]
 
-  const ageFilteredInstruments = instruments.filter((i) =>
-    isInstrumentInAgeRange(ageYears, { minAgeYears: i.minAgeYears, maxAgeYears: i.maxAgeYears })
+  const ageFilteredInstruments = instruments.filter((instrument: InstrumentWithAge) =>
+    isInstrumentInAgeRange(ageYears, {
+      minAgeYears: instrument.minAgeYears,
+      maxAgeYears: instrument.maxAgeYears,
+    })
   )
 
   const assignedInstrumentIds = new Set(assignments.map((a) => a.instrumentId))
@@ -98,7 +114,7 @@ export default async function PortalTestsPage() {
     }
   }
 
-  const sortedAssignments = [...assignments].sort((a, b) => {
+  const sortedAssignments = [...assignments].sort((a: AssignmentWithInstrument, b: AssignmentWithInstrument) => {
     const aDue = a.dueDate?.getTime() ?? Number.POSITIVE_INFINITY
     const bDue = b.dueDate?.getTime() ?? Number.POSITIVE_INFINITY
     if (aDue !== bDue) return aDue - bDue
@@ -113,20 +129,20 @@ export default async function PortalTestsPage() {
   })
 
   return (
-    <div className="min-h-screen bg-background p-6 space-y-6">
+    <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold text-foreground">Tests</h1>
-        <p className="text-muted-foreground">Take assigned screeners and view results</p>
+        <h1 className="text-3xl font-bold text-foreground">{t("portal.testsPage.title")}</h1>
+        <p className="text-muted-foreground">{t("portal.testsPage.description")}</p>
       </div>
 
       <Card>
         <CardHeader>
-          <CardTitle>Assigned Tests</CardTitle>
-          <CardDescription>Tests assigned to you by your clinician</CardDescription>
+          <CardTitle>{t("portal.assignedTests")}</CardTitle>
+          <CardDescription>{t("portal.assignedDescription")}</CardDescription>
         </CardHeader>
         <CardContent>
           {assignments.length === 0 ? (
-            <p className="text-sm text-muted-foreground">No assigned tests yet.</p>
+            <p className="text-sm text-muted-foreground">{t("portal.noAssignedTests")}</p>
           ) : (
             <div className="grid gap-4 md:grid-cols-2">
               {sortedAssignments.map((a) => {
@@ -134,6 +150,7 @@ export default async function PortalTestsPage() {
                 const answeredCount = latest?._count?.responses ?? 0
                 const totalCount = latest?.instrument?._count?.items
                 const progressText = totalCount ? `${answeredCount}/${totalCount}` : `${answeredCount}`
+                const progressPercentage = totalCount ? (answeredCount / totalCount) * 100 : 0
                 const isSubmitted = a.status === "SUBMITTED"
 
                 return (
@@ -143,26 +160,44 @@ export default async function PortalTestsPage() {
                       <CardDescription>{a.instrument.description}</CardDescription>
 
                       <div className="flex flex-wrap gap-2 text-xs">
-                        <Badge variant="secondary">{a.status.replace("_", " ")}</Badge>
-                        {a.dueDate ? <Badge variant="outline">Due {formatDate(a.dueDate)}</Badge> : null}
-                        <Badge variant="outline">Progress {progressText}</Badge>
+                        <Badge variant="secondary">{t(`status.assignment.${a.status}`)}</Badge>
+                        {a.dueDate ? (
+                          <Badge variant="outline">
+                            {t("portal.badges.due")} {formatDate(a.dueDate)}
+                          </Badge>
+                        ) : null}
+                        {!isSubmitted ? (
+                          <Badge variant="outline">
+                            {t("portal.badges.progress")} {progressText}
+                          </Badge>
+                        ) : null}
                         {!isSubmitted && latest?.updatedAt ? (
-                          <Badge variant="outline">Saved {formatDateTime(latest.updatedAt)}</Badge>
+                          <Badge variant="outline">
+                            {t("portal.badges.saved")} {formatDateTime(latest.updatedAt)}
+                          </Badge>
                         ) : null}
                         {isSubmitted && latest?.submittedAt ? (
-                          <Badge variant="outline">Submitted {formatDateTime(latest.submittedAt)}</Badge>
+                          <Badge variant="outline">
+                            {t("portal.badges.submitted")} {formatDateTime(latest.submittedAt)}
+                          </Badge>
                         ) : null}
                       </div>
+
+                      {!isSubmitted && totalCount ? (
+                        <Progress value={progressPercentage} className="h-1.5 mt-2" />
+                      ) : null}
                     </CardHeader>
                     <CardContent className="space-y-3">
                       {isSubmitted ? (
                         <p className="text-sm text-muted-foreground">
-                          Score: {latest?.result?.totalScore ?? "--"} — {latest?.result?.interpretation ?? "--"}
+                          {t("portal.results.score")}: {latest?.result?.totalScore ?? "--"} — {latest?.result?.interpretation ?? t("common.notAvailable")}
                         </p>
                       ) : null}
 
                       <Button asChild>
-                        <Link href={`/portal/tests/${a.instrument.slug}`}>{isSubmitted ? "View" : "Start / Continue"}</Link>
+                        <Link href={`/portal/tests/${a.instrument.slug}`}>
+                          {isSubmitted ? t("portal.buttons.view") : t("portal.buttons.startContinue")}
+                        </Link>
                       </Button>
                     </CardContent>
                   </Card>
@@ -175,12 +210,14 @@ export default async function PortalTestsPage() {
 
       <Card>
         <CardHeader>
-          <CardTitle>Available Tests</CardTitle>
-          <CardDescription>Additional tests available for your age group (Age: {ageYears})</CardDescription>
+          <CardTitle>{t("portal.availableTests")}</CardTitle>
+          <CardDescription>
+            {t("portal.availableDescription")} ({t("portal.ageLabel")}: {ageYears})
+          </CardDescription>
         </CardHeader>
         <CardContent>
           {availableInstruments.length === 0 ? (
-            <p className="text-sm text-muted-foreground">No additional tests available.</p>
+            <p className="text-sm text-muted-foreground">{t("portal.noAvailable")}</p>
           ) : (
             <div className="grid gap-4 md:grid-cols-2">
               {availableInstruments.map((inst) => (
@@ -191,7 +228,7 @@ export default async function PortalTestsPage() {
                   </CardHeader>
                   <CardContent>
                     <Button asChild variant="outline">
-                      <Link href={`/portal/tests/${inst.slug}`}>Start</Link>
+                      <Link href={`/portal/tests/${inst.slug}`}>{t("portal.buttons.start")}</Link>
                     </Button>
                   </CardContent>
                 </Card>
@@ -203,7 +240,7 @@ export default async function PortalTestsPage() {
 
       <div>
         <Button asChild variant="outline">
-          <Link href="/portal">Back to portal</Link>
+          <Link href="/portal">{t("portal.buttons.back")}</Link>
         </Button>
       </div>
     </div>

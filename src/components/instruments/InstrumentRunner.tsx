@@ -1,10 +1,12 @@
 "use client"
 
 import { useEffect, useMemo, useState, useTransition } from "react"
+import { useI18n } from "@/lib/i18n-context"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from "next/link"
 import { formatDateTime } from "@/lib/utils"
+import { Progress } from "@/components/ui/progress"
 import { toast } from "sonner"
 
 type Option = { label: string; value: number }
@@ -46,6 +48,7 @@ export function InstrumentRunner({
   onSubmit: () => Promise<{ success: boolean; error?: string }>
   backLink?: string
 }) {
+  const { t } = useI18n()
   const [index, setIndex] = useState(0)
   const [pending, startTransition] = useTransition()
 
@@ -83,10 +86,10 @@ export function InstrumentRunner({
     startTransition(async () => {
       const res = await onSubmit()
       if (res.success) {
-        toast.success("Instrument submitted successfully")
+        toast.success(t("common.success"))
         window.location.href = backLink
       } else {
-        toast.error(res.error || "Failed to submit")
+        toast.error(res.error || t("portal.errors.submit"))
       }
     })
   }
@@ -99,27 +102,30 @@ export function InstrumentRunner({
           <p className="text-muted-foreground">{instrumentDescription}</p>
         ) : null}
 
-        <div className="mt-2 flex flex-wrap gap-2 text-xs text-muted-foreground">
-          <span>
-            Progress {responses.length}/{items.length}
-          </span>
-          {isSubmitted && submittedAt ? (
-            <span>Submitted {formatDateTime(submittedAt)}</span>
-          ) : lastSavedAt ? (
-            <span>Last saved {formatDateTime(lastSavedAt)}</span>
-          ) : null}
+        <div className="mt-4 space-y-2">
+          <Progress value={(responses.length / items.length) * 100} className="h-2" />
+          <div className="flex flex-wrap gap-2 text-xs text-muted-foreground">
+            <span>
+              {t("portal.badges.progress")} {responses.length}/{items.length}
+            </span>
+            {isSubmitted && submittedAt ? (
+              <span>{t("portal.badges.submitted")} {formatDateTime(submittedAt)}</span>
+            ) : lastSavedAt ? (
+              <span>{t("portal.badges.saved")} {formatDateTime(lastSavedAt)}</span>
+            ) : null}
+          </div>
         </div>
       </div>
 
       {isSubmitted ? (
         <Card>
           <CardHeader>
-            <CardTitle>Already submitted</CardTitle>
-            <CardDescription>This instrument session has been submitted.</CardDescription>
+            <CardTitle>{t("common.success")}</CardTitle>
+            <CardDescription>{t("portal.home.testsCard.completedLabel")}</CardDescription>
           </CardHeader>
           <CardContent>
             <Button asChild variant="outline">
-              <Link href={backLink}>Back to tests</Link>
+              <Link href={backLink}>{t("portal.buttons.back")}</Link>
             </Button>
           </CardContent>
         </Card>

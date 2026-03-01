@@ -60,22 +60,22 @@
 
 #### Global UX
 
-- [ ] **Unified layouts**
+- [x] **Unified layouts**
   - [ ] Staff layout (dashboard sidebar/header)
   - [ ] Patient layout (portal navigation)
-- [ ] **Loading / empty / error states**
-  - [ ] Consistent skeletons for tables and cards
-  - [ ] Standard empty states for no patients / no reports / no sessions
-- [ ] **Toast notifications** instead of `alert()` (save success/failure, validation, etc.)
-- [ ] **Form validation**
-  - [ ] Zod + inline errors on client forms (login, score entry, etc.)
+- [x] **Loading / empty / error states**
+  - [x] Consistent skeletons for tables and cards
+  - [x] Standard empty states for no patients / no reports / no sessions
+- [x] **Toast notifications** instead of `alert()` (save success/failure, validation, etc.)
+- [x] **Form validation**
+  - [x] Zod + inline errors on client forms (login, score entry, etc.)
 
 #### Navigation
 
-- [ ] Patient portal “home” that clearly shows:
-  - [ ] assigned tests
-  - [ ] completed tests + results
-  - [ ] evaluation/report availability
+- [x] Patient portal “home” that clearly shows:
+  - [x] assigned tests
+  - [x] completed tests + results
+  - [x] evaluation/report availability
 
 ---
 
@@ -124,9 +124,9 @@
   - [x] only show applicable tests
   - [ ] language level adjustments for pediatric vs adult
 - [ ] **Accessibility**
-  - [ ] large text option
-  - [ ] keyboard navigation
-  - [ ] clear progress indication
+  - [x] large text option
+  - [x] keyboard navigation
+  - [x] clear progress indication
 - [ ] **Session behavior**
   - [x] autosave per answer (already partly implemented)
   - [x] resume where left off
@@ -151,10 +151,10 @@
 
 #### Reporting
 
-- [ ] Report builder improvements:
-  - [ ] editable narrative sections
-  - [ ] clinician signature + timestamp
-  - [ ] export to PDF
+- [x] Report builder improvements:
+  - [x] editable narrative sections
+  - [x] clinician signature + timestamp
+  - [x] export to PDF
 
 ---
 

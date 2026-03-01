@@ -1,13 +1,417 @@
 {
-  "login.title": "Se connecter",
-  "login.description": "Utilisez votre e-mail et votre mot de passe pour accéder à NeuroClear",
-  "login.email": "E-mail",
-  "login.password": "Mot de passe",
-  "login.emailPlaceholder": "vous@exemple.com",
-  "login.submit": "Se connecter",
-  "login.submitting": "Connexion...",
-  "login.invalid": "E-mail ou mot de passe invalide",
-  "language.label": "Langue",
-  "language.en": "English",
-  "language.fr": "Français"
+  "_meta": { "language": "Français", "locale": "fr" },
+  "common": {
+    "appName": "NeuroClear",
+    "loading": "Chargement...",
+    "saving": "Enregistrement...",
+    "submitting": "Envoi...",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "create": "Créer",
+    "add": "Ajouter",
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "export": "Exporter",
+    "close": "Fermer",
+    "back": "Retour",
+    "next": "Suivant",
+    "confirm": "Confirmer",
+    "done": "Terminé",
+    "success": "Succès",
+    "error": "Erreur",
+    "warning": "Attention",
+    "required": "Requis",
+    "optional": "Optionnel",
+    "select": "Sélectionner",
+    "all": "Tout",
+    "none": "Aucun",
+    "notAvailable": "N/A"
+  },
+  "navigation": {
+    "dashboard": "Tableau de bord",
+    "patients": "Patients",
+    "assessments": "Évaluations",
+    "reports": "Rapports",
+    "scoreEntry": "Saisie des scores",
+    "assessmentLibrary": "Bibliothèque d'évaluations",
+    "portal": "Portail patient",
+    "myTests": "Mes tests",
+    "home": "Accueil",
+    "logout": "Déconnexion",
+    "settings": "Paramètres"
+  },
+  "language": {
+    "label": "Langue",
+    "switch": "Changer de langue",
+    "options": {
+      "en": "English",
+      "fr": "Français",
+      "ar": "العربية",
+      "sv": "Svenska"
+    }
+  },
+  "header": {
+    "searchPlaceholder": "Rechercher patients, évaluations, rapports..."
+  },
+  "sidebar": {
+    "tagline": "Plateforme d'évaluation",
+    "systemStatusLabel": "Statut du système",
+    "systemStatusValue": "Tous les systèmes opérationnels"
+  },
+  "status": {
+    "evaluation": {
+      "IN_PROGRESS": "En cours",
+      "PENDING_REVIEW": "En attente de revue",
+      "COMPLETED": "Terminé"
+    },
+    "assignment": {
+      "ASSIGNED": "Assigné",
+      "IN_PROGRESS": "En cours",
+      "SUBMITTED": "Soumis"
+    },
+    "priority": {
+      "HIGH": "Élevée",
+      "MEDIUM": "Moyenne",
+      "LOW": "Faible"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Se connecter",
+      "description": "Utilisez votre e-mail et votre mot de passe pour accéder à NeuroClear",
+      "email": "E-mail",
+      "password": "Mot de passe",
+      "emailPlaceholder": "vous@exemple.com",
+      "submit": "Se connecter",
+      "submitting": "Connexion...",
+      "invalid": "E-mail ou mot de passe invalide",
+      "emailRequired": "L'e-mail est requis",
+      "emailInvalid": "Veuillez saisir un e-mail valide",
+      "passwordRequired": "Le mot de passe est requis"
+    }
+  },
+  "dashboard": {
+    "title": "Tableau de bord",
+    "description": "Vue d'ensemble de l'activité de la plateforme",
+    "cards": {
+      "activeEvaluations": { "title": "Évaluations actives", "description": "Actuellement en cours" },
+      "completedReports": { "title": "Rapports terminés", "description": "Prêts à être diffusés" },
+      "pendingReviews": { "title": "Relectures en attente", "description": "En attente d'approbation" },
+      "totalPatients": { "title": "Patients totaux", "description": "Inscrits sur la plateforme" }
+    },
+    "charts": {
+      "platformTitle": "Répartition par plateforme",
+      "platformDescription": "Distribution des évaluations par plateforme",
+      "domainTitle": "Répartition par domaine",
+      "domainDescription": "Évaluations par type de domaine"
+    },
+    "recent": {
+      "title": "Évaluations récentes",
+      "description": "Activités d'évaluation les plus récentes",
+      "columns": {
+        "id": "ID",
+        "patient": "Patient",
+        "assessment": "Évaluation",
+        "platform": "Plateforme",
+        "status": "Statut",
+        "date": "Date"
+      },
+      "notSet": "Non défini"
+    }
+  },
+  "patients": {
+    "title": "Patients",
+    "description": "Gérez la liste des patients et leur historique d'évaluations",
+    "cta": "Ajouter un patient",
+    "stats": {
+      "total": { "title": "Patients totaux", "description": "Patients enregistrés" },
+      "active": { "title": "Actifs", "description": "Actuellement suivis" },
+      "pending": { "title": "Évaluations en attente", "description": "Avec batteries actives" },
+      "new": { "title": "Nouveaux ce mois-ci", "description": "Ajoutés récemment" }
+    },
+    "roster": {
+      "title": "Liste des patients",
+      "description": "Recherchez et filtrez les dossiers patients",
+      "searchPlaceholder": "Rechercher des patients...",
+      "statusFilter": {
+        "all": "Tous les statuts",
+        "active": "Actif",
+        "inactive": "Inactif",
+        "discharged": "Sorti"
+      }
+    },
+    "tableHeaders": {
+      "id": "ID patient",
+      "name": "Nom",
+      "age": "Âge",
+      "referral": "Source d'orientation",
+      "status": "Statut",
+      "activeBatteries": "Batteries actives",
+      "lastEvaluation": "Dernière évaluation",
+      "actions": "Actions"
+    },
+    "status": {
+      "ACTIVE": "Actif",
+      "INACTIVE": "Inactif",
+      "DISCHARGED": "Sorti"
+    },
+    "empty": {
+      "title": "Aucun patient trouvé",
+      "description": "Essayez d'ajuster votre recherche ou vos filtres."
+    },
+    "table": {
+      "dobLabel": "Date de naissance",
+      "ageSuffix": "ans",
+      "referralUnknown": "Non précisé",
+      "noActiveBatteries": "Aucun",
+      "lastEvaluationUnknown": "N/A",
+      "view": "Voir les détails"
+    },
+    "detail": {
+      "personalInfo": "Informations personnelles",
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "dateOfBirth": "Date de naissance"
+    },
+    "form": {
+      "validation": {
+        "firstNameRequired": "Le prénom est requis",
+        "lastNameRequired": "Le nom est requis"
+      }
+    }
+  },
+  "assessments": {
+    "title": "Évaluations",
+    "description": "Gérez les batteries d'évaluation et le scoring",
+    "name": "Nom",
+    "platform": "Plateforme",
+    "domain": "Domaine",
+    "assignToPatient": "Assigner au patient"
+  },
+  "reports": {
+    "title": "Rapports",
+    "description": "Consultez et gérez les rapports d'évaluation psychologique",
+    "cta": "Générer un rapport",
+    "metrics": {
+      "total": { "title": "Rapports totaux", "description": "Rapports générés" },
+      "completed": { "title": "Terminés", "description": "Prêts à être diffusés" },
+      "inProgress": { "title": "En cours", "description": "En cours de rédaction" },
+      "pendingReview": { "title": "À relire", "description": "En attente d'approbation" }
+    },
+    "list": {
+      "title": "Liste des rapports",
+      "description": "Sélectionnez un rapport à afficher",
+      "searchPlaceholder": "Rechercher des rapports...",
+      "statusFilter": {
+        "label": "Statut",
+        "options": {
+          "ALL": "Tous les statuts",
+          "COMPLETED": "Terminés",
+          "IN_PROGRESS": "En cours",
+          "PENDING_REVIEW": "À relire"
+        }
+      },
+      "empty": {
+        "title": "Aucun rapport trouvé",
+        "description": "Essayez d'ajuster votre recherche ou vos filtres."
+      }
+    },
+    "tabs": {
+      "scores": "Scores",
+      "diagnostics": "Diagnostics",
+      "narrative": "Narratif",
+      "recommendations": "Recommandations"
+    },
+    "scores": {
+      "detailTitle": "Détail des scores composites",
+      "detailDescription": "Scores d'index et rangs centiles"
+    },
+    "diagnostics": {
+      "title": "Impressions diagnostiques",
+      "description": "Formulations diagnostiques DSM-5 et CIM-11",
+      "supportingEvidence": "Éléments à l'appui",
+      "empty": "Aucune impression diagnostique enregistrée."
+    },
+    "narrative": {
+      "title": "Rapport narratif",
+      "description": "Sections structurées du rapport",
+      "empty": "Aucune section narrative enregistrée."
+    },
+    "recommendations": {
+      "title": "Recommandations",
+      "description": "Interventions et aménagements fondés sur des preuves",
+      "empty": "Aucune recommandation enregistrée.",
+      "categories": {
+        "ACADEMIC_ACCOMMODATIONS": "Aménagements scolaires",
+        "THERAPY": "Thérapie",
+        "EDUCATIONAL_PLANNING": "Planification éducative",
+        "RE_EVALUATION": "Réévaluation"
+      }
+    },
+    "actions": {
+      "openBuilder": "Ouvrir le générateur"
+    },
+    "builder": {
+      "title": "Générateur de rapports",
+      "finalize": {
+        "title": "Finaliser le rapport",
+        "description": "Saisissez vos informations pour finaliser le rapport",
+        "name": "Nom complet",
+        "titleField": "Titre/Qualifications",
+        "confirm": "Confirmer et finaliser",
+        "finalized": "Rapport finalisé",
+        "locked": "Ce rapport a été finalisé"
+      },
+      "export": { "pdf": "Télécharger le PDF" },
+      "preview": "Aperçu du rapport"
+    }
+  },
+  "scoreEntry": {
+    "title": "Saisie des scores",
+    "description": "Entrez les scores bruts et standardisés pour les évaluations",
+    "adminDetails": "Détails d'administration",
+    "adminDescription": "Renseignez les informations d'évaluation et sélectionnez l'outil",
+    "patient": "Patient",
+    "assessment": "Évaluation",
+    "platform": "Plateforme",
+    "adminDate": "Date d'administration",
+    "adminBy": "Administré par",
+    "adminByPlaceholder": "Nom du clinicien",
+    "selectPatient": "Sélectionner un patient",
+    "selectAssessment": "Sélectionner une évaluation",
+    "autoFilled": "Prérempli à partir de l'évaluation",
+    "subtestTab": "Scores des sous-tests",
+    "compositeTab": "Scores composites",
+    "summaryTab": "Résumé",
+    "saveEvaluation": "Enregistrer l'évaluation",
+    "subtests": {
+      "description": "Saisissez les scores bruts et standardisés",
+      "headers": {
+        "subtest": "Sous-test",
+        "raw": "Score brut",
+        "scaled": "Score standardisé"
+      }
+    },
+    "composites": {
+      "title": "Scores composites",
+      "description": "Scores d'index et percentiles",
+      "calculate": "Calculer depuis les sous-tests",
+      "headers": {
+        "index": "Index",
+        "fullName": "Nom complet",
+        "score": "Score",
+        "percentile": "Percentile"
+      }
+    },
+    "summary": {
+      "title": "Résumé de l'évaluation",
+      "description": "Vérifiez et enregistrez l'évaluation complète",
+      "detailsTitle": "Détails d'administration",
+      "scoreTitle": "Résumé des scores",
+      "notSelected": "Non sélectionné",
+      "notSet": "Non défini"
+    },
+    "actions": {
+      "save": "Enregistrer l'évaluation",
+      "saving": "Enregistrement..."
+    },
+    "errors": {
+      "saveFailed": "Échec de l'enregistrement de l'évaluation."
+    },
+    "loading": "Chargement du formulaire...",
+    "validation": {
+      "patientRequired": "Veuillez sélectionner un patient",
+      "assessmentRequired": "Veuillez sélectionner une évaluation",
+      "dateRequired": "Veuillez sélectionner une date d'administration"
+    }
+  },
+  "portal": {
+    "testsPage": {
+      "title": "Tests",
+      "description": "Passez vos questionnaires assignés et consultez les résultats"
+    },
+    "welcome": "Bienvenue",
+    "description": "Réalisez les questionnaires assignés et consultez vos résultats",
+    "assignedTests": "Tests assignés",
+    "assignedDescription": "Tests assignés par votre clinicien",
+    "completedTests": "Tests terminés",
+    "availableTests": "Tests disponibles",
+    "availableDescription": "Tests supplémentaires adaptés à votre âge",
+    "noAssignedTests": "Aucun test assigné pour le moment.",
+    "noAvailable": "Aucun test supplémentaire disponible.",
+    "startTest": "Commencer",
+    "resumeTest": "Reprendre",
+    "viewResults": "Voir les résultats",
+    "dueDate": "Échéance",
+    "progress": "Progression",
+    "ageLabel": "Âge",
+    "badges": {
+      "due": "Échéance",
+      "progress": "Progression",
+      "saved": "Enregistré",
+      "submitted": "Envoyé"
+    },
+    "buttons": {
+      "start": "Commencer",
+      "startContinue": "Commencer / Reprendre",
+      "view": "Voir",
+      "viewTests": "Voir les tests",
+      "back": "Retour au portail"
+    },
+    "messages": {
+      "missingPatientTitle": "Patient introuvable",
+      "missingPatientDescription": "Nous n'avons pas pu trouver votre dossier patient."
+    },
+    "results": {
+      "title": "Résultats du test",
+      "score": "Score",
+      "interpretation": "Interprétation",
+      "disclaimer": "Ces résultats sont fournis à titre de dépistage uniquement"
+    },
+    "home": {
+      "subtitle": "Vos tests, évaluations et rapports",
+      "testsCard": {
+        "title": "Mes tests",
+        "description": "Questionnaires assignés et disponibles",
+        "assignedLabel": "Assignés / En cours",
+        "noAssigned": "Aucun test assigné pour le moment.",
+        "completedLabel": "Terminés",
+        "noCompleted": "Aucun test terminé pour le moment."
+      },
+      "evaluationsCard": {
+        "title": "Évaluations & Rapports",
+        "description": "Évaluations administrées par votre clinicien",
+        "empty": "Aucune évaluation pour l'instant.",
+        "dateNotSet": "Date non définie",
+        "viewReport": "Voir le rapport"
+      }
+    }
+  },
+  "instruments": {
+    "assign": {
+      "title": "Assigner un test",
+      "description": "Assignez un test à ce patient",
+      "selectTest": "Sélectionner un test",
+      "dueDate": "Date d'échéance (optionnel)",
+      "assign": "Assigner",
+      "assigning": "Assignation...",
+      "validation": { "testRequired": "Veuillez sélectionner un test" },
+      "success": "Test assigné avec succès"
+    }
+  },
+  "accessibility": {
+    "title": "Paramètres d'accessibilité",
+    "largeText": "Grand texte",
+    "largeTextDescription": "Augmenter la taille du texte partout",
+    "reducedMotion": "Mouvement réduit",
+    "reducedMotionDescription": "Réduire les animations"
+  },
+  "errors": {
+    "generic": "Une erreur s'est produite. Veuillez réessayer.",
+    "notFound": "Page non trouvée",
+    "unauthorized": "Vous n'êtes pas autorisé",
+    "validationFailed": "Veuillez vérifier vos saisies"
+  }
 }

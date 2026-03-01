@@ -1,0 +1,414 @@
+{
+  "_meta": { "language": "Svenska", "locale": "sv" },
+  "common": {
+    "appName": "NeuroClear",
+    "loading": "Laddar...",
+    "saving": "Sparar...",
+    "submitting": "Skickar...",
+    "cancel": "Avbryt",
+    "save": "Spara",
+    "delete": "Ta bort",
+    "edit": "Redigera",
+    "create": "Skapa",
+    "add": "Lägg till",
+    "search": "Sök",
+    "filter": "Filter",
+    "export": "Exportera",
+    "close": "Stäng",
+    "back": "Tillbaka",
+    "next": "Nästa",
+    "confirm": "Bekräfta",
+    "done": "Klart",
+    "success": "Lyckades",
+    "error": "Fel",
+    "warning": "Varning",
+    "required": "Obligatorisk",
+    "optional": "Valfri",
+    "select": "Välj",
+    "all": "Alla",
+    "none": "Inga",
+    "notAvailable": "Ej tillgänglig"
+  },
+  "navigation": {
+    "dashboard": "Översikt",
+    "patients": "Patienter",
+    "assessments": "Bedömningar",
+    "reports": "Rapporter",
+    "scoreEntry": "Poängregistrering",
+    "assessmentLibrary": "Bedömningsbibliotek",
+    "portal": "Patientportal",
+    "myTests": "Mina tester",
+    "home": "Hem",
+    "logout": "Logga ut",
+    "settings": "Inställningar"
+  },
+  "language": {
+    "label": "Språk",
+    "switch": "Byt språk",
+    "options": {
+      "en": "English",
+      "fr": "Français",
+      "ar": "العربية",
+      "sv": "Svenska"
+    }
+  },
+  "header": {
+    "searchPlaceholder": "Sök patienter, bedömningar, rapporter..."
+  },
+  "sidebar": {
+    "tagline": "Bedömningsplattform",
+    "systemStatusLabel": "Systemstatus",
+    "systemStatusValue": "Alla system fungerar"
+  },
+  "status": {
+    "evaluation": {
+      "IN_PROGRESS": "Pågår",
+      "PENDING_REVIEW": "Inväntar granskning",
+      "COMPLETED": "Slutförd"
+    },
+    "assignment": {
+      "ASSIGNED": "Tilldelad",
+      "IN_PROGRESS": "Pågår",
+      "SUBMITTED": "Inlämnad"
+    },
+    "priority": {
+      "HIGH": "Hög",
+      "MEDIUM": "Medel",
+      "LOW": "Låg"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Logga in",
+      "description": "Använd e-post och lösenord för att logga in på NeuroClear",
+      "email": "E-post",
+      "password": "Lösenord",
+      "emailPlaceholder": "du@exempel.se",
+      "submit": "Logga in",
+      "submitting": "Loggar in...",
+      "invalid": "Felaktig e-post eller lösenord"
+    }
+  },
+  "dashboard": {
+    "title": "Översikt",
+    "description": "Översikt över plattformens aktivitet",
+    "cards": {
+      "activeEvaluations": { "title": "Aktiva utvärderingar", "description": "Pågår just nu" },
+      "completedReports": { "title": "Färdiga rapporter", "description": "Redo att skickas" },
+      "pendingReviews": { "title": "Avvaktar granskning", "description": "Inväntar godkännande" },
+      "totalPatients": { "title": "Antal patienter", "description": "Registrerade i plattformen" }
+    },
+    "charts": {
+      "platformTitle": "Fördelning per plattform",
+      "platformDescription": "Hur bedömningar fördelas på plattformar",
+      "domainTitle": "Fördelning per domän",
+      "domainDescription": "Bedömningar per domän"
+    },
+    "recent": {
+      "title": "Senaste utvärderingarna",
+      "description": "Senaste aktiviteter",
+      "columns": {
+        "id": "ID",
+        "patient": "Patient",
+        "assessment": "Bedömning",
+        "platform": "Plattform",
+        "status": "Status",
+        "date": "Datum"
+      },
+      "notSet": "Inte angivet"
+    }
+  },
+  "patients": {
+    "title": "Patienter",
+    "description": "Hantera patientlistan och deras historik",
+    "cta": "Lägg till patient",
+    "stats": {
+      "total": { "title": "Antal patienter", "description": "Registrerade patienter" },
+      "active": { "title": "Aktiva", "description": "Under pågående behandling" },
+      "pending": { "title": "Väntar på bedömning", "description": "Med aktiva batterier" },
+      "new": { "title": "Nya denna månad", "description": "Tillagda nyligen" }
+    },
+    "roster": {
+      "title": "Patientförteckning",
+      "description": "Sök och filtrera patientjournaler",
+      "searchPlaceholder": "Sök patienter...",
+      "statusFilter": {
+        "all": "Alla statusar",
+        "active": "Aktiv",
+        "inactive": "Inaktiv",
+        "discharged": "Utskriven"
+      }
+    },
+    "tableHeaders": {
+      "id": "Patient-ID",
+      "name": "Namn",
+      "age": "Ålder",
+      "referral": "Remisskälla",
+      "status": "Status",
+      "activeBatteries": "Aktiva testbatterier",
+      "lastEvaluation": "Senaste bedömning",
+      "actions": "Åtgärder"
+    },
+    "status": {
+      "ACTIVE": "Aktiv",
+      "INACTIVE": "Inaktiv",
+      "DISCHARGED": "Utskriven"
+    },
+    "empty": {
+      "title": "Inga patienter hittades",
+      "description": "Justera din sökning eller filtren."
+    },
+    "table": {
+      "dobLabel": "Födelsedatum",
+      "ageSuffix": "år",
+      "referralUnknown": "Ej angivet",
+      "noActiveBatteries": "Inga",
+      "lastEvaluationUnknown": "Ej tillgänglig",
+      "view": "Visa detaljer"
+    },
+    "detail": {
+      "personalInfo": "Personlig information",
+      "firstName": "Förnamn",
+      "lastName": "Efternamn",
+      "dateOfBirth": "Födelsedatum"
+    },
+    "form": {
+      "validation": {
+        "firstNameRequired": "Förnamn är obligatoriskt",
+        "lastNameRequired": "Efternamn är obligatoriskt"
+      }
+    }
+  },
+  "assessments": {
+    "title": "Bedömningar",
+    "description": "Hantera bedömningsbatterier och scoring",
+    "name": "Namn",
+    "platform": "Plattform",
+    "domain": "Domän",
+    "assignToPatient": "Tilldela patient"
+  },
+  "reports": {
+    "title": "Rapporter",
+    "description": "Visa och skapa bedömningsrapporter",
+    "cta": "Skapa ny rapport",
+    "metrics": {
+      "total": { "title": "Totalt antal", "description": "Genererade rapporter" },
+      "completed": { "title": "Färdiga", "description": "Redo att skickas" },
+      "inProgress": { "title": "Pågår", "description": "Skrivs just nu" },
+      "pendingReview": { "title": "Avvaktar granskning", "description": "Inväntar godkännande" }
+    },
+    "list": {
+      "title": "Rapportlista",
+      "description": "Välj en rapport att visa",
+      "searchPlaceholder": "Sök rapporter...",
+      "statusFilter": {
+        "label": "Status",
+        "options": {
+          "ALL": "Alla statusar",
+          "COMPLETED": "Färdig",
+          "IN_PROGRESS": "Pågår",
+          "PENDING_REVIEW": "Avvaktar granskning"
+        }
+      },
+      "empty": {
+        "title": "Inga rapporter hittades",
+        "description": "Justera din sökning eller filtren."
+      }
+    },
+    "tabs": {
+      "scores": "Poäng",
+      "diagnostics": "Diagnostik",
+      "narrative": "Narrativ",
+      "recommendations": "Rekommendationer"
+    },
+    "scores": {
+      "detailTitle": "Detaljerade indexpoäng",
+      "detailDescription": "Indexpoäng och percentiler"
+    },
+    "diagnostics": {
+      "title": "Diagnostiska intryck",
+      "description": "DSM-5 och ICD-11-formuleringar",
+      "supportingEvidence": "Stödjande evidens",
+      "empty": "Inga diagnostiska intryck registrerade."
+    },
+    "narrative": {
+      "title": "Narrativ rapport",
+      "description": "Strukturerade rapportavsnitt",
+      "empty": "Inga narrativa avsnitt registrerade."
+    },
+    "recommendations": {
+      "title": "Rekommendationer",
+      "description": "Evidensbaserade insatser och anpassningar",
+      "empty": "Inga rekommendationer registrerade.",
+      "categories": {
+        "ACADEMIC_ACCOMMODATIONS": "Skolanpassningar",
+        "THERAPY": "Terapi",
+        "EDUCATIONAL_PLANNING": "Utbildningsplanering",
+        "RE_EVALUATION": "Ombedömning"
+      }
+    },
+    "actions": {
+      "openBuilder": "Öppna rapportbyggaren"
+    },
+    "builder": {
+      "title": "Rapportbyggare",
+      "finalize": {
+        "title": "Slutför rapport",
+        "description": "Ange dina uppgifter för att signera rapporten",
+        "name": "Fullständigt namn",
+        "titleField": "Titel/Legitimation",
+        "confirm": "Bekräfta och slutför",
+        "finalized": "Rapporten är slutförd",
+        "locked": "Rapporten är låst"
+      },
+      "export": { "pdf": "Ladda ned PDF" },
+      "preview": "Förhandsvisa rapport"
+    }
+  },
+  "scoreEntry": {
+    "title": "Poängregistrering",
+    "description": "Ange råpoäng och skalpoäng",
+    "adminDetails": "Administrationsdetaljer",
+    "adminDescription": "Fyll i utvärderingsinformation och välj assessment",
+    "patient": "Patient",
+    "assessment": "Bedömning",
+    "platform": "Plattform",
+    "adminDate": "Administrationsdatum",
+    "adminBy": "Administrerad av",
+    "adminByPlaceholder": "Ange kliniker",
+    "selectPatient": "Välj patient",
+    "selectAssessment": "Välj bedömning",
+    "autoFilled": "Fylls i automatiskt från bedömningen",
+    "subtestTab": "Deltest",
+    "compositeTab": "Index",
+    "summaryTab": "Sammanfattning",
+    "saveEvaluation": "Spara utvärdering",
+    "subtests": {
+      "description": "Ange råpoäng och skalpoäng",
+      "headers": {
+        "subtest": "Deltest",
+        "raw": "Råpoäng",
+        "scaled": "Skalpoäng"
+      }
+    },
+    "composites": {
+      "title": "Indexpoäng",
+      "description": "Index och percentiler",
+      "calculate": "Beräkna från deltest",
+      "headers": {
+        "index": "Index",
+        "fullName": "Fullständigt namn",
+        "score": "Poäng",
+        "percentile": "Percentil"
+      }
+    },
+    "summary": {
+      "title": "Utvärderingsöversikt",
+      "description": "Granska och spara den kompletta utvärderingen",
+      "detailsTitle": "Administrationsdetaljer",
+      "scoreTitle": "Poängöversikt",
+      "notSelected": "Inte valt",
+      "notSet": "Ej satt"
+    },
+    "actions": {
+      "save": "Spara utvärdering",
+      "saving": "Sparar..."
+    },
+    "errors": {
+      "saveFailed": "Misslyckades med att spara utvärderingen."
+    },
+    "loading": "Laddar formulär...",
+    "validation": {
+      "patientRequired": "Välj en patient",
+      "assessmentRequired": "Välj en bedömning",
+      "dateRequired": "Välj administrationsdatum"
+    }
+  },
+  "portal": {
+    "testsPage": {
+      "title": "Tester",
+      "description": "Genomför dina tilldelade tester och läs resultaten"
+    },
+    "welcome": "Välkommen",
+    "description": "Genomför dina tilldelade tester och läs resultaten",
+    "assignedTests": "Tilldelade tester",
+    "assignedDescription": "Tester som din kliniker har tilldelat",
+    "completedTests": "Avslutade tester",
+    "availableTests": "Tillgängliga tester",
+    "availableDescription": "Fler tester anpassade för din ålder",
+    "noAssignedTests": "Inga tilldelade tester ännu.",
+    "noAvailable": "Inga ytterligare tester tillgängliga.",
+    "startTest": "Starta test",
+    "resumeTest": "Fortsätt",
+    "viewResults": "Visa resultat",
+    "dueDate": "Förfaller",
+    "progress": "Framsteg",
+    "ageLabel": "Ålder",
+    "badges": {
+      "due": "Förfaller",
+      "progress": "Framsteg",
+      "saved": "Sparat",
+      "submitted": "Inlämnat"
+    },
+    "buttons": {
+      "start": "Starta",
+      "startContinue": "Starta / Fortsätt",
+      "view": "Visa",
+      "viewTests": "Visa tester",
+      "back": "Tillbaka till portalen"
+    },
+    "messages": {
+      "missingPatientTitle": "Patient hittades inte",
+      "missingPatientDescription": "Vi kunde inte hitta din patientpost."
+    },
+    "results": {
+      "title": "Testresultat",
+      "score": "Poäng",
+      "interpretation": "Tolkning",
+      "disclaimer": "Dessa resultat är endast för screening"
+    },
+    "home": {
+      "subtitle": "Dina tester, bedömningar och rapporter",
+      "testsCard": {
+        "title": "Mina tester",
+        "description": "Tilldelade och tillgängliga formulär",
+        "assignedLabel": "Tilldelade / Pågår",
+        "noAssigned": "Inga tilldelade tester just nu.",
+        "completedLabel": "Avslutade",
+        "noCompleted": "Inga avslutade tester än."
+      },
+      "evaluationsCard": {
+        "title": "Bedömningar & Rapporter",
+        "description": "Bedömningar från din kliniker",
+        "empty": "Inga bedömningar än.",
+        "dateNotSet": "Datum ej angivet",
+        "viewReport": "Visa rapport"
+      }
+    }
+  },
+  "instruments": {
+    "assign": {
+      "title": "Tilldela test",
+      "description": "Tilldela ett test till den här patienten",
+      "selectTest": "Välj test",
+      "dueDate": "Förfallodatum (valfritt)",
+      "assign": "Tilldela",
+      "assigning": "Tilldelar...",
+      "validation": { "testRequired": "Välj ett test" },
+      "success": "Testet har tilldelats"
+    }
+  },
+  "accessibility": {
+    "title": "Tillgänglighetsinställningar",
+    "largeText": "Stor text",
+    "largeTextDescription": "Öka textstorleken",
+    "reducedMotion": "Mindre rörelse",
+    "reducedMotionDescription": "Minska animationer"
+  },
+  "errors": {
+    "generic": "Ett fel inträffade. Försök igen.",
+    "notFound": "Sidan kunde inte hittas",
+    "unauthorized": "Du har inte behörighet",
+    "validationFailed": "Kontrollera dina inmatningar"
+  }
+}

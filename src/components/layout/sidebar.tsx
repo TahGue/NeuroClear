@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { useI18n } from "@/lib/i18n-context"
 import { cn } from "@/lib/utils"
 import { 
   LayoutDashboard, 
@@ -14,16 +15,17 @@ import {
   ClipboardCheck
 } from "lucide-react"
 
-const navigation = [
-  { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
-  { name: "Patients", href: "/patients", icon: Users },
-  { name: "Score Entry", href: "/score-entry", icon: ClipboardList },
-  { name: "Reports", href: "/reports", icon: FileText },
-  { name: "Assessment Library", href: "/assessments", icon: BookOpen },
-]
-
 export function Sidebar() {
   const pathname = usePathname()
+  const { t } = useI18n()
+
+  const navigation = [
+    { name: t("navigation.dashboard"), href: "/dashboard", icon: LayoutDashboard },
+    { name: t("navigation.patients"), href: "/patients", icon: Users },
+    { name: t("navigation.scoreEntry"), href: "/score-entry", icon: ClipboardList },
+    { name: t("navigation.reports"), href: "/reports", icon: FileText },
+    { name: t("navigation.assessmentLibrary"), href: "/assessments", icon: BookOpen },
+  ]
 
   return (
     <div className="flex h-full w-64 flex-col bg-card border-r">
@@ -31,8 +33,8 @@ export function Sidebar() {
         <div className="flex items-center space-x-3">
           <Brain className="h-8 w-8 text-primary" />
           <div>
-            <h1 className="text-lg font-semibold text-foreground">NeuroClear</h1>
-            <p className="text-xs text-muted-foreground">Assessment Platform</p>
+            <h1 className="text-lg font-semibold text-foreground">{t("common.appName")}</h1>
+            <p className="text-xs text-muted-foreground">{t("sidebar.tagline")}</p>
           </div>
         </div>
       </div>
@@ -62,8 +64,8 @@ export function Sidebar() {
         <div className="flex items-center space-x-3">
           <Activity className="h-5 w-5 text-muted-foreground" />
           <div>
-            <p className="text-sm font-medium text-foreground">System Status</p>
-            <p className="text-xs text-muted-foreground">All systems operational</p>
+            <p className="text-sm font-medium text-foreground">{t("sidebar.systemStatusLabel")}</p>
+            <p className="text-xs text-muted-foreground">{t("sidebar.systemStatusValue")}</p>
           </div>
         </div>
       </div>

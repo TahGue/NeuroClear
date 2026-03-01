@@ -1,4 +1,5 @@
 import { getServerSession } from "next-auth"
+import { redirect } from "next/navigation"
 import { authOptions } from "@/lib/auth"
 
 export async function requireAuthenticatedSession() {
@@ -6,10 +7,10 @@ export async function requireAuthenticatedSession() {
   try {
     session = await getServerSession(authOptions)
   } catch {
-    throw new Error("Unauthorized")
+    redirect("/login")
   }
   if (!session?.user) {
-    throw new Error("Unauthorized")
+    redirect("/login")
   }
   return session
 }
@@ -18,7 +19,7 @@ export async function requireStaffSession() {
   const session = await requireAuthenticatedSession()
   const role = session.user.role
   if (!role || role === "PATIENT") {
-    throw new Error("Unauthorized")
+    redirect("/portal")
   }
   return session
 }
@@ -29,8 +30,28 @@ export async function requirePatientSession() {
   const patientId = session.user.patientId
 
   if (role !== "PATIENT" || !patientId) {
-    throw new Error("Unauthorized")
+    redirect("/login")
   }
 
   return { session, patientId }
+}
+
+export async function requireOwnership(patientId: string) {
+  const { patientId: sessionPatientId } = await requirePatientSession()
+  if (sessionPatientId !== patientId) {
+    throw new Error("Forbidden: You do not have access to this resource")
+  }
+  return true
+}
+
+export async function requireStaffOrOwnership(patientId: string) {
+  const session = await requireAuthenticatedSession()
+  const role = session.user.role
+  if (role === "PATIENT") {
+    const sessionPatientId = session.user.patientId
+    if (!sessionPatientId || sessionPatientId !== patientId) {
+      throw new Error("Forbidden: You do not have access to this resource")
+    }
+  }
+  return session
 }

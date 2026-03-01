@@ -102,25 +102,23 @@ export default async function InstrumentRunPage({
     }))
 
   return (
-    <div className="min-h-screen bg-background p-6">
-      <InstrumentRunner
-        sessionId={activeSession.id}
-        instrumentName={instrument.name}
-        instrumentDescription={instrument.description}
-        items={runnerItems}
-        initialResponses={activeSession.responses.map((r) => ({ itemId: r.itemId, value: r.value }))}
-        isSubmitted={activeSession.status === "SUBMITTED"}
-        lastSavedAt={activeSession.updatedAt}
-        submittedAt={activeSession.submittedAt}
-        onSave={async (itemId, value) => {
-          "use server"
-          return await saveInstrumentResponse({ sessionId: activeSession.id, itemId, value })
-        }}
-        onSubmit={async () => {
-          "use server"
-          return await submitInstrumentSession({ sessionId: activeSession.id })
-        }}
-      />
-    </div>
+    <InstrumentRunner
+      sessionId={activeSession.id}
+      instrumentName={instrument.name}
+      instrumentDescription={instrument.description}
+      items={runnerItems}
+      initialResponses={activeSession.responses.map((r) => ({ itemId: r.itemId, value: r.value }))}
+      isSubmitted={activeSession.status === "SUBMITTED"}
+      lastSavedAt={activeSession.updatedAt}
+      submittedAt={activeSession.submittedAt}
+      onSave={async (itemId, value) => {
+        "use server"
+        return await saveInstrumentResponse({ sessionId: activeSession.id, itemId, value })
+      }}
+      onSubmit={async () => {
+        "use server"
+        return await submitInstrumentSession({ sessionId: activeSession.id })
+      }}
+    />
   )
 }

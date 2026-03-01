@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { AlertTriangle } from "lucide-react"
 
@@ -11,13 +12,13 @@ export default function NotFound() {
           </div>
           <CardTitle className="text-2xl">Page not found</CardTitle>
           <CardDescription>
-            The page you are looking for doesn't exist or has been moved.
+            The page you are looking for doesn&apos;t exist or has been moved.
           </CardDescription>
         </CardHeader>
         <CardContent className="flex justify-center">
-          <a href="/" className="text-sm font-medium text-primary hover:underline">
+          <Link href="/" className="text-sm font-medium text-primary hover:underline">
             Return to Home
-          </a>
+          </Link>
         </CardContent>
       </Card>
     </div>

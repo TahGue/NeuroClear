@@ -1,31 +1,37 @@
 "use client"
 
 import { useState } from "react"
+import { useI18n } from "@/lib/i18n-context"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { assignEvaluation } from "@/app/actions"
+import { toast } from "sonner"
 
 export function AssignEvaluationModal({ 
   assessmentId, 
   patients,
-  users 
+  users,
+  onSuccess
 }: { 
   assessmentId: string, 
   patients: { id: string, firstName: string, lastName: string }[],
-  users: { id: string, name: string | null }[]
+  users: { id: string, name: string | null }[],
+  onSuccess?: () => void
 }) {
+  const { t } = useI18n()
   const [open, setOpen] = useState(false)
   const [patientId, setPatientId] = useState("")
   const [assignedTo, setAssignedTo] = useState<string>("none")
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [message, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(null)
 
   const handleAssign = async () => {
-    if (!patientId) return
+    if (!patientId) {
+      toast.error("Please select a patient")
+      return
+    }
     
     setIsSubmitting(true)
-    setMessage(null)
     const result = await assignEvaluation(
       patientId, 
       assessmentId, 
@@ -34,12 +40,13 @@ export function AssignEvaluationModal({
     setIsSubmitting(false)
 
     if (result.success) {
-      setMessage({ type: "success", text: "Evaluation successfully assigned to patient." })
+      toast.success("Evaluation successfully assigned to patient.")
       setOpen(false)
       setPatientId("")
       setAssignedTo("none")
+      onSuccess?.()
     } else {
-      setMessage({ type: "error", text: "Failed to assign evaluation." })
+      toast.error("Failed to assign evaluation.")
     }
   }
 
@@ -48,28 +55,24 @@ export function AssignEvaluationModal({
       open={open}
       onOpenChange={(next) => {
         setOpen(next)
-        if (!next) setMessage(null)
       }}
     >
       <DialogTrigger asChild>
-        <Button size="sm" variant="outline">Assign</Button>
+        <Button size="sm" variant="outline">{t("common.assign") || "Assign"}</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Assign Evaluation</DialogTitle>
+          <DialogTitle>{t("common.assign") || "Assign Evaluation"}</DialogTitle>
           <DialogDescription>
-            Assign this assessment to a patient and optionally delegate to a clinician.
+            {t("common.assignDescription") || "Assign this assessment to a patient and optionally delegate to a clinician."}
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
           <div className="space-y-2">
-            <label className="text-sm font-medium">Select Patient *</label>
-            <Select value={patientId} onValueChange={(v) => {
-              setPatientId(v)
-              setMessage(null)
-            }}>
+            <label className="text-sm font-medium">{t("common.selectPatient") || "Select Patient *"}</label>
+            <Select value={patientId} onValueChange={setPatientId}>
               <SelectTrigger>
-                <SelectValue placeholder="Choose a patient" />
+                <SelectValue placeholder={t("common.choosePatient") || "Choose a patient"} />
               </SelectTrigger>
               <SelectContent>
                 {patients.map(p => (
@@ -80,33 +83,24 @@ export function AssignEvaluationModal({
           </div>
           
           <div className="space-y-2">
-            <label className="text-sm font-medium">Assign To Clinician (Optional)</label>
-            <Select value={assignedTo} onValueChange={(v) => {
-              setAssignedTo(v)
-              setMessage(null)
-            }}>
+            <label className="text-sm font-medium">{t("common.assignToClinician") || "Assign To Clinician (Optional)"}</label>
+            <Select value={assignedTo} onValueChange={setAssignedTo}>
               <SelectTrigger>
-                <SelectValue placeholder="Leave unassigned" />
+                <SelectValue placeholder={t("common.leaveUnassigned") || "Leave unassigned"} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="none">Leave Unassigned</SelectItem>
+                <SelectItem value="none">{t("common.leaveUnassigned") || "Leave Unassigned"}</SelectItem>
                 {users.map(u => (
                   <SelectItem key={u.id} value={u.id}>{u.name || u.id}</SelectItem>
                 ))}
               </SelectContent>
             </Select>
           </div>
-
-          {message ? (
-            <p className={message.type === "error" ? "text-sm text-destructive" : "text-sm text-muted-foreground"}>
-              {message.text}
-            </p>
-          ) : null}
         </div>
         <DialogFooter>
-          <Button variant="outline" onClick={() => setOpen(false)}>Cancel</Button>
-          <Button onClick={handleAssign} disabled={!patientId || isSubmitting}>
-            {isSubmitting ? "Assigning..." : "Assign Assessment"}
+          <Button variant="outline" onClick={() => setOpen(false)}>{t("common.cancel")}</Button>
+          <Button onClick={handleAssign} disabled={isSubmitting || !patientId}>
+            {isSubmitting ? t("common.submitting") : (t("common.confirm") + " " + (t("common.assign") || "Assignment"))}
           </Button>
         </DialogFooter>
       </DialogContent>
